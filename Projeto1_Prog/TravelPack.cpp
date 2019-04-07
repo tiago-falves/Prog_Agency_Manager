@@ -2,6 +2,7 @@
 
 using namespace std;
 
+//Reads the Travel Pack file and puts its information into a struct
 void readTravelPacks(Agency agency, vector<TravelPack> &travelPacksVector) {
 
 	string travelPackText;
@@ -14,7 +15,6 @@ void readTravelPacks(Agency agency, vector<TravelPack> &travelPacksVector) {
 	if (travelPacksFile.fail())
 	{
 		cout << "Error opening " << agency.packsNameFile;
-		//return travelPacksVector;
 	}
 	else
 	{
@@ -58,5 +58,18 @@ void readTravelPacks(Agency agency, vector<TravelPack> &travelPacksVector) {
 	}
 	travelPacksVector.push_back(travelPack);
 	travelPacksFile.close();
-	//return travelPacksVector;
+	
+	
+}
+
+void addTravelPack(vector<TravelPack> &travelPackVector, int identifier, string touristicSpots, string begginningDate, string endDate, int pricePerson, int maxNumber, int soldTickets) {
+	TravelPack travelPack;
+	travelPack.identifier = identifier;
+	travelPack.touristicSpots = touristicSpots;
+	travelPack.beginningDate = dateTextConverter(begginningDate);
+	travelPack.endDate = dateTextConverter(endDate);
+	travelPack.PricePerson = pricePerson;
+	travelPack.maxPersonNumber = maxNumber;
+	travelPack.soldTicketsNumber = soldTickets;
+	travelPackVector.push_back(travelPack);
 }

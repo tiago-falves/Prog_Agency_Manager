@@ -9,6 +9,7 @@
 #include "Clients.h"
 #include "TravelPack.h"
 #include "Date.h"
+#include "TravelPack.h"
 
 using namespace std;
 
@@ -28,8 +29,13 @@ int main() {
 	
 	readAgency(agency);
 	readClients(agency, clientsVector);
+	addClient(clientsVector, "Joao", 2, 4, "Rua Sopa/ 200 / 5Esq / 1200‐001 / Porto", "101");
 	readTravelPacks(agency, travelPackVector);
-	cout << travelPackVector[0].identifier;
+	addTravelPack(travelPackVector, 7, "Gosto de sopa", "2100 / 08 / 1", "2019 / 08 / 01", 5, 100, 5);
+	
+	cout << travelPackVector[3].touristicSpots;
+
+	
 	//travelPackVector = readTravelPacks(agency, travelPackVector);
 
 

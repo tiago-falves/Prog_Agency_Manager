@@ -5,6 +5,7 @@
 #include <fstream>
 #include "Agency.h"
 #include "StringManipulator.h"
+#include "TravelPack.h"
 using namespace std;
 
 struct Client {
@@ -16,4 +17,7 @@ struct Client {
 	vector<int> touristicPacksIdentifier;
 	double totalValue;
 };
+
 void readClients(Agency agency, vector<Client> &clientsVector);
+
+void addClient(vector<Client> &clientsVector, string name, int nif, int familyNumber, string addressText, string touristicPacksBought);

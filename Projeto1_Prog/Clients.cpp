@@ -10,6 +10,7 @@ void readClients(Agency agency, vector<Client> &clientsVector) {
 	string clientsText;
 	ifstream clientsFile;
 	Client client;
+	
 
 
 	int i = 0;
@@ -17,7 +18,6 @@ void readClients(Agency agency, vector<Client> &clientsVector) {
 	if (clientsFile.fail())
 	{
 		cout << "Error opening " << agency.clientsNameFile;
-		//return clientsVector;
 	}
 	else
 	{
@@ -52,9 +52,17 @@ void readClients(Agency agency, vector<Client> &clientsVector) {
 	}
 	clientsVector.push_back(client);
 	clientsFile.close();
-	//return clientsVector;
 }
 
+void addClient(vector<Client> &clientsVector, string name, int nif, int familyNumber, string addressText, string touristicPacksBought) {
+	Client client;
+	client.name = name;
+	client.NIF = nif;
+	client.familyNumber = familyNumber;
+	client.address = addressTextConverter(addressText);
+	client.touristicPacksIdentifier = separateCharacter(touristicPacksBought, ';');
+	clientsVector.push_back(client);
+}
 
 
 

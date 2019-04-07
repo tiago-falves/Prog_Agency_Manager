@@ -18,3 +18,4 @@ struct TravelPack {
 	const string separator = "::::::::::";
 };
 void readTravelPacks(Agency agency, vector<TravelPack> &travelPacksVector);
+void addTravelPack(vector<TravelPack> &travelPackVector, int identifier, string touristicSpots, string begginningDate, string endDate, int pricePerson, int maxNumber, int soldTickets);
