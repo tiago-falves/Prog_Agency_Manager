@@ -6,20 +6,11 @@
 #include <algorithm>
 #include "Agency.h"
 #include "Address.h"
+#include "Clients.h"
 
 using namespace std;
 
 
-struct Client {
-	const string separator = "::::::::::";
-	string name;
-	int NIF;
-	int familyNumber;
-	Address address;
-	string touristicPacksIdentifier;
-	double totalValue;
-
-};
 
 struct Date {
 	int startingDate; //   year/month/day;
@@ -43,12 +34,24 @@ struct TravelPack {
 
 int main() {
 	Agency agency;
+	Client client;
+	vector<Client> clientsVector;
+	
+	
 	readAgency(agency);
+	clientsVector = readClients(agency, clientsVector);
+	//cout << clientsVector[1].name;
+	//cout << clientsVector[1].address.locality;
+	//cout << clientsVector[1].familyNumber;
+	//cout << clientsVector[1].NIF;
+	//cout << clientsVector[1].totalValue;
+	cout << clientsVector[1].touristicPacksIdentifier;
+	
 	//cout << agency.address.street;
 	//cout << agency.address.doorNumber;
 	//cout << agency.address.floorNumber;
 	//cout << agency.address.locality << endl;
-	cout << agency.address.postalCode<< endl;
+	
 
 	system("Pause");
 }

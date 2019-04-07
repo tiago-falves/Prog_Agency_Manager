@@ -4,13 +4,15 @@
 #include <vector>
 #include <fstream>
 #include "Agency.h"
+using namespace std;
 
 struct Client {
-	const std::string separator = "::::::::::";
-	std::string name;
+	const string separator = "::::::::::";
+	string name;
 	int NIF;
 	int familyNumber;
 	Address address;
-	std::string touristicPacksIdentifier;
+	string touristicPacksIdentifier;
 	double totalValue;
 };
+vector<Client> readClients(Agency agency, vector<Client> clientsVector);

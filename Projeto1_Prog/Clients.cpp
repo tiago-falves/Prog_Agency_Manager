@@ -2,17 +2,18 @@
 #include <iostream>
 using namespace std;
 
-vector<Client> readClients(Client &client, Agency agency) {
+vector<Client> readClients(Agency agency, vector<Client> clientsVector) {
 
 	string clientsText;
 	ifstream clientsFile;
-	vector<Client> clientsVector;
+	Client client;
+
 
 	int i = 0;
 	clientsFile.open(agency.clientsNameFile);
 	if (clientsFile.fail())
 	{
-		cerr << "Error opening " << agency.clientsNameFile;
+		cout << "Error opening " << agency.clientsNameFile;
 		return clientsVector;
 	}
 	else
@@ -31,13 +32,13 @@ vector<Client> readClients(Client &client, Agency agency) {
 				client.familyNumber = stoi(clientsText);
 				break;
 			case 3:
-				//addressTextConverterAgency(clientsText);
+				client.address = addressTextConverter(clientsText);
 				break;
 			case 4:
 				client.touristicPacksIdentifier = clientsText;
 				break;
 			case 5:
-				i=0;
+				i=-1;
 				clientsVector.push_back(client);
 				break;
 			default:
@@ -46,7 +47,7 @@ vector<Client> readClients(Client &client, Agency agency) {
 			i++;
 		}
 	}
+	clientsVector.push_back(client);
 	clientsFile.close();
 	return clientsVector;
 }
-using namespace std;
