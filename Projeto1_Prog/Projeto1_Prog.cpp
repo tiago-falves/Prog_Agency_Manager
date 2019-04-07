@@ -45,7 +45,7 @@ int main() {
 	//cout << clientsVector[1].familyNumber;
 	//cout << clientsVector[1].NIF;
 	//cout << clientsVector[1].totalValue;
-	cout << clientsVector[1].touristicPacksIdentifier;
+	cout << clientsVector[1].touristicPacksIdentifier[2];
 	
 	//cout << agency.address.street;
 	//cout << agency.address.doorNumber;

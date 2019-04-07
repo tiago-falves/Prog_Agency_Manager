@@ -4,6 +4,7 @@
 #include <vector>
 #include <fstream>
 #include "Agency.h"
+#include "StringManipulator.h"
 using namespace std;
 
 struct Client {
@@ -12,7 +13,7 @@ struct Client {
 	int NIF;
 	int familyNumber;
 	Address address;
-	string touristicPacksIdentifier;
+	vector<int> touristicPacksIdentifier;
 	double totalValue;
 };
 vector<Client> readClients(Agency agency, vector<Client> clientsVector);

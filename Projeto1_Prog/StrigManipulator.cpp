@@ -12,3 +12,12 @@ void trim(string &s) {
 	trimRight(s);
 	trimLeft(s);
 }
+vector<int> separateSemicolon(string &s) {
+	vector<int> vetor;
+	while (s.find_first_of(";") != s.npos)	{
+		vetor.push_back(stoi(s.substr(0, s.find_first_of(";"))));
+		s.erase(0, s.find_first_of(";") + 1);
+	}
+	vetor.push_back(stoi(s.substr(0, s.find_first_of(";"))));
+	return vetor;
+}

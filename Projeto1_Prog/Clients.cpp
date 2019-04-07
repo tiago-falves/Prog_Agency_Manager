@@ -35,7 +35,7 @@ vector<Client> readClients(Agency agency, vector<Client> clientsVector) {
 				client.address = addressTextConverter(clientsText);
 				break;
 			case 4:
-				client.touristicPacksIdentifier = clientsText;
+				client.touristicPacksIdentifier = separateSemicolon(clientsText);
 				break;
 			case 5:
 				i=-1;
