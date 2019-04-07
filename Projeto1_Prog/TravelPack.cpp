@@ -2,7 +2,7 @@
 
 using namespace std;
 
-vector<TravelPack> readTravelPacks(Agency agency, vector<TravelPack> travelPacksVector) {
+void readTravelPacks(Agency agency, vector<TravelPack> &travelPacksVector) {
 
 	string travelPackText;
 	ifstream travelPacksFile;
@@ -14,7 +14,7 @@ vector<TravelPack> readTravelPacks(Agency agency, vector<TravelPack> travelPacks
 	if (travelPacksFile.fail())
 	{
 		cout << "Error opening " << agency.packsNameFile;
-		return travelPacksVector;
+		//return travelPacksVector;
 	}
 	else
 	{
@@ -58,5 +58,5 @@ vector<TravelPack> readTravelPacks(Agency agency, vector<TravelPack> travelPacks
 	}
 	travelPacksVector.push_back(travelPack);
 	travelPacksFile.close();
-	return travelPacksVector;
+	//return travelPacksVector;
 }

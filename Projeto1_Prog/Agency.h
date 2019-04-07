@@ -14,4 +14,4 @@ struct Agency {
 	std::string packsNameFile;
 };
 
-Agency readAgency(Agency &agency);
+void readAgency(Agency &agency);

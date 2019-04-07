@@ -2,7 +2,10 @@
 #include <iostream>
 using namespace std;
 
-vector<Client> readClients(Agency agency, vector<Client> clientsVector) {
+
+//Reads the file information and puts its information in a struct
+
+void readClients(Agency agency, vector<Client> &clientsVector) {
 
 	string clientsText;
 	ifstream clientsFile;
@@ -14,7 +17,7 @@ vector<Client> readClients(Agency agency, vector<Client> clientsVector) {
 	if (clientsFile.fail())
 	{
 		cout << "Error opening " << agency.clientsNameFile;
-		return clientsVector;
+		//return clientsVector;
 	}
 	else
 	{
@@ -49,5 +52,9 @@ vector<Client> readClients(Agency agency, vector<Client> clientsVector) {
 	}
 	clientsVector.push_back(client);
 	clientsFile.close();
-	return clientsVector;
+	//return clientsVector;
 }
+
+
+
+

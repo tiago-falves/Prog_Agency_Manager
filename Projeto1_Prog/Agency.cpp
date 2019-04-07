@@ -5,7 +5,7 @@
 using namespace std;
 
 // Opens the agency file and puts its contents in a Agency Strut
-Agency readAgency(Agency &agency) {
+void readAgency(Agency &agency) {
 
 	string agencyText;
 	ifstream agencyFile;
@@ -15,7 +15,7 @@ Agency readAgency(Agency &agency) {
 	if (agencyFile.fail())
 	{
 		cerr << "Error opening agency.txt";
-		return agency;
+		
 	}
 	else
 	{
@@ -49,5 +49,5 @@ Agency readAgency(Agency &agency) {
 		}
 	}
 	agencyFile.close();
-	return agency;
+	//return agency;
 }

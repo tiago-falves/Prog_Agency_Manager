@@ -22,18 +22,20 @@ int main() {
 	vector<Client> clientsVector;
 	vector<TravelPack> travelPackVector;
 	string x = "2019/08/01";
-	Date v;
+	
 	
 	
 	
 	readAgency(agency);
-	clientsVector = readClients(agency, clientsVector);
-	travelPackVector = readTravelPacks(agency, travelPackVector);
+	readClients(agency, clientsVector);
+	readTravelPacks(agency, travelPackVector);
+	cout << travelPackVector[0].identifier;
+	//travelPackVector = readTravelPacks(agency, travelPackVector);
 
 
 	//Testar Data
-	cout << travelPackVector[0].lastPackIdentifier;
-	cout << travelPackVector[1].identifier;
+	//cout << travelPackVector[0].lastPackIdentifier;
+	//cout << travelPackVector[1].identifier;
 	//cout << travelPackVector[1].touristicSpots;
 	//cout << travelPackVector[1].beginningDate.day;
 	//cout << travelPackVector[1].endDate.year;

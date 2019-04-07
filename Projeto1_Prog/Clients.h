@@ -16,4 +16,4 @@ struct Client {
 	vector<int> touristicPacksIdentifier;
 	double totalValue;
 };
-vector<Client> readClients(Agency agency, vector<Client> clientsVector);
+void readClients(Agency agency, vector<Client> &clientsVector);

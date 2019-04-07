@@ -2,6 +2,7 @@
 #include "StringManipulator.h"
 using namespace std;
 
+
 Address addressTextConverter(string addressText) {
 	Address address;
 	string subString;

@@ -17,4 +17,4 @@ struct TravelPack {
 	int soldTicketsNumber;
 	const string separator = "::::::::::";
 };
-vector<TravelPack> readTravelPacks(Agency agency, vector<TravelPack> travelPacksVector);
+void readTravelPacks(Agency agency, vector<TravelPack> &travelPacksVector);
