@@ -32,7 +32,6 @@ int main() {
 	
 
 	
-	//travelPackVector = readTravelPacks(agency, travelPackVector);
 
 
 	//Testar Data
@@ -54,7 +53,7 @@ int main() {
 	cout << clientsVector[1].NIF;
 	cout << clientsVector[1].totalValue;
 	cout << clientsVector[1].touristicPacksIdentifier[2];
-	*/
+	
 	addClient(clientsVector, "Joao", 2, 4, "Rua Sopa/ 200 / 5Esq / 1200‐001 / Porto", "10 ; 36 ; 2");
 	addClient(clientsVector, "Joao", 2, 4, "Rua Sopa/ 200 / 5Esq / 1200‐001 / Porto", "10 ; 36 ; 2");
 	cout << clientsVector.size();
@@ -66,7 +65,7 @@ int main() {
 	cout << equalClients(clientsVector[2], clientsVector[3]);
 	removeClient(client, clientsVector);
 	cout << clientsVector.size();
-	
+	*/
 	
 
 	/*Testar agencia
@@ -75,12 +74,18 @@ int main() {
 	cout << agency.address.floorNumber;
 	cout << agency.address.locality << endl;*/
 
-	/*Testar TravelPacks
+	//Testar TravelPacks
+	addTravelPack(travelPackVector, 7, "Gosto de sopa", "2100 / 08 / 1", "2019 / 08 / 01", 5, 100, 5);
+	TravelPack travelPack;
+	cout << travelPackVector.size();
+	copyTravelPack(travelPack, travelPackVector[3]);
+	travelPackVector.push_back(travelPack);
+	cout << travelPackVector.size();
 	cout << travelPackVector[3].touristicSpots;
-	addTravelPack(travelPackVector, 7, "Gosto de sopa", "2100 / 08 / 1", "2019 / 08 / 01", 5, 100, 5);
-	addTravelPack(travelPackVector, 7, "Gosto de sopa", "2100 / 08 / 1", "2019 / 08 / 01", 5, 100, 5);
+	removeTravelPack(travelPack, travelPackVector);
+	cout << travelPackVector.size();
 
-	*/
+	
 	
 
 	system("Pause");

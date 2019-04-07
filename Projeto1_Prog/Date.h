@@ -9,3 +9,4 @@ struct Date {
 	
 };
 Date dateTextConverter(string dateText);
+bool equalDates(Date date1, Date date2);

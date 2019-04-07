@@ -73,3 +73,35 @@ void addTravelPack(vector<TravelPack> &travelPackVector, int identifier, string 
 	travelPack.soldTicketsNumber = soldTickets;
 	travelPackVector.push_back(travelPack);
 }
+
+void copyTravelPack(TravelPack &copy, TravelPack travelPack) {
+	copy.identifier = travelPack.identifier;
+	copy.touristicSpots = travelPack.touristicSpots;
+	copy.beginningDate = travelPack.beginningDate;
+	copy.endDate = travelPack.endDate;
+	copy.PricePerson = travelPack.PricePerson;
+	copy.maxPersonNumber = travelPack.maxPersonNumber;
+	copy.soldTicketsNumber = travelPack.soldTicketsNumber;
+}
+
+bool equalTravelPacks(TravelPack travelPack1, TravelPack travelPack2) {
+	if (travelPack1.identifier == travelPack2.identifier &&	travelPack1.touristicSpots == travelPack2.touristicSpots && equalDates(travelPack1.beginningDate,travelPack2.beginningDate) && equalDates(travelPack1.endDate,travelPack2.endDate) && travelPack1.PricePerson == travelPack2.PricePerson && travelPack1.maxPersonNumber == travelPack2.maxPersonNumber && travelPack1.soldTicketsNumber == travelPack2.soldTicketsNumber)
+		return true;
+	else
+		return false;
+}
+
+void removeTravelPack(TravelPack travelPackToRemove, vector<TravelPack> &travelPackVector) {
+	TravelPack travelPack;
+	int last_pos = travelPackVector.size() - 1;
+	for (int i = 0; i < travelPackVector.size(); i++)
+	{
+		copyTravelPack(travelPack, travelPackVector[i]);
+		if (equalTravelPacks(travelPackToRemove,travelPack))
+		{
+			copyTravelPack(travelPackVector[i], travelPackVector[last_pos]);
+			travelPackVector.pop_back();
+			break;
+		}
+	}
+}
