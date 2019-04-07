@@ -44,7 +44,11 @@ struct TravelPack {
 int main() {
 	Agency agency;
 	readAgency(agency);
-	cout << agency.name;
-	cout << agency.address.postalCode << endl;
+	//cout << agency.address.street;
+	//cout << agency.address.doorNumber;
+	//cout << agency.address.floorNumber;
+	//cout << agency.address.locality << endl;
+	cout << agency.address.postalCode<< endl;
+
 	system("Pause");
 }

@@ -34,7 +34,7 @@ Agency readAgency(Agency &agency) {
 				break;
 			case 3:
 				
-				
+				agency.address = addressTextConverter(agencyText);
 				break;
 			case 4:
 				agency.clientsNameFile = agencyText;

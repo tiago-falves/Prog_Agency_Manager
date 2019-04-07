@@ -2,27 +2,34 @@
 #include "StringManipulator.h"
 using namespace std;
 
-Address addressTextConverterAgency(string addressText) {
+Address addressTextConverter(string addressText) {
 	Address address;
+	string subString;
+
 	address.street = addressText.substr(0, addressText.find_first_of('/'));
-	trim(address.street);
-	addressText.erase(0, addressText.find_first_of('/'));
+	addressText.erase(0, addressText.find_first_of('/') + 1);
 
-	address.doorNumber = stoi(addressText.substr(0, addressText.find_first_of('/')));
-	
-	addressText.erase(0, addressText.find_first_of('/'));
+	subString = addressText.substr(0, addressText.find_first_of('/'));
+	trim(subString);
+	address.doorNumber = stoi(subString);
+	addressText.erase(0, addressText.find_first_of('/') + 1);
 
-	address.floorNumber = addressText.substr(0, addressText.find_first_of('/'));
-	trim(address.floorNumber);
-	addressText.erase(0, addressText.find_first_of('/'));
+	subString = addressText.substr(0, addressText.find_first_of('/'));
+	trim(subString);
+	address.floorNumber = subString;
+	addressText.erase(0, addressText.find_first_of('/') + 1);
 
-	address.postalCode = addressText.substr(0, addressText.find_first_of('/'));
-	trim(address.postalCode);
-	addressText.erase(0, addressText.find_first_of('/'));
+	subString = addressText.substr(0, addressText.find_first_of('/'));
+	trim(subString);
+	address.postalCode = subString;
+	addressText.erase(0, addressText.find_first_of('/') + 1);
 
-	address.locality = addressText.substr(0, addressText.find_first_of('/'));
-	trim(address.locality);
-	addressText.erase(0, addressText.find_first_of('/'));
+	subString = addressText.substr(0, addressText.find_first_of('/'));
+	trim(subString);
+	address.locality = subString;
+	addressText.erase(0, addressText.find_first_of('/') + 1);
+	//trim(address.locality);
+	//addressText.erase(0, addressText.find_first_of('/'));
 
 	return address;
 }

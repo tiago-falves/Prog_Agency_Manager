@@ -10,4 +10,4 @@ struct Address {
 	std::string locality;
 };
 
-Address addressTextConverterAgency(std::string addressText);
+Address addressTextConverter(std::string addressText);
