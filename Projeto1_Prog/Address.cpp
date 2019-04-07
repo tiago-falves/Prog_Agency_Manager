@@ -28,8 +28,7 @@ Address addressTextConverter(string addressText) {
 	trim(subString);
 	address.locality = subString;
 	addressText.erase(0, addressText.find_first_of('/') + 1);
-	//trim(address.locality);
-	//addressText.erase(0, addressText.find_first_of('/'));
+	
 
 	return address;
 }

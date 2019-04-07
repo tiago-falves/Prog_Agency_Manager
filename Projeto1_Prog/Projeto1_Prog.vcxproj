@@ -118,14 +118,18 @@
     <ClCompile Include="Address.cpp" />
     <ClCompile Include="Agency.cpp" />
     <ClCompile Include="Clients.cpp" />
+    <ClCompile Include="Date.cpp" />
     <ClCompile Include="Projeto1_Prog.cpp" />
     <ClCompile Include="StrigManipulator.cpp" />
+    <ClCompile Include="TravelPack.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Address.h" />
     <ClInclude Include="Agency.h" />
     <ClInclude Include="Clients.h" />
+    <ClInclude Include="Date.h" />
     <ClInclude Include="StringManipulator.h" />
+    <ClInclude Include="TravelPack.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
