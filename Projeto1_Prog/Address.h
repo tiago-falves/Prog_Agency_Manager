@@ -12,3 +12,5 @@ struct Address {
 
 
 Address addressTextConverter(std::string addressText);
+
+bool equalsAddresses(Address address1, Address address2);

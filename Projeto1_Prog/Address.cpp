@@ -33,3 +33,10 @@ Address addressTextConverter(string addressText) {
 
 	return address;
 }
+
+bool equalsAddresses(Address address1, Address address2) {
+	if (address1.doorNumber == address2.doorNumber && address1.floorNumber == address2.floorNumber && address1.locality == address2.locality && address1.postalCode == address2.postalCode && address1.street == address2.street)
+		return true;
+	else
+		return false;
+}

@@ -53,7 +53,7 @@ void readClients(Agency agency, vector<Client> &clientsVector) {
 	clientsVector.push_back(client);
 	clientsFile.close();
 }
-
+// Add a Client to clientsVector
 void addClient(vector<Client> &clientsVector, string name, int nif, int familyNumber, string addressText, string touristicPacksBought) {
 	Client client;
 	client.name = name;
@@ -63,6 +63,41 @@ void addClient(vector<Client> &clientsVector, string name, int nif, int familyNu
 	client.touristicPacksIdentifier = separateCharacter(touristicPacksBought, ';');
 	clientsVector.push_back(client);
 }
+
+//Copies client client to copy
+void copyClient(Client &copy, Client &client) {
+	copy.name = client.name;
+	copy.address = client.address;
+	copy.familyNumber = client.familyNumber;
+	copy.NIF = client.NIF;
+	copy.touristicPacksIdentifier = client.touristicPacksIdentifier;
+}
+
+//Removes clientToRemove from clientsVector
+void removeClient(Client clientToRemove, vector<Client> &clientsVector) {
+	Client client;
+	int last_pos = clientsVector.size() - 1;
+	for (int i = 0; i < clientsVector.size(); i++)
+	{
+		copyClient(client, clientsVector[i]);
+		if (equalClients(clientToRemove, client)) {
+			copyClient(clientsVector[i], clientsVector[last_pos]);
+			clientsVector.pop_back();
+			break;
+		}
+	}
+}
+
+//Returns True if Clients are equal
+bool equalClients(Client client1, Client client2) {
+	if (equalsAddresses(client1.address,client2.address) && client1.familyNumber == client2.familyNumber && client1.name == client1.name && client1.NIF == client2.NIF && client1.touristicPacksIdentifier == client2.touristicPacksIdentifier)
+		return true;
+	else
+		return false;
+}
+
+
+
 
 
 

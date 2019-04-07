@@ -22,18 +22,14 @@ int main() {
 	Client client;
 	vector<Client> clientsVector;
 	vector<TravelPack> travelPackVector;
-	string x = "2019/08/01";
-	
-	
+	string x = "10 ; 36 ; 2";
 	
 	
 	readAgency(agency);
 	readClients(agency, clientsVector);
-	addClient(clientsVector, "Joao", 2, 4, "Rua Sopa/ 200 / 5Esq / 1200‐001 / Porto", "101");
 	readTravelPacks(agency, travelPackVector);
-	addTravelPack(travelPackVector, 7, "Gosto de sopa", "2100 / 08 / 1", "2019 / 08 / 01", 5, 100, 5);
 	
-	cout << travelPackVector[3].touristicSpots;
+	
 
 	
 	//travelPackVector = readTravelPacks(agency, travelPackVector);
@@ -59,12 +55,32 @@ int main() {
 	cout << clientsVector[1].totalValue;
 	cout << clientsVector[1].touristicPacksIdentifier[2];
 	*/
+	addClient(clientsVector, "Joao", 2, 4, "Rua Sopa/ 200 / 5Esq / 1200‐001 / Porto", "10 ; 36 ; 2");
+	addClient(clientsVector, "Joao", 2, 4, "Rua Sopa/ 200 / 5Esq / 1200‐001 / Porto", "10 ; 36 ; 2");
+	cout << clientsVector.size();
+	client.name = "Joao";
+	client.NIF = 2;
+	client.familyNumber = 4;
+	client.address = addressTextConverter("Rua Sopa/ 200 / 5Esq / 1200‐001 / Porto");
+	client.touristicPacksIdentifier = separateCharacter(x, ';');
+	cout << equalClients(clientsVector[2], clientsVector[3]);
+	removeClient(client, clientsVector);
+	cout << clientsVector.size();
+	
+	
 
 	/*Testar agencia
 	cout << agency.address.street;
 	cout << agency.address.doorNumber;
 	cout << agency.address.floorNumber;
 	cout << agency.address.locality << endl;*/
+
+	/*Testar TravelPacks
+	cout << travelPackVector[3].touristicSpots;
+	addTravelPack(travelPackVector, 7, "Gosto de sopa", "2100 / 08 / 1", "2019 / 08 / 01", 5, 100, 5);
+	addTravelPack(travelPackVector, 7, "Gosto de sopa", "2100 / 08 / 1", "2019 / 08 / 01", 5, 100, 5);
+
+	*/
 	
 
 	system("Pause");

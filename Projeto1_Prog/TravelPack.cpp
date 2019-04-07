@@ -61,7 +61,7 @@ void readTravelPacks(Agency agency, vector<TravelPack> &travelPacksVector) {
 	
 	
 }
-
+// Add a Travel Pack to travelPackVector
 void addTravelPack(vector<TravelPack> &travelPackVector, int identifier, string touristicSpots, string begginningDate, string endDate, int pricePerson, int maxNumber, int soldTickets) {
 	TravelPack travelPack;
 	travelPack.identifier = identifier;
