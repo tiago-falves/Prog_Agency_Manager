@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "StringManipulator.h"
 
 
 struct Address {
@@ -12,5 +13,7 @@ struct Address {
 
 
 Address addressTextConverter(std::string addressText);
+
+bool validAddressText(string address);
 
 bool equalsAddresses(Address address1, Address address2);

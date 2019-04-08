@@ -1,4 +1,6 @@
-﻿  Projeto1_Prog.cpp
-c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\projeto1_prog.cpp(61): warning C4566: character represented by universal-character-name '\u2010' cannot be represented in the current code page (1252)
-c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\projeto1_prog.cpp(67): warning C4566: character represented by universal-character-name '\u2010' cannot be represented in the current code page (1252)
+﻿  Clients.cpp
+c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\clients.cpp(88): warning C4018: '<': signed/unsigned mismatch
+c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\clients.cpp(108): warning C4018: '<': signed/unsigned mismatch
+  Projeto1_Prog.cpp
+  Generating Code...
   Projeto1_Prog.vcxproj -> C:\Users\tiago\OneDrive\Ambiente de Trabalho\FEUP\Informática\1º\Prog\Projeto1_Prog\Debug\Projeto1_Prog.exe

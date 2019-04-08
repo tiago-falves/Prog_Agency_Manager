@@ -11,8 +11,6 @@ void readClients(Agency agency, vector<Client> &clientsVector) {
 	ifstream clientsFile;
 	Client client;
 	
-
-
 	int i = 0;
 	clientsFile.open(agency.clientsNameFile);
 	if (clientsFile.fail())
@@ -53,15 +51,16 @@ void readClients(Agency agency, vector<Client> &clientsVector) {
 	clientsVector.push_back(client);
 	clientsFile.close();
 }
+
 // Add a Client to clientsVector
-//void addClient(vector<Client> &clientsVector, string name, int nif, int familyNumber, string addressText, string touristicPacksBought) {
-void addClient(vector<Client> &clientsVector,Client client) {
-	/*Client client;
+//void addClient(vector<Client> &clientsVector,Client client) {
+void addClient(vector<Client> &clientsVector, string name, int nif, int familyNumber, string addressText, string touristicPacksBought) {
+	Client client;
 	client.name = name;
 	client.NIF = nif;
 	client.familyNumber = familyNumber;
 	client.address = addressTextConverter(addressText);
-	client.touristicPacksIdentifier = separateCharacter(touristicPacksBought, ';');*/
+	client.touristicPacksIdentifier = separateCharacter(touristicPacksBought, ';');
 	clientsVector.push_back(client);
 }
 
@@ -75,8 +74,16 @@ void copyClient(Client &copy, Client &client) {
 }
 
 //Removes clientToRemove from clientsVector
-void removeClient(Client clientToRemove, vector<Client> &clientsVector) {
+//void removeClient(Client clientToRemove, vector<Client> &clientsVector) {
+void removeClient(vector<Client> &clientsVector, string name, int nif, int familyNumber, string addressText, string touristicPacksBought) {
+	Client clientToRemove;
 	Client client;
+	clientToRemove.name = name;
+	clientToRemove.NIF = nif;
+	clientToRemove.familyNumber = familyNumber;
+	clientToRemove.address = addressTextConverter(addressText);
+	clientToRemove.touristicPacksIdentifier = separateCharacter(touristicPacksBought, ';');
+		
 	int last_pos = clientsVector.size() - 1;
 	for (int i = 0; i < clientsVector.size(); i++)
 	{
@@ -96,7 +103,7 @@ bool equalClients(Client client1, Client client2) {
 	else
 		return false;
 }
-
+// Modify Client clientTModify to client
 void modifyClient(Client clientToModify, vector<Client> &clientVector, Client client) {
 	for (int i = 0; i < clientVector.size(); i++)
 	{

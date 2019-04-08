@@ -10,6 +10,7 @@
 #include "TravelPack.h"
 #include "Date.h"
 #include "TravelPack.h"
+#include "Menu.h"
 
 using namespace std;
 
@@ -23,12 +24,11 @@ int main() {
 	vector<Client> clientsVector;
 	vector<TravelPack> travelPackVector;
 	string x = "10 ; 36 ; 2";
-	
-	
+
 	readAgency(agency);
 	readClients(agency, clientsVector);
 	readTravelPacks(agency, travelPackVector);
-	
+	runMenu();
 	
 
 	
@@ -53,7 +53,7 @@ int main() {
 	cout << clientsVector[1].familyNumber;
 	cout << clientsVector[1].NIF;
 	cout << clientsVector[1].totalValue;
-	cout << clientsVector[1].touristicPacksIdentifier[2];*/
+	cout << clientsVector[1].touristicPacksIdentifier[2];
 
 	client.name = "Joao";
 	client.NIF = 2;
@@ -78,7 +78,7 @@ int main() {
 	removeClient(client, clientsVector);
 	cout << clientsVector.size() << endl;
 	modifyClient(client1, clientsVector, client2);
-	cout << clientsVector[2].address.street;
+	cout << clientsVector[2].address.street;*/
 
 	
 

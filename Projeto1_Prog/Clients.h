@@ -29,10 +29,11 @@ struct Client {
 
 void readClients(Agency agency, vector<Client> &clientsVector);
 
-//void addClient(vector<Client> &clientsVector, string name, int nif, int familyNumber, string addressText, string touristicPacksBought);
-void addClient(vector<Client> &clientsVector, Client client);
+void addClient(vector<Client> &clientsVector, string name, int nif, int familyNumber, string addressText, string touristicPacksBought);
+//void addClient(vector<Client> &clientsVector, Client client);
 
-void removeClient(Client clientToRemove, vector<Client> &clientsVector);
+void removeClient(vector<Client> &clientsVector, string name, int nif, int familyNumber, string addressText, string touristicPacksBought);
+//void removeClient(Client clientToRemove, vector<Client> &clientsVector);
 
 bool equalClients(Client client1, Client client2);
 

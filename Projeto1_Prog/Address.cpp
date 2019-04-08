@@ -40,3 +40,45 @@ bool equalsAddresses(Address address1, Address address2) {
 	else
 		return false;
 }
+
+bool validAddressText(string address)
+{
+	string substr, codigo_postal;
+	bool valid_address = false;
+
+	while (address.find_first_of(" ") != address.npos)
+	{
+		address.erase(address.find_first_of(" "), 1);
+	}
+	substr = address.substr(0, address.find_first_of("/"));
+	address.erase(address.find_first_of(substr), substr.size() + 1);
+	substr = address.substr(0, address.find_first_of("/"));
+	address.erase(address.find_first_of(substr), substr.size() + 1);
+
+	if (!string_is_number(substr))
+		return false;
+
+	substr = address.substr(0, address.find_first_of("/"));
+	address.erase(address.find_first_of(substr), substr.size() + 1);
+	substr = address.substr(0, address.find_first_of("/"));
+	address.erase(address.find_first_of(substr), substr.size() + 1);
+	codigo_postal = substr.substr(0, substr.find_first_of("-"));
+	substr.erase(substr.find_first_of(substr), codigo_postal.size() + 1);
+
+	if (!string_is_number(codigo_postal))
+		return false;
+
+	if (codigo_postal.size() != 4)
+		return false;
+
+	if (!string_is_number(substr))
+		return false;
+
+	if (substr.size() != 3)
+		return false;
+
+	substr = address.substr(0, address.find_first_of("/"));
+	address.erase(address.find_first_of(substr), substr.size() + 1);
+
+	return true;
+}

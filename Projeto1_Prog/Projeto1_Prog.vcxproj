@@ -118,7 +118,9 @@
     <ClCompile Include="Address.cpp" />
     <ClCompile Include="Agency.cpp" />
     <ClCompile Include="Clients.cpp" />
+    <ClCompile Include="ClientsMenu.cpp" />
     <ClCompile Include="Date.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Projeto1_Prog.cpp" />
     <ClCompile Include="StrigManipulator.cpp" />
     <ClCompile Include="TravelPack.cpp" />
@@ -127,7 +129,9 @@
     <ClInclude Include="Address.h" />
     <ClInclude Include="Agency.h" />
     <ClInclude Include="Clients.h" />
+    <ClInclude Include="ClientsMenu.h" />
     <ClInclude Include="Date.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="StringManipulator.h" />
     <ClInclude Include="TravelPack.h" />
   </ItemGroup>
