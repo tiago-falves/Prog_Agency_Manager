@@ -2,7 +2,7 @@
 #include "Clients.h"
 using namespace std;
 
-void runClientsMenu() {
+void runClientsMenu(vector<Client> &clientsVector) {
 	int option;
 
 
@@ -25,10 +25,10 @@ void runClientsMenu() {
 	}
 	menuSeparator();
 
-	if (option == 0) { createClientOption();}
+	if (option == 0) { createClientOption(clientsVector);}
 }
 
-void createClientOption() {
+void createClientOption(vector<Client> &clientsVector) {
 	Client client;
 	
 	string name;
@@ -38,21 +38,41 @@ void createClientOption() {
 	string touristicPacksBought;
 
 	cout << "Please insert the data of your new client" << endl << endl;
+
 	cout << "Name: ";
-	cin >> name;
+	cin.clear();
+	cin.ignore(10000, '\n');
+	getline(cin, name);
+
 	cout << "NIF: ";
 	cin >> nif;
 	validCin(nif);
+
 	cout << "Number of people in the family: ";
 	cin >> familyNumber;
 	validCin(familyNumber);
+
 	cout << "Address (Street / Door Number / Floor Number / Postal Code / Locality): ";
-	cin >> addressText;
-	/*while (!validAddressText(addressText))
+	cin.clear();
+	cin.ignore(10000, '\n');
+	getline(cin,addressText);
+
+	while (!validAddressText(addressText))
 	{
 		cout << "Invalid address, please insert again: ";
-		cin >> addressText;
-	}*/
+		getline(cin,addressText);	
+	}
+	
+	cout << "Tourist Packs bought (separated by ';'): ";
+	getline(cin, touristicPacksBought);
+
+	while (!validPacksBought(touristicPacksBought))
+	{
+		cout << "Invalid Touristic Pack, please insert again: ";
+		getline(cin, touristicPacksBought);
+	}
+	addClient(clientsVector, name, nif, familyNumber, addressText, touristicPacksBought);
+	
 	
 
 }

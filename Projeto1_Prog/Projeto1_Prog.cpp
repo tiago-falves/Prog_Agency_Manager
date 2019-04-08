@@ -23,14 +23,17 @@ int main() {
 	Client client,client1,client2;
 	vector<Client> clientsVector;
 	vector<TravelPack> travelPackVector;
+	vector<string> stringVector;
 	string x = "10 ; 36 ; 2";
+	string addressText = "Rua Sem Fim / 200 / 5Esq /1200-001 / Lisboa";
+
 
 	readAgency(agency);
 	readClients(agency, clientsVector);
 	readTravelPacks(agency, travelPackVector);
-	runMenu();
 	
-
+	runMenu(clientsVector,travelPackVector);
+	cout << clientsVector[2].name;
 	
 
 

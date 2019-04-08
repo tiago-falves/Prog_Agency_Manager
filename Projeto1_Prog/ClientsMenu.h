@@ -1,5 +1,5 @@
 #pragma once
 #include "Menu.h"
 
-void runClientsMenu();
-void createClientOption();
+void runClientsMenu(vector<Client> &clientsVector);
+void createClientOption(vector<Client> &clientsVector);

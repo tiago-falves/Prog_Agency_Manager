@@ -3,7 +3,7 @@
 using namespace std;
 
 
-void runMenu() {
+void runMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector) {
 
 	int option;
 
@@ -26,7 +26,7 @@ void runMenu() {
 	}
 	menuSeparator();
 
-	if (option == 0) {runClientsMenu(); }
+	if (option == 0) {runClientsMenu(clientsVector); }
 	else if (option == 1) { runTouristicPacksMenu(); }
 }
 

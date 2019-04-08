@@ -36,7 +36,7 @@ void readClients(Agency agency, vector<Client> &clientsVector) {
 				client.address = addressTextConverter(clientsText);
 				break;
 			case 4:
-				client.touristicPacksIdentifier = separateCharacter(clientsText,';');
+				client.touristicPacksIdentifier = separateCharacterInt(clientsText,';');
 				break;
 			case 5:
 				i=-1;
@@ -60,7 +60,7 @@ void addClient(vector<Client> &clientsVector, string name, int nif, int familyNu
 	client.NIF = nif;
 	client.familyNumber = familyNumber;
 	client.address = addressTextConverter(addressText);
-	client.touristicPacksIdentifier = separateCharacter(touristicPacksBought, ';');
+	client.touristicPacksIdentifier = separateCharacterInt(touristicPacksBought, ';');
 	clientsVector.push_back(client);
 }
 
@@ -82,7 +82,7 @@ void removeClient(vector<Client> &clientsVector, string name, int nif, int famil
 	clientToRemove.NIF = nif;
 	clientToRemove.familyNumber = familyNumber;
 	clientToRemove.address = addressTextConverter(addressText);
-	clientToRemove.touristicPacksIdentifier = separateCharacter(touristicPacksBought, ';');
+	clientToRemove.touristicPacksIdentifier = separateCharacterInt(touristicPacksBought, ';');
 		
 	int last_pos = clientsVector.size() - 1;
 	for (int i = 0; i < clientsVector.size(); i++)
@@ -112,6 +112,15 @@ void modifyClient(Client clientToModify, vector<Client> &clientVector, Client cl
 			break;
 		}
 	}
+}
+
+bool validPacksBought(string packs) {
+	vector<string> vector;
+	vector = separateCharacterStr(packs, ';');
+	for (int i = 0; i < vector.size(); i++)	{
+		if (!stringIsNumber(vector[i])) { return false;}
+	}
+	return true;
 }
 
 

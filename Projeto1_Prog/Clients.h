@@ -40,3 +40,5 @@ bool equalClients(Client client1, Client client2);
 void copyClient(Client &copy, Client &client);
 
 void modifyClient(Client clientToModify, vector<Client> &clientVector, Client client);
+
+bool validPacksBought(string packs);
