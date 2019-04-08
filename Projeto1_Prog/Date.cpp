@@ -18,3 +18,8 @@ bool equalDates(Date date1, Date date2) {
 	else
 		return false;
 }
+void copyDate(Date &copy, Date date) {
+	copy.year = date.year;
+	copy.month = date.month;
+	copy.day = date.day;
+}

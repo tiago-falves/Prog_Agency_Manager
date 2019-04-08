@@ -54,13 +54,14 @@ void readClients(Agency agency, vector<Client> &clientsVector) {
 	clientsFile.close();
 }
 // Add a Client to clientsVector
-void addClient(vector<Client> &clientsVector, string name, int nif, int familyNumber, string addressText, string touristicPacksBought) {
-	Client client;
+//void addClient(vector<Client> &clientsVector, string name, int nif, int familyNumber, string addressText, string touristicPacksBought) {
+void addClient(vector<Client> &clientsVector,Client client) {
+	/*Client client;
 	client.name = name;
 	client.NIF = nif;
 	client.familyNumber = familyNumber;
 	client.address = addressTextConverter(addressText);
-	client.touristicPacksIdentifier = separateCharacter(touristicPacksBought, ';');
+	client.touristicPacksIdentifier = separateCharacter(touristicPacksBought, ';');*/
 	clientsVector.push_back(client);
 }
 
@@ -94,6 +95,16 @@ bool equalClients(Client client1, Client client2) {
 		return true;
 	else
 		return false;
+}
+
+void modifyClient(Client clientToModify, vector<Client> &clientVector, Client client) {
+	for (int i = 0; i < clientVector.size(); i++)
+	{
+		if (equalClients(clientToModify, clientVector[i])) {
+			copyClient(clientVector[i], client);
+			break;
+		}
+	}
 }
 
 
