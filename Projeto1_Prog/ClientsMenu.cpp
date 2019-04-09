@@ -26,18 +26,28 @@ void runClientsMenu(vector<Client> &clientsVector) {
 	menuSeparator();
 
 	if (option == 0) { createClientOption(clientsVector);}
+	if (option == 1) { modifyClientOption(clientsVector);}
 }
 
-void createClientOption(vector<Client> &clientsVector) {
+void modifyClientOption(vector<Client> &clientsVector) {
+	Client clientToModify;
+
+	cout << "Please insert the data of the client you wat to modify" << endl << endl;
+	copyClient(clientToModify, askForClientsInformation());
+
+}
+//Asks for Client information and returns a Client
+
+Client askForClientsInformation() {
 	Client client;
-	
+
 	string name;
 	int nif;
 	int familyNumber;
 	string addressText;
 	string touristicPacksBought;
 
-	cout << "Please insert the data of your new client" << endl << endl;
+	
 
 	cout << "Name: ";
 	cin.clear();
@@ -55,14 +65,14 @@ void createClientOption(vector<Client> &clientsVector) {
 	cout << "Address (Street / Door Number / Floor Number / Postal Code / Locality): ";
 	cin.clear();
 	cin.ignore(10000, '\n');
-	getline(cin,addressText);
+	getline(cin, addressText);
 
 	while (!validAddressText(addressText))
 	{
 		cout << "Invalid address, please insert again: ";
-		getline(cin,addressText);	
+		getline(cin, addressText);
 	}
-	
+
 	cout << "Tourist Packs bought (separated by ';'): ";
 	getline(cin, touristicPacksBought);
 
@@ -71,8 +81,21 @@ void createClientOption(vector<Client> &clientsVector) {
 		cout << "Invalid Touristic Pack, please insert again: ";
 		getline(cin, touristicPacksBought);
 	}
-	addClient(clientsVector, name, nif, familyNumber, addressText, touristicPacksBought);
-	
-	
 
+	client.name = name;
+	client.NIF = nif;
+	client.familyNumber = familyNumber;
+	client.address = addressTextConverter(addressText);
+	client.touristicPacksIdentifier = separateCharacterInt(touristicPacksBought, ';');
+
+	return client;
+
+}
+
+void createClientOption(vector<Client> &clientsVector) {
+	Client client;
+	cout << "Please insert the data of your new client" << endl << endl;
+	copyClient(client, askForClientsInformation());
+	addClient(clientsVector, client);
+	//addClient(clientsVector, name, nif, familyNumber, addressText, touristicPacksBought);
 }

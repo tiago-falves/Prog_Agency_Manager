@@ -53,19 +53,25 @@ void readClients(Agency agency, vector<Client> &clientsVector) {
 }
 
 // Add a Client to clientsVector
-//void addClient(vector<Client> &clientsVector,Client client) {
-void addClient(vector<Client> &clientsVector, string name, int nif, int familyNumber, string addressText, string touristicPacksBought) {
-	Client client;
+//void addClient(vector<Client> &clientsVector, string name, int nif, int familyNumber, string addressText, string touristicPacksBought) {
+void addClient(vector<Client> &clientsVector,Client client) {
+	/*Client client;
+	string name;
+	int nif;
+	int familyNumber;
+	string addressText;
+	string touristicPacksBought;
+
 	client.name = name;
 	client.NIF = nif;
 	client.familyNumber = familyNumber;
 	client.address = addressTextConverter(addressText);
-	client.touristicPacksIdentifier = separateCharacterInt(touristicPacksBought, ';');
+	client.touristicPacksIdentifier = separateCharacterInt(touristicPacksBought, ';');*/
 	clientsVector.push_back(client);
 }
 
 //Copies client client to copy
-void copyClient(Client &copy, Client &client) {
+void copyClient(Client &copy, Client client) {
 	copy.name = client.name;
 	copy.address = client.address;
 	copy.familyNumber = client.familyNumber;
@@ -74,15 +80,15 @@ void copyClient(Client &copy, Client &client) {
 }
 
 //Removes clientToRemove from clientsVector
-//void removeClient(Client clientToRemove, vector<Client> &clientsVector) {
-void removeClient(vector<Client> &clientsVector, string name, int nif, int familyNumber, string addressText, string touristicPacksBought) {
-	Client clientToRemove;
+//void removeClient(vector<Client> &clientsVector, string name, int nif, int familyNumber, string addressText, string touristicPacksBought) {
+void removeClient(Client clientToRemove, vector<Client> &clientsVector) {
+	//Client clientToRemove;
 	Client client;
-	clientToRemove.name = name;
+	/*clientToRemove.name = name;
 	clientToRemove.NIF = nif;
 	clientToRemove.familyNumber = familyNumber;
 	clientToRemove.address = addressTextConverter(addressText);
-	clientToRemove.touristicPacksIdentifier = separateCharacterInt(touristicPacksBought, ';');
+	clientToRemove.touristicPacksIdentifier = separateCharacterInt(touristicPacksBought, ';');*/
 		
 	int last_pos = clientsVector.size() - 1;
 	for (int i = 0; i < clientsVector.size(); i++)

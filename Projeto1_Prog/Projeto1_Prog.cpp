@@ -31,9 +31,9 @@ int main() {
 	readAgency(agency);
 	readClients(agency, clientsVector);
 	readTravelPacks(agency, travelPackVector);
-	
 	runMenu(clientsVector,travelPackVector);
 	cout << clientsVector[2].name;
+	
 	
 
 
