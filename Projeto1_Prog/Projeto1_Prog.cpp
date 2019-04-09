@@ -9,8 +9,8 @@
 #include "Clients.h"
 #include "TravelPack.h"
 #include "Date.h"
-#include "TravelPack.h"
 #include "Menu.h"
+#include "TravelPackMenu.h"
 
 using namespace std;
 
@@ -24,15 +24,15 @@ int main() {
 	vector<Client> clientsVector;
 	vector<TravelPack> travelPackVector;
 	vector<string> stringVector;
-	string x = "10 ; 36 ; 2";
+	string x = "2019/0a/02";
 	string addressText = "Rua Sem Fim / 200 / 5Esq /1200-001 / Lisboa";
-
-
+	
 	readAgency(agency);
 	readClients(agency, clientsVector);
 	readTravelPacks(agency, travelPackVector);
 	runMenu(clientsVector,travelPackVector);
-	//cout << clientsVector[1].name;
+	
+
 	
 	
 	

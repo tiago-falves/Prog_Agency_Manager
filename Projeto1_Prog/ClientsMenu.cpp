@@ -78,10 +78,14 @@ Client askForClientsInformation() {
 	cout << "NIF: ";
 	cin >> nif;
 	validCin(nif);
+	cin.clear();
+	cin.ignore(10000, '\n');
 
 	cout << "Number of people in the family: ";
 	cin >> familyNumber;
 	validCin(familyNumber);
+	cin.clear();
+	cin.ignore(10000, '\n');
 
 	cout << "Address (Street / Door Number / Floor Number / Postal Code / Locality): ";
 	cin.clear();

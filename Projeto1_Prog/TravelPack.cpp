@@ -58,8 +58,6 @@ void readTravelPacks(Agency agency, vector<TravelPack> &travelPacksVector) {
 	}
 	travelPacksVector.push_back(travelPack);
 	travelPacksFile.close();
-	
-	
 }
 // Add a Travel Pack to travelPackVector
 //void addTravelPack(vector<TravelPack> &travelPackVector, int identifier, string touristicSpots, string begginningDate, string endDate, int pricePerson, int maxNumber, int soldTickets) {
@@ -126,4 +124,12 @@ void modifyTravelPack(TravelPack travelPackToModify, vector<TravelPack> &travelP
 			break;
 		}
 	}
+}
+
+bool travelPackInVector(vector<TravelPack> travelPackVector, TravelPack travelPack) {
+	for (int i = 0; i < travelPackVector.size(); i++)
+	{
+		if (equalTravelPacks(travelPackVector[i], travelPack)) { return true; }
+	}
+	return false;
 }

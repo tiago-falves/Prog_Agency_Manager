@@ -24,3 +24,4 @@ void readTravelPacks(Agency agency, vector<TravelPack> &travelPacksVector);
 //void addTravelPack(vector<TravelPack> &travelPackVector, int identifier, string touristicSpots, string begginningDate, string endDate, int pricePerson, int maxNumber, int soldTickets);
 void addTravelPack(vector<TravelPack> &travelPackVector, TravelPack travelPack);
 void modifyTravelPack(TravelPack travelPackToModify, vector<TravelPack> &travelPackVector, TravelPack travelPack);
+bool travelPackInVector(vector<TravelPack> travelPackVector, TravelPack travelPack);

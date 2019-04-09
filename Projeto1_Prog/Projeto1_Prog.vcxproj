@@ -124,6 +124,7 @@
     <ClCompile Include="Projeto1_Prog.cpp" />
     <ClCompile Include="StrigManipulator.cpp" />
     <ClCompile Include="TravelPack.cpp" />
+    <ClCompile Include="TravelPackMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Address.h" />
@@ -134,6 +135,7 @@
     <ClInclude Include="Menu.h" />
     <ClInclude Include="StringManipulator.h" />
     <ClInclude Include="TravelPack.h" />
+    <ClInclude Include="TravelPackMenu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

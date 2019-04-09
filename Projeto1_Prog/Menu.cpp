@@ -1,5 +1,6 @@
 #include "Menu.h"
 #include "ClientsMenu.h"
+#include "TravelPackMenu.h"
 using namespace std;
 
 
@@ -25,10 +26,12 @@ void runMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVecto
 		cin.ignore(10000, '\n');
 		cin >> option;
 	}
+	cin.clear();
+	cin.ignore(10000, '\n');
 	menuSeparator();
 
 	if (option == 0) {runClientsMenu(clientsVector,travelPacksVector); }
-	//else if (option == 1) { runTouristicPacksMenu(); }
+	else if (option == 1) { runTravelPackMenu(clientsVector, travelPacksVector); }
 }
 
 void menuSeparator() {
@@ -48,8 +51,4 @@ void validCin(int &option) {
 		cin.ignore(10000, '\n');
 		cin >> option;
 	}
-}
-
-void runTouristicPacksMenu() {
-
 }
