@@ -102,6 +102,17 @@ void removeClient(Client clientToRemove, vector<Client> &clientsVector) {
 	}
 }
 
+// Returns True if the client is in the Vector
+bool clientInVector(vector<Client> clientsVector, Client client) {
+	for (int i = 0; i < clientsVector.size(); i++)
+	{
+		if (equalClients(clientsVector[i], client)) { return true; }
+	}
+	return false;
+}
+
+
+
 //Returns True if Clients are equal
 bool equalClients(Client client1, Client client2) {
 	if (equalsAddresses(client1.address,client2.address) && client1.familyNumber == client2.familyNumber && client1.name == client1.name && client1.NIF == client2.NIF && client1.touristicPacksIdentifier == client2.touristicPacksIdentifier)
@@ -129,6 +140,15 @@ bool validPacksBought(string packs) {
 	return true;
 }
 
+string travelPacksToString(vector<int> travelPacks) {
+	string textPacks ="";
+	for (int i = 0; i < travelPacks.size(); i++)
+	{
+		textPacks += to_string(travelPacks[i]) + " ; ";
+	}
+	textPacks = textPacks.substr(0, textPacks.size() - 3);
+	return textPacks;
+}
 
 
 

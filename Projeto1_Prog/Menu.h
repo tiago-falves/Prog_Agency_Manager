@@ -7,7 +7,6 @@
 #include "TravelPack.h"
 
 void runMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector);
-void runClientsMenu();
-void runTouristicPacksMenu();
+
 void menuSeparator();
 void validCin(int &option);

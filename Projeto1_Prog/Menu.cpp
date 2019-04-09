@@ -7,6 +7,7 @@ void runMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVecto
 
 	int option;
 
+
 	cout << "Welcome to the NiceHolidays Packs and Clients Manager! Here you can choose what you want to manage" << endl << endl;
 	
 	cout << "Please choose what your option:" << endl << endl;
@@ -26,8 +27,8 @@ void runMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVecto
 	}
 	menuSeparator();
 
-	if (option == 0) {runClientsMenu(clientsVector); }
-	else if (option == 1) { runTouristicPacksMenu(); }
+	if (option == 0) {runClientsMenu(clientsVector,travelPacksVector); }
+	//else if (option == 1) { runTouristicPacksMenu(); }
 }
 
 void menuSeparator() {

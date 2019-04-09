@@ -32,7 +32,8 @@ int main() {
 	readClients(agency, clientsVector);
 	readTravelPacks(agency, travelPackVector);
 	runMenu(clientsVector,travelPackVector);
-	cout << clientsVector[2].name;
+	//cout << clientsVector[1].name;
+	
 	
 	
 

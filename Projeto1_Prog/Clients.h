@@ -17,14 +17,6 @@ struct Client {
 	vector<int> touristicPacksIdentifier;
 	double totalValue;
 
-	/*Client& operator = (const Client& client) {
-		this->name = client.name;
-		this -> address = client.address;
-		this -> familyNumber = client.familyNumber;
-		this->NIF = client.NIF;
-		this->touristicPacksIdentifier = client.touristicPacksIdentifier;
-		return *this;
-	}*/
 };
 
 void readClients(Agency agency, vector<Client> &clientsVector);
@@ -42,3 +34,7 @@ void copyClient(Client &copy, Client client);
 void modifyClient(Client clientToModify, vector<Client> &clientVector, Client client);
 
 bool validPacksBought(string packs);
+
+bool clientInVector(vector<Client> clientsVector, Client client);
+
+string travelPacksToString(vector<int> travelPacks);
