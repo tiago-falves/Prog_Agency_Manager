@@ -86,7 +86,8 @@ void copyTravelPack(TravelPack &copy, TravelPack travelPack) {
 
 //True if Travel Packs are equal, False otherwise
 bool equalTravelPacks(TravelPack travelPack1, TravelPack travelPack2) {
-	if (travelPack1.identifier == travelPack2.identifier &&	travelPack1.touristicSpots == travelPack2.touristicSpots && equalDates(travelPack1.beginningDate,travelPack2.beginningDate) && equalDates(travelPack1.endDate,travelPack2.endDate) && travelPack1.PricePerson == travelPack2.PricePerson && travelPack1.maxPersonNumber == travelPack2.maxPersonNumber && travelPack1.soldTicketsNumber == travelPack2.soldTicketsNumber)
+	//&&	travelPack1.touristicSpots == travelPack2.touristicSpots
+	if (travelPack1.identifier == travelPack2.identifier  && equalDates(travelPack1.beginningDate,travelPack2.beginningDate) && equalDates(travelPack1.endDate,travelPack2.endDate) && travelPack1.PricePerson == travelPack2.PricePerson && travelPack1.maxPersonNumber == travelPack2.maxPersonNumber && travelPack1.soldTicketsNumber == travelPack2.soldTicketsNumber)
 		return true;
 	else
 		return false;
@@ -114,13 +115,6 @@ void modifyTravelPack(TravelPack travelPackToModify, vector<TravelPack> &travelP
 	{
 		if (equalTravelPacks(travelPackToModify,travelPackVector[i])){
 			copyTravelPack(travelPackVector[i], travelPack);
-			/*travelPackToModify.identifier = identifier;
-			travelPackToModify.touristicSpots = touristicSpots;
-			travelPackToModify.beginningDate = begginningDate;
-			travelPackToModify.endDate = endDate;
-			travelPackToModify.PricePerson = pricePerson;
-			travelPackToModify.maxPersonNumber = maxNumberPerson;
-			travelPackToModify.soldTicketsNumber = ticketsSold;*/
 			break;
 		}
 	}

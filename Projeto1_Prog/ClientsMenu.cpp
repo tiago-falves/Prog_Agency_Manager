@@ -151,6 +151,11 @@ void removeClientOption(vector<Client> &clientsVector) {
 	Client client;
 	cout << "Please insert the data of the client you want to remove" << endl << endl;
 	copyClient(client, askForClientsInformation());
+	while (!clientInVector(clientsVector, client))
+	{
+		cout << "The Client is not in the database, please insert the data again" << endl << endl;
+		copyClient(client, askForClientsInformation());
+	}
 	removeClient(client, clientsVector);
 	cout << endl << endl << "Client removed successfully!";
 	menuSeparator();

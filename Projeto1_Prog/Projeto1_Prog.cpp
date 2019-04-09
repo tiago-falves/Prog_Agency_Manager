@@ -100,13 +100,14 @@ int main() {
 	TravelPack travelPack;
 	TravelPack travelPack1;
 
-	travelPack.identifier = 10;
-	travelPack.touristicSpots = "SOPA";
-	travelPack.beginningDate = dateTextConverter("2001/01/01");
-	travelPack.endDate = dateTextConverter("2001/01/02");
-	travelPack.PricePerson = 1;
-	travelPack.maxPersonNumber = 69;
-	travelPack.soldTicketsNumber = 69;
+	travelPack.identifier = 1;
+	travelPack.touristicSpots = "Madeira – Funchal, Porto Santo";
+	travelPack.beginningDate = dateTextConverter("2019/08/01");
+	travelPack.endDate = dateTextConverter("2019/08/05");
+	travelPack.PricePerson = 300;
+	travelPack.maxPersonNumber = 30;
+	travelPack.soldTicketsNumber = 10;
+
 
 	travelPack1.identifier = 10;
 	travelPack1.touristicSpots = "GOSTO DE SOPA";
@@ -116,7 +117,7 @@ int main() {
 	travelPack1.maxPersonNumber = 69;
 	travelPack1.soldTicketsNumber = 69;
 
-	cout << travelPackVector.size() << endl;
+	/*cout << travelPackVector.size() << endl;
 	addTravelPack(travelPackVector, travelPack);
 	cout << travelPackVector.size() << endl;
 	copyTravelPack(travelPack, travelPackVector[3]);
