@@ -36,3 +36,10 @@ bool validDateText(string dateText)
 	if (dateVector[1].size() != 2 || stoi(dateVector[1]) < 1 || stoi(dateVector[1]) > 31) { return false; }
 	return true;
 }
+
+bool biggerDate(Date bigDate, Date smallDate) {
+	if (bigDate.year > smallDate.year) {	return true;}
+	if (bigDate.month > smallDate.month) {return true;}
+	if (bigDate.day > smallDate.day) {return true;}
+	return false;
+}

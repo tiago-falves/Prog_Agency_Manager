@@ -21,11 +21,14 @@ using namespace std;
 int main() {
 	Agency agency;
 	Client client,client1,client2;
+	Date date1;
+	Date date2;
 	vector<Client> clientsVector;
 	vector<TravelPack> travelPackVector;
 	vector<string> stringVector;
 	string x = "2019/0a/02";
 	string addressText = "Rua Sem Fim / 200 / 5Esq /1200-001 / Lisboa";
+
 	
 	readAgency(agency);
 	readClients(agency, clientsVector);
@@ -33,7 +36,18 @@ int main() {
 	runMenu(clientsVector,travelPackVector);
 	
 
-	
+
+
+	/*Testar Dates
+	date1.year = 2019;
+	date1.month = 7;
+	date1.day = 1;
+	date2.year = 2019;
+	date2.month = 9;
+	date2.day = 1;
+
+	if (biggerDate(date2,date1)){cout << "Cona";}
+	else{cout << "Nao gosto de cona";}*/
 	
 	
 
