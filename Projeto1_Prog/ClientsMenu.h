@@ -9,3 +9,4 @@ void showClient(Client client);
 void showAllClients(vector<Client> clientsVector);
 void buyTravelPack(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector);
 Client askForClientsInformation();
+Client nifToClient(vector<Client> clientsVector);

@@ -3,6 +3,7 @@
 
 void runTravelPackMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector, Agency agency);
 TravelPack askForTravelPacks(bool isCreatingTravelPack, vector<TravelPack> travelPackVector);
+TravelPack askForTravelPacksIdentifier(vector<TravelPack> travelPackVector);
 void createTravelPackOption(vector<TravelPack> &travelPackVector);
 void modifyTravelPackOption(vector<TravelPack> &travelPackVector);
 void removeClientOption(vector<TravelPack> &travelPackVector);

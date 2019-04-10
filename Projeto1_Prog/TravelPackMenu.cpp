@@ -112,26 +112,7 @@ void modifyTravelPackOption(vector<TravelPack> &travelPackVector) {
 	TravelPack modifiedTravelPack;
 
 	cout << "Please insert the data of the Touristic Pack you want to modify" << endl << endl;
-	copyTravelPack(travelPackToModify, askForTravelPacks(false,travelPackVector));
-
-	cout << travelPackToModify.identifier << endl;
-	cout << travelPackToModify.touristicSpots << endl;
-	cout << travelPackToModify.soldTicketsNumber << endl;
-	cout <<  travelPackToModify.beginningDate.month << endl;
-	cout << travelPackToModify.PricePerson;
-
-
-	if (travelPackToModify.identifier == travelPackVector[0].identifier && travelPackToModify.touristicSpots == travelPackVector[0].touristicSpots)
-	{
-		cout << "cona";
-	}
-
-
-	while (!travelPackInVector(travelPackVector, travelPackToModify))
-	{
-		cout << "The Touristic Pack is not in the database, please insert the data again" << endl << endl;
-		copyTravelPack(travelPackToModify, askForTravelPacks(false,travelPackVector));
-	}
+	copyTravelPack(travelPackToModify, askForTravelPacksIdentifier(travelPackVector));
 
 	cout << endl << endl << "Insert the new informations about the Touristic Pack: " << endl << endl;
 	copyTravelPack(modifiedTravelPack, askForTravelPacks(true,travelPackVector));
@@ -145,10 +126,39 @@ void modifyTravelPackOption(vector<TravelPack> &travelPackVector) {
 void removeClientOption(vector<TravelPack> &travelPackVector) {
 	TravelPack travelPack;
 	cout << "Please insert the data of the touristic pack you want to remove" << endl << endl;
-	copyTravelPack(travelPack, askForTravelPacks(false,travelPackVector));
+	copyTravelPack(travelPack, askForTravelPacksIdentifier(travelPackVector));
 	removeTravelPack(travelPack, travelPackVector);
 	cout << endl << endl << "Touristic Pack removed successfully!";
 	menuSeparator();
+}
+
+TravelPack askForTravelPacksIdentifier(vector<TravelPack> travelPackVector) {
+	int identifier;
+	bool inDatabase = false;
+	cout << "Identifier: ";
+	cin >> identifier;
+	validCin(identifier);
+	cin.clear();
+	cin.ignore(10000, '\n');
+
+	for (int i = 0; i < travelPackVector.size(); i++)
+	{
+		if (travelPackVector[i].identifier == identifier){ return travelPackVector[i]; }
+	}
+
+	
+	while (!inDatabase)
+	{
+		cout << "Identifier not in the database, please insert again: ";
+		cin >> identifier;
+		validCin(identifier);
+		cin.clear();
+		cin.ignore(10000, '\n');
+		for (int i = 0; i < travelPackVector.size(); i++)
+		{
+			if (travelPackVector[i].identifier == identifier) { return travelPackVector[i]; }
+		}
+	}
 }
 
 //Function which asks the user for a TravelPack informations and stores the information in a TravelPack struct
@@ -212,7 +222,7 @@ TravelPack askForTravelPacks(bool isCreatingTravelPack, vector<TravelPack> trave
 
 	while (!validDateText(endDateText))
 	{
-		cout << "Invalid address, please insert again: ";
+		cout << "Invalid date, please insert again: ";
 		getline(cin, endDateText);
 	}
 
@@ -232,6 +242,12 @@ TravelPack askForTravelPacks(bool isCreatingTravelPack, vector<TravelPack> trave
 	cout << "Sold tikets number: ";
 	cin >> soldTicketsNumber;
 	validCin(soldTicketsNumber);
+	while (maxPersonNumber < soldTicketsNumber)
+	{
+		cout << "Invalid sold tickets number, please insert again: ";
+		cin >> soldTicketsNumber;
+		validCin(soldTicketsNumber);
+	}
 	cin.clear();
 	cin.ignore(10000, '\n');
 

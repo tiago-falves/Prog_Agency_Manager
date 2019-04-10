@@ -89,6 +89,7 @@ void saveAndExit(vector<Client> &clientsVector, vector<TravelPack> &travelPacksV
 
 
 void validCin(int &option) {
+	
 	while (cin.fail())
 	{
 		cout << "Invalid input, please insert your answer again: ";

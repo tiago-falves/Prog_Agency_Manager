@@ -35,18 +35,43 @@ void runClientsMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPac
 	runMenu(clientsVector, travelPacksVector,agency);
 }
 
+Client askForNIF(vector<Client> clientsVector){
+	Client client;
+	int nif;
+	bool inDatabase = false;
+	cout << "NIF: ";
+	cin >> nif;
+	validCin(nif);
+	cin.clear();
+	cin.ignore(10000, '\n');
+	for (int i = 0; i < clientsVector.size(); i++)
+	{
+		if (clientsVector[i].NIF == nif) { return clientsVector[i]; }
+		
+	}
+	while (!inDatabase)
+	{
+		cout << "NIF not in the database, please insert again: ";
+		cin >> nif;
+		validCin(nif);
+		cin.clear();
+		cin.ignore(10000, '\n');
+		for (int i = 0; i < clientsVector.size(); i++)
+		{
+			if (clientsVector[i].NIF == nif) { return clientsVector[i]; }
+		}
+	}
+	
+}
+
 void buyTravelPack(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector) {
 	Client client;
 	int identifier;
 	bool validIdentifier = false;
 
 	cout << "Insert the Clients information you want to buy the touristic pack: " << endl;
-	copyClient(client,askForClientsInformation());
-	while (!clientInVector(clientsVector, client))
-	{
-		cout << "The Client is not in the database, please insert the data again" << endl << endl;
-		copyClient(client, askForClientsInformation());
-	}
+	copyClient(client, askForNIF(clientsVector));
+	
 	cout << endl << "Insert the Touristic Pack identifier you want to buy: ";
 	cin >> identifier;
 	validCin(identifier);
@@ -115,10 +140,9 @@ Client askForClientsInformation() {
 	string touristicPacksBought;
 
 	
-
-	cout << "Name: ";
 	cin.clear();
-	cin.ignore(10000, '\n');
+	//cin.ignore(10000, '\n');
+	cout << "Name: ";
 	getline(cin, name);
 
 	cout << "NIF: ";
@@ -134,8 +158,6 @@ Client askForClientsInformation() {
 	cin.ignore(10000, '\n');
 
 	cout << "Address (Street / Door Number / Floor Number / Postal Code / Locality): ";
-	cin.clear();
-	cin.ignore(10000, '\n');
 	getline(cin, addressText);
 
 	while (!validAddressText(addressText))
@@ -177,13 +199,7 @@ void modifyClientOption(vector<Client> &clientsVector) {
 	Client modifiedClient;
 
 	cout << "Please insert the data of the client you want to modify" << endl << endl;
-	copyClient(clientToModify, askForClientsInformation());
-
-	while (!clientInVector(clientsVector, clientToModify))
-	{
-		cout << "The Client is not in the database, please insert the data again" << endl << endl;
-		copyClient(clientToModify, askForClientsInformation());
-	}
+	copyClient(clientToModify, askForNIF(clientsVector));
 
 	cout << endl << endl << "Insert the new informations about the client: " << endl << endl;
 	copyClient(modifiedClient, askForClientsInformation());
@@ -196,12 +212,8 @@ void modifyClientOption(vector<Client> &clientsVector) {
 void removeClientOption(vector<Client> &clientsVector) {
 	Client client;
 	cout << "Please insert the data of the client you want to remove" << endl << endl;
-	copyClient(client, askForClientsInformation());
-	while (!clientInVector(clientsVector, client))
-	{
-		cout << "The Client is not in the database, please insert the data again" << endl << endl;
-		copyClient(client, askForClientsInformation());
-	}
+	copyClient(client, askForNIF(clientsVector));
+	
 	removeClient(client, clientsVector);
 	cout << endl << endl << "Client removed successfully!";
 	menuSeparator();
