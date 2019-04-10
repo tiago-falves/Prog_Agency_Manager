@@ -3,7 +3,7 @@
 #include "TravelPackMenu.h"
 using namespace std;
 
-
+//Runs the main Menu
 void runMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector, Agency agency) {
 	int option;
 
@@ -27,11 +27,13 @@ void runMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVecto
 	cin.ignore(10000, '\n');
 	menuSeparator();
 
+
 	if (option == 1) {runClientsMenu(clientsVector,travelPacksVector,agency); }
 	else if (option == 2) {runTravelPackMenu(clientsVector, travelPacksVector,agency); }
 	else if (option == 3) { saveAndExit(clientsVector, travelPacksVector, agency); }
 }
 
+//Outputs a separator made of *
 void menuSeparator() {
 	cout << endl << endl;
 	for (int i = 0; i < 60; i++) { cout << "*"; }
@@ -40,6 +42,7 @@ void menuSeparator() {
 	cout << endl << endl;
 }
 
+//Exists the program and saves the information to new files: "ClientsOutput.txt" and "TravelPackOutput.txt"
 void saveAndExit(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector,Agency agency) {
 	string content;
 	ofstream clientsFile("ClientsOutput.txt");
@@ -83,11 +86,10 @@ void saveAndExit(vector<Client> &clientsVector, vector<TravelPack> &travelPacksV
 	}
 	travelPacksFile << content;
 	travelPacksFile.close();
-
 	exit(1);
 }
 
-
+//Asks for a valid int until the user inputs it
 void validCin(int &option) {
 	
 	while (cin.fail())

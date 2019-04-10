@@ -4,7 +4,6 @@ using namespace std;
 
 
 //Reads the file information and puts its information in a struct
-
 void readClients(Agency agency, vector<Client> &clientsVector) {
 
 	string clientsText;
@@ -52,25 +51,12 @@ void readClients(Agency agency, vector<Client> &clientsVector) {
 	clientsFile.close();
 }
 
-// Add a Client to clientsVector
-//void addClient(vector<Client> &clientsVector, string name, int nif, int familyNumber, string addressText, string touristicPacksBought) {
+//Adds a Client to clientsVector
 void addClient(vector<Client> &clientsVector,Client client) {
-	/*Client client;
-	string name;
-	int nif;
-	int familyNumber;
-	string addressText;
-	string touristicPacksBought;
-
-	client.name = name;
-	client.NIF = nif;
-	client.familyNumber = familyNumber;
-	client.address = addressTextConverter(addressText);
-	client.touristicPacksIdentifier = separateCharacterInt(touristicPacksBought, ';');*/
 	clientsVector.push_back(client);
 }
 
-//Copies client client to copy
+//Copies client to copy
 void copyClient(Client &copy, Client client) {
 	copy.name = client.name;
 	copy.address = client.address;
@@ -80,16 +66,9 @@ void copyClient(Client &copy, Client client) {
 }
 
 //Removes clientToRemove from clientsVector
-//void removeClient(vector<Client> &clientsVector, string name, int nif, int familyNumber, string addressText, string touristicPacksBought) {
 void removeClient(Client clientToRemove, vector<Client> &clientsVector) {
-	//Client clientToRemove;
 	Client client;
-	/*clientToRemove.name = name;
-	clientToRemove.NIF = nif;
-	clientToRemove.familyNumber = familyNumber;
-	clientToRemove.address = addressTextConverter(addressText);
-	clientToRemove.touristicPacksIdentifier = separateCharacterInt(touristicPacksBought, ';');*/
-		
+	
 	int last_pos = clientsVector.size() - 1;
 	for (int i = 0; i < clientsVector.size(); i++)
 	{
@@ -131,6 +110,7 @@ void modifyClient(Client clientToModify, vector<Client> &clientVector, Client cl
 	}
 }
 
+//Returns true if the pack is valid
 bool validPacksBought(string packs) {
 	vector<string> vector;
 	vector = separateCharacterStr(packs, ';');
@@ -140,6 +120,7 @@ bool validPacksBought(string packs) {
 	return true;
 }
 
+//Transorms the client.travelpacks in a string separated by ';'
 string travelPacksToString(vector<int> travelPacks) {
 	string textPacks ="";
 	for (int i = 0; i < travelPacks.size(); i++)

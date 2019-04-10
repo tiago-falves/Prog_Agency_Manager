@@ -15,9 +15,6 @@
 using namespace std;
 
 
-
-
-
 int main() {
 
 	Agency agency;
@@ -29,6 +26,6 @@ int main() {
 	readClients(agency, clientsVector);
 	readTravelPacks(agency, travelPackVector);
 	runMenu(clientsVector,travelPackVector,agency);
-	
+
 	system("Pause");
 }

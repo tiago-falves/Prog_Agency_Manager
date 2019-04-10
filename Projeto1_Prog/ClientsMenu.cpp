@@ -2,9 +2,9 @@
 #include "Clients.h"
 using namespace std;
 
+//Asks all information and asks the user what option to choose
 void runClientsMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector,Agency agency){
 	int option;
-
 
 	cout << "Welcome to the Clients Menu! Please choose what you want to do: ";
 	cout << endl << endl;
@@ -16,7 +16,6 @@ void runClientsMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPac
 	cout << "Insert the number correspondent to your option: ";
 	cin >> option;
 	
-
 	while (cin.fail() || (option != 1 && option != 2 && option != 3 && option != 4 && option != 5))
 	{
 		cout << "Invalid option, please insert the option again: ";
@@ -35,6 +34,7 @@ void runClientsMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPac
 	runMenu(clientsVector, travelPacksVector,agency);
 }
 
+//Returns a Client of the database by inserting a NIF
 Client askForNIF(vector<Client> clientsVector){
 	Client client;
 	int nif;
@@ -44,6 +44,7 @@ Client askForNIF(vector<Client> clientsVector){
 	validCin(nif);
 	cin.clear();
 	cin.ignore(10000, '\n');
+
 	for (int i = 0; i < clientsVector.size(); i++)
 	{
 		if (clientsVector[i].NIF == nif) { return clientsVector[i]; }
@@ -61,9 +62,9 @@ Client askForNIF(vector<Client> clientsVector){
 			if (clientsVector[i].NIF == nif) { return clientsVector[i]; }
 		}
 	}
-	
 }
 
+//Adds the travel pack identiier to the client, alters the bought travelPack
 void buyTravelPack(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector) {
 	Client client;
 	int identifier;
@@ -105,8 +106,8 @@ void buyTravelPack(vector<Client> &clientsVector, vector<TravelPack> &travelPack
 		}
 	}
 	menuSeparator();
-
 }
+
 // Show information from all clients
 void showAllClients(vector<Client> clientsVector){
 	
@@ -139,9 +140,8 @@ Client askForClientsInformation() {
 	string addressText;
 	string touristicPacksBought;
 
-	
 	cin.clear();
-	//cin.ignore(10000, '\n');
+	cin.ignore(10000, '\n');
 	cout << "Name: ";
 	getline(cin, name);
 
@@ -160,7 +160,7 @@ Client askForClientsInformation() {
 	cout << "Address (Street / Door Number / Floor Number / Postal Code / Locality): ";
 	getline(cin, addressText);
 
-	while (!validAddressText(addressText))
+	while (!validAddressText(addressText) || addressText == "////")
 	{
 		cout << "Invalid address, please insert again: ";
 		getline(cin, addressText);
@@ -169,7 +169,7 @@ Client askForClientsInformation() {
 	cout << "Tourist Packs bought (separated by ';'): ";
 	getline(cin, touristicPacksBought);
 
-	while (!validPacksBought(touristicPacksBought))
+	while (!validPacksBought(touristicPacksBought) || touristicPacksBought == "")
 	{
 		cout << "Invalid Touristic Pack, please insert again: ";
 		getline(cin, touristicPacksBought);
@@ -185,6 +185,7 @@ Client askForClientsInformation() {
 
 }
 
+//Asks the user for data and adds a new client to clientsvector
 void createClientOption(vector<Client> &clientsVector) {
 	Client client;
 	cout << "Please insert the data of your new client" << endl << endl;
@@ -194,6 +195,7 @@ void createClientOption(vector<Client> &clientsVector) {
 	menuSeparator();
 }
 
+//Asks the user which client he wants to modify, and changes it
 void modifyClientOption(vector<Client> &clientsVector) {
 	Client clientToModify;
 	Client modifiedClient;
@@ -202,6 +204,8 @@ void modifyClientOption(vector<Client> &clientsVector) {
 	copyClient(clientToModify, askForNIF(clientsVector));
 
 	cout << endl << endl << "Insert the new informations about the client: " << endl << endl;
+	cin.clear();
+	//cin.ignore(10000, '\n');
 	copyClient(modifiedClient, askForClientsInformation());
 	//Perguntar porque que Ele aqui pergunta o name duas vezes
 	modifyClient(clientToModify, clientsVector, modifiedClient);
@@ -209,6 +213,7 @@ void modifyClientOption(vector<Client> &clientsVector) {
 	menuSeparator();
 }
 
+//Asks the user the nif of the client it wants to removes, and removes it from clientsVector
 void removeClientOption(vector<Client> &clientsVector) {
 	Client client;
 	cout << "Please insert the data of the client you want to remove" << endl << endl;

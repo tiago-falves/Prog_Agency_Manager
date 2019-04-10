@@ -8,7 +8,9 @@
 #include "TravelPack.h"
 
 void runMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector, Agency agency);
+
 void saveAndExit(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector, Agency agency);
 
 void menuSeparator();
+
 void validCin(int &option);

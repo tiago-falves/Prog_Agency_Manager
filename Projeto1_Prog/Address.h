@@ -2,7 +2,6 @@
 #include <string>
 #include "StringManipulator.h"
 
-
 struct Address {
 	std::string street;
 	int doorNumber;
@@ -10,7 +9,6 @@ struct Address {
 	std::string postalCode;
 	std::string locality;
 };
-
 
 Address addressTextConverter(std::string addressText);
 

@@ -5,11 +5,15 @@ using namespace std;
 struct Date {
 	int year;
 	int month;
-	int day;
-	
+	int day;	
 };
+
 Date dateTextConverter(string dateText);
+
 bool equalDates(Date date1, Date date2);
+
 void copyDate(Date &copy, Date date);
+
 bool validDateText(string dateText);
+
 bool biggerDate(Date bigDate, Date smallDate);

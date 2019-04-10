@@ -4,7 +4,6 @@
 #include "FileOperations.h"
 #include <fstream>
 
-
 struct Agency {
 	std::string name;
 	int NIF;

@@ -1,8 +1,6 @@
 #include "Date.h"
 
-
-
-
+//Converts dateTex in format year/month/day xxxx/xx/xx to a struct Date
 Date dateTextConverter(string dateText) {
 	Date date;
 	vector<int> dateVector;
@@ -12,17 +10,23 @@ Date dateTextConverter(string dateText) {
 	date.day = dateVector[2];
 	return date;
 }
+
+//Returns true if dates ae equal
 bool equalDates(Date date1, Date date2) {
 	if (date1.day == date2.day && date1.month == date2.month && date1.year == date2.year)
 		return true;
 	else
 		return false;
 }
+
+//Copies date to copy
 void copyDate(Date &copy, Date date) {
 	copy.year = date.year;
 	copy.month = date.month;
 	copy.day = date.day;
 }
+
+//Returns true if date text is a valid date
 bool validDateText(string dateText)
 {
 	vector<string> dateVector;
@@ -37,6 +41,7 @@ bool validDateText(string dateText)
 	return true;
 }
 
+//Returns true if bigDate is after smallDate
 bool biggerDate(Date bigDate, Date smallDate) {
 	if (bigDate.year > smallDate.year) {	return true;}
 	if (bigDate.month > smallDate.month) {return true;}

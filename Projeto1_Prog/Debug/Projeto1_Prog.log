@@ -1,14 +1,8 @@
-﻿  TravelPackMenu.cpp
-c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\travelpackmenu.cpp(71): warning C4018: '<': signed/unsigned mismatch
-c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\travelpackmenu.cpp(74): warning C4018: '<': signed/unsigned mismatch
-c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\travelpackmenu.cpp(77): warning C4018: '<': signed/unsigned mismatch
-c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\travelpackmenu.cpp(144): warning C4018: '<': signed/unsigned mismatch
-c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\travelpackmenu.cpp(157): warning C4018: '<': signed/unsigned mismatch
-c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\travelpackmenu.cpp(185): warning C4018: '<': signed/unsigned mismatch
-c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\travelpackmenu.cpp(269): warning C4018: '<': signed/unsigned mismatch
-c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\travelpackmenu.cpp(302): warning C4018: '<': signed/unsigned mismatch
-c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\travelpackmenu.cpp(341): warning C4018: '<': signed/unsigned mismatch
-c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\travelpackmenu.cpp(384): warning C4018: '<': signed/unsigned mismatch
-c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\travelpackmenu.cpp(401): warning C4018: '<': signed/unsigned mismatch
-c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\travelpackmenu.cpp(162): warning C4715: 'askForTravelPacksIdentifier': not all control paths return a value
+﻿  ClientsMenu.cpp
+c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\clientsmenu.cpp(48): warning C4018: '<': signed/unsigned mismatch
+c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\clientsmenu.cpp(60): warning C4018: '<': signed/unsigned mismatch
+c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\clientsmenu.cpp(81): warning C4018: '<': signed/unsigned mismatch
+c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\clientsmenu.cpp(102): warning C4018: '<': signed/unsigned mismatch
+c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\clientsmenu.cpp(114): warning C4018: '<': signed/unsigned mismatch
+c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\clientsmenu.cpp(65): warning C4715: 'askForNIF': not all control paths return a value
   Projeto1_Prog.vcxproj -> C:\Users\tiago\OneDrive\Ambiente de Trabalho\FEUP\Informática\1º\Prog\Projeto1_Prog\Debug\Projeto1_Prog.exe

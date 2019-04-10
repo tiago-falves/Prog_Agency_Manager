@@ -9,20 +9,17 @@ void readAgency(Agency &agency) {
 
 	string agencyText;
 	ifstream agencyFile;
-
 	int i = 0;
+
 	agencyFile.open("agency.txt");
-	if (agencyFile.fail())
-	{
+
+	if (agencyFile.fail())	{
 		cerr << "Error opening agency.txt";
-		
 	}
-	else
-	{
+	else{
 		while (getline(agencyFile, agencyText))
 		{
-			switch (i)
-			{
+			switch (i){
 			case 0:
 				agency.name =  agencyText;
 				break;
@@ -49,5 +46,5 @@ void readAgency(Agency &agency) {
 		}
 	}
 	agencyFile.close();
-	//return agency;
+	
 }
