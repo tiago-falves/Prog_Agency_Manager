@@ -10,4 +10,6 @@ void showAllTravelPacks(vector<TravelPack> travelPackVector);
 void showAllTravelPacksByDate(vector<TravelPack> travelPackVector);
 void showAllTravelPacksByDestination(vector<TravelPack> travelPackVector);
 void showAllTravelPacksByDateDestination(vector<TravelPack> travelPackVector);
-void showTravelPacks(vector<TravelPack> travelPacksVector,vector<Client> clientsVector);
+void showTravelPacks(vector<TravelPack> &travelPacksVector,vector<Client> &clientsVector);
+void showSoldTouristicPacks(vector<TravelPack> travelPacksVector, vector<Client> clientsVector);
+void calculateNumberPacks(vector<TravelPack> travelPackVector);

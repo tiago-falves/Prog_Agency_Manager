@@ -7,4 +7,5 @@ void modifyClientOption(vector<Client> &clientsVector);
 void removeClientOption(vector<Client> &clientsVector);
 void showClient(Client client);
 void showAllClients(vector<Client> clientsVector);
+void buyTravelPack(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector);
 Client askForClientsInformation();

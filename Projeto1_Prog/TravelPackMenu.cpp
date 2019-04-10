@@ -9,12 +9,13 @@ void runTravelPackMenu(vector<Client> &clientsVector, vector<TravelPack> &travel
 	cout << "1. Change a touristic pack." << endl;
 	cout << "2. Remove a touristic pack" << endl;
 	cout << "3. See information from touristic packs. " << endl;
+	cout << "4. Total profit." << endl;
 	
 	cout << "Insert the number correspondent to your option: ";
 	cin >> option;
 
 
-	while (cin.fail() || (option != 0 && option != 1 && option != 2 && option != 3))// && option != 4 && option != 5 && option != 6))
+	while (cin.fail() || (option != 0 && option != 1 && option != 2 && option != 3 && option != 4 ))//&& option != 5 && option != 6))
 	{
 		cout << "Invalid option, please insert the option again: ";
 		cin.clear();
@@ -27,10 +28,13 @@ void runTravelPackMenu(vector<Client> &clientsVector, vector<TravelPack> &travel
 	if (option == 1) { modifyTravelPackOption(travelPacksVector); }
 	if (option == 2) { removeClientOption(travelPacksVector); }
 	if (option == 3) { showTravelPacks( travelPacksVector,clientsVector); }
+	if (option == 4) {calculateNumberPacks ( travelPacksVector); }
 	runMenu(clientsVector, travelPacksVector);
 }
 
-void showTravelPacks(vector<TravelPack> travelPacksVector,vector<Client> clientsVector) {
+
+// Opens the See Touristic Packs options
+void showTravelPacks(vector<TravelPack> &travelPacksVector,vector<Client> &clientsVector) {
 	int option;
 	cout << "Please choose what you want to see: ";
 	cout << endl << endl;
@@ -38,12 +42,12 @@ void showTravelPacks(vector<TravelPack> travelPacksVector,vector<Client> clients
 	cout << "1. See information from all touristic packs. " << endl;
 	cout << "2. See information from touristic packs between two dates. " << endl;
 	cout << "3. See information from touristic packs to a certain destination. " << endl;
-	cout << "4. See information from touristic packs to a certain destination and between two dates. " << endl << endl;
+	cout << "4. See information from touristic packs to a certain destination and between two dates. " << endl ;
 	cout << "5. See information from all the sold touristic packs. " << endl << endl;
 
 	cout << "Insert the number correspondent to your option: ";
 	cin >> option;
-	while (cin.fail() || (option != 1 && option != 2 && option != 3 && option != 4 ))
+	while (cin.fail() || (option != 1 && option != 2 && option != 3 && option != 4 && option != 5))
 	{
 		cout << "Invalid option, please insert the option again: ";
 		cin.clear();
@@ -55,9 +59,44 @@ void showTravelPacks(vector<TravelPack> travelPacksVector,vector<Client> clients
 	if (option == 2) { showAllTravelPacksByDate(travelPacksVector); }
 	if (option == 3) { showAllTravelPacksByDestination(travelPacksVector); }
 	if (option == 4) { showAllTravelPacksByDateDestination(travelPacksVector); }
+	if (option == 5) { showSoldTouristicPacks (travelPacksVector,clientsVector); }
 
 }
 
+// Outputs all the sold touristic packs
+void showSoldTouristicPacks(vector<TravelPack> travelPacksVector, vector<Client> clientsVector) {
+	menuSeparator();
+	bool inTravelPack = false;
+	int c;
+	for (int i = 0; i < clientsVector.size(); i++)
+	{
+		cout << "Client " << i + 1 << endl << endl ;
+		for (int j = 0; j < clientsVector[i].touristicPacksIdentifier.size(); j++) {
+			inTravelPack = false;
+
+			for (int k = 0; k < travelPacksVector.size(); k++)
+			{
+				if (travelPacksVector[k].identifier == clientsVector[i].touristicPacksIdentifier[j] || travelPacksVector[k].identifier == -clientsVector[i].touristicPacksIdentifier[j]) {
+					inTravelPack = true;
+					c = k;
+					break;
+				}
+			}
+			if (inTravelPack)
+			{
+				showTravelPack(travelPacksVector[c]);
+				cout << endl;
+			}
+			else
+			{
+				cout << "Identifier: " << clientsVector[i].touristicPacksIdentifier[j] << " Not in the database" << endl;
+			}
+		}
+	}
+	menuSeparator();
+}
+
+// Asks the user for a new Travel pack information and adds it to the travelPackVector
 void createTravelPackOption(vector<TravelPack> &travelPackVector) {
 	TravelPack travelPack;
 	cout << "Please insert the data of your new Touristic Pack" << endl << endl;
@@ -67,6 +106,7 @@ void createTravelPackOption(vector<TravelPack> &travelPackVector) {
 	menuSeparator();
 }
 
+//Asks the user for a new Travel pack information and substitutes it for the old one
 void modifyTravelPackOption(vector<TravelPack> &travelPackVector) {
 	TravelPack travelPackToModify;
 	TravelPack modifiedTravelPack;
@@ -101,6 +141,7 @@ void modifyTravelPackOption(vector<TravelPack> &travelPackVector) {
 	menuSeparator();
 }
 
+//Asks the user for the Travel pack he wants to remove, and removes it from the vector
 void removeClientOption(vector<TravelPack> &travelPackVector) {
 	TravelPack travelPack;
 	cout << "Please insert the data of the touristic pack you want to remove" << endl << endl;
@@ -110,9 +151,7 @@ void removeClientOption(vector<TravelPack> &travelPackVector) {
 	menuSeparator();
 }
 
-
-
-
+//Function which asks the user for a TravelPack informations and stores the information in a TravelPack struct
 TravelPack askForTravelPacks(bool isCreatingTravelPack, vector<TravelPack> travelPackVector) {
 	TravelPack travelPack;
 
@@ -207,6 +246,7 @@ TravelPack askForTravelPacks(bool isCreatingTravelPack, vector<TravelPack> trave
 	return travelPack;
 }
 
+//Shows all the Travel Packs
 void showAllTravelPacks(vector<TravelPack> travelPackVector) {
 	menuSeparator();
 
@@ -219,6 +259,7 @@ void showAllTravelPacks(vector<TravelPack> travelPackVector) {
 	menuSeparator();
 }
 
+//Shows all the Travel Packs between two dates
 void showAllTravelPacksByDate(vector<TravelPack> travelPackVector) {
 	menuSeparator();
 	string begginningDateText;
@@ -293,6 +334,7 @@ void showAllTravelPacksByDestination(vector<TravelPack> travelPackVector) {
 	menuSeparator();
 }
 
+//Shows all the Travel Packs with a certain destination
 void showAllTravelPacksByDateDestination(vector<TravelPack> travelPackVector) {
 
 	menuSeparator();
@@ -333,4 +375,21 @@ void showAllTravelPacksByDateDestination(vector<TravelPack> travelPackVector) {
 		}
 	}
 	menuSeparator();
+}
+
+//Outputs the total profit and number of tickets
+void calculateNumberPacks(vector<TravelPack> travelPackVector) {
+	cout << "The Total profit is: ";
+	int price=0;
+	int number=0;
+	for (int i = 0; i < travelPackVector.size(); i++)
+	{
+		number += travelPackVector[i].soldTicketsNumber;
+		price += travelPackVector[i].PricePerson * travelPackVector[i].soldTicketsNumber;
+	}
+	cout << price <<"$" << endl;
+	cout << "Number of tickets sold: " << number;
+
+	menuSeparator();
+
 }

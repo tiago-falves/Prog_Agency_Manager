@@ -11,12 +11,13 @@ void runClientsMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPac
 	cout << "0. Create a new client." << endl;
 	cout << "1. Change a client information." << endl;
 	cout << "2. Remove a client" << endl;
-	cout << "3. See information from all clients. " << endl << endl;
+	cout << "3. See information from all clients. " << endl;
+	cout << "4. Buy a touristic pack for a client" << endl << endl;
 	cout << "Insert the number correspondent to your option: ";
 	cin >> option;
 	
 
-	while (cin.fail() || (option != 0 && option != 1 && option != 2 && option != 3))
+	while (cin.fail() || (option != 0 && option != 1 && option != 2 && option != 3 && option != 4))
 	{
 		cout << "Invalid option, please insert the option again: ";
 		cin.clear();
@@ -29,13 +30,59 @@ void runClientsMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPac
 	if (option == 1) { modifyClientOption(clientsVector);}
 	if (option == 2) { removeClientOption(clientsVector);}
 	if (option == 3) { showAllClients(clientsVector);}
+	if (option == 4) { buyTravelPack(clientsVector, travelPacksVector);}
 
 	runMenu(clientsVector, travelPacksVector);
 	
 
 }
 
+void buyTravelPack(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector) {
+	Client client;
+	int identifier;
+	bool validIdentifier = false;
 
+	cout << "Insert the Clients information you want to buy the touristic pack: " << endl;
+	copyClient(client,askForClientsInformation());
+	while (!clientInVector(clientsVector, client))
+	{
+		cout << "The Client is not in the database, please insert the data again" << endl << endl;
+		copyClient(client, askForClientsInformation());
+	}
+	cout << endl << "Insert the Touristic Pack identifier you want to buy: ";
+	cin >> identifier;
+	validCin(identifier);
+	while (!validIdentifier)
+	{
+		for (int i = 0; i < travelPacksVector.size(); i++)
+		{
+			if (identifier == travelPacksVector[i].identifier && travelPacksVector[i].identifier > 0 && (travelPacksVector[i].maxPersonNumber-travelPacksVector[i].soldTicketsNumber) > 0)
+			{
+				validIdentifier = true;
+				travelPacksVector[i].soldTicketsNumber += 1;
+				if ((travelPacksVector[i].maxPersonNumber - travelPacksVector[i].soldTicketsNumber) <= 0) {
+					travelPacksVector[i].identifier = -travelPacksVector[i].identifier;
+				}
+				break;
+			}
+		}
+		if (!validIdentifier)
+		{
+			cout << "Identifier not in the database, please insert again: ";
+			cin >> identifier;
+			validCin(identifier);
+		}
+	}
+
+	for (int i = 0; i < clientsVector.size(); i++)
+	{
+		if (equalClients(client, clientsVector[i])) {
+			clientsVector[i].touristicPacksIdentifier.push_back(identifier);
+		}
+	}
+	menuSeparator();
+
+}
 // Show information from all clients
 void showAllClients(vector<Client> clientsVector){
 	
