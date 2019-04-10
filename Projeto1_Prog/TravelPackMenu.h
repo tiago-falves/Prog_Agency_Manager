@@ -1,7 +1,7 @@
 #pragma once
 #include "Menu.h"
 
-void runTravelPackMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector);
+void runTravelPackMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector, Agency agency);
 TravelPack askForTravelPacks(bool isCreatingTravelPack, vector<TravelPack> travelPackVector);
 void createTravelPackOption(vector<TravelPack> &travelPackVector);
 void modifyTravelPackOption(vector<TravelPack> &travelPackVector);

@@ -1,21 +1,21 @@
 #include "TravelPackMenu.h"
 
-void runTravelPackMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector) {
+void runTravelPackMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector, Agency agency) {
 	int option;
 
 	cout << "Welcome to the Touristic Packs Menu! Please choose what you want to do: ";
 	cout << endl << endl;
-	cout << "0. Create a new touristic pack." << endl;
-	cout << "1. Change a touristic pack." << endl;
-	cout << "2. Remove a touristic pack" << endl;
-	cout << "3. See information from touristic packs. " << endl;
-	cout << "4. Total profit." << endl;
+	cout << "1. Create a new touristic pack." << endl;
+	cout << "2. Change a touristic pack." << endl;
+	cout << "3. Remove a touristic pack" << endl;
+	cout << "4. See information from touristic packs. " << endl;
+	cout << "5. Total profit." << endl;
 	
 	cout << "Insert the number correspondent to your option: ";
 	cin >> option;
 
 
-	while (cin.fail() || (option != 0 && option != 1 && option != 2 && option != 3 && option != 4 ))//&& option != 5 && option != 6))
+	while (cin.fail() || (option != 1 && option != 2 && option != 3 && option != 4 && option != 5 ))//&& option != 5 && option != 6))
 	{
 		cout << "Invalid option, please insert the option again: ";
 		cin.clear();
@@ -24,12 +24,12 @@ void runTravelPackMenu(vector<Client> &clientsVector, vector<TravelPack> &travel
 	}
 	menuSeparator();
 
-	if (option == 0) { createTravelPackOption(travelPacksVector); }
-	if (option == 1) { modifyTravelPackOption(travelPacksVector); }
-	if (option == 2) { removeClientOption(travelPacksVector); }
-	if (option == 3) { showTravelPacks( travelPacksVector,clientsVector); }
-	if (option == 4) {calculateNumberPacks ( travelPacksVector); }
-	runMenu(clientsVector, travelPacksVector);
+	if (option == 1) { createTravelPackOption(travelPacksVector); }
+	if (option == 2) { modifyTravelPackOption(travelPacksVector); }
+	if (option == 3) { removeClientOption(travelPacksVector); }
+	if (option == 4) { showTravelPacks( travelPacksVector,clientsVector); }
+	if (option == 5) {calculateNumberPacks ( travelPacksVector); }
+	runMenu(clientsVector, travelPacksVector, agency);
 }
 
 

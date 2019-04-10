@@ -2,22 +2,22 @@
 #include "Clients.h"
 using namespace std;
 
-void runClientsMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector){
+void runClientsMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector,Agency agency){
 	int option;
 
 
 	cout << "Welcome to the Clients Menu! Please choose what you want to do: ";
 	cout << endl << endl;
-	cout << "0. Create a new client." << endl;
-	cout << "1. Change a client information." << endl;
-	cout << "2. Remove a client" << endl;
-	cout << "3. See information from all clients. " << endl;
-	cout << "4. Buy a touristic pack for a client" << endl << endl;
+	cout << "1. Create a new client." << endl;
+	cout << "2. Change a client information." << endl;
+	cout << "3. Remove a client" << endl;
+	cout << "4. See information from all clients. " << endl;
+	cout << "5. Buy a touristic pack for a client" << endl << endl;
 	cout << "Insert the number correspondent to your option: ";
 	cin >> option;
 	
 
-	while (cin.fail() || (option != 0 && option != 1 && option != 2 && option != 3 && option != 4))
+	while (cin.fail() || (option != 1 && option != 2 && option != 3 && option != 4 && option != 5))
 	{
 		cout << "Invalid option, please insert the option again: ";
 		cin.clear();
@@ -26,15 +26,13 @@ void runClientsMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPac
 	}
 	menuSeparator();
 
-	if (option == 0) { createClientOption(clientsVector);}
-	if (option == 1) { modifyClientOption(clientsVector);}
-	if (option == 2) { removeClientOption(clientsVector);}
-	if (option == 3) { showAllClients(clientsVector);}
-	if (option == 4) { buyTravelPack(clientsVector, travelPacksVector);}
+	if (option == 1) { createClientOption(clientsVector);}
+	if (option == 2) { modifyClientOption(clientsVector);}
+	if (option == 3) { removeClientOption(clientsVector);}
+	if (option == 4) { showAllClients(clientsVector);}
+	if (option == 5) { buyTravelPack(clientsVector, travelPacksVector);}
 
-	runMenu(clientsVector, travelPacksVector);
-	
-
+	runMenu(clientsVector, travelPacksVector,agency);
 }
 
 void buyTravelPack(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector) {
@@ -63,6 +61,7 @@ void buyTravelPack(vector<Client> &clientsVector, vector<TravelPack> &travelPack
 				if ((travelPacksVector[i].maxPersonNumber - travelPacksVector[i].soldTicketsNumber) <= 0) {
 					travelPacksVector[i].identifier = -travelPacksVector[i].identifier;
 				}
+				cout << endl << "Touristic pack bought successfuly!" << endl;
 				break;
 			}
 		}

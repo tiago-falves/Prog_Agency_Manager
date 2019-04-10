@@ -1,11 +1,5 @@
-﻿  TravelPackMenu.cpp
-c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\travelpackmenu.cpp(67): warning C4018: '<': signed/unsigned mismatch
-c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\travelpackmenu.cpp(70): warning C4018: '<': signed/unsigned mismatch
-c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\travelpackmenu.cpp(73): warning C4018: '<': signed/unsigned mismatch
-c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\travelpackmenu.cpp(170): warning C4018: '<': signed/unsigned mismatch
-c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\travelpackmenu.cpp(247): warning C4018: '<': signed/unsigned mismatch
-c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\travelpackmenu.cpp(279): warning C4018: '<': signed/unsigned mismatch
-c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\travelpackmenu.cpp(318): warning C4018: '<': signed/unsigned mismatch
-c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\travelpackmenu.cpp(360): warning C4018: '<': signed/unsigned mismatch
-c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\travelpackmenu.cpp(375): warning C4018: '<': signed/unsigned mismatch
+﻿  Menu.cpp
+c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\menu.cpp(47): warning C4018: '<': signed/unsigned mismatch
+c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\menu.cpp(53): warning C4018: '<': signed/unsigned mismatch
+c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\menu.cpp(69): warning C4018: '<': signed/unsigned mismatch
   Projeto1_Prog.vcxproj -> C:\Users\tiago\OneDrive\Ambiente de Trabalho\FEUP\Informática\1º\Prog\Projeto1_Prog\Debug\Projeto1_Prog.exe
