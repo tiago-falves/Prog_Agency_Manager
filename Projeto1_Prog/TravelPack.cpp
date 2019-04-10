@@ -86,8 +86,7 @@ void copyTravelPack(TravelPack &copy, TravelPack travelPack) {
 
 //True if Travel Packs are equal, False otherwise
 bool equalTravelPacks(TravelPack travelPack1, TravelPack travelPack2) {
-	//&&	travelPack1.touristicSpots == travelPack2.touristicSpots
-	if (travelPack1.identifier == travelPack2.identifier  && equalDates(travelPack1.beginningDate,travelPack2.beginningDate) && equalDates(travelPack1.endDate,travelPack2.endDate) && travelPack1.PricePerson == travelPack2.PricePerson && travelPack1.maxPersonNumber == travelPack2.maxPersonNumber && travelPack1.soldTicketsNumber == travelPack2.soldTicketsNumber)
+	if (travelPack1.identifier == travelPack2.identifier  && equalDates(travelPack1.beginningDate,travelPack2.beginningDate) && equalDates(travelPack1.endDate,travelPack2.endDate) && travelPack1.PricePerson == travelPack2.PricePerson && travelPack1.maxPersonNumber == travelPack2.maxPersonNumber && travelPack1.soldTicketsNumber == travelPack2.soldTicketsNumber && travelPack1.touristicSpots == travelPack2.touristicSpots)
 		return true;
 	else
 		return false;
@@ -126,4 +125,9 @@ bool travelPackInVector(vector<TravelPack> travelPackVector, TravelPack travelPa
 		if (equalTravelPacks(travelPackVector[i], travelPack)) { return true; }
 	}
 	return false;
+}
+vector<string> separatedDestination(string destinations) {
+	vector<string> destinationVector;
+	destinationVector = separateCharacterStr(destinations, '-');
+	return destinationVector;
 }

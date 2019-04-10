@@ -29,7 +29,6 @@ int main() {
 	string x = "2019/0a/02";
 	string addressText = "Rua Sem Fim / 200 / 5Esq /1200-001 / Lisboa";
 
-	
 	readAgency(agency);
 	readClients(agency, clientsVector);
 	readTravelPacks(agency, travelPackVector);

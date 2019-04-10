@@ -40,6 +40,6 @@ bool validDateText(string dateText)
 bool biggerDate(Date bigDate, Date smallDate) {
 	if (bigDate.year > smallDate.year) {	return true;}
 	if (bigDate.month > smallDate.month) {return true;}
-	if (bigDate.day > smallDate.day) {return true;}
+	if (bigDate.day >= smallDate.day) {return true;}
 	return false;
 }

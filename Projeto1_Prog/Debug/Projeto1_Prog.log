@@ -1,4 +1,7 @@
-﻿  Projeto1_Prog.cpp
-c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\projeto1_prog.cpp(25): warning C4101: 'date2': unreferenced local variable
-c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\projeto1_prog.cpp(24): warning C4101: 'date1': unreferenced local variable
+﻿  TravelPackMenu.cpp
+c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\travelpackmenu.cpp(136): warning C4018: '<': signed/unsigned mismatch
+c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\travelpackmenu.cpp(213): warning C4018: '<': signed/unsigned mismatch
+c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\travelpackmenu.cpp(245): warning C4018: '<': signed/unsigned mismatch
+c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\travelpackmenu.cpp(284): warning C4018: '<': signed/unsigned mismatch
+c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\travelpackmenu.cpp(326): warning C4018: '<': signed/unsigned mismatch
   Projeto1_Prog.vcxproj -> C:\Users\tiago\OneDrive\Ambiente de Trabalho\FEUP\Informática\1º\Prog\Projeto1_Prog\Debug\Projeto1_Prog.exe
