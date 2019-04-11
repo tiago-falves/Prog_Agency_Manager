@@ -15,6 +15,8 @@ void showAllClients(vector<Client> clientsVector);
 
 void buyTravelPack(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector);
 
+void showClientOption(vector<Client> clientsVector);
+
 Client askForClientsInformation();
 
 Client askForNIF(vector<Client> clientsVector);

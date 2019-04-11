@@ -12,11 +12,12 @@ void runClientsMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPac
 	cout << "2. Change a client information." << endl;
 	cout << "3. Remove a client" << endl;
 	cout << "4. See information from all clients. " << endl;
-	cout << "5. Buy a touristic pack for a client" << endl << endl;
+	cout << "5. See  from a specific client. " << endl;
+	cout << "6. Buy a touristic pack for a client" << endl << endl;
 	cout << "Insert the number correspondent to your option: ";
 	cin >> option;
 	
-	while (cin.fail() || (option != 1 && option != 2 && option != 3 && option != 4 && option != 5))
+	while (cin.fail() || (option != 1 && option != 2 && option != 3 && option != 4 && option != 5 && option != 6))
 	{
 		cout << "Invalid option, please insert the option again: ";
 		cin.clear();
@@ -29,17 +30,23 @@ void runClientsMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPac
 	if (option == 2) { modifyClientOption(clientsVector);}
 	if (option == 3) { removeClientOption(clientsVector);}
 	if (option == 4) { showAllClients(clientsVector);}
-	if (option == 5) { buyTravelPack(clientsVector, travelPacksVector);}
+	if (option == 5) { showClientOption(clientsVector);}
+	if (option == 6) { buyTravelPack(clientsVector, travelPacksVector);}
 
 	runMenu(clientsVector, travelPacksVector,agency);
 }
 
+
+void showClientOption(vector<Client> clientsVector) {
+	showClient(askForNIF(clientsVector));
+	menuSeparator();
+}
 //Returns a Client of the database by inserting a NIF
 Client askForNIF(vector<Client> clientsVector){
 	Client client;
 	int nif;
 	bool inDatabase = false;
-	cout << "NIF: ";
+	cout << "Insert Clients NIF: ";
 	cin >> nif;
 	validCin(nif);
 	cin.clear();
@@ -62,6 +69,7 @@ Client askForNIF(vector<Client> clientsVector){
 			if (clientsVector[i].NIF == nif) { return clientsVector[i]; }
 		}
 	}
+	
 }
 
 //Adds the travel pack identiier to the client, alters the bought travelPack
@@ -182,7 +190,6 @@ Client askForClientsInformation() {
 	client.touristicPacksIdentifier = separateCharacterInt(touristicPacksBought, ';');
 
 	return client;
-
 }
 
 //Asks the user for data and adds a new client to clientsvector
@@ -204,8 +211,6 @@ void modifyClientOption(vector<Client> &clientsVector) {
 	copyClient(clientToModify, askForNIF(clientsVector));
 
 	cout << endl << endl << "Insert the new informations about the client: " << endl << endl;
-	cin.clear();
-	//cin.ignore(10000, '\n');
 	copyClient(modifiedClient, askForClientsInformation());
 	//Perguntar porque que Ele aqui pergunta o name duas vezes
 	modifyClient(clientToModify, clientsVector, modifiedClient);

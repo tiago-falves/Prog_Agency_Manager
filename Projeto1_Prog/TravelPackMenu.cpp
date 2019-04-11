@@ -9,7 +9,7 @@ void runTravelPackMenu(vector<Client> &clientsVector, vector<TravelPack> &travel
 	cout << "2. Change a touristic pack." << endl;
 	cout << "3. Remove a touristic pack" << endl;
 	cout << "4. See information from touristic packs. " << endl;
-	cout << "5. Total profit." << endl;
+	cout << "5. Total profit." << endl << endl;
 	
 	cout << "Insert the number correspondent to your option: ";
 	cin >> option;
@@ -181,7 +181,6 @@ TravelPack askForTravelPacks(bool isCreatingTravelPack, vector<TravelPack> trave
 	{
 		do
 		{
-			
 			for (int i = 0; i < travelPackVector.size(); i++)
 			{
 				if (identifier == travelPackVector[i].identifier)
@@ -190,7 +189,7 @@ TravelPack askForTravelPacks(bool isCreatingTravelPack, vector<TravelPack> trave
 					cin >> identifier;
 					validCin(identifier);
 					cin.clear();
-					cin.ignore(10000, '\n');
+					//cin.ignore(10000, '\n');
 					validIdentifier = false;
 					break;
 				}
@@ -202,7 +201,6 @@ TravelPack askForTravelPacks(bool isCreatingTravelPack, vector<TravelPack> trave
 	cin.clear();
 	cin.ignore(10000, '\n');
 	cout << "Touristic Spots (Main touristic destination - main toristic spots): ";
-	
 	getline(cin, touristicSpots);
 
 	cout << "Begginning date(xxxx/xx/xx): ";
@@ -231,6 +229,7 @@ TravelPack askForTravelPacks(bool isCreatingTravelPack, vector<TravelPack> trave
 	cin >> pricePerson;
 	validCin(pricePerson);
 	cin.clear();
+	cin.ignore(10000, '\n');
 	
 
 	cout << "Max number of people: ";

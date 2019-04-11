@@ -1,8 +1,8 @@
 ﻿  ClientsMenu.cpp
-c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\clientsmenu.cpp(48): warning C4018: '<': signed/unsigned mismatch
-c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\clientsmenu.cpp(60): warning C4018: '<': signed/unsigned mismatch
-c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\clientsmenu.cpp(81): warning C4018: '<': signed/unsigned mismatch
-c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\clientsmenu.cpp(102): warning C4018: '<': signed/unsigned mismatch
-c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\clientsmenu.cpp(114): warning C4018: '<': signed/unsigned mismatch
-c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\clientsmenu.cpp(65): warning C4715: 'askForNIF': not all control paths return a value
+c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\clientsmenu.cpp(55): warning C4018: '<': signed/unsigned mismatch
+c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\clientsmenu.cpp(67): warning C4018: '<': signed/unsigned mismatch
+c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\clientsmenu.cpp(89): warning C4018: '<': signed/unsigned mismatch
+c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\clientsmenu.cpp(110): warning C4018: '<': signed/unsigned mismatch
+c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\clientsmenu.cpp(122): warning C4018: '<': signed/unsigned mismatch
+c:\users\tiago\onedrive\ambiente de trabalho\feup\informática\1º\prog\projeto1_prog\projeto1_prog\clientsmenu.cpp(73): warning C4715: 'askForNIF': not all control paths return a value
   Projeto1_Prog.vcxproj -> C:\Users\tiago\OneDrive\Ambiente de Trabalho\FEUP\Informática\1º\Prog\Projeto1_Prog\Debug\Projeto1_Prog.exe
