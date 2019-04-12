@@ -24,6 +24,10 @@ void runClientsMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPac
 		cin.ignore(10000, '\n');
 		cin >> option;
 	}
+
+	cin.clear();
+	cin.ignore(10000, '\n');
+
 	menuSeparator();
 
 	if (option == 1) { createClientOption(clientsVector);}
@@ -148,8 +152,7 @@ Client askForClientsInformation() {
 	string addressText;
 	string touristicPacksBought;
 
-	cin.clear();
-	cin.ignore(10000, '\n');
+	
 	cout << "Name: ";
 	getline(cin, name);
 
