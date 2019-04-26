@@ -26,7 +26,7 @@ int main() {
 	readClients(agency, clientsVector);
 	readTravelPacks(agency, travelPackVector);
 	runMenu(clientsVector,travelPackVector,agency);
-	cout << "Hello";
+	cout << "Hello World";
 
 
 	system("Pause");
