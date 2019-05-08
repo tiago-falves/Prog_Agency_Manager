@@ -1,0 +1,99 @@
+# depslib dependency file v1.0
+1557178444 source:c:\users\35191\desktop\projeto_prog_agency\projeto1_prog\address.cpp
+	"Address.h"
+	"StringManipulator.h"
+
+1557178444 c:\users\35191\desktop\projeto_prog_agency\projeto1_prog\address.h
+	<string>
+	"StringManipulator.h"
+
+1557178444 c:\users\35191\desktop\projeto_prog_agency\projeto1_prog\stringmanipulator.h
+	<string>
+	<vector>
+
+1557178444 source:c:\users\35191\desktop\projeto_prog_agency\projeto1_prog\agency.cpp
+	"Agency.h"
+	<iostream>
+
+1557178444 c:\users\35191\desktop\projeto_prog_agency\projeto1_prog\agency.h
+	<string>
+	"Address.h"
+	"FileOperations.h"
+	<fstream>
+
+1557178444 c:\users\35191\desktop\projeto_prog_agency\projeto1_prog\fileoperations.h
+	<fstream>
+
+1557178444 source:c:\users\35191\desktop\projeto_prog_agency\projeto1_prog\clients.cpp
+	"Clients.h"
+	<iostream>
+
+1557178444 c:\users\35191\desktop\projeto_prog_agency\projeto1_prog\clients.h
+	<string>
+	"Address.h"
+	<vector>
+	<fstream>
+	"Agency.h"
+	"StringManipulator.h"
+	"TravelPack.h"
+
+1557178444 c:\users\35191\desktop\projeto_prog_agency\projeto1_prog\travelpack.h
+	<string>
+	<vector>
+	"Date.h"
+	"Agency.h"
+	<iostream>
+
+1557178444 c:\users\35191\desktop\projeto_prog_agency\projeto1_prog\date.h
+	"StringManipulator.h"
+
+1557178444 source:c:\users\35191\desktop\projeto_prog_agency\projeto1_prog\clientsmenu.cpp
+	"ClientsMenu.h"
+	"Clients.h"
+
+1557178444 c:\users\35191\desktop\projeto_prog_agency\projeto1_prog\clientsmenu.h
+	"Menu.h"
+
+1557178444 c:\users\35191\desktop\projeto_prog_agency\projeto1_prog\menu.h
+	<iostream>
+	<iomanip>
+	<string>
+	<fstream>
+	<vector>
+	"Clients.h"
+	"TravelPack.h"
+
+1557178444 source:c:\users\35191\desktop\projeto_prog_agency\projeto1_prog\date.cpp
+	"Date.h"
+
+1557178444 source:c:\users\35191\desktop\projeto_prog_agency\projeto1_prog\menu.cpp
+	"Menu.h"
+	"ClientsMenu.h"
+	"TravelPackMenu.h"
+
+1557178444 c:\users\35191\desktop\projeto_prog_agency\projeto1_prog\travelpackmenu.h
+	"Menu.h"
+
+1557178444 source:c:\users\35191\desktop\projeto_prog_agency\projeto1_prog\projeto1_prog.cpp
+	<string>
+	<vector>
+	<fstream>
+	<sstream>
+	<algorithm>
+	"Agency.h"
+	"Address.h"
+	"Clients.h"
+	"TravelPack.h"
+	"Date.h"
+	"Menu.h"
+	"TravelPackMenu.h"
+
+1557178444 source:c:\users\35191\desktop\projeto_prog_agency\projeto1_prog\strigmanipulator.cpp
+	"StringManipulator.h"
+
+1557178444 source:c:\users\35191\desktop\projeto_prog_agency\projeto1_prog\travelpack.cpp
+	"TravelPack.h"
+
+1557178444 source:c:\users\35191\desktop\projeto_prog_agency\projeto1_prog\travelpackmenu.cpp
+	"TravelPackMenu.h"
+

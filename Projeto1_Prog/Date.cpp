@@ -11,7 +11,7 @@ Date dateTextConverter(string dateText) {
 	return date;
 }
 
-//Returns true if dates ae equal
+//Returns true if dates are equal
 bool equalDates(Date date1, Date date2) {
 	if (date1.day == date2.day && date1.month == date2.month && date1.year == date2.year)
 		return true;

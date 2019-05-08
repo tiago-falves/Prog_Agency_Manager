@@ -1,5 +1,5 @@
 ﻿#include <iostream>
-#include<string>
+#include <string>
 #include <vector>
 #include <fstream>
 #include <sstream>
@@ -18,7 +18,7 @@ using namespace std;
 int main() {
 
 	Agency agency;
-	Client client,client1,client2;
+	Client client, client1, client2;
 	vector<Client> clientsVector;
 	vector<TravelPack> travelPackVector;
 
