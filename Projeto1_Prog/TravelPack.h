@@ -1,35 +1,44 @@
 #pragma once
+
+#include <iostream>
 #include <string>
 #include <vector>
+
+
+#include "defs.h"
 #include "Date.h"
-#include "Agency.h"
-#include <iostream>
+
 using namespace std;
 
-struct TravelPack {
-	int lastPackIdentifier;
-	int identifier;
-	string touristicSpots;
-	Date beginningDate;
-	Date endDate;
-	int PricePerson;
-	int maxPersonNumber;
-	int soldTicketsNumber;
-	const string separator = "::::::::::";
+class TravelPack{
+ private:
+  unsigned id; // TravelPack unique identifier
+  vector<string> sites; // touristic sites to visit
+  Date begin;  // begin date
+  Date end;  // end date
+  double pricePerPerson; // price per person
+  unsigned maxPersons; // number of persons still available in the TravelPack (updated whenever the TravelPack is sold to a new client)
+  
+ public:
+  TravelPack(vector<string> sites, Date begin, Date end, double pricePerPerson, unsigned maxPersons);
+
+  // GET methods
+  unsigned getId() const;
+  vector<string> getSites() const;
+  Date getBeginDate() const;
+  Date getEndDate() const;
+  double getPricePerPerson() const;
+  unsigned getMaxPersons() const;
+
+  // SET methods
+  void setId(unsigned id);  // to set negatve if "deprecated"
+  void setSites(vector<string> sites);
+  void setBeginDate(Date begin);
+  void setEndDate(Date end);
+  void setPricePerPerson(double pricePerPerson);
+  void setMaxPersons(unsigned maxPersons);
+
+  // other methods
+
+  friend ostream& operator<<(ostream& out, const TravelPack & TravelPack);
 };
-
-void copyTravelPack(TravelPack &copy, TravelPack travelPack);
-
-bool equalTravelPacks(TravelPack travelPack1, TravelPack travelPack2);
-
-void removeTravelPack(TravelPack travelPackToRemove, vector<TravelPack> &travelPackVector);
-
-void readTravelPacks(Agency agency, vector<TravelPack> &travelPacksVector);
-
-void addTravelPack(vector<TravelPack> &travelPackVector, TravelPack travelPack);
-
-void modifyTravelPack(TravelPack travelPackToModify, vector<TravelPack> &travelPackVector, TravelPack travelPack);
-
-bool travelPackInVector(vector<TravelPack> travelPackVector, TravelPack travelPack);
-
-void showTravelPack(TravelPack travelPack);

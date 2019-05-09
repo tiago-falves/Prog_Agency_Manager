@@ -24,19 +24,7 @@
     <ClCompile Include="Address.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Clients.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Date.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Menu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ClientsMenu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TravelPackMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TravelPack.cpp">
@@ -63,15 +51,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Date.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Menu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ClientsMenu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TravelPackMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

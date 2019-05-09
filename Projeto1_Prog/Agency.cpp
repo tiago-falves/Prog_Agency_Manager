@@ -1,49 +1,82 @@
 #include "Agency.h"
-#include <iostream>
 
 
-using namespace std;
 
-// Opens the agency file and puts its contents in a Agency Struct
-void readAgency(Agency &agency) {
+Agency::Agency(string fileName){
 
-	string agencyText;
-	ifstream agencyFile;
-	int i = 0;
-
-	agencyFile.open("agency.txt");
-
-	if (agencyFile.fail())	{
-		cerr << "Error opening agency.txt";
-	}
-	else{
-		while (getline(agencyFile, agencyText))
-		{
-			switch (i){
-			case 0:
-				agency.name =  agencyText;
-				break;
-			case 1:
-				agency.NIF = stoi(agencyText);
-				break;
-			case 2:
-				agency.URL = agencyText;
-				break;
-			case 3:
-				agency.address = addressTextConverter(agencyText);
-				break;
-			case 4:
-				agency.clientsNameFile = agencyText;
-				break;
-			case 5:
-				agency.packsNameFile = agencyText;
-				break;
-			default:
-				break;
-			}
-			i++;
-		}
-	}
-	agencyFile.close();
-	
+  //  IMPLEMENTATION REQUIRED 
 }
+
+  // metodos GET
+/*string Agency::getName() const{
+
+  //  IMPLEMENTATION REQUIRED 
+}
+
+unsigned Agency::getVATnumber() const{
+
+  //  IMPLEMENTATION REQUIRED 
+}
+
+Address Agency::getAddress() const{
+
+  //  IMPLEMENTATION REQUIRED 
+}
+
+string Agency::getURL() const{
+
+  //  IMPLEMENTATION REQUIRED 
+}
+
+vector<Client> Agency::getClients() const{
+
+  //  IMPLEMENTATION REQUIRED 
+}
+
+vector<TravelPack> Agency::getTravelPacks() const{
+
+  //  IMPLEMENTATION REQUIRED 
+}*/
+
+  
+  // SET Methods
+
+void Agency::setName(string name){
+
+  //  IMPLEMENTATION REQUIRED 
+}
+
+void Agency::setVATnumber(unsigned VATnumber){
+
+  //  IMPLEMENTATION REQUIRED 
+}
+
+void Agency::setAddress(Address address){
+
+  //  IMPLEMENTATION REQUIRED 
+}
+  void Agency::setURL(string url){
+
+  //  IMPLEMENTATION REQUIRED 
+
+}
+  void Agency::setClients(vector<Client> & clients){
+
+  //  IMPLEMENTATION REQUIRED 
+
+  }
+  void Agency::setTravelPacks(vector<TravelPack> & TravelPacks){
+
+  //  IMPLEMENTATION REQUIRED 
+
+}
+
+/*********************************
+ * Mostrar Loja
+ ********************************/  
+
+// mostra o conteudo de uma agencia
+/*ostream& operator<<(ostream& out, const Agency & agency){
+
+  // A IMPLEMENTATION REQUIRED 
+}*/
