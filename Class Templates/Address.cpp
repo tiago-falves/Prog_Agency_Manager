@@ -1,71 +1,63 @@
 #include "Address.h"
 
-
 Address::Address(){
 }
 
-Address::Address(string street, unsigned short doorNumber, string floor, string postalCode, string location){
-
-  // REQUIRES IMPLEMENTATION
+Address::Address(string street = "UNSPECIFIED STREET", unsigned short doorNumber = 0, string floor = "UNSPECIFIED FLOOR", string postalCode = "0000-000", string location = "UNSPECIFIED SITE"){
+	this -> street = street;
+	this -> doorNumber = doorNumber;
+	this -> floor = floor;
+    this -> postalCode = postalCode;
+	this -> location = location;
 }
 
   // metodos GET
 
-
 string Address::getStreet() const{
-
-  // REQUIRES IMPLEMENTATION
+	return street;
 }
 
 unsigned short Address::getDoorNumber() const{
-
-  // REQUIRES IMPLEMENTATION
+	return doorNumber;
 }
 
 string Address::getFloor() const{
-  
-  // REQUIRES IMPLEMENTATION
+	return floor;
 }
 
 string Address::getPostalCode() const{
-
-  // REQUIRES IMPLEMENTATION
+	return postalCode;
 }
 
 string Address::getLocation() const{
-
-  // REQUIRES IMPLEMENTATION
+	return location;
 }
-
 
   // metodos SET
 
 void Address::setStreet(string street){
-
-  // REQUIRES IMPLEMENTATION
+	this -> street = street;
 }
 
 void Address::setDoorNumber(unsigned short doorNumber){
-
-  // REQUIRES IMPLEMENTATION
+	this -> doorNumber = doorNumber;
 }
 
 void Address::setFloor(string floor){
-
-  // REQUIRES IMPLEMENTATION
+	this -> floor = floor;
 }
 
 void Address::setPostalCode(string postalCode){
-
-  // REQUIRES IMPLEMENTATION
+	this -> postalCode = postalCode;
 }
 
-void Address::setLocation(string  location){
-
-  // REQUIRES IMPLEMENTATION
+void Address::setLocation(string location){
+	this -> location = location;
 }
 
-bool checkPostalCode(string &postalCode){
+// outros metodos
+
+bool Address::checkPostalCode() const{
 
     bool valid = true;
 
@@ -96,17 +88,15 @@ bool checkPostalCode(string &postalCode){
    return valid; 
 }
 
-
-
-
-/*********************************
- * Mostrar Address
- ********************************/  
-
-// displays an address in a nice format
+void Address::showAddress() const{
+    cout << "*********************************" << endl;
+	cout << street << " / " << doorNumber << " / " << floor << " / " << postalCode << " / " << location << endl;
+	cout << "*********************************" << endl;
+}
 
 ostream& operator<<(ostream& out, const Address & address){
-
-  // REQUIRES IMPLEMENTATION
-
+    out << address.street << " / " << address.doorNumber << " / " << address.floor << " / " << address.postalCode << " / " << address.location << endl;   
+    
+    return out;
 }
+

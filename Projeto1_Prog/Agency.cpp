@@ -4,7 +4,7 @@
 
 using namespace std;
 
-// Opens the agency file and puts its contents in a Agency Strut
+// Opens the agency file and puts its contents in a Agency Struct
 void readAgency(Agency &agency) {
 
 	string agencyText;
@@ -30,7 +30,6 @@ void readAgency(Agency &agency) {
 				agency.URL = agencyText;
 				break;
 			case 3:
-				
 				agency.address = addressTextConverter(agencyText);
 				break;
 			case 4:
