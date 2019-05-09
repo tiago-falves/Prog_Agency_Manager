@@ -1,79 +1,73 @@
 #include "Client.h"
 
 Client::Client(string name, unsigned int VATnumber, unsigned short int familySize, Address address){
-  
-  // REQUIRES IMPLEMENTATION 
+    this -> name = name;
+    this -> VATnumber = VATnumber;
+    this -> familySize = familySize;
+    this -> address = address;
 }
 
-Client::Client(string name, unsigned VATnumber, unsigned short familySize, Address address, vector<Packet> & packets, unsigned totalPurchased){
-  
-  // REQUIRES IMPLEMENTATION 
+Client::Client(string name, unsigned VATnumber, unsigned short familySize, Address address, vector<Packet> &packets, unsigned totalPurchased){
+    this -> name = name;
+    this -> VATnumber = VATnumber;
+    this -> familySize = familySize;
+    this -> address = address;
+    this -> packets  = packets;
+    this -> totalPurchased = totalPurchased;
 }
 
   // GET methods
 
 string Client::getName() const{
-  
-  // REQUIRES IMPLEMENTATION 
+    return name;
 }
   
 unsigned Client::getVATnumber() const{
-  
-  // REQUIRES IMPLEMENTATION 
+    return VATnumber;
 }
 
 unsigned short Client::getFamilySize() const{
-  
-  // REQUIRES IMPLEMENTATION 
+    return familySize;
 }
 
 Address Client::getAddress() const{
-  
-  // REQUIRES IMPLEMENTATION 
+    return address;
 }
 
 vector<Packet> Client::getPacketList() const{
-  
-  // REQUIRES IMPLEMENTATION 
+    return packets;
 }
 
-unsigned Client::getTotalPurchased() const{
-  
-  // REQUIRES IMPLEMENTATION 
+void Client::getTotalPurchased() const{
+    return totalPurchased;
 }
   
   // metodos SET
 	  
 void Client::setName(string nome){
-  
-  // REQUIRES IMPLEMENTATION 
+    this -> name = name;
 }
 
 void Client::setVATnumber(unsigned VATnumber){
-  
-  // REQUIRES IMPLEMENTATION 
+    this -> VATnumber = VATnumber;
 }
 
 void Client::setFamilySize(unsigned short familySize){
-  
-  // REQUIRES IMPLEMENTATION 
+    this -> familySize = familySize;
 }
 void Client::setAddress(Address address){
-  
-  // REQUIRES IMPLEMENTATION 
+    this -> address = address;
 }
-void Client::setPacketList(vector<Packet> & packets){
-  
-  // REQUIRES IMPLEMENTATION 
+void Client::setPacketList(vector<Packet> &packets){
+    this -> packets = packets;
 }
 unsigned Client::setTotalPurchased(unsigned totalPurchased){
-  
-  // REQUIRES IMPLEMENTATION 
+    this -> totalPurchased = totalPurchased;
 }
   
   // outros metodos
 
-bool checkVATnumber(unsigned int VATnumber)
+bool Client::checkVATnumber() const
 {
     bool valid = true;
 
@@ -84,9 +78,21 @@ bool checkVATnumber(unsigned int VATnumber)
     return valid;
 }
 
+void Client::showClient() const 
+{
+    cout << "*********************************" << endl;
+	cout << "Name:" << name << endl;
+    cout << "VAT Number: " << VATnumber << endl;
+    cout << "Family Size: " << familySize << endl;
+    cout << "Address: " << address.showAddress() << endl;
+    cout << "Packets: " << packets.showPackets() << endl;
+    cout << "Total Value: " << totalPurchased << endl;
+	cout << "*********************************" << endl;
+}
 
-ostream& operator<<(ostream& out, const Client & client){
-
-  // REQUIRES IMPLEMENTATION 
-
+ostream& operator<<(ostream& out, const Client &client){
+    out << cout << "*********************************" << endl << "Name:" << name << endl << "VAT Number: " << VATnumber << endl
+    << "Family Size: " << familySize << endl << "Address: " << address.showAddress() << endl << "Packets: " << packets.showPackets() << endl
+    << "Total Value: " << totalPurchased << endl << "*********************************" << endl;
+    return out;
 }

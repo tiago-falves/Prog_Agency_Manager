@@ -94,7 +94,7 @@ void Address::showAddress() const{
 	cout << "*********************************" << endl;
 }
 
-ostream& operator<<(ostream& out, const Address & address){
+ostream& operator<<(ostream& out, const Address &address){
     out << address.street << " / " << address.doorNumber << " / " << address.floor << " / " << address.postalCode << " / " << address.location << endl;   
     
     return out;

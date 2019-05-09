@@ -21,7 +21,7 @@ private:
 
 public:
     Client(string name, unsigned int VATnumber, unsigned short int familySize, Address address);  // for a new client
-    Client(string name, unsigned int VATnumber, unsigned short int familySize, Address address, vector<Packet> & packets, unsigned int totalPurchased);  // client read from file
+    Client(string name, unsigned int VATnumber, unsigned short int familySize, Address address, vector<Packet> &packets, unsigned int totalPurchased);  // client read from file
 
     // GET methods
   
@@ -38,12 +38,12 @@ public:
     void setVATnumber(unsigned int VATnumber);
     void setFamilySize(unsigned short int familySize);
     void setAddress(Address address);
-    void setPacketList(vector<Packet> & packets);
-    unsigned setTotalPurchased(unsigned int totalPurchased);
+    void setPacketList(vector<Packet> &packets);
+    void setTotalPurchased(unsigned int totalPurchased);
   
     // other methods
 
-    bool checkVATnumber(unsigned int VATnumber) const; // Returns true if number has 9 digits
-
-    friend ostream& operator<<(ostream& out, const Client & client);
+    bool checkVATnumber() const; // Returns true if number has 9 digits
+    void showClient() const;
+    friend ostream& operator<<(ostream& out, const Client &client); // Operator overloading
 };
