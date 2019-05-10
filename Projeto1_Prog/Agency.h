@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-
+#include <fstream>
 
 #include "defs.h"
 #include "Address.h"
@@ -15,11 +15,13 @@ using namespace std;
 class Agency{
 private:
     string name; // Agency's name
-    unsigned int VATnumber; // Agency's VAT number
+    unsigned int nif; // Agency's VAT number
     Address address; // Agency's address
-    string URL; // Agency's Website URL
-    vector<Client> clients; // Vector to store the existing clients
-    vector<TravelPack> TravelPacks; // Vector to store the existing TravelPacks
+    string url; // Agency's Website URL
+    //vector<Client> clients; // Vector to store the existing clients
+    //vector<TravelPack> TravelPacks; // Vector to store the existing TravelPacks
+	string clientsNameFile; // Name of the clients file
+	string packsNameFile;	// Name of the Travel Packs file
   
     bool clientsInfoHasChanged; // True if at least one client has been changed/added/deleted
     bool TravelPacksInfoHasChanged; // True if at least one TravelPack has been changed/added/deleted
@@ -29,23 +31,33 @@ private:
 public:
     Agency(string fileName);
 
-    // methods GET
+	Agency();
+
+    // GET methods
   
     string getName() const;
-    unsigned getVATnumber() const;
+    unsigned getNif() const;
     Address getAddress() const;
-    string getURL() const;
-    vector<Client> getClients() const;
-    vector<TravelPack> getTravelPacks() const;
+    string getUrl() const;
+	string getClientsNameFile() const;
+	string getPacksNameFile() const;
+	;//vector<Client> getClients() const;
+    //vector<TravelPack> getTravelPacks() const;
 
-    // methods SET
+    // SET methods
   
     void setName(string name);
-    void setVATnumber(unsigned VATnumber);
+    void setNif(unsigned nif);
     void setAddress(Address address);
     void setURL(string url);
-    void setClients(vector<Client> & clients);
-    void setTravelPacks(vector<TravelPack> & TravelPacks);
+	void setClientsNameFile(string clientsNameFile);
+	void setPacksNameFile(string packsNameFile);
+
+    //void setClients(vector<Client> & clients);
+    //void setTravelPacks(vector<TravelPack> & TravelPacks);
+
+
+	void readAgency(string filename);
 
     // other methods */
   
