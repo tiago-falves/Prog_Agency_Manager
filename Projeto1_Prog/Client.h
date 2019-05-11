@@ -3,10 +3,12 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
 
 #include "defs.h"
 #include "TravelPack.h"
 #include "Address.h"
+#include "StringManipulator.h"
 
 using namespace std;
 
@@ -20,7 +22,9 @@ private:
     unsigned int totalPurchased; // total value spent by the client
 
 public:
-    Client(string name, unsigned int nif, unsigned short int familySize, Address address);  // for a new client
+	Client();
+	Client(string clientsFileName, vector<Client> &clients);
+	Client(string name, unsigned int nif, unsigned short int familySize, Address address);  // for a new client
     Client(string name, unsigned int nif, unsigned short int familySize, Address address, vector<TravelPack> &packets, unsigned int totalPurchased);  // client read from file
 
     // GET methods
@@ -43,6 +47,7 @@ public:
   
     // other methods
 
+	static void readClients(string clientsNameFile, vector<Client> &clientsVector);
     bool checknif() const; // Returns true if number has 9 digits
     void showClient() const;
     friend ostream& operator<<(ostream& out, const Client &client); // Operator overloading

@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "StringManipulator.h"
 
 #include "defs.h"
 
@@ -39,8 +40,12 @@ public:
 	// outros metodos
   
 	bool validPostalCode(); // Returns true if "xxxx-xxx", false otherwise
+
+	bool validAddressText(string address);
+
 	void showAddress() const; // displays address in a nice format
-	Address addressTextConverter(string addressText);
+
+	static Address addressTextConverter(string addressText);
 
 	friend ostream& operator<<(ostream& out, const Address & address); //  << Operator overloading
 	//bool operator==(const Address& address1, const Address address2);

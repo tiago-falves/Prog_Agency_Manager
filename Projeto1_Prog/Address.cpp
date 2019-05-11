@@ -68,6 +68,16 @@ bool Address::validPostalCode(){
    return valid; 
 }
 
+
+bool Address::validAddressText(string address)
+{
+	vector<string> stringVector;
+	stringVector = separateCharacterStr(address, '/');
+	if (stringVector.size() != 5) { return false; }
+	if (!stringIsNumber(stringVector[1])) { return false; }
+	return true;
+}
+
 //Converts Address in the format 'Street / Door Number / Floor Number / Postal Code / Locality' to a struct Address
 Address Address::addressTextConverter(string addressText) {
 	Address address;
@@ -77,22 +87,22 @@ Address Address::addressTextConverter(string addressText) {
 	addressText.erase(0, addressText.find_first_of('/') + 1);
 
 	subString = addressText.substr(0, addressText.find_first_of('/'));
-	//trim(subString);
+	trim(subString);
 	address.doorNumber = stoi(subString);
 	addressText.erase(0, addressText.find_first_of('/') + 1);
 
 	subString = addressText.substr(0, addressText.find_first_of('/'));
-	//trim(subString);
+	trim(subString);
 	address.floor = subString;
 	addressText.erase(0, addressText.find_first_of('/') + 1);
 
 	subString = addressText.substr(0, addressText.find_first_of('/'));
-	//trim(subString);
+	trim(subString);
 	address.postalCode = subString;
 	addressText.erase(0, addressText.find_first_of('/') + 1);
 
 	subString = addressText.substr(0, addressText.find_first_of('/'));
-	//trim(subString);
+	trim(subString);
 	address.location = subString;
 	addressText.erase(0, addressText.find_first_of('/') + 1);
 

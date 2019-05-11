@@ -23,22 +23,39 @@ int main(){
 
 	//AGENCY
 
-	/*Agency agency("agency.txt");
+	/* Agency agency("agency.txt");
 	cout << agency.getName() << endl;
 	cout << agency.getClientsNameFile() << endl;
 	cout << agency.getNif() << endl;
 	agency.setName("Gosto");
-	cout << agency.getName() << endl;*/
+	cout << agency.getName() << endl; */
+
 
 	//ADDRESS
 
-	Address adress("zas",123,"2esq","4509-321","Porto");
+	/*Address adress("zas",123,"2esq","4509-321","Porto");
 	Address adress1("zas", 123, "2esq", "4509-321", "Porto");
-
 	cout << adress.getFloor() << endl;
-	//cout << adress1 == adress;
+	cout << adress1 == adress;*/
+
+	//Client
+	Agency agency;
+	vector<Client> clients;
+	agency.readAgency("agency.txt");
+	
+	Client client(agency.getClientsNameFile(),clients);
+	cout << clients[0].getName() << endl;
+	cout << clients[0].getAddress().getStreet() << endl;
+	cout << clients[0].getnif() << endl;
+	//cout << clients[0].getTravelPackList()[0] << endl;
+
+	cout << clients[1].getName() << endl;
+	cout << clients[1].getAddress().getStreet() << endl;
+	cout << clients[1].getnif() << endl;
 
 
+	cout << clients.size();
+	cout << clients[1].getFamilySize();
 
 	system("Pause");
 
