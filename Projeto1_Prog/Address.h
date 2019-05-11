@@ -43,6 +43,8 @@ public:
 
 	bool validAddressText(string address);
 
+	static bool equalsAddresses(Address address1, Address address2);
+
 	void showAddress() const; // displays address in a nice format
 
 	static Address addressTextConverter(string addressText);

@@ -7,7 +7,7 @@ Client::Client() {
 	this->nif = 000000000;
 	this->familySize = 0;
 	this->address = address; //Como inicalizar isto?
-	this->TravelPacks ; // Como inicializar isto?
+	this->travelPackIdentifiers ; // Como inicializar isto?
 	this->totalPurchased = 0;
 	
 }
@@ -22,20 +22,20 @@ Client::Client(string name, unsigned int nif, unsigned short int familySize, Add
     this -> nif = nif;
     this -> familySize = familySize;
     this -> address = address;
-	this->TravelPacks; // Como inicializar isto?
+	this->travelPackIdentifiers; // Como inicializar isto?
 	this->totalPurchased = 0;
 	//
 }
 
 
 
-Client::Client(string name, unsigned int nif, unsigned short int familySize, Address address, vector<TravelPack>& TravelPacks, unsigned int totalPurchased){
+Client::Client(string name, unsigned int nif, unsigned short int familySize, Address address, vector<TravelPack> &packets, unsigned int totalPurchased) {
 
 	this->name = name;
 	this->nif = nif;
 	this->familySize = familySize;
 	this->address = address;
-	this->TravelPacks = TravelPacks;
+	this->travelPackIdentifiers = travelPackIdentifiers;
 	this->totalPurchased = totalPurchased;
 }
 
@@ -50,7 +50,7 @@ unsigned short Client::getFamilySize() const{ return familySize; }
 
 Address Client::getAddress() const{ return address; }
 
-vector<TravelPack> Client::getTravelPackList() const{ return TravelPacks; }
+vector<int> Client::getTravelPackIdentifiers() const{ return travelPackIdentifiers; }
 
 unsigned Client::getTotalPurchased() const{ return totalPurchased; }
   
@@ -65,7 +65,7 @@ void Client::setFamilySize(unsigned short int familySize){ this -> familySize = 
 
 void Client::setAddress(Address address){ this -> address = address; }
 
-void Client::setTravelPackList(vector<TravelPack> &TravelPacks){ this -> TravelPacks = TravelPacks; }
+void Client::setTravelPackIdentifiers(vector<int> &travelPackIdentifiers){ this ->travelPackIdentifiers = travelPackIdentifiers; }
 
 void Client::setTotalPurchased(unsigned int totalPurchased){ this -> totalPurchased = totalPurchased; }
   
@@ -119,8 +119,69 @@ void Client::readClients(string clientsNameFile, vector<Client> &clientsVector) 
 	clientsFile.close();
 }
 
+//Adds client to clientsVector
+
+void Client::addClient(vector<Client> &clientsVector, Client client) {
+	clientsVector.push_back(client);
+}
+
+//Copies client to copy SUBSTITUIR ISTO POR UM OVERIDE NO SINAL =
+
+void Client::copyClient(Client &copy, Client client) {
+	copy.name = client.name;
+	copy.address = client.address;
+	copy.familySize = client.familySize;
+	copy.nif = client.nif;
+	copy.travelPackIdentifiers = client.travelPackIdentifiers;
+}
 
 
+//Removes clientToRemove from clientsVector
+
+void Client::removeClient(Client clientToRemove, vector<Client> &clientsVector) {
+	Client client;
+
+	int last_pos = clientsVector.size() - 1;
+	for (int i = 0; i < clientsVector.size(); i++)
+	{
+		copyClient(client, clientsVector[i]);
+		if (equalClients(clientToRemove, client)) {
+			copyClient(clientsVector[i], clientsVector[last_pos]);
+			clientsVector.pop_back();
+			break;
+		}
+	}
+}
+
+// Modify Client clientTModify to client
+void Client::modifyClient(Client clientToModify, vector<Client> &clientVector, Client client) {
+	for (int i = 0; i < clientVector.size(); i++)
+	{
+		if (equalClients(clientToModify, clientVector[i])) {
+			copyClient(clientVector[i], client);
+			break;
+		}
+	}
+}
+
+// Returns True if the client is in the Vector
+bool Client::clientInVector(vector<Client> clientsVector, Client client) { //Como substiruir aqui de modo a que fique client.clientsinVector(vetor)?? ou seja chamar o proprio
+	for (int i = 0; i < clientsVector.size(); i++)
+	{
+		if (equalClients(clientsVector[i], client)) { return true; }
+	}
+	return false;
+}
+
+//Returns true if the pack is valid
+bool Client::validPacksBought(string packs) {
+	vector<string> vector;
+	vector = separateCharacterStr(packs, ';');
+	for (int i = 0; i < vector.size(); i++) {
+		if (!stringIsNumber(vector[i])) { return false; }
+	}
+	return true;
+}
 
 //Returns True if it is a valid Nif
 bool Client::checknif() const
@@ -132,6 +193,27 @@ bool Client::checknif() const
 
     return valid;
 }
+
+//Transorms the client.travelpacks in a string separated by ';'
+string Client::travelPacksToString(vector<int> travelPacks) {
+	string textPacks = "";
+	for (int i = 0; i < travelPacks.size(); i++)
+	{
+		textPacks += to_string(travelPacks[i]) + " ; ";
+	}
+	textPacks = textPacks.substr(0, textPacks.size() - 3);
+	return textPacks;
+}
+
+
+//Returns True if Clients are equal SUBSTITUIR POR OVERIDE DE ==
+bool Client::equalClients(Client client1, Client client2) {
+	if (Address::equalsAddresses(client1.address, client2.address) && client1.familySize == client2.familySize && client1.name == client1.name && client1.nif == client2.nif && client1.travelPackIdentifiers == client2.travelPackIdentifiers)
+		return true;
+	else
+		return false;
+}
+
 
 void Client::showClient() const 
 {
