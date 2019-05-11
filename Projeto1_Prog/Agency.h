@@ -41,7 +41,7 @@ public:
     string getUrl() const;
 	string getClientsNameFile() const;
 	string getPacksNameFile() const;
-	;//vector<Client> getClients() const;
+	//vector<Client> getClients() const;
     //vector<TravelPack> getTravelPacks() const;
 
     // SET methods

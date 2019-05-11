@@ -1,11 +1,11 @@
 #include "Agency.h"
 
 
-
 Agency::Agency(string fileName){
 
 	readAgency(fileName);
 }
+
 Agency::Agency() {
 	this->name = "";
 	this->nif = 0;
@@ -62,10 +62,10 @@ void Agency::readAgency(string filename) {
 	int i = 0;
 
 
-	agencyFile.open("agency.txt");
+	agencyFile.open("agency.txt"/*filename*/);
 
 	if (agencyFile.fail())
-		cerr << "Error opening agency.txt, Please make sure the file is in the correct folder " << endl;
+		cerr << "Error opening agency.txt. Please make sure the file is in the correct folder " << endl;
 	else {
 		while (getline(agencyFile, agencyText))
 		{

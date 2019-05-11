@@ -32,13 +32,11 @@ int main(){
 
 	//ADDRESS
 
-	Address adress("zas",123,"2esq","4509-321","Porto");
-	Address adress1("zas", 123, "2esq", "4509-321", "Porto");
+	//Address adress("zas",123,"2esq","4509-321","Porto");
+	//Address adress1("zas", 123, "2esq", "4509-321", "Porto");
 
-	cout << adress.getFloor() << endl;
-	//cout << adress1 == adress;
-
-
+	//cout << adress.getFloor() << endl;
+	//cout << (adress == adress1) << endl;
 
 	system("Pause");
 
