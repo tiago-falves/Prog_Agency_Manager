@@ -68,7 +68,16 @@ bool Address::validPostalCode(){
    return valid; 
 }
 
-//Converts Address in the format 'Street / Door Number / Floor Number / Postal Code / Locality' to a class Address
+bool Address::validAddressText(string address)
+{
+	vector<string> stringVector;
+	stringVector = separateCharacterStr(address, '/');
+	if (stringVector.size() != 5) { return false; }
+	if (!stringIsNumber(stringVector[1])) { return false; }
+	return true;
+}
+
+//Converts Address in the format 'Street / Door Number / Floor Number / Postal Code / Locality' to a struct Address
 Address Address::addressTextConverter(string addressText) {
 	Address address;
 	string subString;
@@ -77,22 +86,22 @@ Address Address::addressTextConverter(string addressText) {
 	addressText.erase(0, addressText.find_first_of('/') + 1);
 
 	subString = addressText.substr(0, addressText.find_first_of('/'));
-	//trim(subString);
+	trim(subString);
 	address.doorNumber = stoi(subString);
 	addressText.erase(0, addressText.find_first_of('/') + 1);
 
 	subString = addressText.substr(0, addressText.find_first_of('/'));
-	//trim(subString);
+	trim(subString);
 	address.floor = subString;
 	addressText.erase(0, addressText.find_first_of('/') + 1);
 
 	subString = addressText.substr(0, addressText.find_first_of('/'));
-	//trim(subString);
+	trim(subString);
 	address.postalCode = subString;
 	addressText.erase(0, addressText.find_first_of('/') + 1);
 
 	subString = addressText.substr(0, addressText.find_first_of('/'));
-	//trim(subString);
+	trim(subString);
 	address.location = subString;
 	addressText.erase(0, addressText.find_first_of('/') + 1);
 
@@ -114,3 +123,13 @@ ostream& operator<<(ostream& out, const Address &address){
 bool operator==(const Address& address1, const Address address2) {
 	return address1.street == address2.street && address1.doorNumber == address2.doorNumber && address1.floor == address2.floor && address1.postalCode == address2.postalCode && address1.location == address2.location; }
 
+//Returns True if two addresses are equal
+bool Address::equalsAddresses(Address address1, Address address2) {
+	if (address1.doorNumber == address2.doorNumber && address1.floor == address2.floor && address1.location == address2.location && address1.postalCode == address2.postalCode && address1.street == address2.street)
+		return true;
+	else
+		return false;
+}
+
+//bool operator==(const Address& address1, const Address address2) {
+	//return address1.getDoorNumber() == address2.getDoorNumber() && address1.getFloor() == address2.getFloor() && address1.getLocation() == address2.getLocation() && address1.getPostalCode() == address2.getPostalCode() && address1.getStreet() == address2.getStreet(); }

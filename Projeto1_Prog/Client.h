@@ -3,10 +3,12 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
 
 #include "defs.h"
 #include "TravelPack.h"
 #include "Address.h"
+#include "StringManipulator.h"
 
 using namespace std;
 
@@ -16,11 +18,13 @@ private:
     unsigned int nif; // VAT number of client
     unsigned short int familySize;  // number of family members
     Address address; // client's address
-    vector<TravelPack> TravelPacks; // vector to store client's packets bought
+    vector<int> travelPackIdentifiers; // vector to store client's packets bought
     unsigned int totalPurchased; // total value spent by the client
 
 public:
-    Client(string name, unsigned int nif, unsigned short int familySize, Address address);  // for a new client
+	Client();
+	Client(string clientsFileName, vector<Client> &clients);
+	Client(string name, unsigned int nif, unsigned short int familySize, Address address);  // for a new client
     Client(string name, unsigned int nif, unsigned short int familySize, Address address, vector<TravelPack> &packets, unsigned int totalPurchased);  // client read from file
 
     // GET methods
@@ -29,7 +33,7 @@ public:
     unsigned int getnif() const;
     unsigned short int getFamilySize() const;
     Address getAddress() const;
-    vector<TravelPack> getTravelPackList() const;
+    vector<int> getTravelPackIdentifiers() const;
     unsigned int getTotalPurchased() const;
   
     // SET methods
@@ -38,12 +42,38 @@ public:
     void setNif(unsigned int nif);
     void setFamilySize(unsigned short int familySize);
     void setAddress(Address address);
-    void setTravelPackList(vector<TravelPack> &TravelPacks);
+    void setTravelPackIdentifiers(vector<int> &travelPackIdentifiers);
     void setTotalPurchased(unsigned int totalPurchased);
   
-    // other methods
+    
+	//Reads the gile clientsNameFile and put the result to a Client Vector
+	static void readClients(string clientsNameFile, vector<Client> &clientsVector);
+
+	//Adds client to the clientsVector
+	void addClient(vector<Client> &clientsVector, Client client);
+
+	//Removes clientToRemove from clientsVector
+	void removeClient(Client clientToRemove, vector<Client> &clientsVector);
+
+	// Modify Client clientTModify to client
+	void modifyClient(Client clientToModify, vector<Client> &clientVector, Client client);
+
+	//Transorms the client.travelpacks in a string separated by ';'
+	string travelPacksToString(vector<int> travelPacks);
+
+	//Copies client to copy
+	void copyClient(Client &copy, Client client);
+
+	// Returns True if the client is in the Vector
+	bool clientInVector(vector<Client> clientsVector, Client client);
+
+	//Returns true if the pack is valid
+	bool validPacksBought(string packs);
+
+	//Returns True if Clients are equal SUBSTITUIR POR OVERIDE DO ==
+	bool equalClients(Client client1, Client client2);
 
     bool checknif() const; // Returns true if number has 9 digits
     void showClient() const;
-    friend ostream& operator<<(ostream& out, const Client &client); // Operator overloading
+    //friend ostream& operator<<(ostream& out, const Client &client); // Operator overloading
 };

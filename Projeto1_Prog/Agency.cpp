@@ -71,16 +71,16 @@ void Agency::readAgency(string filename) {
 		{
 			switch (i) {
 			case 0:
-				name = agencyText;
+				setName(agencyText);
 				break;
 			case 1:
-				nif = stoi(agencyText);
+				setNif(stoi(agencyText));
 				break;
 			case 2:
-				url = agencyText;
+				setURL(agencyText);
 				break;
 			case 3:
-				//agency.setAddress(addressTextConverter(agencyText));
+				setAddress(address.addressTextConverter(agencyText));
 				break;
 			case 4:
 				clientsNameFile = agencyText;
