@@ -16,6 +16,15 @@ Address::Address(string street, unsigned short doorNumber, string floor, string 
 	this -> location = location;
 }
 
+Address::Address(string address) {
+	this->street = addressTextConverter(address).street;
+	this->doorNumber = addressTextConverter(address).doorNumber;
+	this->floor = addressTextConverter(address).floor;
+	this->postalCode = addressTextConverter(address).postalCode;
+	this->location = addressTextConverter(address).location;
+	
+}
+
 // GET methods
 
 string Address::getStreet() const{ return street;}

@@ -9,7 +9,8 @@
 
 using namespace std;
 
-class Address{
+class Address
+{
 private:
 	string street; // street name
 	unsigned short doorNumber; // door number
@@ -19,6 +20,7 @@ private:
 
 public:
 	Address();
+	Address(string address);
 	Address(string street, unsigned short doorNumber, string floor, string postalCode, string location);
 
 	// metodos GET

@@ -1,13 +1,21 @@
 #include "Date.h"
 
 
-Date::Date(unsigned short day, unsigned short month , unsigned year ) : day(day), month(month), year(year){}
+Date::Date() {
+	this->year = 1000;
+	this->month = 1;
+	this->day = 1;
+}
+
+Date::Date(unsigned short day, unsigned short month , unsigned year ) : 
+	day(day), month(month), year(year){
+}
 
 Date::Date(string date){
 
-	day = stoi(date.substr(0, 2));
-	month = stoi(date.substr(3, 2));
-	year = stoi(date.substr(6, 4));
+	this->day = stoi(date.substr(0, 2));
+	this->month = stoi(date.substr(3, 2));
+	this->year = stoi(date.substr(6, 4));
 
 }
 /*********************************
@@ -46,7 +54,7 @@ string Date::toString()
 
 //True if valid Date
 bool Date::isValid() {
-	return (day <= daysInMonth(month, year)) && (month >= 1 && month <= 12 && day > 0);
+	return (day <= daysInMonth(month, year)) && (month >= 1) && (month <= 12) && (day > 0);
 }
 
 //True if both dates are equal
@@ -71,16 +79,6 @@ ostream& operator<<(ostream	&out, const Date &date){
 	out << date.day << "/" << date.month << "/" << date.year;
 	return out;
 }
-
-//Overload Nao sei fazer overload!
-/*Date operator=(Date date){
-	Date date1 = *this;
-	date1.copyDate(date1, date);
-	return date1;
-}*/
-
-
-
 
 
 
