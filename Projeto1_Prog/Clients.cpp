@@ -1,15 +1,15 @@
 #include "Client.h"
 
-Client::Client(string name, unsigned int VATnumber, unsigned short int familySize, Address address){
+Client::Client(string name, unsigned int nif, unsigned short int familySize, Address address){
     this -> name = name;
-    this -> VATnumber = VATnumber;
+    this -> nif = nif;
     this -> familySize = familySize;
     this -> address = address;
 }
 
-Client::Client(string name, unsigned VATnumber, unsigned short familySize, Address address, vector<TravelPack> &TravelPacks, unsigned totalPurchased){
+Client::Client(string name, unsigned nif, unsigned short familySize, Address address, vector<TravelPack> &TravelPacks, unsigned totalPurchased){
     this -> name = name;
-    this -> VATnumber = VATnumber;
+    this -> nif = nif;
     this -> familySize = familySize;
     this -> address = address;
     this -> TravelPacks = TravelPacks;
@@ -22,8 +22,8 @@ string Client::getName() const{
     return name;
 }
   
-unsigned Client::getVATnumber() const{
-    return VATnumber;
+unsigned Client::getnif() const{
+    return nif;
 }
 
 unsigned short Client::getFamilySize() const{
@@ -48,8 +48,8 @@ void Client::setName(string nome){
     this -> name = name;
 }
 
-void Client::setVATnumber(unsigned VATnumber){
-    this -> VATnumber = VATnumber;
+void Client::setNif(unsigned nif){
+    this -> nif = nif;
 }
 
 void Client::setFamilySize(unsigned short familySize){
@@ -67,11 +67,11 @@ void Client::setTotalPurchased(unsigned totalPurchased){
   
   // outros metodos
 
-bool Client::checkVATnumber() const
+bool Client::checknif() const
 {
     bool valid = true;
 
-    if(VATnumber < 100000000 || VATnumber > 999999999) // The number has to be 9 digits long
+    if(nif < 100000000 || nif > 999999999) // The number has to be 9 digits long
         {    
             valid = false;
         }
@@ -82,7 +82,7 @@ void Client::showClient() const
 {
     cout << "*********************************" << endl;
 	cout << "Name:" << name << endl;
-    cout << "VAT Number: " << VATnumber << endl;
+    cout << "VAT Number: " << nif << endl;
     cout << "Family Size: " << familySize << endl;
     //cout << "Address: " << address.showAddress() << endl;
     //cout << "TravelPacks: " << TravelPacks.showTravelPacks() << endl;
@@ -91,7 +91,7 @@ void Client::showClient() const
 }
 
 /*ostream& operator<<(ostream& out, const Client &client){
-    out << cout << "*********************************" << endl << "Name:" << name << endl << "VAT Number: " << VATnumber << endl
+    out << cout << "*********************************" << endl << "Name:" << name << endl << "VAT Number: " << nif << endl
     << "Family Size: " << familySize << endl << "Address: " << address.showAddress() << endl << "TravelPacks: " << TravelPacks.showTravelPacks() << endl
     << "Total Value: " << totalPurchased << endl << "*********************************" << endl;
     return out;

@@ -1,9 +1,14 @@
 #include "Address.h"
 
 Address::Address(){
+	this->street = "UNSPECIFIED STREET";
+	this->doorNumber = 0;
+	this->floor = "UNSPECIFIED FLOOR";
+	this->postalCode = "0000-000";
+	this->location = "UNSPECIFIED SITE";
 }
 
-Address::Address(string street = "UNSPECIFIED STREET", unsigned short doorNumber = 0, string floor = "UNSPECIFIED FLOOR", string postalCode = "0000-000", string location = "UNSPECIFIED SITE"){
+Address::Address(string street, unsigned short doorNumber, string floor, string postalCode, string location){
 	this -> street = street;
 	this -> doorNumber = doorNumber;
 	this -> floor = floor;
@@ -11,81 +16,87 @@ Address::Address(string street = "UNSPECIFIED STREET", unsigned short doorNumber
 	this -> location = location;
 }
 
-  // metodos GET
+// GET methods
 
-string Address::getStreet() const{
-	return street;
-}
+string Address::getStreet() const{ return street;}
 
-unsigned short Address::getDoorNumber() const{
-	return doorNumber;
-}
+unsigned short Address::getDoorNumber() const { return doorNumber; }
 
-string Address::getFloor() const{
-	return floor;
-}
+string Address::getFloor() const{ return floor; }
 
-string Address::getPostalCode() const{
-	return postalCode;
-}
+string Address::getPostalCode() const{ return postalCode; }
 
-string Address::getLocation() const{
-	return location;
-}
+string Address::getLocation() const{ return location; }
 
-  // metodos SET
 
-void Address::setStreet(string street){
-	this -> street = street;
-}
+// SET methods
 
-void Address::setDoorNumber(unsigned short doorNumber){
-	this -> doorNumber = doorNumber;
-}
+void Address::setStreet(string street){	this -> street = street; }
 
-void Address::setFloor(string floor){
-	this -> floor = floor;
-}
+void Address::setDoorNumber(unsigned short doorNumber){	this -> doorNumber = doorNumber; }
 
-void Address::setPostalCode(string postalCode){
-	this -> postalCode = postalCode;
-}
+void Address::setFloor(string floor){ this -> floor = floor; }
 
-void Address::setLocation(string location){
-	this -> location = location;
-}
+void Address::setPostalCode(string postalCode){ this -> postalCode = postalCode; }
 
-// outros metodos
+void Address::setLocation(string location){	this -> location = location; }
 
-bool Address::checkPostalCode() const{
+// Returns True if the Address has a valid Postal code
+
+bool Address::validPostalCode(){
 
     bool valid = true;
 
     for (int i = 0; i < 4; i++)
     {
         if (postalCode[i] < '0' || postalCode[i] > '9')
-        {   
+        
             valid = false;
             break;
-        }
-        
     }
 
     if (postalCode[4] != '-')
-    {
         valid = false;
-    }
-    
+
     for (int i = 5; i < 7; i++)
     {
         if (postalCode[i] < '0' || postalCode[i] > '9')
-        {
             valid = false;
             break;
-        }
     }
    
    return valid; 
+}
+
+//Converts Address in the format 'Street / Door Number / Floor Number / Postal Code / Locality' to a struct Address
+Address Address::addressTextConverter(string addressText) {
+	Address address;
+	string subString;
+
+	address.street = addressText.substr(0, addressText.find_first_of('/'));
+	addressText.erase(0, addressText.find_first_of('/') + 1);
+
+	subString = addressText.substr(0, addressText.find_first_of('/'));
+	//trim(subString);
+	address.doorNumber = stoi(subString);
+	addressText.erase(0, addressText.find_first_of('/') + 1);
+
+	subString = addressText.substr(0, addressText.find_first_of('/'));
+	//trim(subString);
+	address.floor = subString;
+	addressText.erase(0, addressText.find_first_of('/') + 1);
+
+	subString = addressText.substr(0, addressText.find_first_of('/'));
+	//trim(subString);
+	address.postalCode = subString;
+	addressText.erase(0, addressText.find_first_of('/') + 1);
+
+	subString = addressText.substr(0, addressText.find_first_of('/'));
+	//trim(subString);
+	address.location = subString;
+	addressText.erase(0, addressText.find_first_of('/') + 1);
+
+	return address;
 }
 
 void Address::showAddress() const{
@@ -99,4 +110,7 @@ ostream& operator<<(ostream& out, const Address &address){
     
     return out;
 }
+
+//bool operator==(const Address& address1, const Address address2) {
+	//return address1.getDoorNumber() == address2.getDoorNumber() && address1.getFloor() == address2.getFloor() && address1.getLocation() == address2.getLocation() && address1.getPostalCode() == address2.getPostalCode() && address1.getStreet() == address2.getStreet(); }
 

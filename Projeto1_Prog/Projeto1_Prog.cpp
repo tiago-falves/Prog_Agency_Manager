@@ -23,12 +23,20 @@ int main(){
 
 	//AGENCY
 
-	Agency agency("agency.txt");
+	/*Agency agency("agency.txt");
 	cout << agency.getName() << endl;
 	cout << agency.getClientsNameFile() << endl;
 	cout << agency.getNif() << endl;
 	agency.setName("Gosto");
-	cout << agency.getName() << endl;
+	cout << agency.getName() << endl;*/
+
+	//ADDRESS
+
+	Address adress("zas",123,"2esq","4509-321","Porto");
+	Address adress1("zas", 123, "2esq", "4509-321", "Porto");
+
+	cout << adress.getFloor() << endl;
+	//cout << adress1 == adress;
 
 
 
