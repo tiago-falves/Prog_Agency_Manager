@@ -35,35 +35,36 @@ int main(){
 
 	//AGENCY
 
-	/*Agency agency("agency.txt");
-	cout << agency.getName() << endl;
-	cout << agency.getClientsNameFile() << endl;
-	cout << agency.getNif() << endl;
-	agency.setName("Gosto");
-	cout << agency.getName() << endl;
-	cout << agency.getAddress().getStreet();*/
+	//Agency agency("agency.txt");
+	//cout << agency.getName() << endl;
+	//cout << agency.getClientsNameFile() << endl;
+	//cout << agency.getNif() << endl;
+	//agency.setName("Gosto");
+	//cout << agency.getName() << endl;
+	//cout << agency.getAddress().getStreet();
+	//cout << agency << endl;
 
 
 	//ADDRESS
 
-	Address adress("zas",123,"2esq","4509-321","Porto");
-	Address adress1("zas", 123, "2esq", "4509-321", "Porto");
-	Address address2("zas/123/2esq/4509-321/Porto");
+	//Address adress("zas",123,"2esq","4509-321","Porto");
+	//Address adress1("zas", 123, "2esq", "4509-321", "Porto");
+	//Address address2("zas/123/2esq/4509-321/Porto");
 
-	cout << adress.getStreet() << endl;
-	cout << adress.getFloor() << endl;
-	cout << adress.getDoorNumber() << endl;
-	cout << adress.getPostalCode() << endl;
-	cout << adress.getLocation() << endl;
-	cout << ".........................................";
-	cout << address2.getStreet() << endl;
-	cout << address2.getFloor() << endl;
-	cout << address2.getDoorNumber() << endl;
-	cout << address2.getPostalCode() << endl;
-	cout << address2.getLocation() << endl;
+	//cout << adress.getStreet() << endl;
+	//cout << adress.getFloor() << endl;
+	//cout << adress.getDoorNumber() << endl;
+	//cout << adress.getPostalCode() << endl;
+	//cout << adress.getLocation() << endl;
+	//cout << ".........................................";
+	//cout << address2.getStreet() << endl;
+	//cout << address2.getFloor() << endl;
+	//cout << address2.getDoorNumber() << endl;
+	//cout << address2.getPostalCode() << endl;
+	//cout << address2.getLocation() << endl;
 
-	cout << (adress == adress1) << endl;
-	cout << (adress == address2) << endl;
+	//cout << (adress == adress1) << endl;
+	//cout << (adress == address2) << endl;
 	
 	/*Address adress("zas",123,"2esq","4509-321","Porto");
 	Address adress1("zas", 123, "2esq", "4509-321", "Porto");

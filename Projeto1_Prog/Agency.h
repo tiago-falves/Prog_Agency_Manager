@@ -23,10 +23,10 @@ private:
 	string clientsNameFile; // Name of the clients file
 	string packsNameFile;	// Name of the Travel Packs file
   
-    bool clientsInfoHasChanged; // True if at least one client has been changed/added/deleted
-    bool TravelPacksInfoHasChanged; // True if at least one TravelPack has been changed/added/deleted
-    unsigned int maxClientsId; // Maximum value among all clients identifiers
-    unsigned int maxTravelPacksId; // Maximum value among all TravelPacks identifiers
+    //bool clientsInfoHasChanged; // True if at least one client has been changed/added/deleted
+    //bool TravelPacksInfoHasChanged; // True if at least one TravelPack has been changed/added/deleted
+    //unsigned int maxClientsId; // Maximum value among all clients identifiers
+    //unsigned int maxTravelPacksId; // Maximum value among all TravelPacks identifiers
 
 public:
     Agency(string fileName);
@@ -56,10 +56,10 @@ public:
     //void setClients(vector<Client> & clients);
     //void setTravelPacks(vector<TravelPack> & TravelPacks);
 
+	// other methods */
 
 	void readAgency(string filename);
-
-    // other methods */
+	void showAgency() const;
   
     friend ostream& operator<<(ostream& out, const Agency & agency); // << Operator overloading
 

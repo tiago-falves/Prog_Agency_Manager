@@ -1,14 +1,16 @@
 #include "Date.h"
 
 
-Date::Date() {
-	this->year = 1000;
-	this->month = 1;
-	this->day = 1;
-}
+//Date::Date() {
+//	//this->year = 1000;
+//	//this->month = 1;
+//	//this->day = 1;
+//}
 
-Date::Date(unsigned short day, unsigned short month , unsigned year ) : 
-	day(day), month(month), year(year){
+Date::Date(unsigned short day = 01, unsigned short month = 01, unsigned year = 1000){
+	this->day = day;
+	this->month = month;
+	this->year = year;
 }
 
 Date::Date(string date){

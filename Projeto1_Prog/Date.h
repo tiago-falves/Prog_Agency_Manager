@@ -16,9 +16,9 @@ private:
 
 public:
    
-	Date();
+	//Date();
     Date(string date); // Assuming "dd/mm/yyyy"
-    Date(unsigned short day = 1, unsigned short month = 1, unsigned year = 1000);
+    Date(unsigned short day = 01, unsigned short month = 01, unsigned year = 1000);
 
     // GET methods
     unsigned short getDay() const;
