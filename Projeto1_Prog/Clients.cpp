@@ -244,6 +244,6 @@ void Client::showClient() const
 //}
 
 bool operator==(const Client &client1, const Client &client2) {
-	return client1.name == client2.name && client1.nif == client2.nif && client1.familySize == client2.familySize && client1.address == client2.address && client1.travelPackIdentifiers == client2.travelPackIdentifiers && client1.totalPurchased == client2.totalPurchased;
+	return client1.getName() == client2.getName() && client1.getnif() == client2.getnif() && client1.getFamilySize() == client2.getFamilySize() && client1.getAddress() == client2.getAddress() && client1.getTravelPackIdentifiers() == client2.getTravelPackIdentifiers() && client1.getTotalPurchased() == client2.getTotalPurchased();
 }
 
