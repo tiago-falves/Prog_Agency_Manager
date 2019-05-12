@@ -86,7 +86,6 @@ ostream& operator<<(ostream	&out, const Date &date){
 }
 
 
-
 //STATIC METHODS
 
 //Returns the number of days in a certain month

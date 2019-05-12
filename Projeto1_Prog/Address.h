@@ -51,7 +51,7 @@ public:
 
 	static Address addressTextConverter(string addressText);
 
-	friend ostream& operator<<(ostream& out, const Address & address); //  << Operator overloading
-	friend bool operator==(const Address& address1, const Address address2);
+	friend ostream& operator<<(ostream &out, const Address &address); //  << Operator overloading
+	friend bool operator==(const Address& address1, const Address &address2);
 
 };

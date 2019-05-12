@@ -129,7 +129,7 @@ ostream& operator<<(ostream& out, const Address &address){
     return out;
 }
 
-bool operator==(const Address& address1, const Address address2) {
+bool operator==(const Address &address1, const Address &address2) {
 	return address1.street == address2.street && address1.doorNumber == address2.doorNumber && address1.floor == address2.floor && address1.postalCode == address2.postalCode && address1.location == address2.location; }
 
 //Returns True if two addresses are equal
@@ -139,6 +139,3 @@ bool Address::equalsAddresses(Address address1, Address address2) {
 	else
 		return false;
 }
-
-//bool operator==(const Address& address1, const Address address2) {
-	//return address1.getDoorNumber() == address2.getDoorNumber() && address1.getFloor() == address2.getFloor() && address1.getLocation() == address2.getLocation() && address1.getPostalCode() == address2.getPostalCode() && address1.getStreet() == address2.getStreet(); }

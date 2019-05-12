@@ -10,28 +10,26 @@
 int main(){
 	//Testar
 
-
-
 	//DATE
 	
-	Date date;
-	Date date1(10, 12 , 1867);
-	Date date2("10/13/210");
-	cout << date2.getYear() << endl;
-	cout << date2.getMonth() << endl;
-	cout << date2.toString()<< endl;
-	cout << date1.toString()<< endl;
-	cout << date2.isValid() << endl;
-	cout << date2.daysInMonth(10,2019) << endl;
-	if (date2.isEqualTo(date1))
-		cout << "Iguais" << endl; 
-	else
-		cout << "Não sao iguais" << endl;
-	//date2 = date1; 
-	cout << date2.isAfter(date1) << endl;
-	date2.showDate();
-	cout << date2.getYear() << endl;
-	cout << (date1 == date2) << endl;
+	//Date date;
+	//Date date1(10, 12 , 1867);
+	//Date date2("10/13/210");
+	//cout << date2.getYear() << endl;
+	//cout << date2.getMonth() << endl;
+	//cout << date2.toString()<< endl;
+	//cout << date1.toString()<< endl;
+	//cout << date2.isValid() << endl;
+	//cout << date2.daysInMonth(10,2019) << endl;
+	//if (date2.isEqualTo(date1))
+	//	cout << "Iguais" << endl; 
+	//else
+	//	cout << "Não sao iguais" << endl;
+	////date2 = date1; 
+	//cout << date2.isAfter(date1) << endl;
+	//date2.showDate();
+	//cout << date2.getYear() << endl;
+	//cout << (date1 == date2) << endl;
 
 
 	//AGENCY
