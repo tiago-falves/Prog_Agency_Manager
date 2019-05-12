@@ -30,7 +30,6 @@ private:
 
 public:
     Agency(string fileName);
-
 	Agency();
 
     // GET methods

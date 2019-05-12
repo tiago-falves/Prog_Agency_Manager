@@ -1,13 +1,13 @@
 #include "Date.h"
 
 
-//Date::Date() {
-//	//this->year = 1000;
-//	//this->month = 1;
-//	//this->day = 1;
-//}
+Date::Date() {
+	this->year = 1000;
+	this->month = 1;
+	this->day = 1;
+}
 
-Date::Date(unsigned short day = 01, unsigned short month = 01, unsigned year = 1000){
+Date::Date(unsigned short day, unsigned short month, unsigned year){
 	this->day = day;
 	this->month = month;
 	this->year = year;
@@ -76,6 +76,9 @@ bool Date::isAfter(const Date &d) {
 		return true;
 }
 
+bool operator==(const Date& date1, const Date& date2) { // Comparison operator overloading
+	return date1.day == date2.day && date1.month == date2.month && date1.year == date2.year;
+}
 
 ostream& operator<<(ostream	&out, const Date &date){
 	out << date.day << "/" << date.month << "/" << date.year;

@@ -14,8 +14,8 @@ int main(){
 
 	//DATE
 	
-	//Date date;						//NAO ESTOU A PERCEBER O ERRO QUE ISTO DA
-	/*Date date1(10, 12 , 1867);
+	Date date;
+	Date date1(10, 12 , 1867);
 	Date date2("10/13/210");
 	cout << date2.getYear() << endl;
 	cout << date2.getMonth() << endl;
@@ -26,11 +26,12 @@ int main(){
 	if (date2.isEqualTo(date1))
 		cout << "Iguais" << endl; 
 	else
-		cout << "Não sao iguais";
-	date2 = date1; 
+		cout << "Não sao iguais" << endl;
+	//date2 = date1; 
 	cout << date2.isAfter(date1) << endl;
 	date2.showDate();
-	cout << date2.getYear();*/
+	cout << date2.getYear() << endl;
+	cout << (date1 == date2) << endl;
 
 
 	//AGENCY
@@ -41,7 +42,7 @@ int main(){
 	//cout << agency.getNif() << endl;
 	//agency.setName("Gosto");
 	//cout << agency.getName() << endl;
-	//cout << agency.getAddress().getStreet();
+	//cout << agency.getAddress().getStreet() << endl;
 	//cout << agency << endl;
 
 
@@ -66,10 +67,10 @@ int main(){
 	//cout << (adress == adress1) << endl;
 	//cout << (adress == address2) << endl;
 	
-	/*Address adress("zas",123,"2esq","4509-321","Porto");
-	Address adress1("zas", 123, "2esq", "4509-321", "Porto");
-	cout << adress.getFloor() << endl;
-	cout << adress1 == adress;*/
+	//Address adress("zas",123,"2esq","4509-321","Porto");
+	//Address adress1("zas", 123, "2esq", "4509-321", "Porto");
+	//cout << adress.getFloor() << endl;
+	//cout << (adress1 == adress);
 
 
 

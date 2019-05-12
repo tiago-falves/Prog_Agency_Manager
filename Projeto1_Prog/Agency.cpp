@@ -6,10 +6,9 @@ Agency::Agency(string fileName){
 	readAgency(fileName);
 }
 
-Agency::Agency(){ // Não entendo isto. Pensei que inicializar dentro do construtor tipo 'string name = ""' fosse funcionar mas nem por isso
+Agency::Agency(){
 	this->name = "";
 	this->nif = 0;
-	//this->address = "";
 	this->url = "";
 	this->clientsNameFile = "";
 	this->packsNameFile = "";
@@ -116,7 +115,7 @@ void Agency::showAgency() const{
 }
 ostream& operator<<(ostream& out, const Agency &agency){
 	out << "*********************************" << endl << "Name: " << agency.name << endl << "VATnumber: " << agency.nif << endl
-	<< "Address: " << agency.address << endl << "URL: " << agency.url << endl //cout clients //cout travel packs
+	<< "Address: " << agency.address << "URL: " << agency.url << endl //cout clients //cout travel packs
 	<< "*********************************" << endl;
 	
 	return out;

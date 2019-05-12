@@ -16,9 +16,9 @@ private:
 
 public:
    
-	//Date();
+	Date();
     Date(string date); // Assuming "dd/mm/yyyy"
-    Date(unsigned short day = 01, unsigned short month = 01, unsigned year = 1000);
+    Date(unsigned short day, unsigned short month, unsigned year);
 
     // GET methods
     unsigned short getDay() const;
@@ -49,10 +49,8 @@ public:
 	//True if the Date is after Date d
 	bool isAfter(const Date &d);
 
-
-
 	//Overload
-	//Date operator=(Date date);
+	//Date operator=(Date date); Isto não
 
 	//Static Methods, DESCOBRIR ONDE SE POE
 
@@ -60,9 +58,7 @@ public:
 	static bool isLeapYear(int year);
 	static void copyDate(Date &copy, Date date);
 	
-
-
-	
+	friend bool operator==(const Date& date1, const Date& date2); // Comparison operator overloading
     friend ostream& operator<<(ostream& out, const Date & date); // Extraction operator overloading, prints date normally
 
 };
