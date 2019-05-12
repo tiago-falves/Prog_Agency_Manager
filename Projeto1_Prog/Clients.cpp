@@ -4,14 +4,18 @@
 Client::Client() {
 
 	this->name = "";
-	this->nif = 000000000;
+	this->nif = 0;
 	this->familySize = 0;
-	this->address = address; //Como inicalizar isto?
+	this->address = address; //Como inicalizar isto? 
+	/*Eu acho que neste tipo de cenas é literalmente como está. 
+	Ao instanciar um cliente é que temos de ter um objeto (neste caso de endereço) já pronto a passsar à classe Client. 
+	Julgo isso é fora do alcance da classe. Portanto: cria-se um Address address com o construtor que queremos e depois fazemos
+	client.setAddress()*/
 	this->travelPackIdentifiers ; // Como inicializar isto?
 	this->totalPurchased = 0;
 	
 }
-Client::Client(string clientsFileName,vector<Client> &clients) {
+Client::Client(string clientsFileName, vector<Client> &clients) {
 
 	readClients(clientsFileName,clients);
 }
@@ -22,14 +26,14 @@ Client::Client(string name, unsigned int nif, unsigned short int familySize, Add
     this -> nif = nif;
     this -> familySize = familySize;
     this -> address = address;
-	this->travelPackIdentifiers; // Como inicializar isto?
-	this->totalPurchased = 0;
-	//
+	//this->travelPackIdentifiers; // Como inicializar isto?
+	//this->totalPurchased = 0; Acho que não precisamos de incluir estes dois já que como é um cliente não tem pacotes comprados
 }
 
 
 
 Client::Client(string name, unsigned int nif, unsigned short int familySize, Address address, vector<TravelPack> &packets, unsigned int totalPurchased) {
+
 
 	this->name = name;
 	this->nif = nif;
@@ -100,10 +104,12 @@ void Client::readClients(string clientsNameFile, vector<Client> &clientsVector) 
 				client.setFamilySize(stoi(clientsText));
 				break;
 			case 3:
-				client.setAddress( Address::addressTextConverter(clientsText));
+				client.setAddress(Address::addressTextConverter(clientsText));
 				break;
 			case 4:
-				//client.setTravelPackList(separateCharacterInt(clientsText, ';'));
+
+				//client.setTravelPackIdentifiers(separateCharacterInt(clientsText, ';'));
+
 				break;
 			case 5:
 				i = -1;
@@ -125,7 +131,7 @@ void Client::addClient(vector<Client> &clientsVector, Client client) {
 	clientsVector.push_back(client);
 }
 
-//Copies client to copy SUBSTITUIR ISTO POR UM OVERIDE NO SINAL =
+//Copies client to copy
 
 void Client::copyClient(Client &copy, Client client) {
 	copy.name = client.name;
@@ -153,7 +159,7 @@ void Client::removeClient(Client clientToRemove, vector<Client> &clientsVector) 
 	}
 }
 
-// Modify Client clientTModify to client
+// Modify Client client
 void Client::modifyClient(Client clientToModify, vector<Client> &clientVector, Client client) {
 	for (int i = 0; i < clientVector.size(); i++)
 	{
@@ -175,8 +181,8 @@ bool Client::clientInVector(vector<Client> clientsVector, Client client) { //Com
 
 //Returns true if the pack is valid
 bool Client::validPacksBought(string packs) {
-	vector<string> vector;
-	vector = separateCharacterStr(packs, ';');
+	vector<string> vector;						//separateChStr esta a dar erros!
+	vector = separateCharacterStr(packs, ';');		
 	for (int i = 0; i < vector.size(); i++) {
 		if (!stringIsNumber(vector[i])) { return false; }
 	}
@@ -194,7 +200,7 @@ bool Client::checknif() const
     return valid;
 }
 
-//Transorms the client.travelpacks in a string separated by ';'
+//Transforms the client.travelpacks in a string separated by ';'
 string Client::travelPacksToString(vector<int> travelPacks) {
 	string textPacks = "";
 	for (int i = 0; i < travelPacks.size(); i++)
@@ -219,17 +225,25 @@ void Client::showClient() const
 {
     cout << "*********************************" << endl;
 	cout << "Name:" << name << endl;
-    cout << "VAT Number: " << nif << endl;
+    cout << "NIF: " << nif << endl;
     cout << "Family Size: " << familySize << endl;
-    //cout << "Address: " << address.showAddress() << endl;
-    //cout << "TravelPacks: " << TravelPacks.showTravelPacks() << endl;
+    cout << "Address: " << endl;
+	address.showAddress();
+    cout << "TravelPacks: " << endl;
+	//travelPackIdentifiers.showTravelPacks();
     cout << "Total Value: " << totalPurchased << endl;
 	cout << "*********************************" << endl;
 }
 
-/*ostream& operator<<(ostream& out, const Client &client){
-    out << cout << "*********************************" << endl << "Name:" << name << endl << "VAT Number: " << nif << endl
-    << "Family Size: " << familySize << endl << "Address: " << address.showAddress() << endl << "TravelPacks: " << TravelPacks.showTravelPacks() << endl
-    << "Total Value: " << totalPurchased << endl << "*********************************" << endl;
-    return out;
-}*/
+
+//ostream& operator<<(ostream& out, const Client &client){
+//    out << "*********************************" << endl << "Name:" << client.name << endl << "VAT Number: " << client.nif << endl
+//    << "Family Size: " << client.familySize << endl << "Address: " << client.address << endl << "TravelPacks: " << client.travelPackIdentifiers << endl
+//    << "Total Value: " << client.totalPurchased << endl << "*********************************" << endl;
+//    return out;
+//}
+
+bool operator==(const Client &client1, const Client &client2) {
+	return client1.name == client2.name && client1.nif == client2.nif && client1.familySize == client2.familySize && client1.address == client2.address && client1.travelPackIdentifiers == client2.travelPackIdentifiers && client1.totalPurchased == client2.totalPurchased;
+}
+

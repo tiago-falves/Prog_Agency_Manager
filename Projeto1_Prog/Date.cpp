@@ -2,13 +2,15 @@
 
 
 Date::Date() {
-	this->year = 1000;
-	this->month = 1;
 	this->day = 1;
+	this->month = 1;
+	this->year = 1000;
 }
 
-Date::Date(unsigned short day, unsigned short month , unsigned year ) : 
-	day(day), month(month), year(year){
+Date::Date(unsigned short day, unsigned short month, unsigned year){
+	this->day = day;
+	this->month = month;
+	this->year = year;
 }
 
 Date::Date(string date){
@@ -74,12 +76,14 @@ bool Date::isAfter(const Date &d) {
 		return true;
 }
 
+bool operator==(const Date& date1, const Date& date2) { // Comparison operator overloading
+	return date1.day == date2.day && date1.month == date2.month && date1.year == date2.year;
+}
 
 ostream& operator<<(ostream	&out, const Date &date){
 	out << date.day << "/" << date.month << "/" << date.year;
 	return out;
 }
-
 
 
 //STATIC METHODS
@@ -113,6 +117,17 @@ void Date::copyDate(Date &copy, Date date) {
 	copy.year = date.year;
 	copy.month = date.month;
 	copy.day = date.day;
+}
+
+//Converts dateTex in format year/month/day xxxx/xx/xx to a struct Date
+Date Date::dateTextConverter(string dateText) {
+	Date date;
+	vector<int> dateVector;
+	dateVector = separateCharacterInt(dateText, '/');
+	date.year = dateVector[0];
+	date.month = dateVector[1];
+	date.day = dateVector[2];
+	return date;
 }
 
 

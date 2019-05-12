@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 
+#include "StringManipulator.h"
 #include "defs.h"
 
 using namespace std;
@@ -18,7 +19,8 @@ public:
    
 	Date();
     Date(string date); // Assuming "dd/mm/yyyy"
-    Date(unsigned short day = 1, unsigned short month = 1, unsigned year = 1000);
+	Date(unsigned short day, unsigned short month, unsigned year);
+
 
     // GET methods
     unsigned short getDay() const;
@@ -49,20 +51,19 @@ public:
 	//True if the Date is after Date d
 	bool isAfter(const Date &d);
 
-
-
 	//Overload
-	//Date operator=(Date date);
+	//Date operator=(Date date); Isto não
 
 	//Static Methods, DESCOBRIR ONDE SE POE
 
 	static int daysInMonth(int month, int year);
 	static bool isLeapYear(int year);
 	static void copyDate(Date &copy, Date date);
-	
 
-
+	//Converts dateTex in format year/month/day xxxx/xx/xx to a struct Date
+	static Date dateTextConverter(string dateText);
 	
+	friend bool operator==(const Date& date1, const Date& date2); // Comparison operator overloading
     friend ostream& operator<<(ostream& out, const Date & date); // Extraction operator overloading, prints date normally
 
 };
