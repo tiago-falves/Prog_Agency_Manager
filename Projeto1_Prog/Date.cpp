@@ -14,7 +14,7 @@ Date::Date(unsigned short day, unsigned short month, unsigned year){
 }
 
 Date::Date(string date){
-
+	
 	this->day = stoi(date.substr(0, 2));
 	this->month = stoi(date.substr(3, 2));
 	this->year = stoi(date.substr(6, 4));
@@ -25,7 +25,7 @@ Date::Date(string date){
  ********************************/
 
 
-unsigned short Date::getDay() const{return day;}
+unsigned short Date::getDay() const {return day;}
 unsigned short Date::getMonth() const{return month;}
 unsigned Date::getYear() const{return year;}
 

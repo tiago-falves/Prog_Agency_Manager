@@ -12,8 +12,6 @@ int main() {
 
 	//DATE
 
-
-
 	//Date date;
 	//Date date1(10, 12 , 1867);
 	//Date date2("10/13/210");
@@ -49,7 +47,6 @@ int main() {
 
 	//ADDRESS
 
-
 	//Address adress("zas",123,"2esq","4509-321","Porto");
 	//Address adress1("zas", 123, "2esq", "4509-321", "Porto");
 	//Address address2("zas/123/2esq/4509-321/Porto");
@@ -73,8 +70,6 @@ int main() {
 	//Address adress1("zas", 123, "2esq", "4509-321", "Porto");
 	//cout << adress.getFloor() << endl;
 	//cout << (adress1 == adress);
-
-
 
 
 	//Client

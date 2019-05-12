@@ -6,10 +6,9 @@ Agency::Agency(string fileName){
 	readAgency(fileName);
 }
 
-Agency::Agency() {
+Agency::Agency(){
 	this->name = "";
 	this->nif = 0;
-	//this->address = "";
 	this->url = "";
 	this->clientsNameFile = "";
 	this->packsNameFile = "";
@@ -52,7 +51,7 @@ void Agency::setPacksNameFile(string packsNameFile) { this->packsNameFile = pack
 
 //void Agency::setTravelPacks(vector<TravelPack>& TravelPacks){ this->TravelPacks = TravelPacks; }
 
-
+// other methods
 
 void Agency::readAgency(string filename) {
 
@@ -62,7 +61,7 @@ void Agency::readAgency(string filename) {
 	int i = 0;
 
 
-	agencyFile.open("agency.txt"/*filename*/);
+	agencyFile.open(filename);
 
 	if (agencyFile.fail())
 		cerr << "Error opening agency.txt. Please make sure the file is in the correct folder " << endl;
@@ -98,14 +97,26 @@ void Agency::readAgency(string filename) {
 
 }
 
-
-
 /*********************************
  * Mostrar Loja
  ********************************/  
 
 // mostra o conteudo de uma agencia
-/*ostream& operator<<(ostream& out, const Agency & agency){
 
-  // A IMPLEMENTATION REQUIRED 
-}*/
+void Agency::showAgency() const{
+	cout << "*********************************" << endl;
+	cout << "Name: " << name << endl;
+	cout << "VATnumber: " << nif << endl;
+	cout << "Address: " << address << endl;
+	cout << "URL: " << url << endl;
+	//cout clients
+	//cout travel packs
+	cout << "*********************************" << endl;
+}
+ostream& operator<<(ostream& out, const Agency &agency){
+	out << "*********************************" << endl << "Name: " << agency.name << endl << "VATnumber: " << agency.nif << endl
+	<< "Address: " << agency.address << "URL: " << agency.url << endl //cout clients //cout travel packs
+	<< "*********************************" << endl;
+	
+	return out;
+}

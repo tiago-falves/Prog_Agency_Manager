@@ -46,7 +46,7 @@ public:
     void setTotalPurchased(unsigned int totalPurchased);
   
     
-	//Reads the gile clientsNameFile and put the result to a Client Vector
+	//Reads the file clientsNameFile and put the result to a Client Vector
 	static void readClients(string clientsNameFile, vector<Client> &clientsVector);
 
 	//Adds client to the clientsVector
@@ -75,5 +75,7 @@ public:
 
     bool checknif() const; // Returns true if number has 9 digits
     void showClient() const;
-    //friend ostream& operator<<(ostream& out, const Client &client); // Operator overloading
+
+	friend bool operator==(const Client &client1, const Client &client2); // Comparison operator overloading
+	friend ostream& operator<<(ostream& out, const Client &client); // Operator overloading
 };

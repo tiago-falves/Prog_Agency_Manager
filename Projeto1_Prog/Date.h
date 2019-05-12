@@ -22,6 +22,7 @@ public:
 	Date(unsigned short day, unsigned short month, unsigned year);
 
 
+
     // GET methods
     unsigned short getDay() const;
     unsigned short getMonth() const;
@@ -62,6 +63,7 @@ public:
 
 	//Converts dateTex in format year/month/day xxxx/xx/xx to a struct Date
 	static Date dateTextConverter(string dateText);
+
 	
 	friend bool operator==(const Date& date1, const Date& date2); // Comparison operator overloading
     friend ostream& operator<<(ostream& out, const Date & date); // Extraction operator overloading, prints date normally

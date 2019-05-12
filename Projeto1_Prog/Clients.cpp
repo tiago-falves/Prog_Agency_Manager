@@ -31,7 +31,6 @@ Client::Client(string name, unsigned int nif, unsigned short int familySize, Add
 }
 
 
-
 Client::Client(string name, unsigned int nif, unsigned short int familySize, Address address, vector<TravelPack> &packets, unsigned int totalPurchased) {
 
 
@@ -107,7 +106,6 @@ void Client::readClients(string clientsNameFile, vector<Client> &clientsVector) 
 				client.setAddress(Address::addressTextConverter(clientsText));
 				break;
 			case 4:
-
 				//client.setTravelPackIdentifiers(separateCharacterInt(clientsText, ';'));
 
 				break;
@@ -245,5 +243,6 @@ void Client::showClient() const
 
 bool operator==(const Client &client1, const Client &client2) {
 	return client1.getName() == client2.getName() && client1.getnif() == client2.getnif() && client1.getFamilySize() == client2.getFamilySize() && client1.getAddress() == client2.getAddress() && client1.getTravelPackIdentifiers() == client2.getTravelPackIdentifiers() && client1.getTotalPurchased() == client2.getTotalPurchased();
+
 }
 
