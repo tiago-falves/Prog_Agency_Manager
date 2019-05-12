@@ -25,8 +25,8 @@ private:
   
     //bool clientsInfoHasChanged; // True if at least one client has been changed/added/deleted
     //bool TravelPacksInfoHasChanged; // True if at least one TravelPack has been changed/added/deleted
-    //unsigned int maxClientsId; // Maximum value among all clients identifiers
-    //unsigned int maxTravelPacksId; // Maximum value among all TravelPacks identifiers
+    //unsigned int maxClientsId; // Maximum value among all clients getId()s
+    //unsigned int maxTravelPacksId; // Maximum value among all TravelPacks getId()s
 
 public:
     Agency(string fileName);

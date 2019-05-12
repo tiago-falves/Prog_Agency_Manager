@@ -13,8 +13,8 @@ using namespace std;
 
 class TravelPack{
  private:
-  unsigned id; // TravelPack unique identifier
-  int lastPackIdentifier;
+  int id; // TravelPack unique getId()
+  int lastPackgetId();
   vector<string> touristicSpots; // touristic touristicSpots to visit
   Date begin;  // begin date
   Date end;  // end date
@@ -25,10 +25,10 @@ class TravelPack{
  public:
 	  TravelPack();
 	  TravelPack(string fileName, vector<TravelPack> &travelPacksVector);
-	  TravelPack(int identifier,vector<string> touristicSpots, Date begin, Date end, double pricePerPerson, unsigned maxPersons, int soldTicketsNumber);
+	  TravelPack(int getId(),vector<string> touristicSpots, Date begin, Date end, double pricePerPerson, unsigned maxPersons, int soldTicketsNumber);
 
 	  // GET methods
-	  unsigned getId() const;
+	  int getId() const;
 	  vector<string> getTouristicSpots() const;
 	  Date getBeginDate() const;
 	  Date getEndDate() const;
@@ -44,7 +44,7 @@ class TravelPack{
 	  void setPricePerPerson(double pricePerPerson);
 	  void setMaxPersons(unsigned maxPersons);
 	  void setSoldTicketsNumber(int soldTicketsNumber);
-	  void setLastPackIdentifier(int lastPackIdentifier);
+	  void setLastPackgetId()(int lastPackgetId());
 
 	  // other methods
 

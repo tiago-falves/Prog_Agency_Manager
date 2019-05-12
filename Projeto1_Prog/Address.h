@@ -43,7 +43,7 @@ public:
   
 	bool validPostalCode(); // Returns true if "xxxx-xxx", false otherwise
 
-	bool validAddressText(string address);
+	static bool validAddressText(string address);
 
 	static bool equalsAddresses(Address address1, Address address2);
 
