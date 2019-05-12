@@ -117,6 +117,14 @@ Address Address::addressTextConverter(string addressText) {
 	return address;
 }
 
+//Returns True if two addresses are equal
+bool Address::equalsAddresses(Address address1, Address address2) {
+	if (address1.doorNumber == address2.doorNumber && address1.floor == address2.floor && address1.location == address2.location && address1.postalCode == address2.postalCode && address1.street == address2.street)
+		return true;
+	else
+		return false;
+}
+
 void Address::showAddress() const{
     cout << "*********************************" << endl;
 	cout << street << " / " << doorNumber << " / " << floor << " / " << postalCode << " / " << location << endl;
@@ -131,11 +139,3 @@ ostream& operator<<(ostream& out, const Address &address){
 
 bool operator==(const Address &address1, const Address &address2) {
 	return address1.street == address2.street && address1.doorNumber == address2.doorNumber && address1.floor == address2.floor && address1.postalCode == address2.postalCode && address1.location == address2.location; }
-
-//Returns True if two addresses are equal
-bool Address::equalsAddresses(Address address1, Address address2) {
-	if (address1.doorNumber == address2.doorNumber && address1.floor == address2.floor && address1.location == address2.location && address1.postalCode == address2.postalCode && address1.street == address2.street)
-		return true;
-	else
-		return false;
-}

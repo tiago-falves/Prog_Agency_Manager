@@ -98,45 +98,50 @@ int main() {
 	cout << clients[1].getFamilySize();*/
 
 	// TRAVEL PACKS
-	vector<TravelPack> travelPacks;
+	//vector<TravelPack> travelPacks;
 	vector<string> spots;
 
-	
+
+
+	//
 	Date date1;
 	Date date2;
-	Date date3(5, 5, 2016);
-	spots.push_back("Gosto");
+	//Date date3(5, 5, 2016);
+	//spots.push_back("Gosto");
 	TravelPack travelPack(0,spots,date1,date2,0,0,0);
-	TravelPack travelPack2(2,spots,date3,date3,2,2,2);
-	
-	cout << travelPack.getId() << endl;
-	cout << travelPack.getEndDate().getDay() << endl;
-	cout << travelPack.getMaxPersons() << endl;
-	cout << "------------------------" << endl;
-	travelPack = travelPack2;
-	cout << travelPack.getId() << endl;
-	cout << travelPack.getEndDate().getDay() << endl;
-	cout << travelPack.getMaxPersons() << endl;
-	cout << "------------------------" << endl;
-	
-	
-	cout << travelPack.getMaxPersons();
-	TravelPack travelPack1("packs.txt",travelPacks);
-	cout << travelPacks[0].getId() << endl;
-	cout << travelPacks[0].getEndDate().getDay() << endl;
-	cout << travelPacks[0].getMaxPersons() << endl;
+	//TravelPack travelPack2(2,spots,date3,date3,2,2,2);
+	//
+	//cout << travelPack.getId() << endl;
+	//cout << travelPack.getEndDate().getDay() << endl;
+	//cout << travelPack.getMaxPersons() << endl;
+	//cout << "------------------------" << endl;
+	//travelPack = travelPack2;
+	//cout << travelPack.getId() << endl;
+	//cout << travelPack.getEndDate().getDay() << endl;
+	//cout << travelPack.getMaxPersons() << endl;
+	//cout << "------------------------" << endl;
+	//
+	//cout << travelPack.getMaxPersons();
+	//TravelPack travelPack1("packs.txt",travelPacks);
+	//cout << travelPacks[0].getId() << endl;
+	//cout << travelPacks[0].getEndDate().getDay() << endl;
+	//cout << travelPacks[0].getMaxPersons() << endl;
+
+	//cout << (travelPack == travelPack2) << endl;
+	cout << travelPack << endl;
 
 	//TravelPack travelPack1(spots,date1,date2,0,0,0);
 	//TravelPack travelPack("packs.txt", travelPacks);
 
 
-	//ISTO DA ERRO POR ALGUMA RAZAO
-	//destinations = separateChStr("Madeira - Funchal, Porto Santo", '-');
-	
+	//vector<string> destinations = separateCharacterStr("Madeira - Funchal, Porto Santo", '-');
+	//for (int i = 0; i < destinations.size(); i++) {
+	//	cout << destinations.at(i) << endl;
+	//}
 
 
-	//destinations = TravelPack::separatedDestination("Madeira - Funchal, Porto Santo");
-	//cout << destinations.size();
+	/*destinations = TravelPack::separatedDestination("Madeira - Funchal, Porto Santo");
+	cout << destinations.size();*/
 
 
 	system("Pause");
