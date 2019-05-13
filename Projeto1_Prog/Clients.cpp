@@ -11,7 +11,7 @@ Client::Client() {
 	Ao instanciar um cliente é que temos de ter um objeto (neste caso de endereço) já pronto a passsar à classe Client. 
 	Julgo isso é fora do alcance da classe. Portanto: cria-se um Address address com o construtor que queremos e depois fazemos
 	client.setAddress()*/
-	this->travelPackgetId()s ; // Como inicializar isto?
+	this->travelPackId; // Como inicializar isto?
 	this->totalPurchased = 0;
 	
 }
@@ -26,7 +26,7 @@ Client::Client(string name, unsigned int nif, unsigned short int familySize, Add
     this -> nif = nif;
     this -> familySize = familySize;
     this -> address = address;
-	//this->travelPackgetId()s; // Como inicializar isto?
+	//this->travelPackId; // Como inicializar isto?
 	//this->totalPurchased = 0; Acho que não precisamos de incluir estes dois já que como é um cliente não tem pacotes comprados
 }
 
@@ -38,7 +38,7 @@ Client::Client(string name, unsigned int nif, unsigned short int familySize, Add
 	this->nif = nif;
 	this->familySize = familySize;
 	this->address = address;
-	this->travelPackgetId()s = travelPackgetId()s;
+	this->travelPackId = travelPackId;
 	this->totalPurchased = totalPurchased;
 }
 
@@ -68,7 +68,7 @@ void Client::setFamilySize(unsigned short int familySize){ this -> familySize = 
 
 void Client::setAddress(Address address){ this -> address = address; }
 
-void Client::setTravelPackId(vector<int> &travelPackgetId){ this ->travelPackgetId()s = travelPackgetId()s; }
+void Client::setTravelPackId(vector<int> &travelPackgetId){ this ->travelPackId = travelPackId; }
 
 void Client::setTotalPurchased(unsigned int totalPurchased){ this -> totalPurchased = totalPurchased; }
   
@@ -106,7 +106,7 @@ void Client::readClients(string clientsNameFile, vector<Client> &clientsVector) 
 				client.setAddress(Address::addressTextConverter(clientsText));
 				break;
 			case 4:
-				//client.setTravelPackgetId()s(separateCharacterInt(clientsText, ';'));
+				//client.settravelPackId(separateCharacterInt(clientsText, ';'));
 
 				break;
 			case 5:
@@ -136,7 +136,7 @@ void Client::copyClient(Client &copy, Client client) {
 	copy.address = client.address;
 	copy.familySize = client.familySize;
 	copy.nif = client.nif;
-	copy.travelPackgetId()s = client.travelPackgetId()s;
+	copy.travelPackId = client.travelPackId;
 }
 
 
@@ -212,7 +212,7 @@ string Client::travelPacksToString(vector<int> travelPacks) {
 
 /*//Returns True if Clients are equal SUBSTITUIR POR OVERIDE DE ==
 bool Client::equalClients(Client client1, Client client2) {
-	if (Address::equalsAddresses(client1.address, client2.address) && client1.familySize == client2.familySize && client1.name == client1.name && client1.nif == client2.nif && client1.travelPackgetId()s == client2.travelPackgetId()s)
+	if (Address::equalsAddresses(client1.address, client2.address) && client1.familySize == client2.familySize && client1.name == client1.name && client1.nif == client2.nif && client1.travelPackId == client2.travelPackId)
 		return true;
 	else
 		return false;
@@ -228,7 +228,7 @@ void Client::showClient() const
     cout << "Address: " << endl;
 	address.showAddress();
     cout << "TravelPacks: " << endl;
-	//travelPackgetId()s.showTravelPacks();
+	//travelPackId.showTravelPacks();
     cout << "Total Value: " << totalPurchased << endl;
 	cout << "*********************************" << endl;
 }
@@ -236,13 +236,13 @@ void Client::showClient() const
 
 //ostream& operator<<(ostream& out, const Client &client){
 //    out << "*********************************" << endl << "Name:" << client.name << endl << "VAT Number: " << client.nif << endl
-//    << "Family Size: " << client.familySize << endl << "Address: " << client.address << endl << "TravelPacks: " << client.travelPackgetId()s << endl
+//    << "Family Size: " << client.familySize << endl << "Address: " << client.address << endl << "TravelPacks: " << client.travelPackId << endl
 //    << "Total Value: " << client.totalPurchased << endl << "*********************************" << endl;
 //    return out;
 //}
 
 bool operator==(const Client &client1, const Client &client2) {
-	return client1.getName() == client2.getName() && client1.getnif() == client2.getnif() && client1.getFamilySize() == client2.getFamilySize() && client1.getAddress() == client2.getAddress() && client1.getTravelPackgetId()s() == client2.getTravelPackgetId()s() && client1.getTotalPurchased() == client2.getTotalPurchased();
+	return client1.getName() == client2.getName() && client1.getnif() == client2.getnif() && client1.getFamilySize() == client2.getFamilySize() && client1.getAddress() == client2.getAddress() && client1.getTravelPackId() == client2.getTravelPackId() && client1.getTotalPurchased() == client2.getTotalPurchased();
 
 }
 

@@ -71,12 +71,12 @@ void showSoldTouristicPacks(vector<TravelPack> travelPacksVector, vector<Client>
 	for (int i = 0; i < clientsVector.size(); i++)
 	{
 		cout << "Client " << i + 1 << endl << endl ;
-		for (int j = 0; j < clientsVector[i].getTravelPackgetId().size(); j++) {
+		for (int j = 0; j < clientsVector[i].getTravelPackId().size(); j++) {
 			inTravelPack = false;
 
 			for (int k = 0; k < travelPacksVector.size(); k++)
 			{
-				if (travelPacksVector[k].getId() == clientsVector[i].getTravelPackgetId()[j] || travelPacksVector[k].getId() == -clientsVector[i].getTravelPackgetId()s()[j]) {
+				if (travelPacksVector[k].getId() == clientsVector[i].getTravelPackId()[j] || travelPacksVector[k].getId() == -clientsVector[i].getTravelPackId()[j]) {
 					inTravelPack = true;
 					c = k;
 					break;
@@ -84,12 +84,12 @@ void showSoldTouristicPacks(vector<TravelPack> travelPacksVector, vector<Client>
 			}
 			if (inTravelPack)
 			{
-				showTravelPack(travelPacksVector[c]);
+				travelPacksVector[c].showTravelPack();
 				cout << endl;
 			}
 			else
 			{
-				cout << "getId(): " << clientsVector[i].getTravelPackgetId()s()[j] << " Not in the database" << endl;
+				cout << "getId(): " << clientsVector[i].getTravelPackId()[j] << " Not in the database" << endl;
 			}
 		}
 	}
@@ -112,7 +112,7 @@ void modifyTravelPackOption(vector<TravelPack> &travelPackVector) {
 	TravelPack modifiedTravelPack;
 
 	cout << "Please insert the data of the Touristic Pack you want to modify" << endl << endl;
-	travelPackToModify = askForTravelPacksgetId()(travelPackVector);
+	travelPackToModify = askForTravelPacksgetId(travelPackVector);
 
 	cout << endl << endl << "Insert the new informations about the Touristic Pack: " << endl << endl;
 	modifiedTravelPack = askForTravelPacks(true,travelPackVector);
@@ -126,7 +126,7 @@ void modifyTravelPackOption(vector<TravelPack> &travelPackVector) {
 void removeClientOption(vector<TravelPack> &travelPackVector) {
 	TravelPack travelPack;
 	cout << "Please insert the data of the touristic pack you want to remove" << endl << endl;
-	travelPack = askForTravelPacksgetId()(travelPackVector);
+	travelPack = askForTravelPacksgetId(travelPackVector);
 	TravelPack::removeTravelPack(travelPack, travelPackVector);
 	cout << endl << endl << "Touristic Pack removed successfully!";
 	menuSeparator();
@@ -175,7 +175,7 @@ TravelPack askForTravelPacks(bool isCreatingTravelPack, vector<TravelPack> trave
 	bool validId = true;
 
 	cout << "Identifier: ";
-	cin >> identifier);
+	cin >> identifier;
 	validCin(identifier);
 	if (isCreatingTravelPack)
 	{
@@ -381,8 +381,8 @@ void showAllTravelPacksByDateDestination(vector<TravelPack> travelPackVector) {
 
 	cout << endl << endl;
 	for (int i = 0; i < travelPackVector.size(); i++)
-	{
-		if (biggerDate(travelPackVector[i].beginningDate, begginningDate) && biggerDate(endDate, travelPackVector[i].endDate) && (separateCharacterStr(travelPackVector[i].touristicSpots, '-')[0] == separateCharacterStr(destination, '-')[0]))
+	{													//Resolver este problema
+		if (true)//(travelPackVector[i].getBeginDate().isAfter(begginningDate) && endDate.isAfter(travelPackVector[i].getEndDate()) && (separateCharacterStr(travelPackVector[i].getTouristicSpots(), '-')[0] == separateCharacterStr(destination, '-')[0]))
 		{
 			cout << "Touristic Pack " << i + 1 << ":" << endl;
 			showTravelPack(travelPackVector[i]);

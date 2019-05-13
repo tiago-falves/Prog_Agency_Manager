@@ -14,7 +14,7 @@ using namespace std;
 class TravelPack{
  private:
   int id; // TravelPack unique getId()
-  int lastPackgetId();
+  int lastPackId;
   vector<string> touristicSpots; // touristic touristicSpots to visit
   Date begin;  // begin date
   Date end;  // end date
@@ -44,7 +44,7 @@ class TravelPack{
 	  void setPricePerPerson(double pricePerPerson);
 	  void setMaxPersons(unsigned maxPersons);
 	  void setSoldTicketsNumber(int soldTicketsNumber);
-	  void setLastPackgetId()(int lastPackgetId());
+	  void setLastPackId(int lastPackId);
 
 	  // other methods
 
@@ -69,7 +69,9 @@ class TravelPack{
 	  //True if Travel Packs are equal, False otherwise
 	  static bool equalTravelPacks(TravelPack travelPack1, TravelPack travelPack2); //Substituir por overide do ==
 
-	 
+	  void showTravelPack() const;
 
+	 
+	  friend bool operator==(const TravelPack& travelpack1, const TravelPack& travelpack2);
 	  friend ostream& operator<<(ostream& out, const TravelPack & TravelPack);
 };

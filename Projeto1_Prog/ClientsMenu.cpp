@@ -79,22 +79,22 @@ Client askForNIF(vector<Client> clientsVector){
 //Adds the travel pack identiier to the client, alters the bought travelPack
 void buyTravelPack(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector) {
 	Client client;
-	int getId();
-	bool validgetId() = false;
+	int identifier;
+	bool validId = false;
 
 	cout << "Insert the Clients information you want to buy the touristic pack: " << endl;
 	client = askForNIF(clientsVector);
 	
 	cout << endl << "Insert the Touristic Pack getId() you want to buy: ";
-	cin >> getId();
-	validCin(getId());
-	while (!validgetId())
+	cin >> identifier;
+	validCin(identifier);
+	while (!validId)
 	{
 		for (int i = 0; i < travelPacksVector.size(); i++)
 		{
-			if (getId() == travelPacksVector[i].getId() && travelPacksVector[i].getId() > 0 && (travelPacksVector[i].getMaxPersons()-travelPacksVector[i].getSoldTicketsNumber()) > 0)
+			if (identifier == travelPacksVector[i].getId() && travelPacksVector[i].getId() > 0 && (travelPacksVector[i].getMaxPersons()-travelPacksVector[i].getSoldTicketsNumber()) > 0)
 			{
-				validgetId() = true;
+				validId = true;
 				travelPacksVector[i].setSoldTicketsNumber(travelPacksVector[i].getSoldTicketsNumber() + 1);
 				if ((travelPacksVector[i].getMaxPersons() - travelPacksVector[i].getSoldTicketsNumber()) <= 0) {
 					travelPacksVector[i].setId( -travelPacksVector[i].getId());
@@ -103,11 +103,11 @@ void buyTravelPack(vector<Client> &clientsVector, vector<TravelPack> &travelPack
 				break;
 			}
 		}
-		if (!validgetId())
+		if (!validId)
 		{
 			cout << "getId() not in the database, please insert again: ";
-			cin >> getId();
-			validCin(getId());
+			cin >> identifier;
+			validCin(identifier);
 		}
 	}
 
@@ -138,7 +138,7 @@ void showClient(Client client) {
 	cout << "NIF: " << client.getnif() << endl;
 	cout << "Number of people in the family: " << client.getFamilySize() << endl;
 	cout << "Address: " << client.getAddress().getStreet() << " / " << client.getAddress().getDoorNumber() << " / " << client.getAddress().getFloor() << " / " << client.getAddress().getPostalCode() << " / " << client.getAddress().getLocation() << endl;
-	cout << "Tourist Packs bought: " << Client::travelPacksToString(client.getTravelPackgetId()s());
+	cout << "Tourist Packs bought: " << Client::travelPacksToString(client.getTravelPackId());
 	
 }
 
@@ -190,7 +190,7 @@ Client askForClientsInformation() {
 	client.setNif( nif);
 	client.setFamilySize(familyNumber);
 	client.setAddress(Address::addressTextConverter(addressText));
-	client.getTravelPackgetId()s() = separateCharacterInt(touristicPacksBought, ';');
+	client.getTravelPackId() = separateCharacterInt(touristicPacksBought, ';');
 
 	return client;
 }

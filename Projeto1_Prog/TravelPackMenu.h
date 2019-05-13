@@ -5,7 +5,7 @@
 
 TravelPack askForTravelPacks(bool isCreatingTravelPack, vector<TravelPack> travelPackVector);
 
-TravelPack askForTravelPacksgetId()(vector<TravelPack> travelPackVector);
+TravelPack askForTravelPacksgetId(vector<TravelPack> travelPackVector);
 
 void runTravelPackMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector, Agency agency);
 
