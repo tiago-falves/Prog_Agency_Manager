@@ -64,6 +64,9 @@ public:
 	//Converts dateTex in format year/month/day xxxx/xx/xx to a struct Date
 	static Date dateTextConverter(string dateText);
 
+	//Returns true if date text is a valid date
+	static bool validDateText(string dateText);
+
 	
 	friend bool operator==(const Date& date1, const Date& date2); // Comparison operator overloading
     friend ostream& operator<<(ostream& out, const Date & date); // Extraction operator overloading, prints date normally

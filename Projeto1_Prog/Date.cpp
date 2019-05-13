@@ -130,5 +130,20 @@ Date Date::dateTextConverter(string dateText) {
 	return date;
 }
 
+//Returns true if date text is a valid date
+bool Date::validDateText(string dateText)
+{
+	vector<string> dateVector;
+	dateVector = separateCharacterStr(dateText, '/');
+	if (dateVector.size() != 3) { return false; }
+	for (int i = 0; i < dateVector.size(); i++) {
+		if (!stringIsNumber(dateVector[i])) { return false; }
+	}
+	if (stoi(dateVector[0]) < 1000 || dateVector[0].size() != 4) { return false; }
+	if (dateVector[1].size() != 2 || stoi(dateVector[1]) < 1 || stoi(dateVector[1]) > 12) { return false; }
+	if (dateVector[1].size() != 2 || stoi(dateVector[1]) < 1 || stoi(dateVector[1]) > 31) { return false; }
+	return true;
+}
+
 
 
