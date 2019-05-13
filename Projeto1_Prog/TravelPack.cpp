@@ -2,9 +2,6 @@
 
 TravelPack::TravelPack()
 {
-	Date begin;
-	Date end;
-
 	this->touristicSpots = {};
 	this->begin = begin;
 	this->end = end;
@@ -65,13 +62,12 @@ void TravelPack::setSoldTicketsNumber(int soldTicketsNumber) { this->soldTickets
 void TravelPack::setLastPackgetId()(int lastPackgetId()) { this->lastPackgetId() = lastPackgetId(); }
 
 
-//Reads the Travel Pack file and puts its information into a struct
+//Reads the Travel Pack file and puts its information into a class
 void TravelPack::readTravelPacks(string filename, vector<TravelPack> &travelPacksVector) {
 
 	string travelPackText;
 	ifstream travelPacksFile;
 	TravelPack travelPack;
-
 
 	int i = 0;
 	travelPacksFile.open(filename);
@@ -92,10 +88,10 @@ void TravelPack::readTravelPacks(string filename, vector<TravelPack> &travelPack
 				travelPack.setId(stoi(travelPackText));
 				break;
 			case 2:
-				//travelPack.setTouristicSpots(travelPackText);
+				travelPack.setTouristicSpots(travelPack.separatedDestination(travelPackText)); // Isto deve funcionar, certo?
 				break;
 			case 3:
-				travelPack.setBeginDate( Date::dateTextConverter(travelPackText));
+				travelPack.setBeginDate(Date::dateTextConverter(travelPackText));
 				break;
 			case 4:
 				travelPack.setEndDate(Date::dateTextConverter(travelPackText));
@@ -135,7 +131,7 @@ void TravelPack::removeTravelPack(TravelPack travelPackToRemove, vector<TravelPa
 	for (int i = 0; i < travelPackVector.size(); i++)
 	{
 		travelPack = travelPackVector[i];
-		if (equalTravelPacks(travelPackToRemove, travelPack))
+		if (travelPackToRemove == travelPack)
 		{
 			travelPackVector[i] = travelPackVector[last_pos];
 			travelPackVector.pop_back();
@@ -147,16 +143,16 @@ void TravelPack::removeTravelPack(TravelPack travelPackToRemove, vector<TravelPa
 void TravelPack::modifyTravelPack(TravelPack travelPackToModify, vector<TravelPack> &travelPackVector, TravelPack travelPack) {
 	for (int i = 0; i < travelPackVector.size(); i++)
 	{
-		if (equalTravelPacks(travelPackToModify, travelPackVector[i])) {
+		if (travelPackToModify == travelPackVector[i]) {
 			travelPackVector[i] = travelPack;
 			break;
 		}
 	}
 }
 
-//True if Travel Packs are equal, False otherwise
+//True if Travel Packs are equal
 bool TravelPack::equalTravelPacks(TravelPack travelPack1, TravelPack travelPack2) {
-	if (travelPack1.id == travelPack2.id  &&travelPack1.begin.isEqualTo(travelPack2.begin) && travelPack1.end.isEqualTo( travelPack2.end) && travelPack1.pricePerPerson == travelPack2.pricePerPerson && travelPack1.maxPersons == travelPack2.maxPersons && travelPack1.soldTicketsNumber == travelPack2.soldTicketsNumber && travelPack1.touristicSpots == travelPack2.touristicSpots)
+	if (travelPack1.id == travelPack2.id  && travelPack1.begin.isEqualTo(travelPack2.begin) && travelPack1.end.isEqualTo( travelPack2.end) && travelPack1.pricePerPerson == travelPack2.pricePerPerson && travelPack1.maxPersons == travelPack2.maxPersons && travelPack1.soldTicketsNumber == travelPack2.soldTicketsNumber && travelPack1.touristicSpots == travelPack2.touristicSpots)
 		return true;
 	else
 		return false;
@@ -166,12 +162,12 @@ bool TravelPack::equalTravelPacks(TravelPack travelPack1, TravelPack travelPack2
 bool TravelPack::travelPackInVector(vector<TravelPack> travelPackVector, TravelPack travelPack) {
 	for (int i = 0; i < travelPackVector.size(); i++)
 	{
-		if (equalTravelPacks(travelPackVector[i], travelPack)) { return true; }
+		if (travelPackVector[i] == travelPack) { return true; }
 	}
 	return false;
 }
 
-//Separate the touristic sopts in a vector, being the first element the city
+//Separate the touristic spots in a vector, being the first element the city
 vector<string> TravelPack::separatedDestination(string destinations) {
 	vector<string> destinationVector;
 	destinationVector = separateCharacterStr(destinations, '-');
@@ -183,8 +179,32 @@ vector<string> TravelPack::separatedDestination(string destinations) {
  * Show TravelPack information
  ********************************/  
 
-// shows a TravelPack content 
-/*ostream& operator<<(ostream& out, const TravelPack & TravelPack){
+void TravelPack::showTravelPack() const {
+	cout << "*********************************" << endl;
+	cout << "ID: " << id << endl;
+	cout << "Touristic Spots: " << /*touristicSpots <<*/ endl;
+	cout << "Begin Date: " << endl;
+	begin.showDate();
+	cout << "End Date: " << endl;
+	end.showDate();
+	cout << "Price per Person: " << pricePerPerson << endl;
+	cout << "Packs left: " << maxPersons << endl;
+	cout << "*********************************" << endl;
+}
 
-  // REQUIRES IMPLEMENTATION
-}*/
+bool operator==(const TravelPack& travelpack1, const TravelPack& travelpack2){
+	return travelpack1.id == travelpack2.id && travelpack1.touristicSpots == travelpack2.touristicSpots && travelpack1.begin == travelpack2.begin && travelpack1.end == travelpack2.end && travelpack1.pricePerPerson == travelpack2.pricePerPerson && travelpack1.maxPersons == travelpack2.maxPersons;
+}
+
+ostream& operator<<(ostream& out, const TravelPack &TravelPack){
+	out << "ID:" << TravelPack.id << endl << "Touristic Spots: " << /*TravelPack.touristicSpots <<*/ endl << "Begin Date: " << TravelPack.begin << endl << "End Date: " << TravelPack.end << endl << "Price per Person: " << TravelPack.pricePerPerson << endl << "Packs left: " << TravelPack.maxPersons << endl;
+	return out;
+}
+
+//ostream& operator<<(ostream& out, const vector<string> touristicSpots) { Não consigo por isto a dar
+//	for (int i = 0; i < touristicSpots.size(); i++)
+//	{
+//		out << touristicSpots.at(i) << endl;
+//	}
+//	return out;
+//}
