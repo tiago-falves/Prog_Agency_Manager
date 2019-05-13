@@ -71,12 +71,12 @@ void showSoldTouristicPacks(vector<TravelPack> travelPacksVector, vector<Client>
 	for (int i = 0; i < clientsVector.size(); i++)
 	{
 		cout << "Client " << i + 1 << endl << endl ;
-		for (int j = 0; j < clientsVector[i].touristicPacksIdentifier.size(); j++) {
+		for (int j = 0; j < clientsVector[i].getTravelPackgetId().size(); j++) {
 			inTravelPack = false;
 
 			for (int k = 0; k < travelPacksVector.size(); k++)
 			{
-				if (travelPacksVector[k].identifier == clientsVector[i].touristicPacksIdentifier[j] || travelPacksVector[k].identifier == -clientsVector[i].touristicPacksIdentifier[j]) {
+				if (travelPacksVector[k].getId() == clientsVector[i].getTravelPackgetId()[j] || travelPacksVector[k].getId() == -clientsVector[i].getTravelPackgetId()s()[j]) {
 					inTravelPack = true;
 					c = k;
 					break;
@@ -89,7 +89,7 @@ void showSoldTouristicPacks(vector<TravelPack> travelPacksVector, vector<Client>
 			}
 			else
 			{
-				cout << "Identifier: " << clientsVector[i].touristicPacksIdentifier[j] << " Not in the database" << endl;
+				cout << "getId(): " << clientsVector[i].getTravelPackgetId()s()[j] << " Not in the database" << endl;
 			}
 		}
 	}
@@ -100,8 +100,8 @@ void showSoldTouristicPacks(vector<TravelPack> travelPacksVector, vector<Client>
 void createTravelPackOption(vector<TravelPack> &travelPackVector) {
 	TravelPack travelPack;
 	cout << "Please insert the data of your new Touristic Pack" << endl << endl;
-	copyTravelPack(travelPack, askForTravelPacks(true,travelPackVector));
-	addTravelPack(travelPackVector, travelPack);
+	travelPack = askForTravelPacks(true,travelPackVector);
+	TravelPack::addTravelPack(travelPackVector, travelPack);
 	cout << endl << endl << "Touristic Pack created successfully!";
 	menuSeparator();
 }
@@ -112,12 +112,12 @@ void modifyTravelPackOption(vector<TravelPack> &travelPackVector) {
 	TravelPack modifiedTravelPack;
 
 	cout << "Please insert the data of the Touristic Pack you want to modify" << endl << endl;
-	copyTravelPack(travelPackToModify, askForTravelPacksIdentifier(travelPackVector));
+	travelPackToModify = askForTravelPacksgetId()(travelPackVector);
 
 	cout << endl << endl << "Insert the new informations about the Touristic Pack: " << endl << endl;
-	copyTravelPack(modifiedTravelPack, askForTravelPacks(true,travelPackVector));
+	modifiedTravelPack = askForTravelPacks(true,travelPackVector);
 	//Perguntar porque que Ele aqui pergunta o name duas vezes
-	modifyTravelPack(travelPackToModify, travelPackVector, modifiedTravelPack);
+	TravelPack::modifyTravelPack(travelPackToModify, travelPackVector, modifiedTravelPack);
 	cout << endl << endl << "Touristic Pack modified successfully!";
 	menuSeparator();
 }
@@ -126,16 +126,16 @@ void modifyTravelPackOption(vector<TravelPack> &travelPackVector) {
 void removeClientOption(vector<TravelPack> &travelPackVector) {
 	TravelPack travelPack;
 	cout << "Please insert the data of the touristic pack you want to remove" << endl << endl;
-	copyTravelPack(travelPack, askForTravelPacksIdentifier(travelPackVector));
-	removeTravelPack(travelPack, travelPackVector);
+	travelPack = askForTravelPacksgetId()(travelPackVector);
+	TravelPack::removeTravelPack(travelPack, travelPackVector);
 	cout << endl << endl << "Touristic Pack removed successfully!";
 	menuSeparator();
 }
 
-TravelPack askForTravelPacksIdentifier(vector<TravelPack> travelPackVector) {
+TravelPack askForTravelPacksgetId(vector<TravelPack> travelPackVector) {
 	int identifier;
 	bool inDatabase = false;
-	cout << "Identifier: ";
+	cout << "identifier: ";
 	cin >> identifier;
 	validCin(identifier);
 	cin.clear();
@@ -143,7 +143,7 @@ TravelPack askForTravelPacksIdentifier(vector<TravelPack> travelPackVector) {
 
 	for (int i = 0; i < travelPackVector.size(); i++)
 	{
-		if (travelPackVector[i].identifier == identifier){ return travelPackVector[i]; }
+		if (travelPackVector[i].getId() == identifier){ return travelPackVector[i]; }
 	}
 
 	
@@ -156,7 +156,7 @@ TravelPack askForTravelPacksIdentifier(vector<TravelPack> travelPackVector) {
 		cin.ignore(10000, '\n');
 		for (int i = 0; i < travelPackVector.size(); i++)
 		{
-			if (travelPackVector[i].identifier == identifier) { return travelPackVector[i]; }
+			if (travelPackVector[i].getId() == identifier) { return travelPackVector[i]; }
 		}
 	}
 }
@@ -172,10 +172,10 @@ TravelPack askForTravelPacks(bool isCreatingTravelPack, vector<TravelPack> trave
 	int pricePerson;
 	int maxPersonNumber;
 	int soldTicketsNumber;
-	bool validIdentifier = true;
+	bool validId = true;
 
 	cout << "Identifier: ";
-	cin >> identifier;
+	cin >> identifier);
 	validCin(identifier);
 	if (isCreatingTravelPack)
 	{
@@ -183,19 +183,19 @@ TravelPack askForTravelPacks(bool isCreatingTravelPack, vector<TravelPack> trave
 		{
 			for (int i = 0; i < travelPackVector.size(); i++)
 			{
-				if (identifier == travelPackVector[i].identifier)
+				if (identifier == travelPackVector[i].getId())
 				{
 					cout << "Identifier already in the database, please insert again: ";
 					cin >> identifier;
 					validCin(identifier);
 					cin.clear();
 					//cin.ignore(10000, '\n');
-					validIdentifier = false;
+					validId = false;
 					break;
 				}
 			}
-			validIdentifier = true;
-		} while (!validIdentifier);
+			validId = true;
+		} while (!validId);
 	}
 	
 	cin.clear();
@@ -208,7 +208,7 @@ TravelPack askForTravelPacks(bool isCreatingTravelPack, vector<TravelPack> trave
 	//cin.ignore(10000, '\n');
 	getline(cin, begginningDateText);
 
-	while (!validDateText(begginningDateText))
+	while (!Date::validDateText(begginningDateText))
 	{
 		cout << "Invalid date, please insert again: ";
 		getline(cin, begginningDateText);
@@ -250,7 +250,7 @@ TravelPack askForTravelPacks(bool isCreatingTravelPack, vector<TravelPack> trave
 	cin.clear();
 	cin.ignore(10000, '\n');
 
-	travelPack.identifier = identifier;
+	travelPack.getId() = getId();
 	travelPack.touristicSpots = touristicSpots;
 	travelPack.beginningDate = dateTextConverter(begginningDateText);
 	travelPack.endDate = dateTextConverter(endDateText);
@@ -314,7 +314,7 @@ void showAllTravelPacksByDate(vector<TravelPack> travelPackVector) {
 //Show a certain Touristic Pack information
 void showTravelPack(TravelPack travelPack) {
 	
-	cout << "Identifier: " << travelPack.identifier << endl;
+	cout << "getId(): " << travelPack.getId() << endl;
 	cout << "Touristic spots: " << travelPack.touristicSpots << endl;
 	cout << "Beggining date: " <<  travelPack.beginningDate.year << "/" << travelPack.beginningDate.month << "/" << travelPack.beginningDate.day << endl;
 	cout << "End date: " <<  travelPack.endDate.year << "/" << travelPack.endDate.month << "/" << travelPack.endDate.day << endl;
@@ -399,8 +399,8 @@ void calculateNumberPacks(vector<TravelPack> travelPackVector) {
 	int number=0;
 	for (int i = 0; i < travelPackVector.size(); i++)
 	{
-		number += travelPackVector[i].soldTicketsNumber;
-		price += travelPackVector[i].PricePerson * travelPackVector[i].soldTicketsNumber;
+		number += travelPackVector[i].getSoldTicketsNumber();
+		price += travelPackVector[i].getPricePerPerson() * travelPackVector[i].getSoldTicketsNumber();
 	}
 	cout << price <<"$" << endl;
 	cout << "Number of tickets sold: " << number;

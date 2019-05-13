@@ -15,9 +15,9 @@ TravelPack::TravelPack(string fileName, vector<TravelPack> &travelPacksVector)
 	readTravelPacks(fileName,travelPacksVector);
 }
 
-TravelPack::TravelPack(int identifier,vector<string> touristicSpots, Date begin, Date end, double pricePerPerson, unsigned maxPersons, int soldTicketsNumber){
+TravelPack::TravelPack(int getId(),vector<string> touristicSpots, Date begin, Date end, double pricePerPerson, unsigned maxPersons, int soldTicketsNumber){
 	
-	this->id = identifier;
+	this->id = getId();
 	this->touristicSpots = touristicSpots;
 	this->begin = begin;
 	this->end = end;
@@ -29,7 +29,7 @@ TravelPack::TravelPack(int identifier,vector<string> touristicSpots, Date begin,
 
  //GET methods
 
-unsigned TravelPack::getId() const { return id; }
+int TravelPack::getId() const { return id; }
 
 vector<string> TravelPack::getTouristicSpots() const { return touristicSpots; }
 
@@ -59,7 +59,7 @@ void TravelPack::setMaxPersons(unsigned maxPersons){ this->maxPersons = maxPerso
 
 void TravelPack::setSoldTicketsNumber(int soldTicketsNumber) { this->soldTicketsNumber = soldTicketsNumber; }
 
-void TravelPack::setLastPackIdentifier(int lastPackIdentifier) { this->lastPackIdentifier = lastPackIdentifier; }
+void TravelPack::setLastPackgetId()(int lastPackgetId()) { this->lastPackgetId() = lastPackgetId(); }
 
 
 //Reads the Travel Pack file and puts its information into a class
@@ -82,7 +82,7 @@ void TravelPack::readTravelPacks(string filename, vector<TravelPack> &travelPack
 			switch (i)
 			{
 			case 0:
-				travelPack.setLastPackIdentifier(stoi(travelPackText));
+				travelPack.setLastPackgetId()(stoi(travelPackText));
 				break;
 			case 1:
 				travelPack.setId(stoi(travelPackText));
