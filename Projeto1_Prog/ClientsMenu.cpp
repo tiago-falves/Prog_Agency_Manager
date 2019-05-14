@@ -161,7 +161,7 @@ Client askForClientsInformation() {
 
 	cout << "NIF: ";
 	cin >> nif;
-	validCin(nif);
+	validNif(nif);
 	cin.clear();
 	cin.ignore(10000, '\n');
 
@@ -233,4 +233,15 @@ void removeClientOption(vector<Client> &clientsVector) {
 	Client::removeClient(client, clientsVector);
 	cout << endl << endl << "Client removed successfully!";
 	menuSeparator();
+}
+
+void validNif(int &option) {
+
+	while (cin.fail() || option < 100000000 || option > 999999999)
+	{
+		cout << "Invalid NIF, please insert your answer again: ";
+		cin.clear();
+		cin.ignore(10000, '\n');
+		cin >> option;
+	}
 }

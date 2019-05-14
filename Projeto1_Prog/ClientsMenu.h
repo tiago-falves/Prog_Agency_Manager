@@ -18,6 +18,8 @@ void buyTravelPack(vector<Client> &clientsVector, vector<TravelPack> &travelPack
 
 void showClientOption(vector<Client> clientsVector);
 
+void validNif(int &option);
+
 Client askForClientsInformation();
 
 Client askForNIF(vector<Client> clientsVector);

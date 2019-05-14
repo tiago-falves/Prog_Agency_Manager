@@ -139,9 +139,9 @@ bool Date::validDateText(string dateText)
 	for (int i = 0; i < dateVector.size(); i++) {
 		if (!stringIsNumber(dateVector[i])) { return false; }
 	}
-	if (stoi(dateVector[0]) < 1000 || dateVector[0].size() != 4) { return false; }
-	if (dateVector[1].size() != 2 || stoi(dateVector[1]) < 1 || stoi(dateVector[1]) > 12) { return false; }
-	if (dateVector[1].size() != 2 || stoi(dateVector[1]) < 1 || stoi(dateVector[1]) > 31) { return false; }
+	if (stoi(dateVector[0]) < 1 || stoi(dateVector[0]) > 31) { return false; }
+	if (stoi(dateVector[1]) < 1 || stoi(dateVector[1]) > 12) { return false; }
+	if (stoi(dateVector[2]) < 1000 || dateVector[2].size() != 4) { return false; }
 	return true;
 }
 

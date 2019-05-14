@@ -102,7 +102,9 @@ void Client::readClients(string clientsNameFile, vector<Client> &clientsVector) 
 				client.setAddress(Address::addressTextConverter(clientsText));
 				break;
 			case 4:
-				//client.setTravelPackIds(separateCharacterInt(clientsText, ';'));  //COMO REPARAR ESTE ERRO??
+				//vector<int> temporary;
+				//temporary = separateCharacterInt(clientsText, ';');
+				//client.setTravelPackIds(separateCharacterInt(clientsText, ';'));
 
 				break;
 			case 5:
@@ -158,7 +160,7 @@ void Client::modifyClient(Client clientToModify, vector<Client> &clientVector, C
 	for (int i = 0; i < clientVector.size(); i++)
 	{
 		if (clientToModify == clientVector[i]) {
-			clientVector[i] == client;
+			clientVector[i] = client;
 			break;
 		}
 	}

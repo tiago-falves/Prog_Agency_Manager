@@ -203,7 +203,7 @@ TravelPack askForTravelPacks(bool isCreatingTravelPack, vector<TravelPack> trave
 	cout << "Touristic Spots (Main touristic destination - main toristic spots): ";
 	getline(cin, touristicSpots);
 
-	cout << "Begginning date(xxxx/xx/xx): ";
+	cout << "Begginning date(xx/xx/xxxx): ";
 	cin.clear();
 	//cin.ignore(10000, '\n');
 	getline(cin, begginningDateText);
