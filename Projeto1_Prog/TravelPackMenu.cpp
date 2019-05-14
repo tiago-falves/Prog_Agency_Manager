@@ -315,7 +315,7 @@ void showAllTravelPacksByDate(vector<TravelPack> travelPackVector) {
 void showTravelPack(TravelPack travelPack) {
 	
 	cout << "getId(): " << travelPack.getId() << endl; 
-	//cout << "Touristic spots: " << travelPack.getTouristicSpots() << endl;
+	cout << "Touristic spots: " << TravelPack::destinationToString(travelPack.getTouristicSpots()) << endl;
 	cout << "Beggining date: " << travelPack.getBeginDate().getDay() << "/" << travelPack.getBeginDate().getMonth() << "/" << travelPack.getBeginDate().getYear() << endl;
 	cout << "End date: " << travelPack.getEndDate().getDay() << "/" << travelPack.getEndDate().getMonth() << "/" << travelPack.getEndDate().getYear() << endl;
 	cout << "Price per person: " << travelPack.getPricePerPerson() << endl;
@@ -336,10 +336,10 @@ void showAllTravelPacksByDestination(vector<TravelPack> travelPackVector) {
 	getline(cin, destination);
 	
 	cout << endl << endl;
-	//cout << travelPackVector[0].getTouristicSpots();
+	cout << TravelPack::destinationToString(travelPackVector[0].getTouristicSpots());
 	for (int i = 0; i < travelPackVector.size(); i++)
-	{																	//CORRIGIR
-		if (true)//(separateCharacterStr(travelPackVector[i].getTouristicSpots(),'-')[0] == separateCharacterStr(destination,'-')[0])
+	{																
+		if (travelPackVector[i].getTouristicSpots()[0] == TravelPack::separatedDestination(destination)[0])
 		{
 			cout << "Touristic Pack " << i + 1 << ":" << endl;
 			showTravelPack(travelPackVector[i]);
@@ -381,8 +381,8 @@ void showAllTravelPacksByDateDestination(vector<TravelPack> travelPackVector) {
 
 	cout << endl << endl;
 	for (int i = 0; i < travelPackVector.size(); i++)
-	{													//Resolver este problema
-		if (true)//(travelPackVector[i].getBeginDate().isAfter(begginningDate) && endDate.isAfter(travelPackVector[i].getEndDate()) && (separateCharacterStr(travelPackVector[i].getTouristicSpots(), '-')[0] == separateCharacterStr(destination, '-')[0]))
+	{													
+		if (travelPackVector[i].getBeginDate().isAfter(begginningDate) && endDate.isAfter(travelPackVector[i].getEndDate()) && (travelPackVector[i].getTouristicSpots()[0] == TravelPack::separatedDestination(destination)[0]))
 		{
 			cout << "Touristic Pack " << i + 1 << ":" << endl;
 			showTravelPack(travelPackVector[i]);

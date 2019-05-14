@@ -85,7 +85,7 @@ void buyTravelPack(vector<Client> &clientsVector, vector<TravelPack> &travelPack
 	cout << "Insert the Clients information you want to buy the touristic pack: " << endl;
 	client = askForNIF(clientsVector);
 	
-	cout << endl << "Insert the Touristic Pack getId() you want to buy: ";
+	cout << endl << "Insert the Touristic Pack identifier you want to buy: ";
 	cin >> identifier;
 	validCin(identifier);
 	while (!validId)
@@ -105,7 +105,7 @@ void buyTravelPack(vector<Client> &clientsVector, vector<TravelPack> &travelPack
 		}
 		if (!validId)
 		{
-			cout << "getId() not in the database, please insert again: ";
+			cout << "Identifier not in the database, please insert again: ";
 			cin >> identifier;
 			validCin(identifier);
 		}
@@ -114,7 +114,10 @@ void buyTravelPack(vector<Client> &clientsVector, vector<TravelPack> &travelPack
 	for (int i = 0; i < clientsVector.size(); i++)
 	{
 		if (client == clientsVector[i]) {
-			//clientsVector[i].setgetTouristicPackgetId()()s( clientsVector[i].getgetTouristicPackgetId()()s().push_back(getId())); //Nao percebo o erro que da
+			vector<int> temporaryIdentifiers;
+			temporaryIdentifiers = clientsVector[i].getTravelPackIds();
+			temporaryIdentifiers.push_back(identifier);
+			clientsVector[i].setTravelPackIds(temporaryIdentifiers); //NAO PERCEBO O ERRO QUE DA
 		}
 	}
 	menuSeparator();

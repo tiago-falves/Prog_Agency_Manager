@@ -72,7 +72,7 @@ void saveAndExit(vector<Client> &clientsVector, vector<TravelPack> &travelPacksV
 	for (int i = 0; i < travelPacksVector.size(); i++)
 	{
 		content += to_string(travelPacksVector[i].getId()) + '\n';
-		//content += travelPacksVector[i].getTouristicSpots() + '\n';  //Corrigir, converter isto para texto
+		content += TravelPack::destinationToString(travelPacksVector[i].getTouristicSpots()) + '\n'; 
 		content += to_string(travelPacksVector[i].getBeginDate().getYear()) + "/" + to_string(travelPacksVector[i].getBeginDate().getMonth()) + "/" + to_string(travelPacksVector[i].getBeginDate().getDay()) + '\n';
 		content += to_string(travelPacksVector[i].getEndDate().getYear()) + "/" + to_string(travelPacksVector[i].getEndDate().getMonth()) + "/" + to_string(travelPacksVector[i].getEndDate().getDay()) + '\n';
 		content += to_string(travelPacksVector[i].getPricePerPerson()) + '\n';
