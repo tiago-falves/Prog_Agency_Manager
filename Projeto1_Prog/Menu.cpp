@@ -7,6 +7,7 @@ using namespace std;
 void runMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector, Agency agency) {
 	int option;
 
+	agency.showAgency();
 	cout << "Welcome to the NiceHolidays Packs and Clients Manager! Here you can choose what you want to manage" << endl << endl;
 	cout << "Please choose what your option:" << endl << endl;
 	
@@ -86,7 +87,7 @@ void saveAndExit(vector<Client> &clientsVector, vector<TravelPack> &travelPacksV
 	}
 	travelPacksFile << content;
 	travelPacksFile.close();
-	exit(1);
+	exit(1); // Isto não é sair com erros? Não deveria ser exit 0?
 }
 
 //Asks for a valid int until the user inputs it
