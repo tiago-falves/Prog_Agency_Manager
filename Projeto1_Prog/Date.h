@@ -52,10 +52,8 @@ public:
 	//True if the Date is after Date d
 	bool isAfter(const Date &d);
 
-	//Overload
-	//Date operator=(Date date); Isto não
 
-	//Static Methods, DESCOBRIR ONDE SE POE
+	//Static Methods
 
 	static int daysInMonth(int month, int year);
 	static bool isLeapYear(int year);

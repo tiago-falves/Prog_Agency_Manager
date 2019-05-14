@@ -39,19 +39,22 @@ public:
 	void setPostalCode(string postalCode);
 	void setLocation(string location);
 
-	// outros metodos
-  
-	bool validPostalCode(); // Returns true if "xxxx-xxx", false otherwise
 
+	//Returns true if "xxxx-xxx", false otherwise
+	static bool validPostalCode(string postalCodeString); 
+
+	//Return True if it is a valid Address
 	static bool validAddressText(string address);
 
-	static bool equalsAddresses(Address address1, Address address2);
+	//Outputs a formated Address
+	void showAddress() const; 
 
-	void showAddress() const; // displays address in a nice format
-
+	//Converts a string to an Address
 	static Address addressTextConverter(string addressText);
 
-	friend ostream& operator<<(ostream &out, const Address &address); //  << Operator overloading
+	friend ostream& operator<<(ostream &out, const Address &address); //  << ESTE NAO DEVERIA SER O SHOW ADDRESS?
+
+	//Oerrides == 
 	friend bool operator==(const Address& address1, const Address &address2);
 
 };

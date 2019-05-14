@@ -45,6 +45,8 @@ void showClientOption(vector<Client> clientsVector) {
 	showClient(askForNIF(clientsVector));
 	menuSeparator();
 }
+
+
 //Returns a Client of the database by inserting a NIF
 Client askForNIF(vector<Client> clientsVector){
 	Client client;
@@ -52,7 +54,7 @@ Client askForNIF(vector<Client> clientsVector){
 	bool inDatabase = false;
 	cout << "Insert Clients NIF: ";
 	cin >> nif;
-	validCin(nif);
+	validNif(nif);
 	cin.clear();
 	cin.ignore(10000, '\n');
 
@@ -180,20 +182,20 @@ Client askForClientsInformation() {
 		getline(cin, addressText);
 	}
 
-	cout << "Tourist Packs bought (separated by ';'): ";
+	/*cout << "Tourist Packs bought (separated by ';'): ";
 	getline(cin, touristicPacksBought);
 
 	while (!Client::validPacksBought(touristicPacksBought) || touristicPacksBought == "")
 	{
 		cout << "Invalid Touristic Pack, please insert again: ";
 		getline(cin, touristicPacksBought);
-	}
+	}*/
 
 	client.setName(name);
 	client.setNif( nif);
 	client.setFamilySize(familyNumber);
 	client.setAddress(Address::addressTextConverter(addressText));
-	client.getTravelPackIds() = separateCharacterInt(touristicPacksBought, ';');
+	//client.getTravelPackIds() = separateCharacterInt(touristicPacksBought, ';');
 
 	return client;
 }
@@ -203,7 +205,7 @@ void createClientOption(vector<Client> &clientsVector) {
 	Client client;
 	cout << "Please insert the data of your new client" << endl << endl;
 	client = askForClientsInformation();
-	Client::addClient(clientsVector, client);
+	client.addClient(clientsVector);
 	cout << endl << endl << "Client created successfully!";
 	menuSeparator();
 }
@@ -219,7 +221,7 @@ void modifyClientOption(vector<Client> &clientsVector) {
 	cout << endl << endl << "Insert the new informations about the client: " << endl << endl;
 	modifiedClient = askForClientsInformation();
 	//Perguntar porque que Ele aqui pergunta o name duas vezes
-	Client::modifyClient(clientToModify, clientsVector, modifiedClient);
+	modifiedClient.modifyClient(clientToModify, clientsVector);
 	cout << endl << endl << "Client modified successfully!";
 	menuSeparator();
 }
@@ -230,7 +232,7 @@ void removeClientOption(vector<Client> &clientsVector) {
 	cout << "Please insert the data of the client you want to remove" << endl << endl;
 	(client = askForNIF(clientsVector));
 	
-	Client::removeClient(client, clientsVector);
+	client.removeClient(clientsVector);
 	cout << endl << endl << "Client removed successfully!";
 	menuSeparator();
 }

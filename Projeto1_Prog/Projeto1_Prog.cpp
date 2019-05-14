@@ -4,11 +4,9 @@
 
 #include "Agency.h"
 #include "Menu.h"
-// #include "utils.h"
 
 
-int main() {
-
+void runAgencyManager() {
 	Agency agency;
 	Client client, client1, client2;
 	vector<Client> clientsVector;
@@ -18,6 +16,20 @@ int main() {
 	Client::readClients(agency.getClientsNameFile(), clientsVector);
 	TravelPack::readTravelPacks(agency.getPacksNameFile(), travelPackVector);
 	runMenu(clientsVector, travelPackVector, agency);
+}
+
+int main() {
+
+	//ADICIONAR A CADA CLIENTE *valor total das compras efetuadas*
+	//vERIFICAR SE AS FUNCIONALIDADES TODAS FUNCIONAM!
+	//-pRICIPALMENTE PEQUISAR PELAS DATAS ACHO QUE ESTA MAL
+	//-PRINCIPALMENTE A DE COMPRA DE PACOTES TURISTICOS, SE FICA NEGATIVO QUANDO NAO HA MAIS E TAL
+	//SUBSTITUIR VETORES POR SETS MAPS OU MULTIMAPS?
+	//ORDENAR DE MODO A SER MAIS EFICIENTE?
+	//ITERADORES PARA QUE?
+
+
+	runAgencyManager();
 
 	//Testar
 

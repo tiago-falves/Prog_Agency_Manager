@@ -123,31 +123,20 @@ void Client::readClients(string clientsNameFile, vector<Client> &clientsVector) 
 
 //Adds client to clientsVector
 
-void Client::addClient(vector<Client> &clientsVector, Client client) {
-	clientsVector.push_back(client);
+void Client::addClient(vector<Client> &clientsVector) {
+	clientsVector.push_back(*this);
 }
-
-//Copies client to copy
-
-void Client::copyClient(Client &copy, Client client) {
-	copy.name = client.name;
-	copy.address = client.address;
-	copy.familySize = client.familySize;
-	copy.nif = client.nif;
-	copy.travelPackIds = client.travelPackIds;
-}
-
 
 //Removes clientToRemove from clientsVector
 
-void Client::removeClient(Client clientToRemove, vector<Client> &clientsVector) {
+void Client::removeClient(vector<Client> &clientsVector) {
 	Client client;
 
 	int last_pos = clientsVector.size() - 1;
 	for (int i = 0; i < clientsVector.size(); i++)
 	{
 		client = clientsVector[i];
-		if (clientToRemove == client) {
+		if (*this == client) {
 			clientsVector[i] = clientsVector[last_pos];
 			clientsVector.pop_back();
 			break;
@@ -156,21 +145,21 @@ void Client::removeClient(Client clientToRemove, vector<Client> &clientsVector) 
 }
 
 // Modify Client client
-void Client::modifyClient(Client clientToModify, vector<Client> &clientVector, Client client) {
+void Client::modifyClient(Client clientToModify, vector<Client> &clientVector) {
 	for (int i = 0; i < clientVector.size(); i++)
 	{
 		if (clientToModify == clientVector[i]) {
-			clientVector[i] = client;
+			clientVector[i] = *this;
 			break;
 		}
 	}
 }
 
 // Returns True if the client is in the Vector
-bool Client::clientInVector(vector<Client> clientsVector, Client client) { //Como substiruir aqui de modo a que fique client.clientsinVector(vetor)?? ou seja chamar o proprio
+bool Client::clientInVector(vector<Client> clientsVector) { 
 	for (int i = 0; i < clientsVector.size(); i++)
 	{
-		if (clientsVector[i] == client) { return true; }
+		if (clientsVector[i] == *this) { return true; }
 	}
 	return false;
 }

@@ -100,11 +100,9 @@ void Agency::readAgency(string filename) {
 void Agency::showAgency() const{
 	cout << "*********************************" << endl;
 	cout << "Name: " << name << endl;
-	cout << "VATnumber: " << nif << endl;
+	cout << "NIF: " << nif << endl;
 	cout << "Address: " << address << endl;
 	cout << "URL: " << url << endl;
-	//cout clients
-	//cout travel packs
 	cout << "*********************************" << endl;
 }
 ostream& operator<<(ostream& out, const Agency &agency){

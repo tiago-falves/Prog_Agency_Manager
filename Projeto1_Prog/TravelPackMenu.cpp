@@ -314,7 +314,7 @@ void showAllTravelPacksByDate(vector<TravelPack> travelPackVector) {
 //Show a certain Touristic Pack information
 void showTravelPack(TravelPack travelPack) {
 	
-	cout << "getId(): " << travelPack.getId() << endl; 
+	cout << "Identifier(): " << travelPack.getId() << endl; 
 	cout << "Touristic spots: " << TravelPack::destinationToString(travelPack.getTouristicSpots()) << endl;
 	cout << "Beggining date: " << travelPack.getBeginDate().getDay() << "/" << travelPack.getBeginDate().getMonth() << "/" << travelPack.getBeginDate().getYear() << endl;
 	cout << "End date: " << travelPack.getEndDate().getDay() << "/" << travelPack.getEndDate().getMonth() << "/" << travelPack.getEndDate().getYear() << endl;

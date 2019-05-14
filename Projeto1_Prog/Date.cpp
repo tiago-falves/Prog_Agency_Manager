@@ -49,8 +49,7 @@ void Date::showDate() const{
 }
 
 //Converts a date into a string
-string Date::toString()
-{
+string Date::toString() {
 	return to_string(day) + "/" + to_string(month) + "/" + to_string(year) ;
 }
 
