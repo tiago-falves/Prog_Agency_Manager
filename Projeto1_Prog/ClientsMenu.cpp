@@ -138,7 +138,7 @@ void showClient(Client client) {
 	cout << "NIF: " << client.getnif() << endl;
 	cout << "Number of people in the family: " << client.getFamilySize() << endl;
 	cout << "Address: " << client.getAddress().getStreet() << " / " << client.getAddress().getDoorNumber() << " / " << client.getAddress().getFloor() << " / " << client.getAddress().getPostalCode() << " / " << client.getAddress().getLocation() << endl;
-	cout << "Tourist Packs bought: " << Client::travelPacksToString(client.getTravelPackId());
+	cout << "Tourist Packs bought: " << Client::travelPacksToString(client.getTravelPackIds());
 	
 }
 
@@ -190,7 +190,7 @@ Client askForClientsInformation() {
 	client.setNif( nif);
 	client.setFamilySize(familyNumber);
 	client.setAddress(Address::addressTextConverter(addressText));
-	client.getTravelPackId() = separateCharacterInt(touristicPacksBought, ';');
+	client.getTravelPackIds() = separateCharacterInt(touristicPacksBought, ';');
 
 	return client;
 }

@@ -50,8 +50,8 @@ void Address::setPostalCode(string postalCode){ this -> postalCode = postalCode;
 
 void Address::setLocation(string location){	this -> location = location; }
 
-// Returns True if the Address has a valid Postal code
 
+// Returns True if the Address has a valid Postal code
 bool Address::validPostalCode(){
 
     bool valid = true;
@@ -77,6 +77,7 @@ bool Address::validPostalCode(){
    return valid; 
 }
 
+//Returns True if it is a valid Address
 bool Address::validAddressText(string address)
 {
 	vector<string> stringVector;
@@ -125,6 +126,7 @@ bool Address::equalsAddresses(Address address1, Address address2) {
 		return false;
 }
 
+//Shos a formated Address
 void Address::showAddress() const{
     cout << "*********************************" << endl;
 	cout << street << " / " << doorNumber << " / " << floor << " / " << postalCode << " / " << location << endl;

@@ -64,7 +64,10 @@ class TravelPack{
 	  bool travelPackInVector(vector<TravelPack> travelPackVector, TravelPack travelPack);
 
 	  //Separate the touristic sopts in a vector, being the first element the city
-	  vector<string> separatedDestination(string destinations);		  
+	  static vector<string> separatedDestination(string destinations);		  
+
+	  //Converts the destinations vector to a string
+	  static string destinationToString(vector<string> destinationVector);
 
 	  //True if Travel Packs are equal, False otherwise
 	  static bool equalTravelPacks(TravelPack travelPack1, TravelPack travelPack2); //Substituir por overide do ==

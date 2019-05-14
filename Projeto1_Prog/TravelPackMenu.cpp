@@ -71,12 +71,12 @@ void showSoldTouristicPacks(vector<TravelPack> travelPacksVector, vector<Client>
 	for (int i = 0; i < clientsVector.size(); i++)
 	{
 		cout << "Client " << i + 1 << endl << endl ;
-		for (int j = 0; j < clientsVector[i].getTravelPackId().size(); j++) {
+		for (int j = 0; j < clientsVector[i].getTravelPackIds().size(); j++) {
 			inTravelPack = false;
 
 			for (int k = 0; k < travelPacksVector.size(); k++)
 			{
-				if (travelPacksVector[k].getId() == clientsVector[i].getTravelPackId()[j] || travelPacksVector[k].getId() == -clientsVector[i].getTravelPackId()[j]) {
+				if (travelPacksVector[k].getId() == clientsVector[i].getTravelPackIds()[j] || travelPacksVector[k].getId() == -clientsVector[i].getTravelPackIds()[j]) {
 					inTravelPack = true;
 					c = k;
 					break;
@@ -89,7 +89,7 @@ void showSoldTouristicPacks(vector<TravelPack> travelPacksVector, vector<Client>
 			}
 			else
 			{
-				cout << "getId(): " << clientsVector[i].getTravelPackId()[j] << " Not in the database" << endl;
+				cout << "getId(): " << clientsVector[i].getTravelPackIds()[j] << " Not in the database" << endl;
 			}
 		}
 	}

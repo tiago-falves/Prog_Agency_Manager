@@ -169,9 +169,31 @@ bool TravelPack::travelPackInVector(vector<TravelPack> travelPackVector, TravelP
 
 //Separate the touristic spots in a vector, being the first element the city
 vector<string> TravelPack::separatedDestination(string destinations) {
+	vector<string> destinationVector1;
 	vector<string> destinationVector;
+	vector<string> destinationVector2;
+	if (destinations.find('-', -1) == -1) {
+		destinationVector.push_back(destinations);
+		return destinationVector;
+	}
+
 	destinationVector = separateCharacterStr(destinations, '-');
-	return destinationVector;
+	destinationVector1 = separateCharacterStr(destinationVector[1], ',');
+	destinationVector2.push_back(destinationVector[0]);
+	destinationVector2.insert(destinationVector2.end(), destinationVector1.begin(), destinationVector1.end());
+	return destinationVector2;
+}
+
+//Converts the destinations vector to a string
+string TravelPack::destinationToString(vector<string> destinationVector) {
+	string destinations = destinationVector[0];
+	if (destinationVector.size() == 1)
+		return destinations;
+	destinations += " -";
+	for (int i = 1; i < destinationVector.size(); i++)
+		destinations += " " + destinationVector[i] + ",";
+	destinations.pop_back();
+	return destinations;
 }
 
 

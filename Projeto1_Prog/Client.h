@@ -18,7 +18,7 @@ private:
     unsigned int nif; // VAT number of client
     unsigned short int familySize;  // number of family members
     Address address; // client's address
-    vector<int> travelPackId; // vector to store client's packets bought
+    vector<int> travelPackIds; // vector to store client's packets bought
     unsigned int totalPurchased; // total value spent by the client
 
 public:
@@ -33,7 +33,7 @@ public:
     unsigned int getnif() const;
     unsigned short int getFamilySize() const;
     Address getAddress() const;
-    vector<int> getTravelPackId() const;
+    vector<int> getTravelPackIds() const;
     unsigned int getTotalPurchased() const;
   
     // SET methods
@@ -42,7 +42,7 @@ public:
     void setNif(unsigned int nif);
     void setFamilySize(unsigned short int familySize);
     void setAddress(Address address);
-    void setTravelPackId(vector<int> &travelPackId);
+    void setTravelPackIds(vector<int> &travelPackId);
     void setTotalPurchased(unsigned int totalPurchased);
   
     

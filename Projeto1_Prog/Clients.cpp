@@ -2,16 +2,12 @@
 
 
 Client::Client() {
-
+	Address address;
 	this->name = "";
 	this->nif = 0;
 	this->familySize = 0;
-	this->address = address; //Como inicalizar isto? 
-	/*Eu acho que neste tipo de cenas é literalmente como está. 
-	Ao instanciar um cliente é que temos de ter um objeto (neste caso de endereço) já pronto a passsar à classe Client. 
-	Julgo isso é fora do alcance da classe. Portanto: cria-se um Address address com o construtor que queremos e depois fazemos
-	client.setAddress()*/
-	this->travelPackId; // Como inicializar isto?
+	this->address = address; 
+	this->travelPackIds; // Como inicializar isto?
 	this->totalPurchased = 0;
 	
 }
@@ -38,7 +34,7 @@ Client::Client(string name, unsigned int nif, unsigned short int familySize, Add
 	this->nif = nif;
 	this->familySize = familySize;
 	this->address = address;
-	this->travelPackId = travelPackId;
+	this->travelPackIds = travelPackIds;
 	this->totalPurchased = totalPurchased;
 }
 
@@ -53,7 +49,7 @@ unsigned short Client::getFamilySize() const{ return familySize; }
 
 Address Client::getAddress() const{ return address; }
 
-vector<int> Client::getTravelPackId() const{ return travelPackId; }
+vector<int> Client::getTravelPackIds() const{ return travelPackIds; }
 
 unsigned Client::getTotalPurchased() const{ return totalPurchased; }
   
@@ -68,7 +64,7 @@ void Client::setFamilySize(unsigned short int familySize){ this -> familySize = 
 
 void Client::setAddress(Address address){ this -> address = address; }
 
-void Client::setTravelPackId(vector<int> &travelPackgetId){ this ->travelPackId = travelPackId; }
+void Client::setTravelPackIds(vector<int> &travelPackgetId){ this ->travelPackIds = travelPackIds; }
 
 void Client::setTotalPurchased(unsigned int totalPurchased){ this -> totalPurchased = totalPurchased; }
   
@@ -106,7 +102,7 @@ void Client::readClients(string clientsNameFile, vector<Client> &clientsVector) 
 				client.setAddress(Address::addressTextConverter(clientsText));
 				break;
 			case 4:
-				//client.settravelPackId(separateCharacterInt(clientsText, ';'));
+				//client.setTravelPackIds(separateCharacterInt(clientsText, ';'));  //COMO REPARAR ESTE ERRO??
 
 				break;
 			case 5:
@@ -136,7 +132,7 @@ void Client::copyClient(Client &copy, Client client) {
 	copy.address = client.address;
 	copy.familySize = client.familySize;
 	copy.nif = client.nif;
-	copy.travelPackId = client.travelPackId;
+	copy.travelPackIds = client.travelPackIds;
 }
 
 
@@ -179,7 +175,7 @@ bool Client::clientInVector(vector<Client> clientsVector, Client client) { //Com
 
 //Returns true if the pack is valid
 bool Client::validPacksBought(string packs) {
-	vector<string> vector;						//separateChStr esta a dar erros!
+	vector<string> vector;						
 	vector = separateCharacterStr(packs, ';');		
 	for (int i = 0; i < vector.size(); i++) {
 		if (!stringIsNumber(vector[i])) { return false; }
@@ -242,7 +238,7 @@ void Client::showClient() const
 //}
 
 bool operator==(const Client &client1, const Client &client2) {
-	return client1.getName() == client2.getName() && client1.getnif() == client2.getnif() && client1.getFamilySize() == client2.getFamilySize() && client1.getAddress() == client2.getAddress() && client1.getTravelPackId() == client2.getTravelPackId() && client1.getTotalPurchased() == client2.getTotalPurchased();
+	return client1.getName() == client2.getName() && client1.getnif() == client2.getnif() && client1.getFamilySize() == client2.getFamilySize() && client1.getAddress() == client2.getAddress() && client1.getTravelPackIds() == client2.getTravelPackIds() && client1.getTotalPurchased() == client2.getTotalPurchased();
 
 }
 
