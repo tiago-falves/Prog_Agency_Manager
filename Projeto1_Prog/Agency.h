@@ -25,8 +25,8 @@ private:
   
     //bool clientsInfoHasChanged; // True if at least one client has been changed/added/deleted
     //bool TravelPacksInfoHasChanged; // True if at least one TravelPack has been changed/added/deleted
-    //unsigned int maxClientsId; // Maximum value among all clients identifiers
-    //unsigned int maxTravelPacksId; // Maximum value among all TravelPacks identifiers
+    //unsigned int maxClientsId; // Maximum value among all clients getId()s
+    //unsigned int maxTravelPacksId; // Maximum value among all TravelPacks getId()s
 
 public:
     Agency(string fileName);
@@ -40,8 +40,7 @@ public:
     string getUrl() const;
 	string getClientsNameFile() const;
 	string getPacksNameFile() const;
-	//vector<Client> getClients() const;
-    //vector<TravelPack> getTravelPacks() const;
+	
 
     // SET methods
   
@@ -52,12 +51,11 @@ public:
 	void setClientsNameFile(string clientsNameFile);
 	void setPacksNameFile(string packsNameFile);
 
-    //void setClients(vector<Client> & clients);
-    //void setTravelPacks(vector<TravelPack> & TravelPacks);
-
-	// other methods */
-
+  
+	//Reads the agency file
 	void readAgency(string filename);
+
+	//Shows Agency in a formatted way
 	void showAgency() const;
   
     friend ostream& operator<<(ostream& out, const Agency & agency); // << Operator overloading

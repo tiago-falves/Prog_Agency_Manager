@@ -39,19 +39,22 @@ public:
 	void setPostalCode(string postalCode);
 	void setLocation(string location);
 
-	// outros metodos
-  
-	bool validPostalCode(); // Returns true if "xxxx-xxx", false otherwise
 
-	bool validAddressText(string address);
+	//Returns true if "xxxx-xxx", false otherwise
+	static bool validPostalCode(string postalCodeString); 
 
-	static bool equalsAddresses(Address address1, Address address2);
+	//Return True if it is a valid Address
+	static bool validAddressText(string address);
 
-	void showAddress() const; // displays address in a nice format
+	//Outputs a formated Address
+	void showAddress() const; 
 
+	//Converts a string to an Address
 	static Address addressTextConverter(string addressText);
 
-	friend ostream& operator<<(ostream &out, const Address &address); //  << Operator overloading
+	friend ostream& operator<<(ostream &out, const Address &address); //  << ESTE NAO DEVERIA SER O SHOW ADDRESS? Está duplicado de propósito para haver mais "overloads" mas tem o mesmo efeito
+
+	//Overrides == 
 	friend bool operator==(const Address& address1, const Address &address2);
 
 };

@@ -50,39 +50,17 @@ void Address::setPostalCode(string postalCode){ this -> postalCode = postalCode;
 
 void Address::setLocation(string location){	this -> location = location; }
 
-// Returns True if the Address has a valid Postal code
 
-bool Address::validPostalCode(){
 
-    bool valid = true;
 
-    for (int i = 0; i < 4; i++)
-    {
-        if (postalCode[i] < '0' || postalCode[i] > '9')
-        
-            valid = false;
-            break;
-    }
-
-    if (postalCode[4] != '-')
-        valid = false;
-
-    for (int i = 5; i < 7; i++)
-    {
-        if (postalCode[i] < '0' || postalCode[i] > '9')
-            valid = false;
-            break;
-    }
-   
-   return valid; 
-}
-
+//Returns True if it is a valid Address
 bool Address::validAddressText(string address)
 {
 	vector<string> stringVector;
 	stringVector = separateCharacterStr(address, '/');
 	if (stringVector.size() != 5) { return false; }
 	if (!stringIsNumber(stringVector[1])) { return false; }
+	if (!validPostalCode(stringVector[3])) { return false; }
 	return true;
 }
 
@@ -117,19 +95,34 @@ Address Address::addressTextConverter(string addressText) {
 	return address;
 }
 
-//Returns True if two addresses are equal
-bool Address::equalsAddresses(Address address1, Address address2) {
-	if (address1.doorNumber == address2.doorNumber && address1.floor == address2.floor && address1.location == address2.location && address1.postalCode == address2.postalCode && address1.street == address2.street)
-		return true;
-	else
-		return false;
-}
 
+
+//Shos a formated Address
 void Address::showAddress() const{
     cout << "*********************************" << endl;
 	cout << street << " / " << doorNumber << " / " << floor << " / " << postalCode << " / " << location << endl;
 	cout << "*********************************" << endl;
 }
+
+// Returns True if the Address has a valid Postal code
+bool Address::validPostalCode(string postalCode) {
+
+	for (int i = 0; i < 4; i++) {
+		if (postalCode[i] < '0' || postalCode[i] > '9')
+			return false;
+	}
+
+	if (postalCode[4] != '-')
+		return false;
+
+	for (int i = 5; i < 7; i++) {
+		if (postalCode[i] < '0' || postalCode[i] > '9')
+			return false;
+	}
+
+	return true;
+}
+
 
 ostream& operator<<(ostream& out, const Address &address){
     out << address.street << " / " << address.doorNumber << " / " << address.floor << " / " << address.postalCode << " / " << address.location << endl;   

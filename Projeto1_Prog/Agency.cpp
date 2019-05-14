@@ -28,10 +28,6 @@ string Agency::getClientsNameFile() const{ return clientsNameFile; }
 
 string Agency::getPacksNameFile() const { return packsNameFile; }
 
-//vector<Client> Agency::getClients() const { return clients; }
-
-//vector<TravelPack> Agency::getTravelPacks() const {	return TravelPacks;}
-
 
 //SET METHODS
 
@@ -47,12 +43,10 @@ void Agency::setClientsNameFile(string clientsNameFile){ this->clientsNameFile =
 
 void Agency::setPacksNameFile(string packsNameFile) { this->packsNameFile = packsNameFile;}
 
-//void Agency::setClients(vector<Client>& clients) { this->clients = clients; }
 
-//void Agency::setTravelPacks(vector<TravelPack>& TravelPacks){ this->TravelPacks = TravelPacks; }
 
-// other methods
 
+//Reads the agency file
 void Agency::readAgency(string filename) {
 
 	string agencyText;
@@ -106,11 +100,9 @@ void Agency::readAgency(string filename) {
 void Agency::showAgency() const{
 	cout << "*********************************" << endl;
 	cout << "Name: " << name << endl;
-	cout << "VATnumber: " << nif << endl;
+	cout << "NIF: " << nif << endl;
 	cout << "Address: " << address << endl;
 	cout << "URL: " << url << endl;
-	//cout clients
-	//cout travel packs
 	cout << "*********************************" << endl;
 }
 ostream& operator<<(ostream& out, const Agency &agency){

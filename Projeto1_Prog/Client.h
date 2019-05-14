@@ -18,7 +18,7 @@ private:
     unsigned int nif; // VAT number of client
     unsigned short int familySize;  // number of family members
     Address address; // client's address
-    vector<int> travelPackIdentifiers; // vector to store client's packets bought
+    vector<int> travelPackIds; // vector to store client's packets bought
     unsigned int totalPurchased; // total value spent by the client
 
 public:
@@ -33,7 +33,7 @@ public:
     unsigned int getnif() const;
     unsigned short int getFamilySize() const;
     Address getAddress() const;
-    vector<int> getTravelPackIdentifiers() const;
+    vector<int> getTravelPackIds() const;
     unsigned int getTotalPurchased() const;
   
     // SET methods
@@ -42,7 +42,7 @@ public:
     void setNif(unsigned int nif);
     void setFamilySize(unsigned short int familySize);
     void setAddress(Address address);
-    void setTravelPackIdentifiers(vector<int> &travelPackIdentifiers);
+    void setTravelPackIds(vector<int> &travelPackId);
     void setTotalPurchased(unsigned int totalPurchased);
   
     
@@ -50,30 +50,27 @@ public:
 	static void readClients(string clientsNameFile, vector<Client> &clientsVector);
 
 	//Adds client to the clientsVector
-	void addClient(vector<Client> &clientsVector, Client client);
+	void addClient(vector<Client> &clientsVector);
 
 	//Removes clientToRemove from clientsVector
-	void removeClient(Client clientToRemove, vector<Client> &clientsVector);
+	void removeClient(vector<Client> &clientsVector);
 
 	// Modify Client clientTModify to client
-	void modifyClient(Client clientToModify, vector<Client> &clientVector, Client client);
+	void modifyClient(Client clientToModify, vector<Client> &clientVector);
 
 	//Transorms the client.travelpacks in a string separated by ';'
-	string travelPacksToString(vector<int> travelPacks);
-
-	//Copies client to copy
-	void copyClient(Client &copy, Client client);
+	static string travelPacksToString(vector<int> travelPacks);
 
 	// Returns True if the client is in the Vector
-	bool clientInVector(vector<Client> clientsVector, Client client);
+	bool clientInVector(vector<Client> clientsVector);
 
 	//Returns true if the pack is valid
-	bool validPacksBought(string packs);
+	static bool validPacksBought(string packs);
 
-	//Returns True if Clients are equal SUBSTITUIR POR OVERIDE DO ==
-	bool equalClients(Client client1, Client client2);
+	// Returns true if number has 9 digits and valid int
+    bool checknif() const; 
 
-    bool checknif() const; // Returns true if number has 9 digits
+	//Outputs client in a formated way
     void showClient() const;
 
 	friend bool operator==(const Client &client1, const Client &client2); // Comparison operator overloading

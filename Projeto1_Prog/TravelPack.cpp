@@ -15,9 +15,9 @@ TravelPack::TravelPack(string fileName, vector<TravelPack> &travelPacksVector)
 	readTravelPacks(fileName,travelPacksVector);
 }
 
-TravelPack::TravelPack(int identifier,vector<string> touristicSpots, Date begin, Date end, double pricePerPerson, unsigned maxPersons, int soldTicketsNumber){
+TravelPack::TravelPack(int getId(),vector<string> touristicSpots, Date begin, Date end, double pricePerPerson, unsigned maxPersons, int soldTicketsNumber){
 	
-	this->id = identifier;
+	this->id = getId();
 	this->touristicSpots = touristicSpots;
 	this->begin = begin;
 	this->end = end;
@@ -29,7 +29,7 @@ TravelPack::TravelPack(int identifier,vector<string> touristicSpots, Date begin,
 
  //GET methods
 
-unsigned TravelPack::getId() const { return id; }
+int TravelPack::getId() const { return id; }
 
 vector<string> TravelPack::getTouristicSpots() const { return touristicSpots; }
 
@@ -59,7 +59,7 @@ void TravelPack::setMaxPersons(unsigned maxPersons){ this->maxPersons = maxPerso
 
 void TravelPack::setSoldTicketsNumber(int soldTicketsNumber) { this->soldTicketsNumber = soldTicketsNumber; }
 
-void TravelPack::setLastPackIdentifier(int lastPackIdentifier) { this->lastPackIdentifier = lastPackIdentifier; }
+void TravelPack::setLastPackId(int lastPackId) { this->lastPackId = lastPackId; }
 
 
 //Reads the Travel Pack file and puts its information into a class
@@ -82,7 +82,7 @@ void TravelPack::readTravelPacks(string filename, vector<TravelPack> &travelPack
 			switch (i)
 			{
 			case 0:
-				travelPack.setLastPackIdentifier(stoi(travelPackText));
+				travelPack.setLastPackId(stoi(travelPackText));
 				break;
 			case 1:
 				travelPack.setId(stoi(travelPackText));
@@ -169,9 +169,31 @@ bool TravelPack::travelPackInVector(vector<TravelPack> travelPackVector, TravelP
 
 //Separate the touristic spots in a vector, being the first element the city
 vector<string> TravelPack::separatedDestination(string destinations) {
+	vector<string> destinationVector1;
 	vector<string> destinationVector;
+	vector<string> destinationVector2;
+	if (destinations.find('-', -1) == -1) {
+		destinationVector.push_back(destinations);
+		return destinationVector;
+	}
+
 	destinationVector = separateCharacterStr(destinations, '-');
-	return destinationVector;
+	destinationVector1 = separateCharacterStr(destinationVector[1], ',');
+	destinationVector2.push_back(destinationVector[0]);
+	destinationVector2.insert(destinationVector2.end(), destinationVector1.begin(), destinationVector1.end());
+	return destinationVector2;
+}
+
+//Converts the destinations vector to a string
+string TravelPack::destinationToString(vector<string> destinationVector) {
+	string destinations = destinationVector[0];
+	if (destinationVector.size() == 1)
+		return destinations;
+	destinations += " -";
+	for (int i = 1; i < destinationVector.size(); i++)
+		destinations += " " + destinationVector[i] + ",";
+	destinations.pop_back();
+	return destinations;
 }
 
 
@@ -192,9 +214,13 @@ void TravelPack::showTravelPack() const {
 	cout << "*********************************" << endl;
 }
 
-bool operator==(const TravelPack& travelpack1, const TravelPack& travelpack2){
-	return travelpack1.id == travelpack2.id && travelpack1.touristicSpots == travelpack2.touristicSpots && travelpack1.begin == travelpack2.begin && travelpack1.end == travelpack2.end && travelpack1.pricePerPerson == travelpack2.pricePerPerson && travelpack1.maxPersons == travelpack2.maxPersons;
+bool operator==(const TravelPack & travelpack1, const TravelPack & travelpack2)
+{
+	return travelpack1.getId() == travelpack2.getId() && travelpack1.getTouristicSpots() == travelpack2.getTouristicSpots() && travelpack1.getBeginDate() == travelpack2.getBeginDate() && travelpack1.getEndDate() == travelpack2.getEndDate() && travelpack1.getPricePerPerson() == travelpack2.getPricePerPerson() && travelpack1.getMaxPersons() == travelpack2.getMaxPersons();
+
 }
+
+
 
 ostream& operator<<(ostream& out, const TravelPack &TravelPack){
 	out << "ID:" << TravelPack.id << endl << "Touristic Spots: " << /*TravelPack.touristicSpots <<*/ endl << "Begin Date: " << TravelPack.begin << endl << "End Date: " << TravelPack.end << endl << "Price per Person: " << TravelPack.pricePerPerson << endl << "Packs left: " << TravelPack.maxPersons << endl;

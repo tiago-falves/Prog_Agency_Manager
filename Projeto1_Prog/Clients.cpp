@@ -2,16 +2,12 @@
 
 
 Client::Client() {
-
+	Address address;
 	this->name = "";
 	this->nif = 0;
 	this->familySize = 0;
-	this->address = address; //Como inicalizar isto? 
-	/*Eu acho que neste tipo de cenas é literalmente como está. 
-	Ao instanciar um cliente é que temos de ter um objeto (neste caso de endereço) já pronto a passsar à classe Client. 
-	Julgo isso é fora do alcance da classe. Portanto: cria-se um Address address com o construtor que queremos e depois fazemos
-	client.setAddress()*/
-	this->travelPackIdentifiers ; // Como inicializar isto?
+	this->address = address; 
+	this->travelPackIds; // Como inicializar isto?
 	this->totalPurchased = 0;
 	
 }
@@ -26,7 +22,7 @@ Client::Client(string name, unsigned int nif, unsigned short int familySize, Add
     this -> nif = nif;
     this -> familySize = familySize;
     this -> address = address;
-	//this->travelPackIdentifiers; // Como inicializar isto?
+	//this->travelPackId; // Como inicializar isto?
 	//this->totalPurchased = 0; Acho que não precisamos de incluir estes dois já que como é um cliente não tem pacotes comprados
 }
 
@@ -38,7 +34,7 @@ Client::Client(string name, unsigned int nif, unsigned short int familySize, Add
 	this->nif = nif;
 	this->familySize = familySize;
 	this->address = address;
-	this->travelPackIdentifiers = travelPackIdentifiers;
+	this->travelPackIds = travelPackIds;
 	this->totalPurchased = totalPurchased;
 }
 
@@ -53,7 +49,7 @@ unsigned short Client::getFamilySize() const{ return familySize; }
 
 Address Client::getAddress() const{ return address; }
 
-vector<int> Client::getTravelPackIdentifiers() const{ return travelPackIdentifiers; }
+vector<int> Client::getTravelPackIds() const{ return travelPackIds; }
 
 unsigned Client::getTotalPurchased() const{ return totalPurchased; }
   
@@ -68,7 +64,7 @@ void Client::setFamilySize(unsigned short int familySize){ this -> familySize = 
 
 void Client::setAddress(Address address){ this -> address = address; }
 
-void Client::setTravelPackIdentifiers(vector<int> &travelPackIdentifiers){ this ->travelPackIdentifiers = travelPackIdentifiers; }
+void Client::setTravelPackIds(vector<int> &travelPackgetId){ this ->travelPackIds = travelPackIds; }
 
 void Client::setTotalPurchased(unsigned int totalPurchased){ this -> totalPurchased = totalPurchased; }
   
@@ -106,7 +102,9 @@ void Client::readClients(string clientsNameFile, vector<Client> &clientsVector) 
 				client.setAddress(Address::addressTextConverter(clientsText));
 				break;
 			case 4:
-				//client.setTravelPackIdentifiers(separateCharacterInt(clientsText, ';'));
+				//vector<int> temporary;
+				//temporary = separateCharacterInt(clientsText, ';');
+				//client.setTravelPackIds(separateCharacterInt(clientsText, ';'));
 
 				break;
 			case 5:
@@ -125,32 +123,21 @@ void Client::readClients(string clientsNameFile, vector<Client> &clientsVector) 
 
 //Adds client to clientsVector
 
-void Client::addClient(vector<Client> &clientsVector, Client client) {
-	clientsVector.push_back(client);
+void Client::addClient(vector<Client> &clientsVector) {
+	clientsVector.push_back(*this);
 }
-
-//Copies client to copy
-
-void Client::copyClient(Client &copy, Client client) {
-	copy.name = client.name;
-	copy.address = client.address;
-	copy.familySize = client.familySize;
-	copy.nif = client.nif;
-	copy.travelPackIdentifiers = client.travelPackIdentifiers;
-}
-
 
 //Removes clientToRemove from clientsVector
 
-void Client::removeClient(Client clientToRemove, vector<Client> &clientsVector) {
+void Client::removeClient(vector<Client> &clientsVector) {
 	Client client;
 
 	int last_pos = clientsVector.size() - 1;
 	for (int i = 0; i < clientsVector.size(); i++)
 	{
-		copyClient(client, clientsVector[i]);
-		if (equalClients(clientToRemove, client)) {
-			copyClient(clientsVector[i], clientsVector[last_pos]);
+		client = clientsVector[i];
+		if (*this == client) {
+			clientsVector[i] = clientsVector[last_pos];
 			clientsVector.pop_back();
 			break;
 		}
@@ -158,28 +145,28 @@ void Client::removeClient(Client clientToRemove, vector<Client> &clientsVector) 
 }
 
 // Modify Client client
-void Client::modifyClient(Client clientToModify, vector<Client> &clientVector, Client client) {
+void Client::modifyClient(Client clientToModify, vector<Client> &clientVector) {
 	for (int i = 0; i < clientVector.size(); i++)
 	{
-		if (equalClients(clientToModify, clientVector[i])) {
-			copyClient(clientVector[i], client);
+		if (clientToModify == clientVector[i]) {
+			clientVector[i] = *this;
 			break;
 		}
 	}
 }
 
 // Returns True if the client is in the Vector
-bool Client::clientInVector(vector<Client> clientsVector, Client client) { //Como substiruir aqui de modo a que fique client.clientsinVector(vetor)?? ou seja chamar o proprio
+bool Client::clientInVector(vector<Client> clientsVector) { 
 	for (int i = 0; i < clientsVector.size(); i++)
 	{
-		if (equalClients(clientsVector[i], client)) { return true; }
+		if (clientsVector[i] == *this) { return true; }
 	}
 	return false;
 }
 
 //Returns true if the pack is valid
 bool Client::validPacksBought(string packs) {
-	vector<string> vector;						//separateChStr esta a dar erros!
+	vector<string> vector;						
 	vector = separateCharacterStr(packs, ';');		
 	for (int i = 0; i < vector.size(); i++) {
 		if (!stringIsNumber(vector[i])) { return false; }
@@ -210,13 +197,13 @@ string Client::travelPacksToString(vector<int> travelPacks) {
 }
 
 
-//Returns True if Clients are equal SUBSTITUIR POR OVERIDE DE ==
+/*//Returns True if Clients are equal SUBSTITUIR POR OVERIDE DE ==
 bool Client::equalClients(Client client1, Client client2) {
-	if (Address::equalsAddresses(client1.address, client2.address) && client1.familySize == client2.familySize && client1.name == client1.name && client1.nif == client2.nif && client1.travelPackIdentifiers == client2.travelPackIdentifiers)
+	if (Address::equalsAddresses(client1.address, client2.address) && client1.familySize == client2.familySize && client1.name == client1.name && client1.nif == client2.nif && client1.travelPackId == client2.travelPackId)
 		return true;
 	else
 		return false;
-}
+}*/
 
 
 void Client::showClient() const 
@@ -228,7 +215,7 @@ void Client::showClient() const
     cout << "Address: " << endl;
 	address.showAddress();
     cout << "TravelPacks: " << endl;
-	//travelPackIdentifiers.showTravelPacks();
+	//travelPackId.showTravelPacks();
     cout << "Total Value: " << totalPurchased << endl;
 	cout << "*********************************" << endl;
 }
@@ -236,13 +223,12 @@ void Client::showClient() const
 
 //ostream& operator<<(ostream& out, const Client &client){
 //    out << "*********************************" << endl << "Name:" << client.name << endl << "VAT Number: " << client.nif << endl
-//    << "Family Size: " << client.familySize << endl << "Address: " << client.address << endl << "TravelPacks: " << client.travelPackIdentifiers << endl
+//    << "Family Size: " << client.familySize << endl << "Address: " << client.address << endl << "TravelPacks: " << client.travelPackId << endl
 //    << "Total Value: " << client.totalPurchased << endl << "*********************************" << endl;
 //    return out;
 //}
 
 bool operator==(const Client &client1, const Client &client2) {
-	return client1.getName() == client2.getName() && client1.getnif() == client2.getnif() && client1.getFamilySize() == client2.getFamilySize() && client1.getAddress() == client2.getAddress() && client1.getTravelPackIdentifiers() == client2.getTravelPackIdentifiers() && client1.getTotalPurchased() == client2.getTotalPurchased();
-
+	return client1.getName() == client2.getName() && client1.getnif() == client2.getnif() && client1.getFamilySize() == client2.getFamilySize() && client1.getAddress() == client2.getAddress() && client1.getTravelPackIds() == client2.getTravelPackIds() && client1.getTotalPurchased() == client2.getTotalPurchased();
 }
 

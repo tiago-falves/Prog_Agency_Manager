@@ -3,11 +3,34 @@
 #include <vector>
 
 #include "Agency.h"
-//#include "Menu.h"
-// #include "utils.h"
+#include "Menu.h"
 
+
+void runAgencyManager() {
+	Agency agency;
+	Client client, client1, client2;
+	vector<Client> clientsVector;
+	vector<TravelPack> travelPackVector;
+
+	agency.readAgency("agency.txt");
+	Client::readClients(agency.getClientsNameFile(), clientsVector);
+	TravelPack::readTravelPacks(agency.getPacksNameFile(), travelPackVector);
+	runMenu(clientsVector, travelPackVector, agency);
+}
 
 int main() {
+
+	//ADICIONAR A CADA CLIENTE *valor total das compras efetuadas*
+	//vERIFICAR SE AS FUNCIONALIDADES TODAS FUNCIONAM!
+	//-pRICIPALMENTE PEQUISAR PELAS DATAS ACHO QUE ESTA MAL
+	//-PRINCIPALMENTE A DE COMPRA DE PACOTES TURISTICOS, SE FICA NEGATIVO QUANDO NAO HA MAIS E TAL
+	//SUBSTITUIR VETORES POR SETS MAPS OU MULTIMAPS?
+	//ORDENAR DE MODO A SER MAIS EFICIENTE?
+	//ITERADORES PARA QUE?
+
+
+	runAgencyManager();
+
 	//Testar
 
 	//DATE
@@ -99,16 +122,12 @@ int main() {
 
 	// TRAVEL PACKS
 	//vector<TravelPack> travelPacks;
-	vector<string> spots;
-
-
-
-	//
-	Date date1;
-	Date date2;
+	//vector<string> spots;
+	//Date date1;
+	//Date date2;
 	//Date date3(5, 5, 2016);
 	//spots.push_back("Gosto");
-	TravelPack travelPack(0,spots,date1,date2,0,0,0);
+	//TravelPack travelPack(0,spots,date1,date2,0,0,0);
 	//TravelPack travelPack2(2,spots,date3,date3,2,2,2);
 	//
 	//cout << travelPack.getId() << endl;
@@ -128,7 +147,7 @@ int main() {
 	//cout << travelPacks[0].getMaxPersons() << endl;
 
 	//cout << (travelPack == travelPack2) << endl;
-	cout << travelPack << endl;
+	//cout << travelPack << endl;
 
 	//TravelPack travelPack1(spots,date1,date2,0,0,0);
 	//TravelPack travelPack("packs.txt", travelPacks);

@@ -52,10 +52,8 @@ public:
 	//True if the Date is after Date d
 	bool isAfter(const Date &d);
 
-	//Overload
-	//Date operator=(Date date); Isto não
 
-	//Static Methods, DESCOBRIR ONDE SE POE
+	//Static Methods
 
 	static int daysInMonth(int month, int year);
 	static bool isLeapYear(int year);
@@ -63,6 +61,9 @@ public:
 
 	//Converts dateTex in format year/month/day xxxx/xx/xx to a struct Date
 	static Date dateTextConverter(string dateText);
+
+	//Returns true if date text is a valid date
+	static bool validDateText(string dateText);
 
 	
 	friend bool operator==(const Date& date1, const Date& date2); // Comparison operator overloading
