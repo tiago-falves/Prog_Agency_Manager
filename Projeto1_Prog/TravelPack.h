@@ -73,5 +73,5 @@ private:
 
 	 friend bool operator==(const TravelPack& travelpack1, const TravelPack& travelpack2);
 	 friend ostream& operator<<(ostream& out, const TravelPack & TravelPack);
-	 friend ostream& operator<<(ostream& out, const vector<string>& touristicSpots);
+	 //friend ostream& operator<<(ostream& out, const vector<string>& touristicSpots);
 };
