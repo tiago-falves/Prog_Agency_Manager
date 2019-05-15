@@ -59,12 +59,16 @@ void saveAndExit(vector<Client> &clientsVector, vector<TravelPack> &travelPacksV
 		for (int j = 0; j < clientsVector[i].getTravelPackIds().size(); j++) {
 			content += to_string(clientsVector[i].getTravelPackIds()[j]) + " ; ";
 		}
-		content.erase(content.find_last_of(" ; ") - 2, 3);
 		content += "\n";
+		content += to_string(clientsVector[i].getTotalPurchased()) + "\n";
+		content.erase(content.find_last_of(" ; ") - 2, 3);
 		if (i != clientsVector.size() - 1){
 			content += "::::::::::\n";
 		}
-	}
+	}	
+
+
+
 	clientsFile << content;
 	clientsFile.close();
 

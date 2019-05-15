@@ -19,7 +19,7 @@ private:
     unsigned short int familySize;  // number of family members
     Address address; // client's address
     vector<int> travelPackIds; // vector to store client's packets bought
-    unsigned int totalPurchased; // total value spent by the client
+    unsigned int totalPurchased; // total value spent by the client - we're assuming each pack is bought for the whole family
 
 public:
 	Client();

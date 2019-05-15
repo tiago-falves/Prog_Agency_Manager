@@ -22,9 +22,6 @@ int main() {
 
 	runAgencyManager();
 
-	//ADICIONAR A CADA CLIENTE *valor total das compras efetuadas*
-
-
 	/* 9- Obter o nome dos N locais mais visitados(um pacote pode incluir visitas a vários locais), ordenados
 	por ordem decrescente do número de visitas(= número de pacotes vendidos que passam por esse
 	local)./*
@@ -35,13 +32,8 @@ int main() {
 
 	//VERIFICAR SE AS FUNCIONALIDADES TODAS FUNCIONAM!
 	//PRINCIPALMENTE PEQUISAR PELAS DATAS ACHO QUE ESTA MAL
-	//PRINCIPALMENTE A DE COMPRA DE PACOTES TURISTICOS, SE FICA NEGATIVO QUANDO NAO HA MAIS E TAL
-	//SUBSTITUIR VETORES POR SETS MAPS OU MULTIMAPS? - O ID dos TravelPacks deve ser associado ao TravelPack com um map
 	//ORDENAR DE MODO A SER MAIS EFICIENTE? - Vemos isto no fim, mesmo antes de comentar o código
-	//ITERADORES PARA QUE? - Caga neles, são úteis na manipulação de coisas da STL, algoritmos e coisas do género
 	//O IDENTIFICADOR DOS PACKS NÃO DEVE SER ATRIBUIDO AUTOMATICAMENTE? TIPO ADICIONAR UM AO ID DO ULTIMO PACKS ADICIONADO
-
-
 
 	//Testar
 
