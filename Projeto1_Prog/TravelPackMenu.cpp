@@ -5,6 +5,7 @@ void runTravelPackMenu(vector<Client> &clientsVector, vector<TravelPack> &travel
 
 	cout << "Welcome to the Touristic Packs Menu! Please choose what you want to do: ";
 	cout << endl << endl;
+	cout << "0. Go back" << endl;
 	cout << "1. Create a new touristic pack." << endl;
 	cout << "2. Change a touristic pack." << endl;
 	cout << "3. Remove a touristic pack" << endl;
@@ -15,7 +16,7 @@ void runTravelPackMenu(vector<Client> &clientsVector, vector<TravelPack> &travel
 	cin >> option;
 
 
-	while (cin.fail() || (option != 1 && option != 2 && option != 3 && option != 4 && option != 5 ))//&& option != 5 && option != 6))
+	while (cin.fail() || (option < 0 && option > 5))
 	{
 		cout << "Invalid option, please insert the option again: ";
 		cin.clear();
@@ -24,6 +25,7 @@ void runTravelPackMenu(vector<Client> &clientsVector, vector<TravelPack> &travel
 	}
 	menuSeparator();
 
+	if (option == 0) { runMenu(clientsVector, travelPacksVector, agency); }
 	if (option == 1) { createTravelPackOption(travelPacksVector); }
 	if (option == 2) { modifyTravelPackOption(travelPacksVector); }
 	if (option == 3) { removeClientOption(travelPacksVector); }
@@ -39,6 +41,7 @@ void showTravelPacks(vector<TravelPack> &travelPacksVector,vector<Client> &clien
 	cout << "Please choose what you want to see: ";
 	cout << endl << endl;
 
+	cout << "0. Go back" << endl;
 	cout << "1. See information from all touristic packs. " << endl;
 	cout << "2. See information from touristic packs between two dates. " << endl;
 	cout << "3. See information from touristic packs to a certain destination. " << endl;
@@ -47,7 +50,7 @@ void showTravelPacks(vector<TravelPack> &travelPacksVector,vector<Client> &clien
 
 	cout << "Insert the number correspondent to your option: ";
 	cin >> option;
-	while (cin.fail() || (option != 1 && option != 2 && option != 3 && option != 4 && option != 5))
+	while (cin.fail() || (option < 0 && option > 5))
 	{
 		cout << "Invalid option, please insert the option again: ";
 		cin.clear();
@@ -55,6 +58,7 @@ void showTravelPacks(vector<TravelPack> &travelPacksVector,vector<Client> &clien
 		cin >> option;
 	}
 
+	if (option == 0) { return; }
 	if (option == 1) { showAllTravelPacks(travelPacksVector); }
 	if (option == 2) { showAllTravelPacksByDate(travelPacksVector); }
 	if (option == 3) { showAllTravelPacksByDestination(travelPacksVector); }
@@ -314,7 +318,7 @@ void showAllTravelPacksByDate(vector<TravelPack> travelPackVector) {
 //Show a certain Touristic Pack information
 void showTravelPack(TravelPack travelPack) {
 	
-	cout << "Identifier(): " << travelPack.getId() << endl; 
+	cout << "Identifier: " << travelPack.getId() << endl; 
 	cout << "Touristic spots: " << TravelPack::destinationToString(travelPack.getTouristicSpots()) << endl;
 	cout << "Beggining date: " << travelPack.getBeginDate().getDay() << "/" << travelPack.getBeginDate().getMonth() << "/" << travelPack.getBeginDate().getYear() << endl;
 	cout << "End date: " << travelPack.getEndDate().getDay() << "/" << travelPack.getEndDate().getMonth() << "/" << travelPack.getEndDate().getYear() << endl;

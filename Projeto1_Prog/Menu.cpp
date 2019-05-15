@@ -11,13 +11,14 @@ void runMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVecto
 	cout << "Welcome to the NiceHolidays Packs and Clients Manager! Here you can choose what you want to manage" << endl << endl;
 	cout << "Please choose what your option:" << endl << endl;
 	
+	cout << "0. Exit" << endl;
 	cout << "1. Clients" << endl;
 	cout << "2. Touristic Packs" << endl;
 	cout << "3. Save information and Exit" << endl << endl;
 	cout << "Insert the number correspondent to your option: ";
 	cin >> option;
 
-	while (cin.fail() || (option != 1 && option != 2 && option != 3))
+	while (cin.fail() || (option < 0 && option > 3))
 	{
 		cout << "Invalid option, please insert the option again: ";
 		cin.clear();
@@ -28,8 +29,8 @@ void runMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVecto
 	cin.ignore(10000, '\n');
 	menuSeparator();
 
-
-	if (option == 1) {runClientsMenu(clientsVector,travelPacksVector,agency); }
+	if (option == 0) { exit(0);}
+	else if (option == 1) {runClientsMenu(clientsVector,travelPacksVector,agency); }
 	else if (option == 2) {runTravelPackMenu(clientsVector, travelPacksVector,agency); }
 	else if (option == 3) { saveAndExit(clientsVector, travelPacksVector, agency); }
 }
