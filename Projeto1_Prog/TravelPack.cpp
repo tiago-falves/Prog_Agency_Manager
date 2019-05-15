@@ -88,7 +88,7 @@ void TravelPack::readTravelPacks(string filename, vector<TravelPack> &travelPack
 				travelPack.setId(stoi(travelPackText));
 				break;
 			case 2:
-				travelPack.setTouristicSpots(travelPack.separatedDestination(travelPackText)); // Isto deve funcionar, certo?
+				travelPack.setTouristicSpots(TravelPack::separatedDestination(travelPackText)); 
 				break;
 			case 3:
 				travelPack.setBeginDate(Date::dateTextConverter(travelPackText));
@@ -172,7 +172,7 @@ vector<string> TravelPack::separatedDestination(string destinations) {
 	vector<string> destinationVector1;
 	vector<string> destinationVector;
 	vector<string> destinationVector2;
-	if (destinations.find('-', -1) == -1) {
+	if (destinations.find_first_of('-') == destinations.npos){
 		destinationVector.push_back(destinations);
 		return destinationVector;
 	}
@@ -210,8 +210,72 @@ void TravelPack::showTravelPack() const {
 	cout << "End Date: ";
 	end.showDate();
 	cout << "Price per Person: " << pricePerPerson << endl;
-	cout << "Packs left: " << maxPersons << endl;
+	cout << "Total Number of Travel Packs: " << maxPersons << endl;
+	cout << "Sold Tickets: " << soldTicketsNumber << endl;
 	cout << "*********************************" << endl;
+}
+/*bool TravelPack::sortbysec(const pair<int, int> &a,	const pair<int, int> &b)
+{
+	return (a.second < b.second);
+}
+
+//Order the destinations by most visited
+void TravelPack::orderDestinations(vector<TravelPack> travelPackVector) {
+	typedef pair<std::string, int> pair;
+	map<string, int> mapDestinations;
+	vector<pair> vec;
+	vector<string> temporaryStrVector;
+	
+	for (int i = 0; i < travelPackVector.size(); i++) {
+		//temporaryStrVector = travelPackVector[i].getTouristicSpots();
+		mapDestinations[travelPackVector[i].getTouristicSpots()[0]] += 1;
+	}
+
+
+	copy(mapDestinations.begin(),mapDestinations.end(),back_inserter<vector<pair>>(vec));
+
+	sort(vec.begin(), vec.end(),[](const pair& l, const pair& r) {
+		if (l.second != r.second)
+			return l.second < r.second;
+		return l.first < r.first;
+		});
+	sort(vec.begin(), vec.end(), sortbysec);
+	
+
+	
+
+	for (auto const &pair : vec) {
+		cout << '{' << pair.first << "," << pair.second << '}' << '\n';
+	}
+
+}*/
+
+// função para ordenar os pairs do set pelo numero de lugares comprados
+void TravelPack::orderDestinations(vector<TravelPack> travelPackVector) {
+
+	map<string, int> mapDestinations;
+	vector<string> temporaryStrVector;
+
+	for (int i = 0; i < travelPackVector.size(); i++) 
+		mapDestinations[travelPackVector[i].getTouristicSpots()[0]] += 1;
+	
+
+	auto cmp = [](const auto &p1, const auto &p2)
+	{
+		if (p1.second >= p2.second)
+			return p2.second < p1.second;
+
+		return p1.first < p2.first;
+	};
+
+	// cria um set de pairs igual ao map
+	set < pair<string, unsigned>, decltype(cmp)> s(mapDestinations.begin(), mapDestinations.end(), cmp);
+
+	// corre todos os pairs do set e dá print do numero de lugares comprados - lugares do pacote
+	for (auto i = s.begin(); i != s.end(); i++)
+	{
+		cout << i->second << " - " << i->first << endl;
+	}
 }
 
 bool operator==(const TravelPack & travelpack1, const TravelPack & travelpack2)

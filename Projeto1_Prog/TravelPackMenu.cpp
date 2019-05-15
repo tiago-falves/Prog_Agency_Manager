@@ -10,13 +10,14 @@ void runTravelPackMenu(vector<Client> &clientsVector, vector<TravelPack> &travel
 	cout << "2. Change a touristic pack." << endl;
 	cout << "3. Remove a touristic pack" << endl;
 	cout << "4. See information from touristic packs. " << endl;
-	cout << "5. Total profit." << endl << endl;
+	cout << "5. Total profit." << endl;
+	cout << "6. Most visited locations." << endl << endl;
 	
 	cout << "Insert the number correspondent to your option: ";
 	cin >> option;
 
 
-	while (cin.fail() || option < 0 || option > 5)
+	while (cin.fail() || option < 0 || option > 6)
 	{
 		cout << "Invalid option, please insert the option again: ";
 		cin.clear();
@@ -393,6 +394,10 @@ void showAllTravelPacksByDateDestination(vector<TravelPack> travelPackVector) {
 	}
 	menuSeparator();
 }
+//Outputs an ordered list of the most visited places
+
+
+
 
 //Outputs the total profit and number of tickets
 void calculateNumberPacks(vector<TravelPack> travelPackVector) {

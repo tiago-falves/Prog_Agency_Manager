@@ -5,6 +5,9 @@
 #include <vector>
 #include <fstream>
 #include <cmath>
+#include <map>
+#include <algorithm>
+#include <set>
 
 #include "StringManipulator.h"
 #include "defs.h"
@@ -21,7 +24,7 @@ class TravelPack{
   Date end;  // end date
   double pricePerPerson; // price per person AQUI TEM DE SER DOUBLE? FICA FEIO TER TIPO 300.0000000 NA ESCRITA DO FICHEIRO
   unsigned maxPersons; // number of persons still available in the TravelPack (updated whenever the TravelPack is sold to a new client)
-  int soldTicketsNumber;
+  int soldTicketsNumber; //
   
  public:
 	  TravelPack();
@@ -67,11 +70,17 @@ class TravelPack{
 	  //Separate the touristic sopts in a vector, being the first element the city
 	  static vector<string> separatedDestination(string destinations);		  
 
+	  /*//Order a pair list by the second paramter
+	  static bool sortbysec(const pair<int, int> &a, const pair<int, int> &b);*/
+
 	  //Converts the destinations vector to a string
 	  static string destinationToString(vector<string> destinationVector);
 
 	  //True if Travel Packs are equal, False otherwise
 	  static bool equalTravelPacks(TravelPack travelPack1, TravelPack travelPack2); //Substituir por overide do ==
+
+	  //Order the destinations by most visited
+	  static void orderDestinations(vector<TravelPack> travelPackVector);
 
 	  void showTravelPack() const;
 

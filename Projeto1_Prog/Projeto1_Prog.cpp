@@ -11,11 +11,15 @@ void runAgencyManager() {
 	Client client, client1, client2;
 	vector<Client> clientsVector;
 	vector<TravelPack> travelPackVector;
+	vector<string> temporario;
 
 	agency.readAgency("agency.txt");
 	Client::readClients(agency.getClientsNameFile(), clientsVector);
 	TravelPack::readTravelPacks(agency.getPacksNameFile(), travelPackVector);
-	runMenu(clientsVector, travelPackVector, agency);
+	temporario = TravelPack::separatedDestination("Madeira - funchal,porto");
+	
+	TravelPack::orderDestinations(travelPackVector);
+	//runMenu(clientsVector, travelPackVector, agency);
 }
 
 int main() {

@@ -121,7 +121,7 @@ void buyTravelPack(vector<Client> &clientsVector, vector<TravelPack> &travelPack
 			vector<int> temporaryIdentifiers;
 			temporaryIdentifiers = clientsVector[i].getTravelPackIds();
 			temporaryIdentifiers.push_back(identifier);
-			clientsVector[i].setTravelPackIds(temporaryIdentifiers); //NAO PERCEBO O ERRO QUE DA
+			clientsVector[i].setTravelPackIds(temporaryIdentifiers); 
 		}
 	}
 	menuSeparator();
