@@ -20,7 +20,19 @@ void runAgencyManager() {
 
 int main() {
 
+	runAgencyManager();
+
 	//ADICIONAR A CADA CLIENTE *valor total das compras efetuadas*
+
+
+	/* 9- Obter o nome dos N locais mais visitados(um pacote pode incluir visitas a vários locais), ordenados
+	por ordem decrescente do número de visitas(= número de pacotes vendidos que passam por esse
+	local)./*
+
+	/* 10- Gerar uma listagem de todos os clientes na qual se indica, para cada cliente, um dos pacotes em
+	que seja visitado um dos N locais mais visitados (ver ponto 9) que ele ainda não visitou.*/
+
+
 	//VERIFICAR SE AS FUNCIONALIDADES TODAS FUNCIONAM!
 	//PRINCIPALMENTE PEQUISAR PELAS DATAS ACHO QUE ESTA MAL
 	//PRINCIPALMENTE A DE COMPRA DE PACOTES TURISTICOS, SE FICA NEGATIVO QUANDO NAO HA MAIS E TAL
@@ -29,7 +41,7 @@ int main() {
 	//ITERADORES PARA QUE? - Caga neles, são úteis na manipulação de coisas da STL, algoritmos e coisas do género
 	//O IDENTIFICADOR DOS PACKS NÃO DEVE SER ATRIBUIDO AUTOMATICAMENTE? TIPO ADICIONAR UM AO ID DO ULTIMO PACKS ADICIONADO
 
-	runAgencyManager();
+
 
 	//Testar
 
@@ -162,9 +174,7 @@ int main() {
 	/*destinations = TravelPack::separatedDestination("Madeira - Funchal, Porto Santo");
 	cout << destinations.size();*/
 
-
-	system("Pause");
-
-  
-  return 0;
+	
+system("Pause");
+return 0;
 }

@@ -64,7 +64,7 @@ void Client::setFamilySize(unsigned short int familySize){ this -> familySize = 
 
 void Client::setAddress(Address address){ this -> address = address; }
 
-void Client::setTravelPackIds(vector<int> &travelPackgetId){ this ->travelPackIds = travelPackIds; }
+void Client::setTravelPackIds(vector<int> &travelPackIds){ this ->travelPackIds = travelPackIds; }
 
 void Client::setTotalPurchased(unsigned int totalPurchased){ this -> totalPurchased = totalPurchased; }
   
@@ -87,6 +87,7 @@ void Client::readClients(string clientsNameFile, vector<Client> &clientsVector) 
 	{
 		while (getline(clientsFile, clientsText))
 		{
+			vector<int> temporary;
 			switch (i)
 			{
 			case 0:
@@ -102,10 +103,11 @@ void Client::readClients(string clientsNameFile, vector<Client> &clientsVector) 
 				client.setAddress(Address::addressTextConverter(clientsText));
 				break;
 			case 4:
-				//vector<int> temporary;
-				//temporary = separateCharacterInt(clientsText, ';');
-				//client.setTravelPackIds(separateCharacterInt(clientsText, ';'));
-
+				temporary = separateCharacterInt(clientsText, ';');
+				client.setTravelPackIds(temporary);
+				
+				
+				
 				break;
 			case 5:
 				i = -1;
