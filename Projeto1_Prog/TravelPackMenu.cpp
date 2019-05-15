@@ -31,7 +31,7 @@ void runTravelPackMenu(vector<Client> &clientsVector, vector<TravelPack> &travel
 	if (option == 2) { modifyTravelPackOption(travelPacksVector); }
 	if (option == 3) { removeClientOption(travelPacksVector); }
 	if (option == 4) { showTravelPacks( travelPacksVector,clientsVector); }
-	if (option == 5) {calculateNumberPacks ( travelPacksVector); }
+	if (option == 5) { calculateNumberPacks ( travelPacksVector); }
 	runMenu(clientsVector, travelPacksVector, agency);
 }
 

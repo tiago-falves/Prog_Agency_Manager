@@ -204,7 +204,7 @@ string TravelPack::destinationToString(vector<string> destinationVector) {
 void TravelPack::showTravelPack() const {
 	cout << "*********************************" << endl;
 	cout << "ID: " << abs(id) << endl; // Está a mostrar o valor absoluto mas internamente é representado por um signed, portanto não se perde a informação da disponibilidade do pacote
-	cout << "Touristic Spots: " <<TravelPack::destinationToString( touristicSpots) << endl;
+	cout << "Touristic Spots: " << TravelPack::destinationToString(touristicSpots) << endl;
 	cout << "Begin Date: ";
 	begin.showDate();
 	cout << "End Date: ";
@@ -262,7 +262,7 @@ void TravelPack::orderDestinations(vector<TravelPack> travelPackVector) {
 
 	auto cmp = [](const auto &p1, const auto &p2)
 	{
-		if (p1.second >= p2.second)
+		if (p1.second > p2.second)
 			return p2.second < p1.second;
 
 		return p1.first < p2.first;

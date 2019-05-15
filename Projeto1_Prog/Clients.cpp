@@ -7,13 +7,13 @@ Client::Client() {
 	this->nif = 0;
 	this->familySize = 0;
 	this->address = address; 
-	this->travelPackIds; // Como inicializar isto?
+	this->travelPackIds;
 	this->totalPurchased = 0;
 	
 }
 Client::Client(string clientsFileName, vector<Client> &clients) {
 
-	readClients(clientsFileName,clients);
+	readClients(clientsFileName, clients);
 }
 
 
@@ -22,14 +22,10 @@ Client::Client(string name, unsigned int nif, unsigned short int familySize, Add
     this -> nif = nif;
     this -> familySize = familySize;
     this -> address = address;
-	//this->travelPackId; // Como inicializar isto?
-	//this->totalPurchased = 0; Acho que não precisamos de incluir estes dois já que como é um cliente não tem pacotes comprados
 }
 
 
 Client::Client(string name, unsigned int nif, unsigned short int familySize, Address address, vector<TravelPack> &packets, unsigned int totalPurchased) {
-
-
 	this->name = name;
 	this->nif = nif;
 	this->familySize = familySize;
@@ -105,11 +101,11 @@ void Client::readClients(string clientsNameFile, vector<Client> &clientsVector) 
 			case 4:
 				temporary = separateCharacterInt(clientsText, ';');
 				client.setTravelPackIds(temporary);
-				
-				
-				
 				break;
 			case 5:
+				client.setTotalPurchased(stoi(clientsText));
+				break;
+			case 6:
 				i = -1;
 				clientsVector.push_back(client);
 				break;
@@ -216,8 +212,7 @@ void Client::showClient() const
     cout << "Family Size: " << familySize << endl;
     cout << "Address: " << endl;
 	address.showAddress();
-    cout << "TravelPacks: " << endl;
-	//travelPackId.showTravelPacks();
+    cout << "TravelPacks: " <<  travelPacksToString(travelPackIds) << endl;
     cout << "Total Value: " << totalPurchased << endl;
 	cout << "*********************************" << endl;
 }

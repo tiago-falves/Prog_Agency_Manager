@@ -1,6 +1,7 @@
 #pragma once
 #include "Menu.h"
 #include "Client.h"
+#include <vector>
 
 void runClientsMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector, Agency agency);
 
