@@ -20,16 +20,27 @@ void runAgencyManager() {
 
 int main() {
 
+	runAgencyManager();
+
 	//ADICIONAR A CADA CLIENTE *valor total das compras efetuadas*
+
+	/* 9- Obter o nome dos N locais mais visitados(um pacote pode incluir visitas a vários locais), ordenados
+	por ordem decrescente do número de visitas(= número de pacotes vendidos que passam por esse
+	local)./*
+
+	/* 10- Gerar uma listagem de todos os clientes na qual se indica, para cada cliente, um dos pacotes em
+	que seja visitado um dos N locais mais visitados (ver ponto 9) que ele ainda não visitou.*/
+
+	//Botao para voltar tras em todos os menus
 	//vERIFICAR SE AS FUNCIONALIDADES TODAS FUNCIONAM!
-	//-pRICIPALMENTE PEQUISAR PELAS DATAS ACHO QUE ESTA MAL
+	//-PRICIPALMENTE PEQUISAR PELAS DATAS ACHO QUE ESTA MAL
 	//-PRINCIPALMENTE A DE COMPRA DE PACOTES TURISTICOS, SE FICA NEGATIVO QUANDO NAO HA MAIS E TAL
+	
 	//SUBSTITUIR VETORES POR SETS MAPS OU MULTIMAPS?
 	//ORDENAR DE MODO A SER MAIS EFICIENTE?
 	//ITERADORES PARA QUE?
 
 
-	runAgencyManager();
 
 	//Testar
 
@@ -162,9 +173,7 @@ int main() {
 	/*destinations = TravelPack::separatedDestination("Madeira - Funchal, Porto Santo");
 	cout << destinations.size();*/
 
-
-	system("Pause");
-
-  
-  return 0;
+	
+system("Pause");
+return 0;
 }
