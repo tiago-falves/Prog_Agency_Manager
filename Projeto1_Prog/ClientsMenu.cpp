@@ -18,7 +18,7 @@ void runClientsMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPac
 	cout << "Insert the number correspondent to your option: ";
 	cin >> option;
 	
-	while (cin.fail() || (option < 0 && option > 6))
+	while (cin.fail() || option < 0 || option > 6)
 	{
 		cout << "Invalid option, please insert the option again: ";
 		cin.clear();

@@ -16,7 +16,7 @@ void runTravelPackMenu(vector<Client> &clientsVector, vector<TravelPack> &travel
 	cin >> option;
 
 
-	while (cin.fail() || (option < 0 && option > 5))
+	while (cin.fail() || option < 0 || option > 5)
 	{
 		cout << "Invalid option, please insert the option again: ";
 		cin.clear();
@@ -193,7 +193,6 @@ TravelPack askForTravelPacks(bool isCreatingTravelPack, vector<TravelPack> trave
 					cin >> identifier;
 					validCin(identifier);
 					cin.clear();
-					//cin.ignore(10000, '\n');
 					validId = false;
 					break;
 				}
@@ -204,12 +203,11 @@ TravelPack askForTravelPacks(bool isCreatingTravelPack, vector<TravelPack> trave
 	
 	cin.clear();
 	cin.ignore(10000, '\n');
-	cout << "Touristic Spots (Main touristic destination - main toristic spots): ";
+	cout << "Touristic Spots (Main touristic destination - main touristic spots): ";
 	getline(cin, touristicSpots);
 
 	cout << "Begginning date(xx/xx/xxxx): ";
 	cin.clear();
-	//cin.ignore(10000, '\n');
 	getline(cin, begginningDateText);
 
 	while (!Date::validDateText(begginningDateText))
@@ -218,7 +216,7 @@ TravelPack askForTravelPacks(bool isCreatingTravelPack, vector<TravelPack> trave
 		getline(cin, begginningDateText);
 	}
 
-	cout << "End date (xxxx/xx/xx): ";
+	cout << "End date (xx/xx/xxxx): ";
 	cin.clear();
 	getline(cin, endDateText);
 
@@ -242,7 +240,7 @@ TravelPack askForTravelPacks(bool isCreatingTravelPack, vector<TravelPack> trave
 	cin.clear();
 	cin.ignore(10000, '\n');
 
-	cout << "Sold tikets number: ";
+	cout << "Sold tickets: ";
 	cin >> soldTicketsNumber;
 	validCin(soldTicketsNumber);
 	while (maxPersonNumber < soldTicketsNumber)
@@ -255,7 +253,7 @@ TravelPack askForTravelPacks(bool isCreatingTravelPack, vector<TravelPack> trave
 	cin.ignore(10000, '\n');
 
 	travelPack.setId(identifier);
-	//travelPack.setTouristicSpots(touristicSpots);
+	travelPack.setTouristicSpots(TravelPack::separatedDestination( touristicSpots));
 	travelPack.setBeginDate(Date::dateTextConverter(begginningDateText));
 	travelPack.setEndDate(Date::dateTextConverter(endDateText));
 	travelPack.setPricePerPerson(pricePerson);

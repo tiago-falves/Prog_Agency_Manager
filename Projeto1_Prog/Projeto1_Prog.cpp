@@ -27,6 +27,7 @@ int main() {
 	//SUBSTITUIR VETORES POR SETS MAPS OU MULTIMAPS? - O ID dos TravelPacks deve ser associado ao TravelPack com um map
 	//ORDENAR DE MODO A SER MAIS EFICIENTE? - Vemos isto no fim, mesmo antes de comentar o código
 	//ITERADORES PARA QUE? - Caga neles, são úteis na manipulação de coisas da STL, algoritmos e coisas do género
+	//O IDENTIFICADOR DOS PACKS NÃO DEVE SER ATRIBUIDO AUTOMATICAMENTE? TIPO ADICIONAR UM AO ID DO ULTIMO PACKS ADICIONADO
 
 	runAgencyManager();
 

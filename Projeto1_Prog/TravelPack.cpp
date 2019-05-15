@@ -220,8 +220,6 @@ bool operator==(const TravelPack & travelpack1, const TravelPack & travelpack2)
 
 }
 
-
-
 ostream& operator<<(ostream& out, const TravelPack &TravelPack){
 	out << "ID:" << TravelPack.id << endl << "Touristic Spots: " << /*TravelPack.touristicSpots <<*/ endl << "Begin Date: " << TravelPack.begin << endl << "End Date: " << TravelPack.end << endl << "Price per Person: " << TravelPack.pricePerPerson << endl << "Packs left: " << TravelPack.maxPersons << endl;
 	return out;

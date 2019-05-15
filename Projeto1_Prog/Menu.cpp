@@ -18,7 +18,7 @@ void runMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVecto
 	cout << "Insert the number correspondent to your option: ";
 	cin >> option;
 
-	while (cin.fail() || (option < 0 && option > 3))
+	while (cin.fail() || option < 0 || option > 3)
 	{
 		cout << "Invalid option, please insert the option again: ";
 		cin.clear();
@@ -45,7 +45,7 @@ void menuSeparator() {
 }
 
 //Exists the program and saves the information to new files: "ClientsOutput.txt" and "TravelPackOutput.txt"
-void saveAndExit(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector,Agency agency) {
+void saveAndExit(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector, Agency agency) {
 	string content;
 	ofstream clientsFile("ClientsOutput.txt");
 
@@ -54,7 +54,7 @@ void saveAndExit(vector<Client> &clientsVector, vector<TravelPack> &travelPacksV
 		content += clientsVector[i].getName() + "\n";
 		content += to_string(clientsVector[i].getnif()) + "\n";
 		content += to_string(clientsVector[i].getFamilySize()) + "\n";
-		content += clientsVector[i].getAddress().getStreet() + " / " +to_string( clientsVector[i].getAddress().getDoorNumber()) + " / " + clientsVector[i].getAddress().getFloor() + " / " + clientsVector[i].getAddress().getFloor() + " / " + clientsVector[i].getAddress().getLocation()  + "\n";
+		content += clientsVector[i].getAddress().getStreet() + " / " + to_string( clientsVector[i].getAddress().getDoorNumber()) + " / " + clientsVector[i].getAddress().getFloor() + " / " + clientsVector[i].getAddress().getLocation()  + "\n";
 		for (int j = 0; j < clientsVector[i].getTravelPackIds().size(); j++) {
 			content += to_string(clientsVector[i].getTravelPackIds()[j]) + " ; ";
 		}
@@ -75,9 +75,9 @@ void saveAndExit(vector<Client> &clientsVector, vector<TravelPack> &travelPacksV
 	{
 		content += to_string(travelPacksVector[i].getId()) + '\n';
 		content += TravelPack::destinationToString(travelPacksVector[i].getTouristicSpots()) + '\n'; 
-		content += to_string(travelPacksVector[i].getBeginDate().getYear()) + "/" + to_string(travelPacksVector[i].getBeginDate().getMonth()) + "/" + to_string(travelPacksVector[i].getBeginDate().getDay()) + '\n';
-		content += to_string(travelPacksVector[i].getEndDate().getYear()) + "/" + to_string(travelPacksVector[i].getEndDate().getMonth()) + "/" + to_string(travelPacksVector[i].getEndDate().getDay()) + '\n';
-		content += to_string(travelPacksVector[i].getPricePerPerson()) + '\n';
+		content += to_string(travelPacksVector[i].getBeginDate().getDay()) + "/" + to_string(travelPacksVector[i].getBeginDate().getMonth()) + "/" + to_string(travelPacksVector[i].getBeginDate().getYear()) + '\n'; // Isto não devia estar ao contrário
+		content += to_string(travelPacksVector[i].getEndDate().getDay()) + "/" + to_string(travelPacksVector[i].getEndDate().getMonth()) + "/" + to_string(travelPacksVector[i].getEndDate().getYear()) + '\n';
+		content += to_string((int)travelPacksVector[i].getPricePerPerson()) + '\n';
 		content += to_string(travelPacksVector[i].getMaxPersons()) + '\n';
 		content += to_string(travelPacksVector[i].getSoldTicketsNumber()) + '\n';
 
@@ -88,7 +88,7 @@ void saveAndExit(vector<Client> &clientsVector, vector<TravelPack> &travelPacksV
 	}
 	travelPacksFile << content;
 	travelPacksFile.close();
-	exit(1); // Isto não é sair com erros? Não deveria ser exit 0?
+	exit(0);
 }
 
 //Asks for a valid int until the user inputs it

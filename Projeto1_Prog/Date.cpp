@@ -2,9 +2,9 @@
 
 
 Date::Date() {
-	this->day = 1;
-	this->month = 1;
-	this->year = 1000;
+	//this->day = 1;
+	//this->month = 1;
+	//this->year = 1000;
 }
 
 Date::Date(unsigned short day, unsigned short month, unsigned year){
@@ -14,16 +14,13 @@ Date::Date(unsigned short day, unsigned short month, unsigned year){
 }
 
 Date::Date(string date){
-	
 	this->day = stoi(date.substr(0, 2));
 	this->month = stoi(date.substr(3, 2));
 	this->year = stoi(date.substr(6, 4));
-
 }
 /*********************************
  * GET Methods
  ********************************/
-
 
 unsigned short Date::getDay() const {return day;}
 unsigned short Date::getMonth() const{return month;}
@@ -55,7 +52,7 @@ string Date::toString() {
 
 //True if valid Date
 bool Date::isValid() {
-	return (day <= daysInMonth(month, year)) && (month >= 1) && (month <= 12) && (day > 0);
+	return ((day <= daysInMonth(month, year)) && (month >= 1) && (month <= 12) && (day > 0));
 }
 
 //True if both dates are equal
