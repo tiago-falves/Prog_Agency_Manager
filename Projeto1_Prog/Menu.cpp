@@ -75,8 +75,8 @@ void saveAndExit(vector<Client> &clientsVector, vector<TravelPack> &travelPacksV
 	{
 		content += to_string(travelPacksVector[i].getId()) + '\n';
 		content += TravelPack::destinationToString(travelPacksVector[i].getTouristicSpots()) + '\n'; 
-		content += to_string(travelPacksVector[i].getBeginDate().getDay()) + "/" + to_string(travelPacksVector[i].getBeginDate().getMonth()) + "/" + to_string(travelPacksVector[i].getBeginDate().getYear()) + '\n'; // Isto não devia estar ao contrário
-		content += to_string(travelPacksVector[i].getEndDate().getDay()) + "/" + to_string(travelPacksVector[i].getEndDate().getMonth()) + "/" + to_string(travelPacksVector[i].getEndDate().getYear()) + '\n';
+		content += to_string(travelPacksVector[i].getBeginDate().getYear()) + "/" + to_string(travelPacksVector[i].getBeginDate().getMonth()) + "/" + to_string(travelPacksVector[i].getBeginDate().getDay()) + '\n'; // Isto não devia estar ao contrário
+		content += to_string(travelPacksVector[i].getEndDate().getYear()) + "/" + to_string(travelPacksVector[i].getEndDate().getMonth()) + "/" + to_string(travelPacksVector[i].getEndDate().getDay()) + '\n';
 		content += to_string((int)travelPacksVector[i].getPricePerPerson()) + '\n';
 		content += to_string(travelPacksVector[i].getMaxPersons()) + '\n';
 		content += to_string(travelPacksVector[i].getSoldTicketsNumber()) + '\n';
