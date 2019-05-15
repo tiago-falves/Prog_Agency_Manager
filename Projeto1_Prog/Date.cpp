@@ -40,9 +40,9 @@ void Date::setYear(unsigned year){this -> year = year;}
  ********************************/  
 
 void Date::showDate() const{
-	cout << "*********************************" << endl;
+	//cout << "*********************************" << endl;
 	cout << day << "/" << month << "/" << year << endl;
-	cout << "*********************************" << endl;
+	//cout << "*********************************" << endl;
 }
 
 //Converts a date into a string
