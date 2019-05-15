@@ -4,6 +4,7 @@
 
 #include "Agency.h"
 #include "Menu.h"
+#include "TravelPackMenu.h"
 
 
 void runAgencyManager() {
@@ -16,9 +17,7 @@ void runAgencyManager() {
 	agency.readAgency("agency.txt");
 	Client::readClients(agency.getClientsNameFile(), clientsVector);
 	TravelPack::readTravelPacks(agency.getPacksNameFile(), travelPackVector);
-	temporario = TravelPack::separatedDestination("Madeira - funchal,porto");
-	
-	TravelPack::orderDestinations(travelPackVector);
+	//showOrderedDestinations(travelPackVector);
 	runMenu(clientsVector, travelPackVector, agency);
 }
 

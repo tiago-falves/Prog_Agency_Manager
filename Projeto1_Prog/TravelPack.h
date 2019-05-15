@@ -81,8 +81,6 @@ private:
 	  //True if Travel Packs are equal, False otherwise
 	  static bool equalTravelPacks(TravelPack travelPack1, TravelPack travelPack2); //Substituir por overide do ==
 
-	  //Order the destinations by most visited
-	  static void orderDestinations(vector<TravelPack> travelPackVector);
 
 	  void showTravelPack() const;
 

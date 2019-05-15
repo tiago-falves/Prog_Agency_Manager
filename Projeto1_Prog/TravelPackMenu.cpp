@@ -11,7 +11,7 @@ void runTravelPackMenu(vector<Client> &clientsVector, vector<TravelPack> &travel
 	cout << "3. Remove a touristic pack" << endl;
 	cout << "4. See information from touristic packs. " << endl;
 	cout << "5. Total profit." << endl;
-	cout << "6. Most visited locations." << endl << endl;
+	cout << "6. See most visited destinations." << endl << endl;
 	
 	cout << "Insert the number correspondent to your option: ";
 	cin >> option;
@@ -32,6 +32,8 @@ void runTravelPackMenu(vector<Client> &clientsVector, vector<TravelPack> &travel
 	if (option == 3) { removeClientOption(travelPacksVector); }
 	if (option == 4) { showTravelPacks( travelPacksVector,clientsVector); }
 	if (option == 5) { calculateNumberPacks ( travelPacksVector); }
+	if (option == 6) { showOrderedDestinations (travelPacksVector); }
+
 	runMenu(clientsVector, travelPacksVector, agency);
 }
 
@@ -395,7 +397,33 @@ void showAllTravelPacksByDateDestination(vector<TravelPack> travelPackVector) {
 	menuSeparator();
 }
 //Outputs an ordered list of the most visited places
+void showOrderedDestinations(vector<TravelPack> travelPackVector) {
 
+	map<string, int> mapDestinations;
+	vector<string> places;
+	
+	for (int i = 0; i < travelPackVector.size(); i++) 
+		mapDestinations[travelPackVector[i].getTouristicSpots()[0]] += travelPackVector[i].getSoldTicketsNumber();
+	
+	for (const auto &element : mapDestinations)
+		places.push_back(element.first);
+
+	sort(places.begin(), places.end(), [mapDestinations](string s1, string s2) {
+		return (mapDestinations.at(s1) > mapDestinations.at(s2)) || (mapDestinations.at(s1) == mapDestinations.at(s2) && s1 <= s2);
+	});
+
+	int n = places.size()+1;
+	cout << "Enter a value to see the N most visited destinations: ";
+	cin >> n;
+	validCin(n);
+	if (n<places.size())
+		places.erase(places.begin() + n, places.end());
+	cout << endl;
+	for (int i = 0; i < places.size(); i++)
+			cout <<to_string( i+1) << ". " <<places[i] << endl;
+	cout << endl << endl;
+	
+}
 
 
 

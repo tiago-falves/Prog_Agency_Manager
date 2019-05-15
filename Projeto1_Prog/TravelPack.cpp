@@ -250,33 +250,6 @@ void TravelPack::orderDestinations(vector<TravelPack> travelPackVector) {
 
 }*/
 
-// função para ordenar os pairs do set pelo numero de lugares comprados
-void TravelPack::orderDestinations(vector<TravelPack> travelPackVector) {
-
-	map<string, int> mapDestinations;
-	vector<string> temporaryStrVector;
-
-	for (int i = 0; i < travelPackVector.size(); i++) 
-		mapDestinations[travelPackVector[i].getTouristicSpots()[0]] += 1;
-	
-
-	auto cmp = [](const auto &p1, const auto &p2)
-	{
-		if (p1.second > p2.second)
-			return p2.second < p1.second;
-
-		return p1.first < p2.first;
-	};
-
-	// cria um set de pairs igual ao map
-	set < pair<string, unsigned>, decltype(cmp)> s(mapDestinations.begin(), mapDestinations.end(), cmp);
-
-	// corre todos os pairs do set e dá print do numero de lugares comprados - lugares do pacote
-	for (auto i = s.begin(); i != s.end(); i++)
-	{
-		cout << i->second << " - " << i->first << endl;
-	}
-}
 
 bool operator==(const TravelPack & travelpack1, const TravelPack & travelpack2)
 {
