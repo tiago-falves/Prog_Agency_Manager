@@ -203,7 +203,7 @@ string TravelPack::destinationToString(vector<string> destinationVector) {
 
 void TravelPack::showTravelPack() const {
 	cout << "*********************************" << endl;
-	cout << "ID: " << id << endl;
+	cout << "ID: " << abs(id) << endl; // Está a mostrar o valor absoluto mas internamente é representado por um signed, portanto não se perde a informação da disponibilidade do pacote
 	cout << "Touristic Spots: " << /*touristicSpots <<*/ endl;
 	cout << "Begin Date: " << endl;
 	begin.showDate();
@@ -219,8 +219,6 @@ bool operator==(const TravelPack & travelpack1, const TravelPack & travelpack2)
 	return travelpack1.getId() == travelpack2.getId() && travelpack1.getTouristicSpots() == travelpack2.getTouristicSpots() && travelpack1.getBeginDate() == travelpack2.getBeginDate() && travelpack1.getEndDate() == travelpack2.getEndDate() && travelpack1.getPricePerPerson() == travelpack2.getPricePerPerson() && travelpack1.getMaxPersons() == travelpack2.getMaxPersons();
 
 }
-
-
 
 ostream& operator<<(ostream& out, const TravelPack &TravelPack){
 	out << "ID:" << TravelPack.id << endl << "Touristic Spots: " << /*TravelPack.touristicSpots <<*/ endl << "Begin Date: " << TravelPack.begin << endl << "End Date: " << TravelPack.end << endl << "Price per Person: " << TravelPack.pricePerPerson << endl << "Packs left: " << TravelPack.maxPersons << endl;

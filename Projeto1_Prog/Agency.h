@@ -28,6 +28,7 @@ private:
     //unsigned int maxClientsId; // Maximum value among all clients getId()s
     //unsigned int maxTravelPacksId; // Maximum value among all TravelPacks getId()s
 
+	//Vamos precisar destes campos que estão comentados?
 public:
     Agency(string fileName);
 	Agency();

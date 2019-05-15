@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <cmath>
 
 #include "StringManipulator.h"
 #include "defs.h"
@@ -18,7 +19,7 @@ class TravelPack{
   vector<string> touristicSpots; // touristic touristicSpots to visit
   Date begin;  // begin date
   Date end;  // end date
-  double pricePerPerson; // price per person
+  double pricePerPerson; // price per person AQUI TEM DE SER DOUBLE? FICA FEIO TER TIPO 300.0000000 NA ESCRITA DO FICHEIRO
   unsigned maxPersons; // number of persons still available in the TravelPack (updated whenever the TravelPack is sold to a new client)
   int soldTicketsNumber;
   

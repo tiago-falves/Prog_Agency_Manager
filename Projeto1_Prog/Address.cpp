@@ -126,7 +126,6 @@ bool Address::validPostalCode(string postalCode) {
 
 ostream& operator<<(ostream& out, const Address &address){
     out << address.street << " / " << address.doorNumber << " / " << address.floor << " / " << address.postalCode << " / " << address.location << endl;   
-    
     return out;
 }
 

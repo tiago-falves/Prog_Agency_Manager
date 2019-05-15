@@ -101,9 +101,13 @@ void Agency::showAgency() const{
 	cout << "*********************************" << endl;
 	cout << "Name: " << name << endl;
 	cout << "NIF: " << nif << endl;
-	cout << "Address: " << address << endl;
+	cout << "Address: " << address;
+	cout << "Associated Clients File: " << clientsNameFile << endl;
+	cout << "Associated TravelPacks File: " << packsNameFile << endl;
 	cout << "URL: " << url << endl;
-	cout << "*********************************" << endl;
+	cout <<endl <<  "*********************************" << endl << endl;
+	
+	
 }
 ostream& operator<<(ostream& out, const Agency &agency){
 	out << "*********************************" << endl << "Name: " << agency.name << endl << "VATnumber: " << agency.nif << endl

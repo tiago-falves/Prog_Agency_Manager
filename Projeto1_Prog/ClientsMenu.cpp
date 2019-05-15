@@ -3,11 +3,12 @@
 using namespace std;
 
 //Asks all information and asks the user what option to choose
-void runClientsMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector,Agency agency){
+void runClientsMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector, Agency agency){
 	int option;
 
 	cout << "Welcome to the Clients Menu! Please choose what you want to do: ";
 	cout << endl << endl;
+	cout << "0. Go back" << endl;
 	cout << "1. Create a new client." << endl;
 	cout << "2. Change a client information." << endl;
 	cout << "3. Remove a client" << endl;
@@ -17,7 +18,7 @@ void runClientsMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPac
 	cout << "Insert the number correspondent to your option: ";
 	cin >> option;
 	
-	while (cin.fail() || (option != 1 && option != 2 && option != 3 && option != 4 && option != 5 && option != 6))
+	while (cin.fail() || option < 0 || option > 6)
 	{
 		cout << "Invalid option, please insert the option again: ";
 		cin.clear();
@@ -30,6 +31,7 @@ void runClientsMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPac
 
 	menuSeparator();
 
+	if (option == 0) { runMenu(clientsVector, travelPacksVector, agency); }
 	if (option == 1) { createClientOption(clientsVector);}
 	if (option == 2) { modifyClientOption(clientsVector);}
 	if (option == 3) { removeClientOption(clientsVector);}
