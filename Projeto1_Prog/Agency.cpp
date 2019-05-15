@@ -99,14 +99,16 @@ void Agency::readAgency(string filename) {
 // mostra o conteudo de uma agencia
 
 void Agency::showAgency() const{
-	cout << "*********************************" << endl;
+	for (int i = 0; i < 60; i++) { cout << "*"; }
+	cout << endl << endl;
 	cout << "Name: " << name << endl;
 	cout << "NIF: " << nif << endl;
 	cout << "Address: " << address;
 	cout << "Associated Clients File: " << clientsNameFile << endl;
 	cout << "Associated TravelPacks File: " << packsNameFile << endl;
-	cout << "URL: " << url << endl;
-	cout <<endl <<  "*********************************" << endl << endl;
+	cout << "URL: " << url << endl << endl;
+	for (int i = 0; i < 60; i++) { cout << "*"; }
+	cout << endl << endl;
 	
 	
 }

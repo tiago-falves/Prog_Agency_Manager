@@ -13,6 +13,7 @@
 #include "defs.h"
 #include "Date.h"
 
+
 using namespace std;
 
 class TravelPack{
@@ -72,14 +73,15 @@ private:
 	  //Separate the touristic sopts in a vector, being the first element the city
 	  static vector<string> separatedDestination(string destinations);		  
 
-	  /*//Order a pair list by the second paramter
-	  static bool sortbysec(const pair<int, int> &a, const pair<int, int> &b);*/
 
 	  //Converts the destinations vector to a string
 	  static string destinationToString(vector<string> destinationVector);
 
 	  //True if Travel Packs are equal, False otherwise
 	  static bool equalTravelPacks(TravelPack travelPack1, TravelPack travelPack2); //Substituir por overide do ==
+
+	  //Order Travel Packs by most visited
+	  static vector<string> orderDestinations(vector<TravelPack> travelPackVector);
 
 
 	  void showTravelPack() const;

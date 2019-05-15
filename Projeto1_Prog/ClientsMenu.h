@@ -2,6 +2,7 @@
 #include "Menu.h"
 #include "Client.h"
 #include <vector>
+#include <algorithm>
 
 void runClientsMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector, Agency agency);
 
@@ -20,6 +21,12 @@ void buyTravelPack(vector<Client> &clientsVector, vector<TravelPack> &travelPack
 void showClientOption(vector<Client> clientsVector);
 
 void validNif(int &option);
+
+//Outputs all clients and adds a destination as a recommendation
+void showAllClientsWithRecommendations(vector<Client> clientsVector, vector<TravelPack> travelPacksVector);
+
+//Returns a vector with all the destinations of a Client
+vector<string> destinationsOfClient(Client client, vector<TravelPack> travelPacksVector);
 
 Client askForClientsInformation();
 

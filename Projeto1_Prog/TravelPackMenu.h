@@ -28,6 +28,6 @@ void showTravelPacks(vector<TravelPack> &travelPacksVector,vector<Client> &clien
 void showSoldTouristicPacks(vector<TravelPack> travelPacksVector, vector<Client> clientsVector);
 
 //Outputs an ordered list of the most visited places
-void showOrderedDestinations(vector<TravelPack> travelPackVector);
+void showOrderedDestinations(vector<string> places);
 
 void calculateNumberPacks(vector<TravelPack> travelPackVector);

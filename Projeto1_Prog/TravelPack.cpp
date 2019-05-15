@@ -214,42 +214,26 @@ void TravelPack::showTravelPack() const {
 	cout << "Sold Tickets: " << soldTicketsNumber << endl;
 	cout << "*********************************" << endl;
 }
-/*bool TravelPack::sortbysec(const pair<int, int> &a,	const pair<int, int> &b)
-{
-	return (a.second < b.second);
-}
 
-//Order the destinations by most visited
-void TravelPack::orderDestinations(vector<TravelPack> travelPackVector) {
-	typedef pair<std::string, int> pair;
+//Order Travel Packs by most visited
+vector<string> TravelPack::orderDestinations(vector<TravelPack> travelPackVector) {
+
 	map<string, int> mapDestinations;
-	vector<pair> vec;
-	vector<string> temporaryStrVector;
-	
-	for (int i = 0; i < travelPackVector.size(); i++) {
-		//temporaryStrVector = travelPackVector[i].getTouristicSpots();
-		mapDestinations[travelPackVector[i].getTouristicSpots()[0]] += 1;
-	}
+	vector<string> places;
 
+	for (int i = 0; i < travelPackVector.size(); i++)
+		mapDestinations[travelPackVector[i].getTouristicSpots()[0]] += travelPackVector[i].getSoldTicketsNumber();
 
-	copy(mapDestinations.begin(),mapDestinations.end(),back_inserter<vector<pair>>(vec));
+	for (const auto &element : mapDestinations)
+		places.push_back(element.first);
 
-	sort(vec.begin(), vec.end(),[](const pair& l, const pair& r) {
-		if (l.second != r.second)
-			return l.second < r.second;
-		return l.first < r.first;
-		});
-	sort(vec.begin(), vec.end(), sortbysec);
-	
+	sort(places.begin(), places.end(), [mapDestinations](string s1, string s2) {
+		return (mapDestinations.at(s1) > mapDestinations.at(s2)) || (mapDestinations.at(s1) == mapDestinations.at(s2) && s1 <= s2);
+	});
 
-	
+	return places;
 
-	for (auto const &pair : vec) {
-		cout << '{' << pair.first << "," << pair.second << '}' << '\n';
-	}
-
-}*/
-
+}
 
 bool operator==(const TravelPack & travelpack1, const TravelPack & travelpack2)
 {

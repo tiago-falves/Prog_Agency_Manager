@@ -5,19 +5,18 @@
 #include "Agency.h"
 #include "Menu.h"
 #include "TravelPackMenu.h"
+#include "ClientsMenu.h"
 
 
 void runAgencyManager() {
 	Agency agency;
-	Client client, client1, client2;
 	vector<Client> clientsVector;
 	vector<TravelPack> travelPackVector;
-	vector<string> temporario;
 
 	agency.readAgency("agency.txt");
 	Client::readClients(agency.getClientsNameFile(), clientsVector);
 	TravelPack::readTravelPacks(agency.getPacksNameFile(), travelPackVector);
-	//showOrderedDestinations(travelPackVector);
+	
 	runMenu(clientsVector, travelPackVector, agency);
 }
 
