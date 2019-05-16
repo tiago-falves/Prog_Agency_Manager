@@ -29,7 +29,6 @@ string Agency::getClientsNameFile() const{ return clientsNameFile; }
 string Agency::getPacksNameFile() const { return packsNameFile; }
 
 
-
 //SET METHODS
 
 void Agency::setName(string name){ this->name = name; }
@@ -46,8 +45,6 @@ void Agency::setPacksNameFile(string packsNameFile) { this->packsNameFile = pack
 
 
 
-
-//Reads the agency file
 void Agency::readAgency(string filename) {
 
 	string agencyText;
@@ -92,30 +89,31 @@ void Agency::readAgency(string filename) {
 
 }
 
-/*********************************
- * Mostrar Loja
- ********************************/  
-
-// mostra o conteudo de uma agencia
 
 void Agency::showAgency() const{
 	for (int i = 0; i < 60; i++) { cout << "*"; }
 	cout << endl << endl;
 	cout << "Name: " << name << endl;
-	cout << "NIF: " << nif << endl;
+	cout << "VATNumber: " << nif << endl;
+	cout << "URL: " << url << endl << endl;
 	cout << "Address: " << address;
 	cout << "Associated Clients File: " << clientsNameFile << endl;
 	cout << "Associated TravelPacks File: " << packsNameFile << endl;
-	cout << "URL: " << url << endl << endl;
 	for (int i = 0; i < 60; i++) { cout << "*"; }
 	cout << endl << endl;
-	
-	
 }
+
+
+
+
 ostream& operator<<(ostream& out, const Agency &agency){
-	out << "*********************************" << endl << "Name: " << agency.name << endl << "VATnumber: " << agency.nif << endl
-	<< "Address: " << agency.address << "URL: " << agency.url << endl //cout clients //cout travel packs
-	<< "*********************************" << endl;
-	
+	out << "*********************************" << endl << "Name: " << agency.name << endl;
+	out << "VATNumber: " << agency.nif << endl;
+	out << "Address: " << agency.address;
+	out << "URL: " << agency.url << endl;
+	out << "Associated Clients File: " << agency.clientsNameFile << endl;
+	out << "Associated TravelPacks File: " << agency.packsNameFile << endl;
+	for (int i = 0; i < 60; i++) { cout << "*"; }
+	out << endl << endl;	
 	return out;
 }

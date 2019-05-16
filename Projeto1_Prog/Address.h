@@ -20,7 +20,7 @@ private:
 
 public:
 	Address();
-	Address(string address);
+	Address(string address); // Constructor as a string
 	Address(string street, unsigned short doorNumber, string floor, string postalCode, string location);
 
 	// metodos GET
@@ -43,7 +43,7 @@ public:
 	//Returns true if "xxxx-xxx", false otherwise
 	static bool validPostalCode(string postalCodeString); 
 
-	//Return True if it is a valid Address
+	//Return true if it is a valid Address
 	static bool validAddressText(string address);
 
 	//Outputs a formated Address
@@ -53,11 +53,6 @@ public:
 	static Address addressTextConverter(string addressText);
 
 	friend ostream& operator<<(ostream &out, const Address &address); 
-	//  << ESTE NAO DEVERIA SER O SHOW ADDRESS? 
-	//Está duplicado de propósito para haver mais "overloads" mas tem o mesmo efeito. 
-	//Está com formatos diferentes para podermos escolher o que nos convinher mais
-
-	//Overrides == 
 	friend bool operator==(const Address& address1, const Address &address2);
 
 };

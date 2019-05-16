@@ -368,9 +368,7 @@ void showAllTravelPacksByDateDestination(vector<TravelPack> travelPackVector) {
 	{
 		cout << "Please insert the beggining date (DD/MM/YYY): ";
 		cin >> begginningDateText;
-		cout << begginningDateText << endl;
 	} while (!Date::validDateText(begginningDateText));
-	cout << Date::validDateText(begginningDateText) << endl;
 	begginningDate = Date::dateTextConverter(begginningDateText);
 
 	do
@@ -378,7 +376,6 @@ void showAllTravelPacksByDateDestination(vector<TravelPack> travelPackVector) {
 		cout << "Please insert the end date (DD/MM/YYYY): ";
 		cin >> endDateText;
 	} while (!Date::validDateText(endDateText));
-
 	endDate = Date::dateTextConverter(endDateText);
 
 	cout << "Please insert the destination: ";

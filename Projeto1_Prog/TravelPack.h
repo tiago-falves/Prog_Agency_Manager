@@ -83,7 +83,7 @@ private:
 	  //Order Travel Packs by most visited
 	  static vector<string> orderDestinations(vector<TravelPack> travelPackVector);
 
-
+	  //Shows TravelPacks in a different way
 	  void showTravelPack() const;
 
 	 

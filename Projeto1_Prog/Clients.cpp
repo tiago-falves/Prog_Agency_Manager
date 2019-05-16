@@ -65,7 +65,6 @@ void Client::setTravelPackIds(vector<int> &travelPackIds){ this ->travelPackIds 
 void Client::setTotalPurchased(unsigned int totalPurchased){ this -> totalPurchased = totalPurchased; }
   
 
-//Read Clients File
 
 void Client::readClients(string clientsNameFile, vector<Client> &clientsVector) {
 
@@ -119,13 +118,11 @@ void Client::readClients(string clientsNameFile, vector<Client> &clientsVector) 
 	clientsFile.close();
 }
 
-//Adds client to clientsVector
 
 void Client::addClient(vector<Client> &clientsVector) {
 	clientsVector.push_back(*this);
 }
 
-//Removes clientToRemove from clientsVector
 
 void Client::removeClient(vector<Client> &clientsVector) {
 	Client client;
@@ -142,7 +139,6 @@ void Client::removeClient(vector<Client> &clientsVector) {
 	}
 }
 
-// Modify Client client
 void Client::modifyClient(Client clientToModify, vector<Client> &clientVector) {
 	for (int i = 0; i < clientVector.size(); i++)
 	{
@@ -153,7 +149,6 @@ void Client::modifyClient(Client clientToModify, vector<Client> &clientVector) {
 	}
 }
 
-// Returns True if the client is in the Vector
 bool Client::clientInVector(vector<Client> clientsVector) { 
 	for (int i = 0; i < clientsVector.size(); i++)
 	{
@@ -162,7 +157,6 @@ bool Client::clientInVector(vector<Client> clientsVector) {
 	return false;
 }
 
-//Returns true if the pack is valid
 bool Client::validPacksBought(string packs) {
 	vector<string> vector;						
 	vector = separateCharacterStr(packs, ';');		
@@ -172,7 +166,6 @@ bool Client::validPacksBought(string packs) {
 	return true;
 }
 
-//Returns True if it is a valid Nif
 bool Client::checknif() const
 {
     bool valid = true;
@@ -183,7 +176,6 @@ bool Client::checknif() const
     return valid;
 }
 
-//Transforms the client.travelpacks in a string separated by ';'
 string Client::travelPacksToString(vector<int> travelPacks) {
 	string textPacks = "";
 	for (int i = 0; i < travelPacks.size(); i++)
@@ -193,15 +185,6 @@ string Client::travelPacksToString(vector<int> travelPacks) {
 	textPacks = textPacks.substr(0, textPacks.size() - 3);
 	return textPacks;
 }
-
-
-/*//Returns True if Clients are equal SUBSTITUIR POR OVERIDE DE ==
-bool Client::equalClients(Client client1, Client client2) {
-	if (Address::equalsAddresses(client1.address, client2.address) && client1.familySize == client2.familySize && client1.name == client1.name && client1.nif == client2.nif && client1.travelPackId == client2.travelPackId)
-		return true;
-	else
-		return false;
-}*/
 
 
 void Client::showClient() const 
@@ -218,12 +201,19 @@ void Client::showClient() const
 }
 
 
-//ostream& operator<<(ostream& out, const Client &client){
-//    out << "*********************************" << endl << "Name:" << client.name << endl << "VAT Number: " << client.nif << endl
-//    << "Family Size: " << client.familySize << endl << "Address: " << client.address << endl << "TravelPacks: " << client.travelPackId << endl
-//    << "Total Value: " << client.totalPurchased << endl << "*********************************" << endl;
-//    return out;
-//}
+ostream& operator<<(ostream& out, const Client &client){
+	out << "*********************************" << endl;
+	out << "Name:" << client.name << endl;
+	out << "VAT Number: " << client.nif << endl;
+	out << "Family Size: " << client.familySize << endl;
+	out << "Address: " << client.address;
+	for (int i = 0; i < client.travelPackIds.size(); i++) {
+		out << "TravelPack " << i << " : " << client.travelPackIds[i] << endl;
+	}
+	out << "Total Value: " << client.totalPurchased << endl;
+	out << "*********************************" << endl;
+    return out;
+}
 
 bool operator==(const Client &client1, const Client &client2) {
 	return client1.getName() == client2.getName() && client1.getnif() == client2.getnif() && client1.getFamilySize() == client2.getFamilySize() && client1.getAddress() == client2.getAddress() && client1.getTravelPackIds() == client2.getTravelPackIds() && client1.getTotalPurchased() == client2.getTotalPurchased();

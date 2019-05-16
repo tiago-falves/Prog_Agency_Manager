@@ -52,8 +52,6 @@ void Address::setLocation(string location){	this -> location = location; }
 
 
 
-
-//Returns True if it is a valid Address
 bool Address::validAddressText(string address)
 {
 	vector<string> stringVector;
@@ -64,7 +62,6 @@ bool Address::validAddressText(string address)
 	return true;
 }
 
-//Converts Address in the format 'Street / Door Number / Floor Number / Postal Code / Locality' to a struct Address
 Address Address::addressTextConverter(string addressText) {
 	Address address;
 	string subString;
@@ -96,15 +93,12 @@ Address Address::addressTextConverter(string addressText) {
 }
 
 
-
-//Shos a formated Address
 void Address::showAddress() const{
     cout << "*********************************" << endl;
 	cout << street << " / " << doorNumber << " / " << floor << " / " << postalCode << " / " << location << endl;
 	cout << "*********************************" << endl;
 }
 
-// Returns True if the Address has a valid Postal code
 bool Address::validPostalCode(string postalCode) {
 
 	for (int i = 0; i < 4; i++) {

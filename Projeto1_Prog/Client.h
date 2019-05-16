@@ -70,9 +70,9 @@ public:
 	// Returns true if number has 9 digits and valid int
     bool checknif() const; 
 
-	//Outputs client in a formated way
+	//Outputs client in a different way
     void showClient() const;
 
-	friend bool operator==(const Client &client1, const Client &client2); // Comparison operator overloading
-	friend ostream& operator<<(ostream& out, const Client &client); // Operator overloading
+	friend bool operator==(const Client &client1, const Client &client2);
+	friend ostream& operator<<(ostream& out, const Client &client);
 };

@@ -245,18 +245,16 @@ vector<string> TravelPack::orderDestinations(vector<TravelPack> travelPackVector
 bool operator==(const TravelPack & travelpack1, const TravelPack & travelpack2)
 {
 	return travelpack1.getId() == travelpack2.getId() && travelpack1.getTouristicSpots() == travelpack2.getTouristicSpots() && travelpack1.getBeginDate() == travelpack2.getBeginDate() && travelpack1.getEndDate() == travelpack2.getEndDate() && travelpack1.getPricePerPerson() == travelpack2.getPricePerPerson() && travelpack1.getMaxPersons() == travelpack2.getMaxPersons();
-
 }
 
 ostream& operator<<(ostream& out, const TravelPack &TravelPack){
-	out << "ID:" << TravelPack.id << endl << "Touristic Spots: " << /*TravelPack.touristicSpots <<*/ endl << "Begin Date: " << TravelPack.begin << endl << "End Date: " << TravelPack.end << endl << "Price per Person: " << TravelPack.pricePerPerson << endl << "Packs left: " << TravelPack.maxPersons << endl;
+	out << "ID:" << TravelPack.id << endl;
+	for (int i = 0; i < TravelPack.touristicSpots.size(); i++){
+		out << "Touristic Spot " << i << " : " << TravelPack.touristicSpots[i] << endl;
+	} 
+	out << "Begin Date: " << TravelPack.begin << endl;
+	out << "End Date: " << TravelPack.end << endl;
+	out << "Price per Person: " << TravelPack.pricePerPerson << endl;
+	out << "Packs left: " << TravelPack.maxPersons << endl;
 	return out;
 }
-
-//ostream& operator<<(ostream& out, const vector<string> touristicSpots) { Não consigo por isto a dar
-//	for (int i = 0; i < touristicSpots.size(); i++)
-//	{
-//		out << touristicSpots.at(i) << endl;
-//	}
-//	return out;
-//}

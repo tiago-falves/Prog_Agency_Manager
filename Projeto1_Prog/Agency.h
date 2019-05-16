@@ -27,7 +27,7 @@ private:
     //unsigned int maxTravelPacksId; // Maximum value among all TravelPacks getId()s
 
 public:
-    Agency(string fileName);
+    Agency(string fileName); // Makes agency from filename
 	Agency();
 
     // GET methods
@@ -48,12 +48,11 @@ public:
 	void setClientsNameFile(string clientsNameFile);
 	void setPacksNameFile(string packsNameFile);
   
-	//Reads the agency file
+	//Reads the Agency's file
 	void readAgency(string filename);
 
 	//Shows Agency in a formatted way
 	void showAgency() const;
   
-    friend ostream& operator<<(ostream& out, const Agency & agency); // << Operator overloading
-
+    friend ostream& operator<<(ostream& out, const Agency & agency);
 };

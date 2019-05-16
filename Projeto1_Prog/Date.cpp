@@ -2,9 +2,6 @@
 
 
 Date::Date() {
-	//this->day = 1;
-	//this->month = 1;
-	//this->year = 1000;
 }
 
 Date::Date(unsigned short day, unsigned short month, unsigned year){
@@ -18,26 +15,21 @@ Date::Date(string date){
 	this->month = stoi(date.substr(3, 2));
 	this->year = stoi(date.substr(6, 4));
 }
-/*********************************
- * GET Methods
- ********************************/
+
+ //GET Methods
 
 unsigned short Date::getDay() const {return day;}
 unsigned short Date::getMonth() const{return month;}
 unsigned Date::getYear() const{return year;}
 
 
-/*********************************
- * SET Methods
- ********************************/
+//SET Methods
+
 
 void Date::setDay(unsigned short day){this -> day = day;}
 void Date::setMonth(unsigned short month){this -> month = month;}
 void Date::setYear(unsigned year){this -> year = year;}
 
-/*********************************
- * Show Date
- ********************************/  
 
 void Date::showDate() const{
 	//cout << "*********************************" << endl;
@@ -45,22 +37,18 @@ void Date::showDate() const{
 	//cout << "*********************************" << endl;
 }
 
-//Converts a date into a string
 string Date::toString() {
 	return to_string(day) + "/" + to_string(month) + "/" + to_string(year) ;
 }
 
-//True if valid Date
 bool Date::isValid() {
 	return ((day <= daysInMonth(month, year)) && (month >= 1) && (month <= 12) && (day > 0));
 }
 
-//True if both dates are equal
 bool Date::isEqualTo(const Date &d) {
 	return (d.year == year && d.month == month && d.day == day);
 }
 
-//True if the date is after Date d
 bool Date::isAfter(const Date &d) {
 	if (d.year > year)
 		return false;
@@ -85,7 +73,6 @@ ostream& operator<<(ostream	&out, const Date &date){
 
 //STATIC METHODS
 
-//Returns the number of days in a certain month
 
 int Date::daysInMonth(int month, int year) {
 	switch (month) {
@@ -101,9 +88,9 @@ int Date::daysInMonth(int month, int year) {
 	}
 }
 
-//True if leap year, false otherwise
 bool Date::isLeapYear(int year) {
 	// Divisible by 4 but not by 100, or divisible by 400
+	
 	if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
 		return true;
 	else
@@ -116,7 +103,6 @@ void Date::copyDate(Date &copy, Date date) {
 	copy.day = date.day;
 }
 
-//Converts dateText in format year/month/day DD/MM/YYYY to a class Date
 Date Date::dateTextConverter(string dateText) {
 	Date date;
 	vector<int> dateVector;
@@ -126,7 +112,7 @@ Date Date::dateTextConverter(string dateText) {
 	date.year = dateVector[2];
 	return date;
 }
-//Converts dateText of file in format year/month/day DD/MM/YYYY to a class Date
+
 Date Date::dateTextConverterFile(string dateText) {
 	Date date;
 	vector<int> dateVector;
@@ -137,7 +123,6 @@ Date Date::dateTextConverterFile(string dateText) {
 	return date;
 }
 
-//Returns true if date text is a valid date
 bool Date::validDateText(string dateText)
 {
 	vector<string> dateVector;
