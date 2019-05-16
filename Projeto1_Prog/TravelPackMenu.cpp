@@ -223,7 +223,7 @@ TravelPack askForTravelPacks(bool isCreatingTravelPack, vector<TravelPack> trave
 	cin.clear();
 	getline(cin, endDateText);
 
-	while (!Date::validDateText(endDateText))
+	while (!Date::validDateText(endDateText) || Date::dateTextConverter(begginningDateText).isAfter(Date::dateTextConverter(endDateText)))
 	{
 		cout << "Invalid date, please insert again: ";
 		getline(cin, endDateText);

@@ -63,7 +63,7 @@ void TravelPack::setLastPackId(int lastPackId) { this->lastPackId = lastPackId; 
 
 
 //Reads the Travel Pack file and puts its information into a class
-void TravelPack::readTravelPacks(string filename, vector<TravelPack> &travelPacksVector) {
+void TravelPack::readTravelPacks(string filename , vector<TravelPack> &travelPacksVector) {
 
 	string travelPackText;
 	ifstream travelPacksFile;
@@ -150,13 +150,6 @@ void TravelPack::modifyTravelPack(vector<TravelPack> &travelPackVector, TravelPa
 	}
 }
 
-//True if Travel Packs are equal
-/*bool TravelPack::equalTravelPacks(TravelPack travelPack1, TravelPack travelPack2) {
-	if (travelPack1.id == travelPack2.id  && travelPack1.begin.isEqualTo(travelPack2.begin) && travelPack1.end.isEqualTo( travelPack2.end) && travelPack1.pricePerPerson == travelPack2.pricePerPerson && travelPack1.maxPersons == travelPack2.maxPersons && travelPack1.soldTicketsNumber == travelPack2.soldTicketsNumber && travelPack1.touristicSpots == travelPack2.touristicSpots)
-		return true;
-	else
-		return false;
-}*/
 
 //True if TravelPack is in vector 
 bool TravelPack::travelPackInVector(vector<TravelPack> travelPackVector, TravelPack travelPack) {

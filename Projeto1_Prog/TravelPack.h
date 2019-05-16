@@ -56,7 +56,7 @@ private:
 	  // other methods
 
 	  //Reads the Travel Pack file and puts its information into a vector
-	  static void readTravelPacks(string fileName, vector<TravelPack> &travelPacksVector);
+	  static void readTravelPacks(string filename, vector<TravelPack> &travelPacksVector);
 
 	  // Add a Travel Pack to travelPackVector
 	  void addTravelPack(vector<TravelPack> &travelPackVector);
@@ -76,9 +76,6 @@ private:
 
 	  //Converts the destinations vector to a string
 	  static string destinationToString(vector<string> destinationVector);
-
-	  //True if Travel Packs are equal, False otherwise
-	  //static bool equalTravelPacks(TravelPack travelPack1, TravelPack travelPack2); //Substituir por overide do ==
 
 	  //Order Travel Packs by most visited
 	  static vector<string> orderDestinations(vector<TravelPack> travelPackVector);
