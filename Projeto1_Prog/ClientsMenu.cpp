@@ -221,7 +221,8 @@ Client askForClientsInformation(vector<Client> clientsVector) {
 	int familyNumber;
 	bool inDatabase = false;
 	string addressText;
-	string touristicPacksBought;
+	vector<int> touristicPacksBought;
+	touristicPacksBought.push_back(0);
 	
 	cout << "Name: ";
 	getline(cin, name);
@@ -270,19 +271,12 @@ Client askForClientsInformation(vector<Client> clientsVector) {
 		getline(cin, addressText);
 	}
 
-	/*cout << "Tourist Packs bought (separated by ';'): ";
-	getline(cin, touristicPacksBought);
-
-	while (!Client::validPacksBought(touristicPacksBought) || touristicPacksBought == "")
-	{
-		cout << "Invalid Touristic Pack, please insert again: ";
-		getline(cin, touristicPacksBought);
-	}*/
 
 	client.setName(name);
 	client.setNif( nif);
 	client.setFamilySize(familyNumber);
 	client.setAddress(Address::addressTextConverter(addressText));
+	client.setTravelPackIds(touristicPacksBought);
 	return client;
 }
 

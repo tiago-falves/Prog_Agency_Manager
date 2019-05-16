@@ -1,20 +1,13 @@
 Rui Manuel
 234987156
 4
-Rua Sem Fim  / 200 / 5Esq / Lisboa
+Rua Sem Fim  / 200 / 5Esq / 1200-001 / Lisboa
 1 ; 36 ; 2
 504
 ::::::::::
-Belmiro Miguel
-111987666
-2
-Avenida dos Grilos  / 100 / - / Coimbra
-100 ; 136 ; 3 ; 2
-1300
-::::::::::
-ghj
+Gosto de sopa
 123456789
-4
-1 / 1 / 111
-
+1
+Avenida dos Grilos   / 100 / - / 2300-101 / Coimbra
+0
 0
