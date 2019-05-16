@@ -116,7 +116,7 @@ void Date::copyDate(Date &copy, Date date) {
 	copy.day = date.day;
 }
 
-//Converts dateTex in format year/month/day xxxx/xx/xx to a struct Date
+//Converts dateTex in format year/month/day xx/xx/xxxx to a struct Date
 Date Date::dateTextConverter(string dateText) {
 	Date date;
 	vector<int> dateVector;
@@ -124,6 +124,16 @@ Date Date::dateTextConverter(string dateText) {
 	date.day = dateVector[0];
 	date.month = dateVector[1];
 	date.year = dateVector[2];
+	return date;
+}
+//Converts dateTex in format year/month/day xxxx/xx/xx to a struct Date
+Date Date::dateTextConverterFile(string dateText) {
+	Date date;
+	vector<int> dateVector;
+	dateVector = separateCharacterInt(dateText, '/');
+	date.year = dateVector[0];
+	date.month = dateVector[1];
+	date.day = dateVector[2];
 	return date;
 }
 

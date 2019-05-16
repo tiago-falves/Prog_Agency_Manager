@@ -105,9 +105,6 @@ void buyTravelPack(vector<Client> &clientsVector, vector<TravelPack> &travelPack
 				{
 				validId = true;
 				travel_pack_position = i;
-				cout << "BBBBBBBBBBBBBBB" << to_string(travelPacksVector[i].getSoldTicketsNumber()) << "BBBBBBBBBBBBBBBBBBBB";
-				cout << "CCCCCCCCCCCCCCCC" << to_string(client.getFamilySize()) << "ccccccccccccccccccc";
-				cout << "AAAAAAAAAAAAAAAAAA" << to_string(travelPacksVector[i].getSoldTicketsNumber() + client.getFamilySize()) << "AAAAAAAAAAAAAA";
 				travelPacksVector[i].setSoldTicketsNumber(travelPacksVector[i].getSoldTicketsNumber() + client.getFamilySize());
 				if ((travelPacksVector[i].getMaxPersons() - travelPacksVector[i].getSoldTicketsNumber()) <= 0) {
 					travelPacksVector[i].setId( -travelPacksVector[i].getId());

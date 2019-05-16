@@ -301,6 +301,8 @@ void showAllTravelPacksByDate(vector<TravelPack> travelPackVector) {
 	} while (!Date::validDateText(endDateText));
 	endDate = Date::dateTextConverter(endDateText);
 
+
+
 	cout << endl << endl;
 	for (int i = 0; i < travelPackVector.size(); i++)
 	{
