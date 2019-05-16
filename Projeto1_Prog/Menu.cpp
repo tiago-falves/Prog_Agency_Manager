@@ -75,7 +75,7 @@ void saveAndExit(vector<Client> &clientsVector, vector<TravelPack> &travelPacksV
 	content = "";
 	ofstream travelPacksFile("TravelPackOutput.txt");
 
-	content += to_string(travelPacksVector.size()) + '\n';
+	content += to_string(travelPacksVector[ travelPacksVector.size()-1].getId()) + '\n';
 	for (int i = 0; i < travelPacksVector.size(); i++)
 	{
 		content += to_string(travelPacksVector[i].getId()) + '\n';

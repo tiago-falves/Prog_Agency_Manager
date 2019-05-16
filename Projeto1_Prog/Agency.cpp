@@ -106,13 +106,13 @@ void Agency::showAgency() const{
 
 
 ostream& operator<<(ostream& out, const Agency &agency){
-	out << "*********************************" << endl << "Name: " << agency.name << endl;
-	out << "VATNumber: " << agency.nif << endl;
+	out << "***************************************" << endl << "Name: " << agency.name << endl;
+	out << "NIF: " << agency.nif << endl;
 	out << "Address: " << agency.address;
 	out << "URL: " << agency.url << endl;
 	out << "Associated Clients File: " << agency.clientsNameFile << endl;
 	out << "Associated TravelPacks File: " << agency.packsNameFile << endl;
-	for (int i = 0; i < 60; i++) { cout << "*"; }
-	out << endl << endl;	
+	out << "***************************************";
+	out << endl << endl;
 	return out;
 }

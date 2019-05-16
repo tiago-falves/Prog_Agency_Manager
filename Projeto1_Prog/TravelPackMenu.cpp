@@ -96,7 +96,7 @@ void showSoldTouristicPacks(vector<TravelPack> travelPacksVector, vector<Client>
 			}
 			else
 			{
-				cout << "getId(): " << clientsVector[i].getTravelPackIds()[j] << " Not in the database" << endl;
+				cout << "ID: " << clientsVector[i].getTravelPackIds()[j] << " Not in the database" << endl;
 			}
 		}
 	}
@@ -119,10 +119,12 @@ void modifyTravelPackOption(vector<TravelPack> &travelPackVector) {
 	TravelPack modifiedTravelPack;
 
 	cout << "Please insert the data of the Touristic Pack you want to modify" << endl << endl;
+	
 	travelPackToModify = askForTravelPacksgetId(travelPackVector);
-
+	
 	cout << endl << endl << "Insert the new informations about the Touristic Pack: " << endl << endl;
 	modifiedTravelPack = askForTravelPacks(true,travelPackVector);
+	modifiedTravelPack.setId(travelPackToModify.getId());
 	//Perguntar porque que Ele aqui pergunta o name duas vezes
 	travelPackToModify.modifyTravelPack( travelPackVector, modifiedTravelPack);
 	cout << endl << endl << "Touristic Pack modified successfully!";
@@ -181,13 +183,17 @@ TravelPack askForTravelPacks(bool isCreatingTravelPack, vector<TravelPack> trave
 	int soldTicketsNumber;
 	bool validId = true;
 
-	cout << "Identifier: ";
+	/*cout << "Identifier: ";
 	cin >> identifier;
-	validCin(identifier);
-	if (isCreatingTravelPack)
-	{
-		identifier = abs( travelPackVector[travelPackVector.size() - 1].getId()) + 1;
+	validCin(identifier);*/
+	if (isCreatingTravelPack) {
+	identifier = abs(travelPackVector[travelPackVector.size() - 1].getId()) + 1;
 	}
+	else
+	{
+
+	}
+	
 	
 	cin.clear();
 	cin.ignore(10000, '\n');
@@ -320,7 +326,7 @@ void showAllTravelPacksByDestination(vector<TravelPack> travelPackVector) {
 	string destination;
 	vector<string> destVector;
 	
-	cout << "Please insert the destination: ";
+	cout << "Please insert the destination (with attractions): ";
 	cin.clear();
 	cin.ignore(10000, '\n');
 	getline(cin, destination);
@@ -363,7 +369,7 @@ void showAllTravelPacksByDateDestination(vector<TravelPack> travelPackVector) {
 	} while (!Date::validDateText(endDateText));
 	endDate = Date::dateTextConverter(endDateText);
 
-	cout << "Please insert the destination: ";
+	cout << "Please insert the destination (with touristic attractions: ";
 	cin.clear();
 	cin.ignore(10000, '\n');
 	getline(cin, destination);
