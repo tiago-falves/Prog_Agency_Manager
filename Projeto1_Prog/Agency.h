@@ -21,10 +21,6 @@ private:
 	string clientsNameFile; // Name of the clients file
 	string packsNameFile;	// Name of the Travel Packs file
 
-    //bool clientsInfoHasChanged; // True if at least one client has been changed/added/deleted
-    //bool TravelPacksInfoHasChanged; // True if at least one TravelPack has been changed/added/deleted
-    //unsigned int maxClientsId; // Maximum value among all clients getId()s
-    //unsigned int maxTravelPacksId; // Maximum value among all TravelPacks getId()s
 
 public:
     Agency(string fileName); // Makes agency from filename
