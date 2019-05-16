@@ -5,14 +5,19 @@
 #include <vector>
 #include <fstream>
 #include <cmath>
+#include <map>
+#include <algorithm>
+#include <set>
 
 #include "StringManipulator.h"
 #include "defs.h"
 #include "Date.h"
 
+
 using namespace std;
 
 class TravelPack{
+
 private:
 	int id; // TravelPack unique getId()
 	int lastPackId;
@@ -22,6 +27,7 @@ private:
 	double pricePerPerson; // price per person
 	unsigned maxPersons; // number of persons still available in the TravelPack (updated whenever the TravelPack is sold to a new client)
 	int soldTicketsNumber;
+
   
  public:
 	  TravelPack();
@@ -67,11 +73,16 @@ private:
 	  //Separate the touristic sopts in a vector, being the first element the city
 	  static vector<string> separatedDestination(string destinations);		  
 
+
 	  //Converts the destinations vector to a string
 	  static string destinationToString(vector<string> destinationVector);
 
 	  //True if Travel Packs are equal, False otherwise
 	  static bool equalTravelPacks(TravelPack travelPack1, TravelPack travelPack2); //Substituir por overide do ==
+
+	  //Order Travel Packs by most visited
+	  static vector<string> orderDestinations(vector<TravelPack> travelPackVector);
+
 
 	  void showTravelPack() const;
 

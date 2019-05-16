@@ -88,7 +88,7 @@ void TravelPack::readTravelPacks(string filename, vector<TravelPack> &travelPack
 				travelPack.setId(stoi(travelPackText));
 				break;
 			case 2:
-				travelPack.setTouristicSpots(travelPack.separatedDestination(travelPackText)); // Isto deve funcionar, certo?
+				travelPack.setTouristicSpots(TravelPack::separatedDestination(travelPackText)); 
 				break;
 			case 3:
 				travelPack.setBeginDate(Date::dateTextConverter(travelPackText));
@@ -172,7 +172,7 @@ vector<string> TravelPack::separatedDestination(string destinations) {
 	vector<string> destinationVector1;
 	vector<string> destinationVector;
 	vector<string> destinationVector2;
-	if (destinations.find('-', -1) == -1) {
+	if (destinations.find_first_of('-') == destinations.npos){
 		destinationVector.push_back(destinations);
 		return destinationVector;
 	}
@@ -210,8 +210,29 @@ void TravelPack::showTravelPack() const {
 	cout << "End Date: ";
 	end.showDate();
 	cout << "Price per Person: " << pricePerPerson << endl;
-	cout << "Packs left: " << maxPersons << endl;
+	cout << "Total Number of Travel Packs: " << maxPersons << endl;
+	cout << "Sold Tickets: " << soldTicketsNumber << endl;
 	cout << "*********************************" << endl;
+}
+
+//Order Travel Packs by most visited
+vector<string> TravelPack::orderDestinations(vector<TravelPack> travelPackVector) {
+
+	map<string, int> mapDestinations;
+	vector<string> places;
+
+	for (int i = 0; i < travelPackVector.size(); i++)
+		mapDestinations[travelPackVector[i].getTouristicSpots()[0]] += travelPackVector[i].getSoldTicketsNumber();
+
+	for (const auto &element : mapDestinations)
+		places.push_back(element.first);
+
+	sort(places.begin(), places.end(), [mapDestinations](string s1, string s2) {
+		return (mapDestinations.at(s1) > mapDestinations.at(s2)) || (mapDestinations.at(s1) == mapDestinations.at(s2) && s1 <= s2);
+	});
+
+	return places;
+
 }
 
 bool operator==(const TravelPack & travelpack1, const TravelPack & travelpack2)

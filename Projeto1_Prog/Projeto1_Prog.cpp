@@ -4,17 +4,19 @@
 
 #include "Agency.h"
 #include "Menu.h"
+#include "TravelPackMenu.h"
+#include "ClientsMenu.h"
 
 
 void runAgencyManager() {
 	Agency agency;
-	Client client, client1, client2;
 	vector<Client> clientsVector;
 	vector<TravelPack> travelPackVector;
 
 	agency.readAgency("agency.txt");
 	Client::readClients(agency.getClientsNameFile(), clientsVector);
 	TravelPack::readTravelPacks(agency.getPacksNameFile(), travelPackVector);
+	
 	runMenu(clientsVector, travelPackVector, agency);
 }
 
@@ -22,16 +24,9 @@ int main() {
 
 	runAgencyManager();
 
-	/* 9- Obter o nome dos N locais mais visitados(um pacote pode incluir visitas a vários locais), ordenados
-	por ordem decrescente do número de visitas(= número de pacotes vendidos que passam por esse
-	local)./*
-
-	/* 10- Gerar uma listagem de todos os clientes na qual se indica, para cada cliente, um dos pacotes em
-	que seja visitado um dos N locais mais visitados (ver ponto 9) que ele ainda não visitou.*/
-
-
 	//VERIFICAR SE AS FUNCIONALIDADES TODAS FUNCIONAM!
 	//PRINCIPALMENTE PESQUISAR PELAS DATAS ACHO QUE ESTA MAL
+
 	//ORDENAR DE MODO A SER MAIS EFICIENTE? - Vemos isto no fim, mesmo antes de comentar o código
 	//O IDENTIFICADOR DOS PACKS NÃO DEVE SER ATRIBUIDO AUTOMATICAMENTE? TIPO ADICIONAR UM AO ID DO ULTIMO PACKS ADICIONADO
 	//TRATAR DO AVAILABLE COM ID POSITIVO, NEGATIVO CASO CONTRÁRIO
