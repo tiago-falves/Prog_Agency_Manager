@@ -55,7 +55,7 @@ void saveAndExit(vector<Client> &clientsVector, vector<TravelPack> &travelPacksV
 		content += clientsVector[i].getName() + "\n";
 		content += to_string(clientsVector[i].getnif()) + "\n";
 		content += to_string(clientsVector[i].getFamilySize()) + "\n";
-		content += clientsVector[i].getAddress().getStreet() + " / " + to_string( clientsVector[i].getAddress().getDoorNumber()) + " / " + clientsVector[i].getAddress().getFloor() + " / " + clientsVector[i].getAddress().getLocation()  + "\n";
+		content += clientsVector[i].getAddress().getStreet() + " / " + to_string(clientsVector[i].getAddress().getDoorNumber()) + " / " + clientsVector[i].getAddress().getFloor() + " / " + clientsVector[i].getAddress().getPostalCode() + " / " + clientsVector[i].getAddress().getLocation() + "\n";
 		for (int j = 0; j < clientsVector[i].getTravelPackIds().size(); j++) {
 			content += to_string(clientsVector[i].getTravelPackIds()[j]) + " ; ";
 		}
@@ -75,7 +75,7 @@ void saveAndExit(vector<Client> &clientsVector, vector<TravelPack> &travelPacksV
 	content = "";
 	ofstream travelPacksFile("TravelPackOutput.txt");
 
-	content += to_string(travelPacksVector.size()) + '\n';
+	content += to_string(travelPacksVector[ travelPacksVector.size()-1].getId()) + '\n';
 	for (int i = 0; i < travelPacksVector.size(); i++)
 	{
 		content += to_string(travelPacksVector[i].getId()) + '\n';
@@ -96,6 +96,7 @@ void saveAndExit(vector<Client> &clientsVector, vector<TravelPack> &travelPacksV
 	exit(0);
 }
 
+
 //Asks for a valid int until the user inputs it
 void validCin(int &option) {
 	
@@ -107,3 +108,4 @@ void validCin(int &option) {
 		cin >> option;
 	}
 }
+

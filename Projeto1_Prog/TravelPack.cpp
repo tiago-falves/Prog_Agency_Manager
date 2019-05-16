@@ -10,10 +10,7 @@ TravelPack::TravelPack()
 	this->soldTicketsNumber = 0;
 }
 
-TravelPack::TravelPack(string fileName, vector<TravelPack> &travelPacksVector)
-{
-	readTravelPacks(fileName,travelPacksVector);
-}
+
 
 TravelPack::TravelPack(int getId(),vector<string> touristicSpots, Date begin, Date end, double pricePerPerson, unsigned maxPersons, int soldTicketsNumber){
 	
@@ -62,8 +59,10 @@ void TravelPack::setSoldTicketsNumber(int soldTicketsNumber) { this->soldTickets
 void TravelPack::setlastPackId(int lastPackId) { this->lastPackId = lastPackId; }
 
 
+
+
 //Reads the Travel Pack file and puts its information into a class
-void TravelPack::readTravelPacks(string filename, vector<TravelPack> &travelPacksVector) {
+void TravelPack::readTravelPacks(string filename , vector<TravelPack> &travelPacksVector) {
 
 	string travelPackText;
 	ifstream travelPacksFile;
@@ -120,18 +119,18 @@ void TravelPack::readTravelPacks(string filename, vector<TravelPack> &travelPack
 }
 
 // Add a Travel Pack to travelPackVector
-void TravelPack::addTravelPack(vector<TravelPack> &travelPackVector, TravelPack travelPack) {
-	travelPackVector.push_back(travelPack);
+void TravelPack::addTravelPack(vector<TravelPack> &travelPackVector) {
+	travelPackVector.push_back(*this);
 }
 
 //Removes travelPackRemove from travelPackVector
-void TravelPack::removeTravelPack(TravelPack travelPackToRemove, vector<TravelPack> &travelPackVector) {
+void TravelPack::removeTravelPack(vector<TravelPack> &travelPackVector) {
 	TravelPack travelPack;
 	int last_pos = travelPackVector.size() - 1;
 	for (int i = 0; i < travelPackVector.size(); i++)
 	{
 		travelPack = travelPackVector[i];
-		if (travelPackToRemove == travelPack)
+		if (*this == travelPack)
 		{
 			travelPackVector[i] = travelPackVector[last_pos];
 			travelPackVector.pop_back();
@@ -140,23 +139,16 @@ void TravelPack::removeTravelPack(TravelPack travelPackToRemove, vector<TravelPa
 	}
 }
 //Substitute travelPackToModify for travelPack
-void TravelPack::modifyTravelPack(TravelPack travelPackToModify, vector<TravelPack> &travelPackVector, TravelPack travelPack) {
+void TravelPack::modifyTravelPack(vector<TravelPack> &travelPackVector, TravelPack travelPack) {
 	for (int i = 0; i < travelPackVector.size(); i++)
 	{
-		if (travelPackToModify == travelPackVector[i]) {
+		if (*this == travelPackVector[i]) {
 			travelPackVector[i] = travelPack;
 			break;
 		}
 	}
 }
 
-//True if Travel Packs are equal
-bool TravelPack::equalTravelPacks(TravelPack travelPack1, TravelPack travelPack2) {
-	if (travelPack1.id == travelPack2.id  && travelPack1.begin.isEqualTo(travelPack2.begin) && travelPack1.end.isEqualTo( travelPack2.end) && travelPack1.pricePerPerson == travelPack2.pricePerPerson && travelPack1.maxPersons == travelPack2.maxPersons && travelPack1.soldTicketsNumber == travelPack2.soldTicketsNumber && travelPack1.touristicSpots == travelPack2.touristicSpots)
-		return true;
-	else
-		return false;
-}
 
 //True if TravelPack is in vector 
 bool TravelPack::travelPackInVector(vector<TravelPack> travelPackVector, TravelPack travelPack) {

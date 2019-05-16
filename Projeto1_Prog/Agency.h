@@ -7,8 +7,8 @@
 
 #include "defs.h"
 #include "Address.h"
-#include "Client.h"
-#include "TravelPack.h"
+
+
 
 using namespace std;
 
@@ -20,6 +20,7 @@ private:
     string url; // Agency's Website URL
 	string clientsNameFile; // Name of the clients file
 	string packsNameFile;	// Name of the Travel Packs file
+	int lastPackId; //Identifier of the last Travel Pack id
 
 
 public:
@@ -43,6 +44,7 @@ public:
     void setURL(string url);
 	void setClientsNameFile(string clientsNameFile);
 	void setPacksNameFile(string packsNameFile);
+
   
 	//Reads the Agency's file
 	void readAgency(string filename);

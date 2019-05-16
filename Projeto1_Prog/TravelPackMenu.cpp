@@ -96,7 +96,7 @@ void showSoldTouristicPacks(vector<TravelPack> travelPacksVector, vector<Client>
 			}
 			else
 			{
-				cout << "getId(): " << clientsVector[i].getTravelPackIds()[j] << " Not in the database" << endl;
+				cout << "ID: " << clientsVector[i].getTravelPackIds()[j] << " Not in the database" << endl;
 			}
 		}
 	}
@@ -108,7 +108,7 @@ void createTravelPackOption(vector<TravelPack> &travelPackVector) {
 	TravelPack travelPack;
 	cout << "Please insert the data of your new Touristic Pack" << endl << endl;
 	travelPack = askForTravelPacks(true,travelPackVector);
-	TravelPack::addTravelPack(travelPackVector, travelPack);
+	travelPack.addTravelPack(travelPackVector);
 	cout << endl << endl << "Touristic Pack created successfully!";
 	menuSeparator();
 }
@@ -119,12 +119,14 @@ void modifyTravelPackOption(vector<TravelPack> &travelPackVector) {
 	TravelPack modifiedTravelPack;
 
 	cout << "Please insert the data of the Touristic Pack you want to modify" << endl << endl;
+	
 	travelPackToModify = askForTravelPacksgetId(travelPackVector);
-
+	
 	cout << endl << endl << "Insert the new informations about the Touristic Pack: " << endl << endl;
 	modifiedTravelPack = askForTravelPacks(true,travelPackVector);
+	modifiedTravelPack.setId(travelPackToModify.getId());
 	//Perguntar porque que Ele aqui pergunta o name duas vezes
-	TravelPack::modifyTravelPack(travelPackToModify, travelPackVector, modifiedTravelPack);
+	travelPackToModify.modifyTravelPack( travelPackVector, modifiedTravelPack);
 	cout << endl << endl << "Touristic Pack modified successfully!";
 	menuSeparator();
 }
@@ -134,7 +136,7 @@ void removeClientOption(vector<TravelPack> &travelPackVector) {
 	TravelPack travelPack;
 	cout << "Please insert the data of the touristic pack you want to remove" << endl << endl;
 	travelPack = askForTravelPacksgetId(travelPackVector);
-	TravelPack::removeTravelPack(travelPack, travelPackVector);
+	travelPack.removeTravelPack(travelPackVector);
 	cout << endl << endl << "Touristic Pack removed successfully!";
 	menuSeparator();
 }
@@ -181,28 +183,17 @@ TravelPack askForTravelPacks(bool isCreatingTravelPack, vector<TravelPack> trave
 	int soldTicketsNumber;
 	bool validId = true;
 
-	cout << "Identifier: ";
+	/*cout << "Identifier: ";
 	cin >> identifier;
-	validCin(identifier);
-	if (isCreatingTravelPack)
-	{
-		do
-		{
-			for (int i = 0; i < travelPackVector.size(); i++)
-			{
-				if (identifier == travelPackVector[i].getId())
-				{
-					cout << "Identifier already in the database, please insert again: ";
-					cin >> identifier;
-					validCin(identifier);
-					cin.clear();
-					validId = false;
-					break;
-				}
-			}
-			validId = true;
-		} while (!validId);
+	validCin(identifier);*/
+	if (isCreatingTravelPack) {
+	identifier = abs(travelPackVector[travelPackVector.size() - 1].getId()) + 1;
 	}
+	else
+	{
+
+	}
+	
 	
 	cin.clear();
 	cin.ignore(10000, '\n');
@@ -223,7 +214,7 @@ TravelPack askForTravelPacks(bool isCreatingTravelPack, vector<TravelPack> trave
 	cin.clear();
 	getline(cin, endDateText);
 
-	while (!Date::validDateText(endDateText))
+	while (!Date::validDateText(endDateText) || Date::dateTextConverter(begginningDateText).isAfter(Date::dateTextConverter(endDateText)))
 	{
 		cout << "Invalid date, please insert again: ";
 		getline(cin, endDateText);
@@ -335,7 +326,7 @@ void showAllTravelPacksByDestination(vector<TravelPack> travelPackVector) {
 	string destination;
 	vector<string> destVector;
 	
-	cout << "Please insert the destination: ";
+	cout << "Please insert the destination (with attractions): ";
 	cin.clear();
 	cin.ignore(10000, '\n');
 	getline(cin, destination);
@@ -378,7 +369,7 @@ void showAllTravelPacksByDateDestination(vector<TravelPack> travelPackVector) {
 	} while (!Date::validDateText(endDateText));
 	endDate = Date::dateTextConverter(endDateText);
 
-	cout << "Please insert the destination: ";
+	cout << "Please insert the destination (with touristic attractions: ";
 	cin.clear();
 	cin.ignore(10000, '\n');
 	getline(cin, destination);
@@ -427,5 +418,5 @@ void calculateNumberPacks(vector<TravelPack> travelPackVector) {
 	cout << "Number of tickets sold: " << number;
 
 	menuSeparator();
-
 }
+

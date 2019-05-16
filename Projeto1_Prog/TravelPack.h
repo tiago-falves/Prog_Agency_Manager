@@ -10,6 +10,7 @@
 #include <set>
 
 #include "StringManipulator.h"
+#include "Agency.h"
 #include "defs.h"
 #include "Date.h"
 
@@ -30,7 +31,7 @@ private:
   
  public:
 	  TravelPack();
-	  TravelPack(string fileName, vector<TravelPack> &travelPacksVector);
+	  //TravelPack(string fileName, vector<TravelPack> &travelPacksVector);
 	  TravelPack(int getId(),vector<string> touristicSpots, Date begin, Date end, double pricePerPerson, unsigned maxPersons, int soldTicketsNumber);
 
 	  // GET methods
@@ -41,6 +42,7 @@ private:
 	  double getPricePerPerson() const;
 	  unsigned getMaxPersons() const;
 	  int getSoldTicketsNumber() const;
+	  
 
 	  // SET methods
 	  void setId(unsigned id);  // to set negatve if "deprecated"
@@ -56,16 +58,16 @@ private:
 	  // other methods
 
 	  //Reads the Travel Pack file and puts its information into a vector
-	  static void readTravelPacks(string fileName, vector<TravelPack> &travelPacksVector);
+	  static void readTravelPacks(string filename, vector<TravelPack> &travelPacksVector);
 
 	  // Add a Travel Pack to travelPackVector
-	  static void addTravelPack(vector<TravelPack> &travelPackVector, TravelPack travelPack);
+	  void addTravelPack(vector<TravelPack> &travelPackVector);
 
 	  //Removes travelPackRemove from travelPackVector
-	  static void removeTravelPack(TravelPack travelPackToRemove, vector<TravelPack> &travelPackVector);
+	  void removeTravelPack(vector<TravelPack> &travelPackVector);
 
 	  //Substitute travelPackToModify for travelPack
-	  static void modifyTravelPack(TravelPack travelPackToModify, vector<TravelPack> &travelPackVector, TravelPack travelPack);
+	  void modifyTravelPack(vector<TravelPack> &travelPackVector, TravelPack travelPack);
 	  
 	  //True if TravelPack is in vector 
 	  bool travelPackInVector(vector<TravelPack> travelPackVector, TravelPack travelPack);
@@ -76,9 +78,6 @@ private:
 
 	  //Converts the destinations vector to a string
 	  static string destinationToString(vector<string> destinationVector);
-
-	  //True if Travel Packs are equal, False otherwise
-	  static bool equalTravelPacks(TravelPack travelPack1, TravelPack travelPack2); //Substituir por overide do ==
 
 	  //Order Travel Packs by most visited
 	  static vector<string> orderDestinations(vector<TravelPack> travelPackVector);
