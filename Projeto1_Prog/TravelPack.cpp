@@ -91,10 +91,10 @@ void TravelPack::readTravelPacks(string filename, vector<TravelPack> &travelPack
 				travelPack.setTouristicSpots(TravelPack::separatedDestination(travelPackText)); 
 				break;
 			case 3:
-				travelPack.setBeginDate(Date::dateTextConverter(travelPackText));
+				travelPack.setBeginDate(Date::dateTextConverterFile(travelPackText));
 				break;
 			case 4:
-				travelPack.setEndDate(Date::dateTextConverter(travelPackText));
+				travelPack.setEndDate(Date::dateTextConverterFile(travelPackText));
 				break;
 			case 5:
 				travelPack.setPricePerPerson(stoi(travelPackText));
