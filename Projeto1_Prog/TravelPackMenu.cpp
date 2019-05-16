@@ -30,7 +30,7 @@ void runTravelPackMenu(vector<Client> &clientsVector, vector<TravelPack> &travel
 	if (option == 1) { createTravelPackOption(travelPacksVector); }
 	if (option == 2) { modifyTravelPackOption(travelPacksVector); }
 	if (option == 3) { removeClientOption(travelPacksVector); }
-	if (option == 4) { showTravelPacks( travelPacksVector,clientsVector); }
+	if (option == 4) { showTravelPacks(travelPacksVector, clientsVector, agency); }
 	if (option == 5) { calculateNumberPacks ( travelPacksVector); }
 	if (option == 6) { showOrderedDestinations (TravelPack::orderDestinations(travelPacksVector)); }
 
@@ -39,7 +39,7 @@ void runTravelPackMenu(vector<Client> &clientsVector, vector<TravelPack> &travel
 
 
 // Opens the See Touristic Packs options
-void showTravelPacks(vector<TravelPack> &travelPacksVector,vector<Client> &clientsVector) {
+void showTravelPacks(vector<TravelPack> &travelPacksVector,vector<Client> &clientsVector, Agency agency) {
 	int option;
 	cout << "Please choose what you want to see: ";
 	cout << endl << endl;
@@ -61,7 +61,7 @@ void showTravelPacks(vector<TravelPack> &travelPacksVector,vector<Client> &clien
 		cin >> option;
 	}
 
-	if (option == 0) { return; }
+	if (option == 0) { runTravelPackMenu(clientsVector, travelPacksVector, agency); }
 	if (option == 1) { showAllTravelPacks(travelPacksVector); }
 	if (option == 2) { showAllTravelPacksByDate(travelPacksVector); }
 	if (option == 3) { showAllTravelPacksByDestination(travelPacksVector); }

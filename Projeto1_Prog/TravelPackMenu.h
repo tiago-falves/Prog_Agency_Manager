@@ -23,7 +23,7 @@ void showAllTravelPacksByDestination(vector<TravelPack> travelPackVector);
 
 void showAllTravelPacksByDateDestination(vector<TravelPack> travelPackVector);
 
-void showTravelPacks(vector<TravelPack> &travelPacksVector,vector<Client> &clientsVector);
+void showTravelPacks(vector<TravelPack> &travelPacksVector,vector<Client> &clientsVector, Agency agency);
 
 void showSoldTouristicPacks(vector<TravelPack> travelPacksVector, vector<Client> clientsVector);
 
