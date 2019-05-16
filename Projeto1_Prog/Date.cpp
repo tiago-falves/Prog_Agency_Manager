@@ -72,6 +72,7 @@ bool Date::isAfter(const Date &d) {
 		return true;
 }
 
+
 bool operator==(const Date& date1, const Date& date2) { // Comparison operator overloading
 	return date1.day == date2.day && date1.month == date2.month && date1.year == date2.year;
 }
@@ -120,9 +121,9 @@ Date Date::dateTextConverter(string dateText) {
 	Date date;
 	vector<int> dateVector;
 	dateVector = separateCharacterInt(dateText, '/');
-	date.year = dateVector[0];
+	date.day = dateVector[0];
 	date.month = dateVector[1];
-	date.day = dateVector[2];
+	date.year = dateVector[2];
 	return date;
 }
 
