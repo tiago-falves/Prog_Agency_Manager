@@ -302,11 +302,10 @@ void showAllTravelPacksByDate(vector<TravelPack> travelPackVector) {
 	endDate = Date::dateTextConverter(endDateText);
 
 
-
 	cout << endl << endl;
 	for (int i = 0; i < travelPackVector.size(); i++)
 	{
-		if (travelPackVector[i].getBeginDate().isAfter(begginningDate) && endDate.isAfter(travelPackVector[i].getEndDate()))
+		if (travelPackVector[i].getBeginDate().isAfter(begginningDate) && endDate.isAfter(travelPackVector[i].getEndDate()) && (travelPackVector[i].getId() > 0))
 		{
 			cout << "Touristic Pack " << i + 1 << ":" << endl;
 			travelPackVector[i].showTravelPack();
@@ -342,10 +341,10 @@ void showAllTravelPacksByDestination(vector<TravelPack> travelPackVector) {
 	getline(cin, destination);
 	
 	cout << endl << endl;
-	cout << TravelPack::destinationToString(travelPackVector[0].getTouristicSpots());
+	cout << TravelPack::destinationToString(travelPackVector[0].getTouristicSpots()) << endl;
 	for (int i = 0; i < travelPackVector.size(); i++)
 	{																
-		if (travelPackVector[i].getTouristicSpots()[0] == TravelPack::separatedDestination(destination)[0])
+		if (travelPackVector[i].getTouristicSpots()[0] == TravelPack::separatedDestination(destination)[0] && (travelPackVector[i].getId() > 0))
 		{
 			cout << "Touristic Pack " << i + 1 << ":" << endl;
 			showTravelPack(travelPackVector[i]);
@@ -367,14 +366,16 @@ void showAllTravelPacksByDateDestination(vector<TravelPack> travelPackVector) {
 
 	do
 	{
-		cout << "Please insert the beggining date: ";
+		cout << "Please insert the beggining date (DD/MM/YYY): ";
 		cin >> begginningDateText;
+		cout << begginningDateText << endl;
 	} while (!Date::validDateText(begginningDateText));
+	cout << Date::validDateText(begginningDateText) << endl;
 	begginningDate = Date::dateTextConverter(begginningDateText);
 
 	do
 	{
-		cout << "Please insert the end date: ";
+		cout << "Please insert the end date (DD/MM/YYYY): ";
 		cin >> endDateText;
 	} while (!Date::validDateText(endDateText));
 
@@ -388,7 +389,7 @@ void showAllTravelPacksByDateDestination(vector<TravelPack> travelPackVector) {
 	cout << endl << endl;
 	for (int i = 0; i < travelPackVector.size(); i++)
 	{													
-		if (travelPackVector[i].getBeginDate().isAfter(begginningDate) && endDate.isAfter(travelPackVector[i].getEndDate()) && (travelPackVector[i].getTouristicSpots()[0] == TravelPack::separatedDestination(destination)[0]))
+		if (travelPackVector[i].getBeginDate().isAfter(begginningDate) && endDate.isAfter(travelPackVector[i].getEndDate()) && (travelPackVector[i].getTouristicSpots()[0] == TravelPack::separatedDestination(destination)[0]) && (travelPackVector[i].getId() > 0))
 		{
 			cout << "Touristic Pack " << i + 1 << ":" << endl;
 			showTravelPack(travelPackVector[i]);

@@ -116,7 +116,7 @@ void Date::copyDate(Date &copy, Date date) {
 	copy.day = date.day;
 }
 
-//Converts dateTex in format year/month/day xx/xx/xxxx to a struct Date
+//Converts dateText in format year/month/day DD/MM/YYYY to a class Date
 Date Date::dateTextConverter(string dateText) {
 	Date date;
 	vector<int> dateVector;
@@ -126,7 +126,7 @@ Date Date::dateTextConverter(string dateText) {
 	date.year = dateVector[2];
 	return date;
 }
-//Converts dateTex in format year/month/day xxxx/xx/xx to a struct Date
+//Converts dateText of file in format year/month/day DD/MM/YYYY to a class Date
 Date Date::dateTextConverterFile(string dateText) {
 	Date date;
 	vector<int> dateVector;
@@ -149,6 +149,13 @@ bool Date::validDateText(string dateText)
 	if (stoi(dateVector[0]) < 1 || stoi(dateVector[0]) > 31) { return false; }
 	if (stoi(dateVector[1]) < 1 || stoi(dateVector[1]) > 12) { return false; }
 	if (stoi(dateVector[2]) < 1000 || dateVector[2].size() != 4) { return false; }
+	if (stoi(dateVector[1]) == 2) {
+		if (Date::isLeapYear(stoi(dateVector[2])))
+		{
+			if (stoi(dateVector[0]) > 29) { return false; }
+		}
+		else if (stoi(dateVector[0]) >= 29) { return false; }
+	}
 	return true;
 }
 

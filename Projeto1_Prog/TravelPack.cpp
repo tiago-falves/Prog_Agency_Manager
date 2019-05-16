@@ -202,8 +202,15 @@ string TravelPack::destinationToString(vector<string> destinationVector) {
  ********************************/  
 
 void TravelPack::showTravelPack() const {
+	bool available = true;
+	if (id < 0) { available = false; }
+	
 	cout << "*********************************" << endl;
-	cout << "ID: " << abs(id) << endl; // Está a mostrar o valor absoluto mas internamente é representado por um signed, portanto não se perde a informação da disponibilidade do pacote
+	cout << "ID: " << abs(id) << " (Pack is "; // Está a mostrar o valor absoluto mas internamente é representado por um signed
+	
+	if (available) { cout << "available) " << endl; }
+	else { cout << "not available) " << endl; }
+	
 	cout << "Touristic Spots: " << TravelPack::destinationToString(touristicSpots) << endl;
 	cout << "Begin Date: ";
 	begin.showDate();
