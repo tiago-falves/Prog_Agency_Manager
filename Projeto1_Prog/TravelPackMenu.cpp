@@ -186,22 +186,7 @@ TravelPack askForTravelPacks(bool isCreatingTravelPack, vector<TravelPack> trave
 	validCin(identifier);
 	if (isCreatingTravelPack)
 	{
-		do
-		{
-			for (int i = 0; i < travelPackVector.size(); i++)
-			{
-				if (identifier == travelPackVector[i].getId())
-				{
-					cout << "Identifier already in the database, please insert again: ";
-					cin >> identifier;
-					validCin(identifier);
-					cin.clear();
-					validId = false;
-					break;
-				}
-			}
-			validId = true;
-		} while (!validId);
+		identifier = abs( travelPackVector[travelPackVector.size() - 1].getId()) + 1;
 	}
 	
 	cin.clear();
@@ -427,5 +412,5 @@ void calculateNumberPacks(vector<TravelPack> travelPackVector) {
 	cout << "Number of tickets sold: " << number;
 
 	menuSeparator();
-
 }
+

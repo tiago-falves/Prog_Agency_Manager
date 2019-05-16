@@ -28,6 +28,6 @@ void showAllClientsWithRecommendations(vector<Client> clientsVector, vector<Trav
 //Returns a vector with all the destinations of a Client
 vector<string> destinationsOfClient(Client client, vector<TravelPack> travelPacksVector);
 
-Client askForClientsInformation();
+Client askForClientsInformation(vector<Client> clientsVector);
 
 Client askForNIF(vector<Client> clientsVector);

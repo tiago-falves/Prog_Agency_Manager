@@ -10,6 +10,7 @@
 #include <set>
 
 #include "StringManipulator.h"
+#include "Agency.h"
 #include "defs.h"
 #include "Date.h"
 
@@ -30,7 +31,7 @@ private:
   
  public:
 	  TravelPack();
-	  TravelPack(string fileName, vector<TravelPack> &travelPacksVector);
+	  //TravelPack(string fileName, vector<TravelPack> &travelPacksVector);
 	  TravelPack(int getId(),vector<string> touristicSpots, Date begin, Date end, double pricePerPerson, unsigned maxPersons, int soldTicketsNumber);
 
 	  // GET methods
@@ -41,6 +42,7 @@ private:
 	  double getPricePerPerson() const;
 	  unsigned getMaxPersons() const;
 	  int getSoldTicketsNumber() const;
+	  
 
 	  // SET methods
 	  void setId(unsigned id);  // to set negatve if "deprecated"

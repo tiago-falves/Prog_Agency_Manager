@@ -96,6 +96,7 @@ void saveAndExit(vector<Client> &clientsVector, vector<TravelPack> &travelPacksV
 	exit(0);
 }
 
+
 //Asks for a valid int until the user inputs it
 void validCin(int &option) {
 	
@@ -107,3 +108,4 @@ void validCin(int &option) {
 		cin >> option;
 	}
 }
+

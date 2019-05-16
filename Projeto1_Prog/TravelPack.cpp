@@ -10,10 +10,7 @@ TravelPack::TravelPack()
 	this->soldTicketsNumber = 0;
 }
 
-TravelPack::TravelPack(string fileName, vector<TravelPack> &travelPacksVector)
-{
-	readTravelPacks(fileName,travelPacksVector);
-}
+
 
 TravelPack::TravelPack(int getId(),vector<string> touristicSpots, Date begin, Date end, double pricePerPerson, unsigned maxPersons, int soldTicketsNumber){
 	
@@ -60,6 +57,8 @@ void TravelPack::setMaxPersons(unsigned maxPersons){ this->maxPersons = maxPerso
 void TravelPack::setSoldTicketsNumber(int soldTicketsNumber) { this->soldTicketsNumber = soldTicketsNumber; }
 
 void TravelPack::setlastPackId(int lastPackId) { this->lastPackId = lastPackId; }
+
+
 
 
 //Reads the Travel Pack file and puts its information into a class

@@ -213,12 +213,13 @@ void showClient(Client client) {
 }
 
 //Asks for Client information and returns a Client
-Client askForClientsInformation() {
+Client askForClientsInformation(vector<Client> clientsVector) {
 	Client client;
-
 	string name;
+	int zeroIfNotInFile = 0;
 	int nif;
 	int familyNumber;
+	bool inDatabase = false;
 	string addressText;
 	string touristicPacksBought;
 	
@@ -230,6 +231,29 @@ Client askForClientsInformation() {
 	validNif(nif);
 	cin.clear();
 	cin.ignore(10000, '\n');
+
+	for (int i = 0; i < clientsVector.size(); i++) {
+		if (clientsVector[i].getnif() == nif) { inDatabase = true; }
+		break;
+	}
+
+	while (inDatabase)
+	{
+		cout << "NIF is already in the database, please insert again: ";
+		cin >> nif;
+		validNif(nif);
+		cin.clear();
+		cin.ignore(10000, '\n');
+		for (int i = 0; i < clientsVector.size(); i++)
+		{
+			if (clientsVector[i].getnif() == nif) { zeroIfNotInFile +=1; }
+			break;
+		}
+		if (zeroIfNotInFile == 0)
+			inDatabase = false;
+	}
+
+
 
 	cout << "Number of people in the family: ";
 	cin >> familyNumber;
@@ -266,7 +290,7 @@ Client askForClientsInformation() {
 void createClientOption(vector<Client> &clientsVector) {
 	Client client;
 	cout << "Please insert the data of your new client" << endl << endl;
-	client = askForClientsInformation();
+	client = askForClientsInformation(clientsVector);
 	client.addClient(clientsVector);
 	cout << endl << endl << "Client created successfully!";
 	menuSeparator();
@@ -281,7 +305,7 @@ void modifyClientOption(vector<Client> &clientsVector) {
 	clientToModify = askForNIF(clientsVector);
 
 	cout << endl << endl << "Insert the new informations about the client: " << endl << endl;
-	modifiedClient = askForClientsInformation();
+	modifiedClient = askForClientsInformation(clientsVector);
 	//Perguntar porque que Ele aqui pergunta o name duas vezes
 	modifiedClient.modifyClient(clientToModify, clientsVector);
 	cout << endl << endl << "Client modified successfully!";
