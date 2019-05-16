@@ -59,7 +59,7 @@ void TravelPack::setMaxPersons(unsigned maxPersons){ this->maxPersons = maxPerso
 
 void TravelPack::setSoldTicketsNumber(int soldTicketsNumber) { this->soldTicketsNumber = soldTicketsNumber; }
 
-void TravelPack::setLastPackId(int lastPackId) { this->lastPackId = lastPackId; }
+void TravelPack::setlastPackId(int lastPackId) { this->lastPackId = lastPackId; }
 
 
 //Reads the Travel Pack file and puts its information into a class
@@ -82,7 +82,7 @@ void TravelPack::readTravelPacks(string filename , vector<TravelPack> &travelPac
 			switch (i)
 			{
 			case 0:
-				travelPack.setLastPackId(stoi(travelPackText));
+				travelPack.setlastPackId(stoi(travelPackText));
 				break;
 			case 1:
 				travelPack.setId(stoi(travelPackText));
@@ -195,8 +195,15 @@ string TravelPack::destinationToString(vector<string> destinationVector) {
  ********************************/  
 
 void TravelPack::showTravelPack() const {
+	bool available = true;
+	if (id < 0) { available = false; }
+	
 	cout << "*********************************" << endl;
-	cout << "ID: " << abs(id) << endl; // Está a mostrar o valor absoluto mas internamente é representado por um signed, portanto não se perde a informação da disponibilidade do pacote
+	cout << "ID: " << abs(id) << " (Pack is "; // Está a mostrar o valor absoluto mas internamente é representado por um signed
+	
+	if (available) { cout << "available) " << endl; }
+	else { cout << "not available) " << endl; }
+	
 	cout << "Touristic Spots: " << TravelPack::destinationToString(touristicSpots) << endl;
 	cout << "Begin Date: ";
 	begin.showDate();
@@ -231,18 +238,16 @@ vector<string> TravelPack::orderDestinations(vector<TravelPack> travelPackVector
 bool operator==(const TravelPack & travelpack1, const TravelPack & travelpack2)
 {
 	return travelpack1.getId() == travelpack2.getId() && travelpack1.getTouristicSpots() == travelpack2.getTouristicSpots() && travelpack1.getBeginDate() == travelpack2.getBeginDate() && travelpack1.getEndDate() == travelpack2.getEndDate() && travelpack1.getPricePerPerson() == travelpack2.getPricePerPerson() && travelpack1.getMaxPersons() == travelpack2.getMaxPersons();
-
 }
 
 ostream& operator<<(ostream& out, const TravelPack &TravelPack){
-	out << "ID:" << TravelPack.id << endl << "Touristic Spots: " << /*TravelPack.touristicSpots <<*/ endl << "Begin Date: " << TravelPack.begin << endl << "End Date: " << TravelPack.end << endl << "Price per Person: " << TravelPack.pricePerPerson << endl << "Packs left: " << TravelPack.maxPersons << endl;
+	out << "ID:" << TravelPack.id << endl;
+	for (int i = 0; i < TravelPack.touristicSpots.size(); i++){
+		out << "Touristic Spot " << i << " : " << TravelPack.touristicSpots[i] << endl;
+	} 
+	out << "Begin Date: " << TravelPack.begin << endl;
+	out << "End Date: " << TravelPack.end << endl;
+	out << "Price per Person: " << TravelPack.pricePerPerson << endl;
+	out << "Packs left: " << TravelPack.maxPersons << endl;
 	return out;
 }
-
-//ostream& operator<<(ostream& out, const vector<string> touristicSpots) { Não consigo por isto a dar
-//	for (int i = 0; i < touristicSpots.size(); i++)
-//	{
-//		out << touristicSpots.at(i) << endl;
-//	}
-//	return out;
-//}

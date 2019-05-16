@@ -7,7 +7,7 @@ using namespace std;
 void runMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector, Agency agency) {
 	int option;
 
-	agency.showAgency();
+	cout << agency << endl;
 
 	cout << "Welcome to the NiceHolidays Packs and Clients Manager! Here you can choose what you want to manage" << endl << endl;
 	cout << "Please choose what your option:" << endl << endl;
