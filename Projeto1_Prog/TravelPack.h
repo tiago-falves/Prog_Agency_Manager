@@ -59,13 +59,13 @@ private:
 	  static void readTravelPacks(string fileName, vector<TravelPack> &travelPacksVector);
 
 	  // Add a Travel Pack to travelPackVector
-	  static void addTravelPack(vector<TravelPack> &travelPackVector, TravelPack travelPack);
+	  void addTravelPack(vector<TravelPack> &travelPackVector);
 
 	  //Removes travelPackRemove from travelPackVector
-	  static void removeTravelPack(TravelPack travelPackToRemove, vector<TravelPack> &travelPackVector);
+	  void removeTravelPack(vector<TravelPack> &travelPackVector);
 
 	  //Substitute travelPackToModify for travelPack
-	  static void modifyTravelPack(TravelPack travelPackToModify, vector<TravelPack> &travelPackVector, TravelPack travelPack);
+	  void modifyTravelPack(vector<TravelPack> &travelPackVector, TravelPack travelPack);
 	  
 	  //True if TravelPack is in vector 
 	  bool travelPackInVector(vector<TravelPack> travelPackVector, TravelPack travelPack);
@@ -78,7 +78,7 @@ private:
 	  static string destinationToString(vector<string> destinationVector);
 
 	  //True if Travel Packs are equal, False otherwise
-	  static bool equalTravelPacks(TravelPack travelPack1, TravelPack travelPack2); //Substituir por overide do ==
+	  //static bool equalTravelPacks(TravelPack travelPack1, TravelPack travelPack2); //Substituir por overide do ==
 
 	  //Order Travel Packs by most visited
 	  static vector<string> orderDestinations(vector<TravelPack> travelPackVector);

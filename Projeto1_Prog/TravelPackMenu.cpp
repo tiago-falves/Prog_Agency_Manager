@@ -108,7 +108,7 @@ void createTravelPackOption(vector<TravelPack> &travelPackVector) {
 	TravelPack travelPack;
 	cout << "Please insert the data of your new Touristic Pack" << endl << endl;
 	travelPack = askForTravelPacks(true,travelPackVector);
-	TravelPack::addTravelPack(travelPackVector, travelPack);
+	travelPack.addTravelPack(travelPackVector);
 	cout << endl << endl << "Touristic Pack created successfully!";
 	menuSeparator();
 }
@@ -124,7 +124,7 @@ void modifyTravelPackOption(vector<TravelPack> &travelPackVector) {
 	cout << endl << endl << "Insert the new informations about the Touristic Pack: " << endl << endl;
 	modifiedTravelPack = askForTravelPacks(true,travelPackVector);
 	//Perguntar porque que Ele aqui pergunta o name duas vezes
-	TravelPack::modifyTravelPack(travelPackToModify, travelPackVector, modifiedTravelPack);
+	travelPackToModify.modifyTravelPack( travelPackVector, modifiedTravelPack);
 	cout << endl << endl << "Touristic Pack modified successfully!";
 	menuSeparator();
 }
@@ -134,7 +134,7 @@ void removeClientOption(vector<TravelPack> &travelPackVector) {
 	TravelPack travelPack;
 	cout << "Please insert the data of the touristic pack you want to remove" << endl << endl;
 	travelPack = askForTravelPacksgetId(travelPackVector);
-	TravelPack::removeTravelPack(travelPack, travelPackVector);
+	travelPack.removeTravelPack(travelPackVector);
 	cout << endl << endl << "Touristic Pack removed successfully!";
 	menuSeparator();
 }
