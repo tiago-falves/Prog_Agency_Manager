@@ -99,16 +99,31 @@ void buyTravelPack(vector<Client> &clientsVector, vector<TravelPack> &travelPack
 	{
 		for (int i = 0; i < travelPacksVector.size(); i++)
 		{
-			if (identifier == travelPacksVector[i].getId() && travelPacksVector[i].getId() > 0 && (travelPacksVector[i].getMaxPersons()-travelPacksVector[i].getSoldTicketsNumber()) > 0)
+			if (identifier == travelPacksVector[i].getId() && travelPacksVector[i].getId() > 0  )
 			{
+				if ((travelPacksVector[i].getMaxPersons() - travelPacksVector[i].getSoldTicketsNumber() - client.getFamilySize() + 1) > 0)
+				{
 				validId = true;
 				travel_pack_position = i;
-				travelPacksVector[i].setSoldTicketsNumber(travelPacksVector[i].getSoldTicketsNumber() + 1);
+				cout << "BBBBBBBBBBBBBBB" << to_string(travelPacksVector[i].getSoldTicketsNumber()) << "BBBBBBBBBBBBBBBBBBBB";
+				cout << "CCCCCCCCCCCCCCCC" << to_string(client.getFamilySize()) << "ccccccccccccccccccc";
+				cout << "AAAAAAAAAAAAAAAAAA" << to_string(travelPacksVector[i].getSoldTicketsNumber() + client.getFamilySize()) << "AAAAAAAAAAAAAA";
+				travelPacksVector[i].setSoldTicketsNumber(travelPacksVector[i].getSoldTicketsNumber() + client.getFamilySize());
 				if ((travelPacksVector[i].getMaxPersons() - travelPacksVector[i].getSoldTicketsNumber()) <= 0) {
 					travelPacksVector[i].setId( -travelPacksVector[i].getId());
 				}
 				cout << endl << "Touristic pack bought successfuly!" << endl;
 				break;
+				}
+				else
+				{
+					if (!validId)
+					{
+						cout << "There are not enough Touristic packs! please insert a new identifier: ";
+						cin >> identifier;
+						validCin(identifier);
+					}
+				}
 			}
 		}
 		if (!validId)

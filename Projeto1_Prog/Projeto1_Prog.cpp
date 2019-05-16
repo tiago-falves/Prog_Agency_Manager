@@ -24,14 +24,6 @@ int main() {
 
 	runAgencyManager();
 
-	/* 9- Obter o nome dos N locais mais visitados(um pacote pode incluir visitas a vários locais), ordenados
-	por ordem decrescente do número de visitas(= número de pacotes vendidos que passam por esse
-	local)./*
-
-	/* 10- Gerar uma listagem de todos os clientes na qual se indica, para cada cliente, um dos pacotes em
-	que seja visitado um dos N locais mais visitados (ver ponto 9) que ele ainda não visitou.*/
-
-
 	//VERIFICAR SE AS FUNCIONALIDADES TODAS FUNCIONAM!
 	//PRINCIPALMENTE PEQUISAR PELAS DATAS ACHO QUE ESTA MAL
 
