@@ -168,7 +168,7 @@ TravelPack askForTravelPacksgetId(vector<TravelPack> travelPackVector) {
 	}
 }
 
-//Function which asks the user for a TravelPack informations and stores the information in a TravelPack struct
+//Function which asks the user for a TravelPack informations and stores the information in a TravelPack class
 TravelPack askForTravelPacks(bool isCreatingTravelPack, vector<TravelPack> travelPackVector) {
 	TravelPack travelPack;
 
@@ -209,7 +209,7 @@ TravelPack askForTravelPacks(bool isCreatingTravelPack, vector<TravelPack> trave
 	cout << "Touristic Spots (Main touristic destination - main touristic spots): ";
 	getline(cin, touristicSpots);
 
-	cout << "Begginning date(xx/xx/xxxx): ";
+	cout << "Begginning date(DD/MM/YYYY): ";
 	cin.clear();
 	getline(cin, begginningDateText);
 
@@ -219,7 +219,7 @@ TravelPack askForTravelPacks(bool isCreatingTravelPack, vector<TravelPack> trave
 		getline(cin, begginningDateText);
 	}
 
-	cout << "End date (xx/xx/xxxx): ";
+	cout << "End date (DD/MM/YYYY): ";
 	cin.clear();
 	getline(cin, endDateText);
 
@@ -289,17 +289,16 @@ void showAllTravelPacksByDate(vector<TravelPack> travelPackVector) {
 
 	do
 	{
-		cout << "Please insert the beggining date: ";
+		cout << "Please insert the beggining date (DD/MM/YYYY): ";
 		cin >> begginningDateText;
 	} while (!Date::validDateText(begginningDateText));
 	begginningDate = Date::dateTextConverter(begginningDateText);
-
+	
 	do
 	{
-		cout << "Please insert the end date: ";
+		cout << "Please insert the end date (DD/MM/YYYY): ";
 		cin >> endDateText;
 	} while (!Date::validDateText(endDateText));
-
 	endDate = Date::dateTextConverter(endDateText);
 
 

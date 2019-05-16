@@ -72,6 +72,7 @@ bool Date::isAfter(const Date &d) {
 		return true;
 }
 
+
 bool operator==(const Date& date1, const Date& date2) { // Comparison operator overloading
 	return date1.day == date2.day && date1.month == date2.month && date1.year == date2.year;
 }
