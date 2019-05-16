@@ -59,7 +59,7 @@ void TravelPack::setMaxPersons(unsigned maxPersons){ this->maxPersons = maxPerso
 
 void TravelPack::setSoldTicketsNumber(int soldTicketsNumber) { this->soldTicketsNumber = soldTicketsNumber; }
 
-void TravelPack::setLastPackId(int lastPackId) { this->lastPackId = lastPackId; }
+void TravelPack::setlastPackId(int lastPackId) { this->lastPackId = lastPackId; }
 
 
 //Reads the Travel Pack file and puts its information into a class
@@ -82,7 +82,7 @@ void TravelPack::readTravelPacks(string filename, vector<TravelPack> &travelPack
 			switch (i)
 			{
 			case 0:
-				travelPack.setLastPackId(stoi(travelPackText));
+				travelPack.setlastPackId(stoi(travelPackText));
 				break;
 			case 1:
 				travelPack.setId(stoi(travelPackText));

@@ -61,9 +61,10 @@ bool Date::isAfter(const Date &d) {
 }
 
 
-bool operator==(const Date& date1, const Date& date2) { // Comparison operator overloading
+bool operator==(const Date& date1, const Date& date2) {
 	return date1.day == date2.day && date1.month == date2.month && date1.year == date2.year;
 }
+
 
 ostream& operator<<(ostream	&out, const Date &date){
 	out << date.day << "/" << date.month << "/" << date.year;

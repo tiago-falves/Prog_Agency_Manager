@@ -20,14 +20,13 @@ class TravelPack{
 
 private:
 	int id; // TravelPack unique getId()
-	int lastPackId;
-	vector<string> touristicSpots; // touristic touristicSpots to visit
+	vector<string> touristicSpots; // touristic spots to visit
 	Date begin;  // begin date
 	Date end;  // end date
 	double pricePerPerson; // price per person
 	unsigned maxPersons; // number of persons still available in the TravelPack (updated whenever the TravelPack is sold to a new client)
-	int soldTicketsNumber;
-
+	int soldTicketsNumber; // number of tickets sold to clients
+	int lastPackId;
   
  public:
 	  TravelPack();
@@ -51,7 +50,8 @@ private:
 	  void setPricePerPerson(double pricePerPerson);
 	  void setMaxPersons(unsigned maxPersons);
 	  void setSoldTicketsNumber(int soldTicketsNumber);
-	  void setLastPackId(int lastPackId);
+	  void setlastPackId(int lastPackId);
+
 
 	  // other methods
 

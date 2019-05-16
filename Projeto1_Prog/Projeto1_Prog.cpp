@@ -16,7 +16,6 @@ void runAgencyManager() {
 	agency.readAgency("agency.txt");
 	Client::readClients(agency.getClientsNameFile(), clientsVector);
 	TravelPack::readTravelPacks(agency.getPacksNameFile(), travelPackVector);
-	cout << travelPackVector[0] << endl;
 	runMenu(clientsVector, travelPackVector, agency);
 }
 
@@ -28,11 +27,9 @@ int main() {
 
 	//Atribuir o lastPackId e aumenta-lo automaticamente?
 	//ORDENAR DE MODO A SER MAIS EFICIENTE? - Vemos isto no fim, mesmo antes de comentar o código
-	//O IDENTIFICADOR DOS PACKS NÃO DEVE SER ATRIBUIDO AUTOMATICAMENTE? TIPO ADICIONAR UM AO ID DO ULTIMO PACKS ADICIONADO
-	//CORRIGIR OS OPERATOR OVERLOADING E DESCOMENTAR (TÉCNICA DO FOR)
 	//MUDAR A CENA DOS PACOTES COM LUGARES DISPONIVEIS E RESERVADOS
-	//ACHO QUE O ULTIMO PONTO DE VER AS INFROMAÇÕES DOS PACOTES NAO FUNCIONA DIREITO
-
+	//ADICIONAR AS CENAS DA AGENCY DO PROF SE HOUVER TEMPO
+	
 	//Testar
 
 	//DATE

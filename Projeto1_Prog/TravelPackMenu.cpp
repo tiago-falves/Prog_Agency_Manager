@@ -416,14 +416,14 @@ void showOrderedDestinations(vector<string> places) {
 //Outputs the total profit and number of tickets
 void calculateNumberPacks(vector<TravelPack> travelPackVector) {
 	cout << "The Total profit is: ";
-	int price=0;
-	int number=0;
+	int price = 0 ;
+	int number = 0;
 	for (int i = 0; i < travelPackVector.size(); i++)
 	{
 		number += travelPackVector[i].getSoldTicketsNumber();
 		price += travelPackVector[i].getPricePerPerson() * travelPackVector[i].getSoldTicketsNumber();
 	}
-	cout << price <<"$" << endl;
+	cout << price << "$" << endl;
 	cout << "Number of tickets sold: " << number;
 
 	menuSeparator();

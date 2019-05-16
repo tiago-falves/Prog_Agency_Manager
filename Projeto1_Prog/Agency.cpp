@@ -105,7 +105,6 @@ void Agency::showAgency() const{
 
 
 
-
 ostream& operator<<(ostream& out, const Agency &agency){
 	out << "*********************************" << endl << "Name: " << agency.name << endl;
 	out << "VATNumber: " << agency.nif << endl;
