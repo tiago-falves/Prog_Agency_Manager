@@ -2,6 +2,7 @@
 
 TravelPack::TravelPack()
 {
+	this->id = 0;
 	this->touristicSpots = {};
 	this->begin = begin;
 	this->end = end;
@@ -231,6 +232,20 @@ vector<string> TravelPack::orderDestinations(vector<TravelPack> travelPackVector
 
 	return places;
 
+}
+
+//Returns the best Travel Pack according to a recommendation list
+TravelPack TravelPack::bestDestination(vector<TravelPack> travelPacksVector, vector<string> recommendations) {
+	TravelPack travelPack;
+	for (int i = 0; i < recommendations.size(); i++)
+	{
+		for (int j = 0; j < travelPacksVector.size(); j++)
+		{
+			if (travelPacksVector[j].getTouristicSpots()[0] == recommendations[i] && travelPacksVector[j].getId() > 0)
+				return travelPacksVector[j];
+		}
+	}
+	return travelPack;
 }
 
 bool operator==(const TravelPack & travelpack1, const TravelPack & travelpack2)

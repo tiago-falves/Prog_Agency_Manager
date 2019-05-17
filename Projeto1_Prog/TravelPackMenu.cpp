@@ -152,8 +152,7 @@ TravelPack askForTravelPacksgetId(vector<TravelPack> travelPackVector) {
 	cout << "identifier: ";
 	cin >> identifier;
 	validCin(identifier);
-	//cin.clear();
-	//cin.ignore(10000, '\n');
+	
 
 	for (int i = 0; i < travelPackVector.size(); i++)
 	{
@@ -188,9 +187,7 @@ TravelPack askForTravelPacks(bool isCreatingTravelPack, vector<TravelPack> trave
 	int soldTicketsNumber;
 	bool validId = true;
 
-	/*cout << "Identifier: ";
-	cin >> identifier;
-	validCin(identifier);*/
+	
 	if (isCreatingTravelPack) {
 		identifier = abs(travelPackVector[travelPackVector.size() - 1].getId()) + 1;
 	}
