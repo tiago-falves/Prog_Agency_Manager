@@ -77,7 +77,7 @@ void showSoldTouristicPacks(vector<TravelPack> travelPacksVector, vector<Client>
 	int c;
 	for (int i = 0; i < clientsVector.size(); i++)
 	{
-		cout << "Client " << i + 1 << endl << endl ;
+		cout << "Client " << i + 1 << " ------------------------------------------------------------" << endl << endl;
 		for (int j = 0; j < clientsVector[i].getTravelPackIds().size(); j++) {
 			inTravelPack = false;
 
@@ -187,7 +187,7 @@ TravelPack askForTravelPacks(bool isCreatingTravelPack, vector<TravelPack> trave
 	int soldTicketsNumber;
 	bool validId = true;
 
-	
+
 	if (isCreatingTravelPack) {
 		identifier = abs(travelPackVector[travelPackVector.size() - 1].getId()) + 1;
 	}
@@ -323,13 +323,12 @@ void showAllTravelPacksByDestination(vector<TravelPack> travelPackVector) {
 	string destination;
 	vector<string> destVector;
 	
-	cout << "Please insert the destination (with attractions): ";
+	cout << "Please insert the destination (with touristic attractions): ";
 	cin.clear();
 	cin.ignore(10000, '\n');
 	getline(cin, destination);
 	
 	cout << endl << endl;
-	cout << TravelPack::destinationToString(travelPackVector[0].getTouristicSpots()) << endl;
 	for (int i = 0; i < travelPackVector.size(); i++)
 	{																
 		if (travelPackVector[i].getTouristicSpots()[0] == TravelPack::separatedDestination(destination)[0] && (travelPackVector[i].getId() > 0))
@@ -366,7 +365,7 @@ void showAllTravelPacksByDateDestination(vector<TravelPack> travelPackVector) {
 	} while (!Date::validDateText(endDateText));
 	endDate = Date::dateTextConverter(endDateText);
 
-	cout << "Please insert the destination (with touristic attractions: ";
+	cout << "Please insert the destination (with touristic attractions): ";
 	cin.clear();
 	cin.ignore(10000, '\n');
 	getline(cin, destination);

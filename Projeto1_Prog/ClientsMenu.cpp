@@ -324,7 +324,6 @@ void modifyClientOption(vector<Client> &clientsVector) {
 
 	cout << endl << endl << "Insert the new informations about the client: " << endl << endl;
 	modifiedClient = askForClientsInformation(clientsVector);
-	//Perguntar porque que Ele aqui pergunta o name duas vezes
 	modifiedClient.modifyClient(clientToModify, clientsVector);
 	cout << endl << endl << "Client modified successfully!";
 	menuSeparator();
