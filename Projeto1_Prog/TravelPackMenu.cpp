@@ -152,8 +152,8 @@ TravelPack askForTravelPacksgetId(vector<TravelPack> travelPackVector) {
 	cout << "identifier: ";
 	cin >> identifier;
 	validCin(identifier);
-	cin.clear();
-	cin.ignore(10000, '\n');
+	//cin.clear();
+	//cin.ignore(10000, '\n');
 
 	for (int i = 0; i < travelPackVector.size(); i++)
 	{
