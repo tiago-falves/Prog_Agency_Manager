@@ -1,13 +1,20 @@
 Rui Manuel
 234987156
 4
-Rua Sem Fim   / 200 / 5Esq / 1200-001 / Lisboa
+Rua Sem Fim / 200 / 5Esq / 1200-001 / Lisboa
 1 ; 36 ; 2
 504
 ::::::::::
-Belmiro Miguel
+Joao
 111987666
-2
+3
 Avenida dos Grilos / 100 / - / 2300-101 / Coimbra
-100 ; 136 ; 3 ; 2
-1300
+0
+0
+::::::::::
+Tiago
+123456789
+10
+1 / 2 / 3 / 4444-444 / 5
+0
+0

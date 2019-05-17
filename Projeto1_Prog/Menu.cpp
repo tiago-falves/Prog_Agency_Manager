@@ -55,7 +55,7 @@ void saveAndExit(vector<Client> &clientsVector, vector<TravelPack> &travelPacksV
 		content += clientsVector[i].getName() + "\n";
 		content += to_string(clientsVector[i].getnif()) + "\n";
 		content += to_string(clientsVector[i].getFamilySize()) + "\n";
-		content += clientsVector[i].getAddress().getStreet() + " / " + to_string(clientsVector[i].getAddress().getDoorNumber()) + " / " + clientsVector[i].getAddress().getFloor() + " / " + clientsVector[i].getAddress().getPostalCode() + " sopa " + clientsVector[i].getAddress().getLocation() + "\n";
+		content += clientsVector[i].getAddress().getStreet() + " / " + to_string(clientsVector[i].getAddress().getDoorNumber()) + " / " + clientsVector[i].getAddress().getFloor() + " / " + clientsVector[i].getAddress().getPostalCode() + " / " + clientsVector[i].getAddress().getLocation() + "\n";
 		for (int j = 0; j < clientsVector[i].getTravelPackIds().size(); j++) {
 			content += to_string(clientsVector[i].getTravelPackIds()[j]) + " ; ";
 		}
