@@ -133,8 +133,6 @@ void TravelPack::removeTravelPack(vector<TravelPack> &travelPackVector) {
 		if ((id == travelPackVector[i].getId() || id == -travelPackVector[i].getId()))
 		{
 			travelPackVector.erase(travelPackVector.begin() + i);
-			//travelPackVector[i] = travelPackVector[last_pos];
-			//travelPackVector.pop_back();
 			break;
 		}
 	}

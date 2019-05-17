@@ -32,7 +32,7 @@ void runMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVecto
 
 	if (option == 0) { exit(0);}
 	else if (option == 1) {runClientsMenu(clientsVector,travelPacksVector,agency); }
-	else if (option == 2) {runTravelPackMenu(clientsVector, travelPacksVector,agency); }
+	else if (option == 2) {runTravelPackMenu(clientsVector, travelPacksVector, agency); }
 	else if (option == 3) { saveAndExit(clientsVector, travelPacksVector, agency); }
 }
 
@@ -45,10 +45,10 @@ void menuSeparator() {
 	cout << endl << endl;
 }
 
-//Exists the program and saves the information to new files: "ClientsOutput.txt" and "TravelPackOutput.txt"
+//Exists the program and saves the information to new files: "clients.txt" and "packs.txt"
 void saveAndExit(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector, Agency agency) {
 	string content;
-	ofstream clientsFile("ClientsOutput.txt");
+	ofstream clientsFile("clients.txt");
 
 	for (int i = 0; i < clientsVector.size(); i++)
 	{
@@ -73,7 +73,7 @@ void saveAndExit(vector<Client> &clientsVector, vector<TravelPack> &travelPacksV
 	clientsFile.close();
 
 	content = "";
-	ofstream travelPacksFile("TravelPackOutput.txt");
+	ofstream travelPacksFile("packs.txt");
 
 	content += to_string(travelPacksVector[ travelPacksVector.size()-1].getId()) + '\n';
 	for (int i = 0; i < travelPacksVector.size(); i++)
