@@ -66,7 +66,9 @@ Address Address::addressTextConverter(string addressText) {
 	Address address;
 	string subString;
 
-	address.street = addressText.substr(0, addressText.find_first_of('/'));
+	subString = addressText.substr(0, addressText.find_first_of('/'));
+	trim(subString);
+	address.street = subString;
 	addressText.erase(0, addressText.find_first_of('/') + 1);
 
 	subString = addressText.substr(0, addressText.find_first_of('/'));
