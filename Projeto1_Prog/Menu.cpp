@@ -33,7 +33,7 @@ void runMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVecto
 	if (option == 0) { exit(0);}
 	else if (option == 1) {runClientsMenu(clientsVector,travelPacksVector,agency); }
 	else if (option == 2) {runTravelPackMenu(clientsVector, travelPacksVector, agency); }
-	else if (option == 3) { saveAndExit(clientsVector, travelPacksVector, agency); }
+	else if (option == 3) {saveAndExit(clientsVector, travelPacksVector, agency); }
 }
 
 //Outputs a separator made of *
