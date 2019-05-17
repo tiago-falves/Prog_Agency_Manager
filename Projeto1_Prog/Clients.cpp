@@ -143,10 +143,11 @@ void Client::modifyClient(Client clientToModify, vector<Client> &clientVector) {
 	for (int i = 0; i < clientVector.size(); i++)
 	{
 		if (clientToModify == clientVector[i]) {
-			clientVector[i] = *this;
+			clientVector[i] = *this;		
 			break;
 		}
 	}
+	
 }
 
 bool Client::clientInVector(vector<Client> clientsVector) { 

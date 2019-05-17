@@ -185,7 +185,6 @@ void showAllClientsWithRecommendations(vector<Client> clientsVector, vector<Trav
 			}
 			for (int k = 0; k < travelPacksVector.size(); k++)
 			{
-				//listPerClient.size() == 0 && travelPacksVector[i].getTouristicSpots()[0] == recommendations[0]) || 
 				if (travelPacksVector[k].getTouristicSpots()[0] == recommendation && travelPacksVector[k].getId() > 0)
 				{
 					travelPack = travelPacksVector[k];
@@ -258,8 +257,10 @@ Client askForClientsInformation(vector<Client> clientsVector) {
 	cin.ignore(10000, '\n');
 
 	for (int i = 0; i < clientsVector.size(); i++) {
-		if (clientsVector[i].getnif() == nif) { inDatabase = true; }
-		break;
+		if (clientsVector[i].getnif() == nif) {
+			inDatabase = true;
+			break;
+		}
 	}
 
 	while (inDatabase)
@@ -271,8 +272,11 @@ Client askForClientsInformation(vector<Client> clientsVector) {
 		cin.ignore(10000, '\n');
 		for (int i = 0; i < clientsVector.size(); i++)
 		{
-			if (clientsVector[i].getnif() == nif) { zeroIfNotInFile +=1; }
-			break;
+			zeroIfNotInFile = 0;
+			if (clientsVector[i].getnif() == nif) {
+				zeroIfNotInFile += 1;
+				break;
+			}
 		}
 		if (zeroIfNotInFile == 0)
 			inDatabase = false;
