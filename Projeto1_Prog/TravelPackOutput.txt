@@ -1,4 +1,4 @@
-4
+5
 1
 Madeira - Funchal, Porto Santo
 2019/8/1
@@ -15,6 +15,14 @@ Veneza
 24
 24
 ::::::::::
+3
+Douro vinhateiro - Porto, Regua, Pinhao, Vila Real
+2019/9/21
+2019/9/22
+100
+62
+12
+::::::::::
 4
 Douro vinhateiro - Porto, Regua, Pinhao, Vila Real
 2019/8/21
@@ -22,3 +30,11 @@ Douro vinhateiro - Porto, Regua, Pinhao, Vila Real
 100
 62
 59
+::::::::::
+5
+Porto - Gaia
+2000/3/30
+2001/3/30
+300
+70
+0
