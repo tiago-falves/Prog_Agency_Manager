@@ -10,6 +10,8 @@
 
 void runMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector, Agency agency);
 
+void runStatisticsMenu (vector<Client>  &clientsVector, vector<TravelPack> &travelPacksVector, Agency agency);
+
 void saveAndExit(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector, Agency agency);
 
 void menuSeparator();

@@ -15,11 +15,12 @@ void runMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVecto
 	cout << "0. Exit" << endl;
 	cout << "1. Clients" << endl;
 	cout << "2. Touristic Packs" << endl;
-	cout << "3. Save information and Exit" << endl << endl;
+	cout << "3. Statistics" << endl;
+	cout << "4. Save information and Exit" << endl << endl;
 	cout << "Insert the number correspondent to your option: ";
 	cin >> option;
 
-	while (cin.fail() || option < 0 || option > 3)
+	while (cin.fail() || option < 0 || option > 4)
 	{
 		cout << "Invalid option, please insert the option again: ";
 		cin.clear();
@@ -33,7 +34,8 @@ void runMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVecto
 	if (option == 0) { exit(0);}
 	else if (option == 1) {runClientsMenu(clientsVector,travelPacksVector,agency); }
 	else if (option == 2) {runTravelPackMenu(clientsVector, travelPacksVector, agency); }
-	else if (option == 3) {saveAndExit(clientsVector, travelPacksVector, agency); }
+	else if (option == 3) {runStatisticsMenu(clientsVector, travelPacksVector, agency); }
+	else if (option == 4) {saveAndExit(clientsVector, travelPacksVector, agency); }
 }
 
 //Outputs a separator made of *
@@ -109,3 +111,32 @@ void validCin(int &option) {
 	}
 }
 
+void runStatisticsMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector, Agency agency) {
+	int option;
+
+	cout << "Welcome to the Statistics Menu! Please choose what you want to do: ";
+	cout << endl << endl;
+	cout << "0. Go back" << endl;
+	cout << "1. See information from all clients with recommendations. " << endl;
+	cout << "2. See most visited destinations." << endl << endl;
+	cin >> option;
+
+	while (cin.fail() || option < 0 || option > 2)
+	{
+		cout << "Invalid option, please insert the option again: ";
+		cin.clear();
+		cin.ignore(10000, '\n');
+		cin >> option;
+	}
+
+	cin.clear();
+	cin.ignore(10000, '\n');
+
+	menuSeparator();
+
+	if (option == 0) { runMenu(clientsVector, travelPacksVector, agency); }
+	if (option == 1) { showAllClientsWithRecommendations(clientsVector, travelPacksVector); }
+	if (option == 2) { showOrderedDestinations(TravelPack::orderDestinations(travelPacksVector)); }
+
+	runMenu(clientsVector, travelPacksVector, agency);
+}

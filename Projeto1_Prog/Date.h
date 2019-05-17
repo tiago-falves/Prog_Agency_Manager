@@ -33,47 +33,79 @@ public:
     void setMonth(unsigned short month);
     void setYear(unsigned year);
 
+	// Other methods
 
-    //Outputs date in nice format
-    void showDate() const;
-
-
-	//Converts a date in a string day/month/year
+	/*Converts a Date to a string
+	@param - /
+	@return string - the date in a string
+	*/
 	string toString();
 
-
-	//True if valid Date
+	/*Verifies if a Date is valid (months have 1 - 31 days, etc.)
+	@param - /
+	@return bool - true if date is valid
+	*/
 	bool isValid();
 
-	//True if the Dates are equal (same as == operator)
+	/*Verifies if a Date is equal to another, alternative to == operator
+	@param - date of Date Class
+	@return bool - true if dates are equal
+	*/
 	bool isEqualTo(const Date &d);
 
-	//True if the Date is after Date d
+	/*Verifies if a Date comes after another
+	@param - date of Date Class
+	@return bool - true if date is after the date specified in parenthesis
+	*/
 	bool isAfter(const Date &d);
 
+	/*Prints date to the screen, formatted, as an alternative to the << operator
+	@param - date of Date Class
+	@return bool - true if date is after the date specified in parenthesis
+	*/
+	void showDate() const;
+
+	friend bool operator==(const Date& date1, const Date& date2);
+	friend ostream& operator<<(ostream& out, const Date& date);
 
 	//Static Methods
 
-	//Returns days of a month in a given year
+	/*Returns an integer that represents the number of days in a given month of a given year
+	@param - month - a month represented by it's numerical value
+	@param - year - a year
+	@return int - number of days in the given date
+	*/
 	static int daysInMonth(int month, int year);
 
-	//Returns true if year is a leap year
+	/*Returns true if the given year is a leap year
+	@param - year - a year to be verified
+	@return bool - true if leap year, false otherwise
+	*/
 	static bool isLeapYear(int year);
 
-	//Copies date
+	/*Copies a date to another date object, alternative to the = operator
+	@param - copy - date of Date Class to be copied
+	@param - date - date of Date Class to copy
+	@return void
+	*/
 	static void copyDate(Date &copy, Date date);
 
-	//Converts dateText in format year/month/day DD/MM/YYYY to a Date
+	/*Converts date in a string to a date of a Date Class
+	@param - dateText - date as a string to be converted
+	@return Date - Date Class
+	*/
 	static Date dateTextConverter(string dateText);
 
-	//Converts dateText in format YYYY/MM/DD to a Date
+	/*Converts date in a string to a date of a Date Class from a file
+	@param - dateText - date as a string to be converted
+	@return Date - Date Class
+	*/
 	static Date dateTextConverterFile(string dateText);
 
-	//Returns true if date text is a valid date
+	/*Verifies if a date in a string is valid
+	@param - dateText - date as a string to be verified
+	@return bool - true if date is valid (ex. days go from 1-31, year > 1000 not accepted, etc.)
+	*/
 	static bool validDateText(string dateText);
-
-	
-	friend bool operator==(const Date& date1, const Date& date2);
-    friend ostream& operator<<(ostream& out, const Date & date);
 
 };

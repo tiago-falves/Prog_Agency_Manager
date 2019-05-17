@@ -16,39 +16,37 @@ Date::Date(string date){
 	this->year = stoi(date.substr(6, 4));
 }
 
- //GET Methods
+ //GET methods
 
 unsigned short Date::getDay() const {return day;}
 unsigned short Date::getMonth() const{return month;}
 unsigned Date::getYear() const{return year;}
 
 
-//SET Methods
-
+//SET methods
 
 void Date::setDay(unsigned short day){this -> day = day;}
 void Date::setMonth(unsigned short month){this -> month = month;}
 void Date::setYear(unsigned year){this -> year = year;}
 
+//Other methods
 
-void Date::showDate() const{
-	//cout << "*********************************" << endl;
-	cout << day << "/" << month << "/" << year << endl;
-	//cout << "*********************************" << endl;
-}
-
+//Converts a date to a string in the format "day/month/year"
 string Date::toString() {
 	return to_string(day) + "/" + to_string(month) + "/" + to_string(year) ;
 }
 
+//Verifies if Date is valid
 bool Date::isValid() {
 	return ((day <= daysInMonth(month, year)) && (month >= 1) && (month <= 12) && (day > 0));
 }
 
+//Alternative to the == operator, returns true if 2 dates are equal
 bool Date::isEqualTo(const Date &d) {
 	return (d.year == year && d.month == month && d.day == day);
 }
 
+//Verifies if a date comes after another
 bool Date::isAfter(const Date &d) {
 	if (d.year > year)
 		return false;
@@ -58,6 +56,11 @@ bool Date::isAfter(const Date &d) {
 		return false;
 	else
 		return true;
+}
+
+//Prints date, alternative to << operator
+void Date::showDate() const {
+	cout << day << "/" << month << "/" << year << endl;
 }
 
 
@@ -74,7 +77,7 @@ ostream& operator<<(ostream	&out, const Date &date){
 
 //STATIC METHODS
 
-
+// Returns the days in a given month of a given year
 int Date::daysInMonth(int month, int year) {
 	switch (month) {
 	case 1: case 3: case 5: case 7: case 8: case 10: case 12:
@@ -89,6 +92,7 @@ int Date::daysInMonth(int month, int year) {
 	}
 }
 
+//Returns true if the given year is a leap year
 bool Date::isLeapYear(int year) {
 	// Divisible by 4 but not by 100, or divisible by 400
 	
@@ -98,12 +102,14 @@ bool Date::isLeapYear(int year) {
 		return false;
 }
 
+//Copies a date to another date object
 void Date::copyDate(Date &copy, Date date) {
 	copy.year = date.year;
 	copy.month = date.month;
 	copy.day = date.day;
 }
 
+//Converts a date in a string to a date of Date Class
 Date Date::dateTextConverter(string dateText) {
 	Date date;
 	vector<int> dateVector;
@@ -114,6 +120,7 @@ Date Date::dateTextConverter(string dateText) {
 	return date;
 }
 
+//Converts a date in a string to a date of Date Class from the file
 Date Date::dateTextConverterFile(string dateText) {
 	Date date;
 	vector<int> dateVector;
@@ -124,6 +131,7 @@ Date Date::dateTextConverterFile(string dateText) {
 	return date;
 }
 
+//Verifies if a date in a string is valid
 bool Date::validDateText(string dateText)
 {
 	vector<string> dateVector;
@@ -144,6 +152,3 @@ bool Date::validDateText(string dateText)
 	}
 	return true;
 }
-
-
-
