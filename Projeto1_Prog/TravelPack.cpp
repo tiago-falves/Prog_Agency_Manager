@@ -130,10 +130,11 @@ void TravelPack::removeTravelPack(vector<TravelPack> &travelPackVector) {
 	for (int i = 0; i < travelPackVector.size(); i++)
 	{
 		travelPack = travelPackVector[i];
-		if (*this == travelPack)
+		if ((id == travelPackVector[i].getId() || id == -travelPackVector[i].getId()))
 		{
-			travelPackVector[i] = travelPackVector[last_pos];
-			travelPackVector.pop_back();
+			travelPackVector.erase(travelPackVector.begin() + i);
+			//travelPackVector[i] = travelPackVector[last_pos];
+			//travelPackVector.pop_back();
 			break;
 		}
 	}
@@ -142,7 +143,7 @@ void TravelPack::removeTravelPack(vector<TravelPack> &travelPackVector) {
 void TravelPack::modifyTravelPack(vector<TravelPack> &travelPackVector, TravelPack travelPack) {
 	for (int i = 0; i < travelPackVector.size(); i++)
 	{
-		if (*this == travelPackVector[i]) {
+		if (id == travelPackVector[i].getId() || id == -travelPackVector[i].getId()) {
 			travelPackVector[i] = travelPack;
 			break;
 		}

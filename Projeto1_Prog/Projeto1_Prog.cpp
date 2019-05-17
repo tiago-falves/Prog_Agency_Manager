@@ -22,9 +22,9 @@ void runAgencyManager() {
 int main() {
 
 	runAgencyManager();
-
+	//12
 	//VERIFICAR SE AS FUNCIONALIDADES TODAS FUNCIONAM!
-
+	//Poder alterar um pacote para ficar negativo
 	//Atribuir o lastPackId e aumenta-lo automaticamente?
 	//ERRO ESTRANHO, AO CRIAR UM CLIENTE E AO FAZER O OUTPUT ENTRE O CODIGO POSTAL E A LOCALITY DESAPARECE A BARRA
 	//ALTERAR FUNÇAO IS AFTER DO DATE PARA OVERLOAD DE >
