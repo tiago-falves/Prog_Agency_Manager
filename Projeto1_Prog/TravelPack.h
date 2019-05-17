@@ -82,6 +82,9 @@ private:
 	  //Order Travel Packs by most visited
 	  static vector<string> orderDestinations(vector<TravelPack> travelPackVector);
 
+	  //Returns the best Travel Pack according to a recommendation list
+	  static TravelPack bestDestination(vector<TravelPack> travelPacksVector, vector<string> recommendations);
+
 	  //Shows TravelPacks in a different way
 	  void showTravelPack() const;
 

@@ -16,6 +16,7 @@ void runAgencyManager() {
 	agency.readAgency("agency.txt");
 	Client::readClients(agency.getClientsNameFile(), clientsVector);
 	TravelPack::readTravelPacks(agency.getPacksNameFile(), travelPackVector);
+
 	runMenu(clientsVector, travelPackVector, agency);
 }
 

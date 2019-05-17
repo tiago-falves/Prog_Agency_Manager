@@ -238,18 +238,42 @@ void showAllClientsWithRecommendations(vector<Client> clientsVector, vector<Trav
 	for (int i = 0; i < clientsVector.size(); i++)
 	{
 		vector<string> listPerClient = destinationsOfClient(clientsVector[i], travelPacksVector);
-		
-		for (int j = 0; j < recommendations.size(); j++)
-		{
-			if (find(listPerClient.begin(), listPerClient.end(), recommendations[j]) == listPerClient.end()) {
-				recommendation = recommendations[j];
-				break;
+		TravelPack travelPack;
+		if (listPerClient.size() == 0) 
+			travelPack = TravelPack::bestDestination(travelPacksVector, recommendations);
+		else {
+			for (int j = 0; j < recommendations.size(); j++)
+			{
+				if (find(listPerClient.begin(), listPerClient.end(), recommendations[j]) == listPerClient.end()) {
+					for (int k = 0; k < travelPacksVector.size(); k++)
+					{
+						
+						if (travelPacksVector[k].getTouristicSpots()[0] == recommendations[j] && travelPacksVector[k].getId() > 0) {
+							recommendation = recommendations[j];
+							break;
+						}
+					}
+				}
+			}
+			for (int k = 0; k < travelPacksVector.size(); k++)
+			{
+				//listPerClient.size() == 0 && travelPacksVector[i].getTouristicSpots()[0] == recommendations[0]) || 
+				if (travelPacksVector[k].getTouristicSpots()[0] == recommendation && travelPacksVector[k].getId() > 0)
+				{
+					travelPack = travelPacksVector[k];
+					break;
+				}
+
 			}
 		}
 		cout << "Client " << i + 1 << ":" << endl;
 		showClient(clientsVector[i]);
-
-		cout << "Recomended destination: " << recommendation;
+		if (travelPack.getId()==0)
+			cout << "This Client has visited all the most visited destinations in our avaliable Touristic packs!" << endl;
+		else {
+			cout << "Recomended Travel Pack: " << endl;
+			travelPack.showTravelPack();
+		}
 		cout << endl << endl;
 		
 	}
