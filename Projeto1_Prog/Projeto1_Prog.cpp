@@ -22,12 +22,9 @@ void runAgencyManager() {
 int main() {
 
 	runAgencyManager();
-
 	//VERIFICAR SE AS FUNCIONALIDADES TODAS FUNCIONAM!
-
-	//ERRO ESTRANHO, AO CRIAR UM CLIENTE E AO FAZER O OUTPUT ENTRE O CODIGO POSTAL E A LOCALITY DESAPARECE A BARRA
-	//ALTERAR FUNÇAO IS AFTER DO DATE PARA OVERLOAD DE >
-	//MUDAR FICHEIRO DE ESCRITA
+	//Poder alterar um pacote para ficar negativo
+	//ALTERAR FUNÇAO IS AFTER DO DATE PARA OVERLOAD DE > - se houver tempo
 
 	//ORDENAR DE MODO A SER MAIS EFICIENTE? - Vemos isto no fim, mesmo antes de comentar o código	
 

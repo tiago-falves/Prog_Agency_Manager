@@ -124,7 +124,12 @@ void modifyTravelPackOption(vector<TravelPack> &travelPackVector) {
 	
 	cout << endl << endl << "Insert the new informations about the Touristic Pack: " << endl << endl;
 	modifiedTravelPack = askForTravelPacks(true,travelPackVector);
-	modifiedTravelPack.setId(travelPackToModify.getId());
+	if (travelPackToModify.getId()<0) 
+		modifiedTravelPack.setId(-travelPackToModify.getId());
+	else
+		modifiedTravelPack.setId(travelPackToModify.getId());
+	
+	
 	//Perguntar porque que Ele aqui pergunta o name duas vezes
 	travelPackToModify.modifyTravelPack( travelPackVector, modifiedTravelPack);
 	cout << endl << endl << "Touristic Pack modified successfully!";
@@ -152,7 +157,7 @@ TravelPack askForTravelPacksgetId(vector<TravelPack> travelPackVector) {
 
 	for (int i = 0; i < travelPackVector.size(); i++)
 	{
-		if (travelPackVector[i].getId() == identifier){ return travelPackVector[i]; }
+		if (travelPackVector[i].getId() == identifier || travelPackVector[i].getId() == -identifier){ return travelPackVector[i]; }
 	}
 
 	
@@ -187,14 +192,9 @@ TravelPack askForTravelPacks(bool isCreatingTravelPack, vector<TravelPack> trave
 	cin >> identifier;
 	validCin(identifier);*/
 	if (isCreatingTravelPack) {
-	identifier = abs(travelPackVector[travelPackVector.size() - 1].getId()) + 1;
+		identifier = abs(travelPackVector[travelPackVector.size() - 1].getId()) + 1;
 	}
-	else
-	{
-
-	}
-	
-	
+		
 	cin.clear();
 	cin.ignore(10000, '\n');
 	cout << "Touristic Spots (Main touristic destination - main touristic spots): ";
