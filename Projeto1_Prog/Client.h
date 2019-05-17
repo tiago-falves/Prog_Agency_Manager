@@ -73,6 +73,7 @@ public:
 	//Outputs client in a different way
     void showClient() const;
 
+
 	friend bool operator==(const Client &client1, const Client &client2);
 	friend ostream& operator<<(ostream& out, const Client &client);
 };

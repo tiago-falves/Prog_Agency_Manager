@@ -1,9 +1,10 @@
 #include "ClientsMenu.h"
 #include "Client.h"
+
 using namespace std;
 
 //Asks all information and asks the user what option to choose
-void runClientsMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPacksVector, Agency agency){
+void runClientsMenu(vector<Client>& clientsVector, vector<TravelPack>& travelPacksVector, Agency agency) {
 	int option;
 
 	cout << "Welcome to the Clients Menu! Please choose what you want to do: ";
@@ -14,12 +15,14 @@ void runClientsMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPac
 	cout << "3. Remove a client" << endl;
 	cout << "4. See information from all clients. " << endl;
 	cout << "5. See information from all clients with recommendations. " << endl;
-	cout << "6. See from a specific client. " << endl;
-	cout << "7. Buy a touristic pack for a client" << endl << endl;
+	cout << "6. See information from a specific client. " << endl;
+	cout << "7. See all packs bought by a specific client. " << endl;
+	cout << "8. See all packs bought by all clients. " << endl;
+	cout << "9. Buy a touristic pack for a client" << endl << endl;
 	cout << "Insert the number correspondent to your option: ";
 	cin >> option;
-	
-	while (cin.fail() || option < 0 || option > 7)
+
+	while (cin.fail() || option < 0 || option > 9)
 	{
 		cout << "Invalid option, please insert the option again: ";
 		cin.clear();
@@ -33,15 +36,17 @@ void runClientsMenu(vector<Client> &clientsVector, vector<TravelPack> &travelPac
 	menuSeparator();
 
 	if (option == 0) { runMenu(clientsVector, travelPacksVector, agency); }
-	if (option == 1) { createClientOption(clientsVector);}
-	if (option == 2) { modifyClientOption(clientsVector);}
-	if (option == 3) { removeClientOption(clientsVector);}
-	if (option == 4) { showAllClients(clientsVector);}
-	if (option == 5) { showAllClientsWithRecommendations(clientsVector,travelPacksVector);}
-	if (option == 6) { showClientOption(clientsVector);}
-	if (option == 7) { buyTravelPack(clientsVector, travelPacksVector);}
+	if (option == 1) { createClientOption(clientsVector); }
+	if (option == 2) { modifyClientOption(clientsVector); }
+	if (option == 3) { removeClientOption(clientsVector); }
+	if (option == 4) { showAllClients(clientsVector); }
+	if (option == 5) { showAllClientsWithRecommendations(clientsVector, travelPacksVector); }
+	if (option == 6) { showClientOption(clientsVector); }
+	if (option == 7) { showPacksClient(clientsVector, travelPacksVector); }
+	if (option == 8) { showPacksAllClient(clientsVector, travelPacksVector); }
+	if (option == 9) { buyTravelPack(clientsVector, travelPacksVector); }
 
-	runMenu(clientsVector, travelPacksVector,agency);
+	runMenu(clientsVector, travelPacksVector, agency);
 }
 
 
@@ -50,6 +55,74 @@ void showClientOption(vector<Client> clientsVector) {
 	menuSeparator();
 }
 
+
+void showPacksClient(vector<Client> clientsVector, vector<TravelPack> travelPacksVector) {
+	menuSeparator();
+
+	Client client;
+	bool inTravelPack = false;
+	int temp;
+	
+	cout << "Insert the Clients information you want to buy the touristic pack: " << endl << endl;
+	client = askForNIF(clientsVector);
+	cout << endl;
+
+	for (int j = 0; j < client.getTravelPackIds().size(); j++) {
+		inTravelPack = false;
+		for (int k = 0; k < travelPacksVector.size(); k++)
+		{
+			if (travelPacksVector[k].getId() == client.getTravelPackIds()[j] || travelPacksVector[k].getId() == -client.getTravelPackIds()[j]) {
+				inTravelPack = true;
+				temp = k;
+				break;
+			}
+		}
+		if (inTravelPack)
+		{
+			travelPacksVector[temp].showTravelPack();
+			cout << endl;
+		}
+		else
+		{
+			cout << "ID: " << client.getTravelPackIds()[j] << " Not in the database" << endl;
+		}
+	}
+	menuSeparator();
+}
+
+void showPacksAllClient(vector <Client> clientsVector, vector<TravelPack> travelPacksVector) {
+	menuSeparator();
+	
+	bool inTravelPack = false;
+	int temp;
+	
+	for (int i = 0; i < clientsVector.size(); i++)
+	{
+		cout << clientsVector[i].getName() << " : " << " ------------------------------------------------------------" << endl << endl;
+		for (int j = 0; j < clientsVector[i].getTravelPackIds().size(); j++) {
+			inTravelPack = false;
+
+			for (int k = 0; k < travelPacksVector.size(); k++)
+			{
+				if (travelPacksVector[k].getId() == clientsVector[i].getTravelPackIds()[j] || travelPacksVector[k].getId() == -clientsVector[i].getTravelPackIds()[j]) {
+					inTravelPack = true;
+					temp = k;
+					break;
+				}
+			}
+			if (inTravelPack)
+			{
+				travelPacksVector[temp].showTravelPack();
+				cout << endl;
+			}
+			else
+			{
+				cout << "ID: " << clientsVector[i].getTravelPackIds()[j] << " Not in the database" << endl;
+			}
+		}
+	}
+	menuSeparator();
+}
 
 //Returns a Client of the database by inserting a NIF
 Client askForNIF(vector<Client> clientsVector){
@@ -65,7 +138,6 @@ Client askForNIF(vector<Client> clientsVector){
 	for (int i = 0; i < clientsVector.size(); i++)
 	{
 		if (clientsVector[i].getnif() == nif) { return clientsVector[i]; }
-		
 	}
 	while (!inDatabase)
 	{
@@ -232,8 +304,8 @@ void showClient(Client client) {
 	cout << "Address: " << client.getAddress().getStreet() << " / " << client.getAddress().getDoorNumber() << " / " << client.getAddress().getFloor() << " / " << client.getAddress().getPostalCode() << " / " << client.getAddress().getLocation() << endl;
 	cout << "Tourist Packs bought: " << Client::travelPacksToString(client.getTravelPackIds()) << endl;
 	cout << "Total spent: " << client.getTotalPurchased() << endl << endl;
-	
 }
+
 
 //Asks for Client information and returns a Client
 Client askForClientsInformation(vector<Client> clientsVector) {

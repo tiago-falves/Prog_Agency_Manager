@@ -14,6 +14,8 @@ void trim(string &s) {
 }
 vector<int> separateCharacterInt(string s, char ch) {
 	vector<int> vetor;
+	if (s == "")
+		return vetor;
 	while (s.find_first_of(ch) != s.npos)	{
 		vetor.push_back(stoi(s.substr(0, s.find_first_of(ch))));
 		s.erase(0, s.find_first_of(ch) + 1);

@@ -13,7 +13,7 @@ TravelPack::TravelPack()
 
 
 
-TravelPack::TravelPack(int getId(),vector<string> touristicSpots, Date begin, Date end, double pricePerPerson, unsigned maxPersons, int soldTicketsNumber){
+TravelPack::TravelPack(int getId(), vector<string> touristicSpots, Date begin, Date end, double pricePerPerson, unsigned maxPersons, int soldTicketsNumber){
 	
 	this->id = getId();
 	this->touristicSpots = touristicSpots;

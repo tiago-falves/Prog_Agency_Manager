@@ -22,6 +22,11 @@ void showClientOption(vector<Client> clientsVector);
 
 void validNif(int &option);
 
+void showPacksClient(vector<Client> clientsVector, vector<TravelPack> travelPacksVector);
+
+void showPacksAllClient(vector <Client> clientsVector, vector<TravelPack> travelPacksVector);
+
+
 //Outputs all clients and adds a destination as a recommendation
 void showAllClientsWithRecommendations(vector<Client> clientsVector, vector<TravelPack> travelPacksVector);
 
