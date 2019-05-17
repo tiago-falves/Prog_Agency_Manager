@@ -74,7 +74,7 @@ void showTravelPacks(vector<TravelPack> &travelPacksVector,vector<Client> &clien
 void showSoldTouristicPacks(vector<TravelPack> travelPacksVector, vector<Client> clientsVector) {
 	menuSeparator();
 	bool inTravelPack = false;
-	int c;
+	int temp;
 	for (int i = 0; i < clientsVector.size(); i++)
 	{
 		cout << "Client " << i + 1 << " ------------------------------------------------------------" << endl << endl;
@@ -85,13 +85,13 @@ void showSoldTouristicPacks(vector<TravelPack> travelPacksVector, vector<Client>
 			{
 				if (travelPacksVector[k].getId() == clientsVector[i].getTravelPackIds()[j] || travelPacksVector[k].getId() == -clientsVector[i].getTravelPackIds()[j]) {
 					inTravelPack = true;
-					c = k;
+					temp = k;
 					break;
 				}
 			}
 			if (inTravelPack)
 			{
-				travelPacksVector[c].showTravelPack();
+				travelPacksVector[temp].showTravelPack();
 				cout << endl;
 			}
 			else
