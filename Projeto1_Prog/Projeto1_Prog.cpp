@@ -23,10 +23,7 @@ void runAgencyManager() {
 int main() {
 
 	runAgencyManager();
-	//VERIFICAR SE AS FUNCIONALIDADES TODAS FUNCIONAM!
-	//Poder alterar um pacote para ficar negativo
 	//ALTERAR FUNÇAO IS AFTER DO DATE PARA OVERLOAD DE > - se houver tempo
-	//ORDENAR DE MODO A SER MAIS EFICIENTE? - Vemos isto no fim, mesmo antes de comentar o código	
 
 	system("Pause");
 	return 0;
