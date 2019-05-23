@@ -65,7 +65,7 @@ void Client::setTravelPackIds(vector<int> &travelPackIds){ this ->travelPackIds 
 void Client::setTotalPurchased(unsigned int totalPurchased){ this -> totalPurchased = totalPurchased; }
   
 
-
+//Reads the clients file and stores the result in a vector
 void Client::readClients(string clientsNameFile, vector<Client> &clientsVector) {
 
 	string clientsText;
@@ -118,12 +118,12 @@ void Client::readClients(string clientsNameFile, vector<Client> &clientsVector) 
 	clientsFile.close();
 }
 
-
+//Adds client to the vector
 void Client::addClient(vector<Client> &clientsVector) {
 	clientsVector.push_back(*this);
 }
 
-
+//Removes client from the vector
 void Client::removeClient(vector<Client> &clientsVector) {
 	Client client;
 
@@ -139,6 +139,7 @@ void Client::removeClient(vector<Client> &clientsVector) {
 	}
 }
 
+// Modifies client information and stores it again in the vector 
 void Client::modifyClient(Client clientToModify, vector<Client> &clientVector) {
 	for (int i = 0; i < clientVector.size(); i++)
 	{
@@ -150,33 +151,7 @@ void Client::modifyClient(Client clientToModify, vector<Client> &clientVector) {
 	
 }
 
-bool Client::clientInVector(vector<Client> clientsVector) { 
-	for (int i = 0; i < clientsVector.size(); i++)
-	{
-		if (clientsVector[i] == *this) { return true; }
-	}
-	return false;
-}
-
-bool Client::validPacksBought(string packs) {
-	vector<string> vector;						
-	vector = separateCharacterStr(packs, ';');		
-	for (int i = 0; i < vector.size(); i++) {
-		if (!stringIsNumber(vector[i])) { return false; }
-	}
-	return true;
-}
-
-bool Client::checknif() const
-{
-    bool valid = true;
-
-    if(nif < 100000000 || nif > 999999999) // The number has to be 9 digits long    
-        valid = false;
-
-    return valid;
-}
-
+//Transforms the client's bought travel packs to a string separated by ' ; '
 string Client::travelPacksToString(vector<int> travelPacks) {
 	string textPacks = "";
 	for (int i = 0; i < travelPacks.size(); i++)
@@ -187,7 +162,37 @@ string Client::travelPacksToString(vector<int> travelPacks) {
 	return textPacks;
 }
 
+// Returns true if the client is in the vector
+bool Client::clientInVector(vector<Client> clientsVector) { 
+	for (int i = 0; i < clientsVector.size(); i++)
+	{
+		if (clientsVector[i] == *this) { return true; }
+	}
+	return false;
+}
 
+//Returns true if the pack is valid
+bool Client::validPacksBought(string packs) {
+	vector<string> vector;						
+	vector = separateCharacterStr(packs, ';');		
+	for (int i = 0; i < vector.size(); i++) {
+		if (!stringIsNumber(vector[i])) { return false; }
+	}
+	return true;
+}
+
+// Returns true if number has 9 digits and is a valid int
+bool Client::checknif() const
+{
+    bool valid = true;
+
+    if(nif < 100000000 || nif > 999999999) // The number has to be 9 digits long    
+        valid = false;
+
+    return valid;
+}
+
+//Prints client to the screen
 void Client::showClient() const 
 {
     cout << "*********************************" << endl;

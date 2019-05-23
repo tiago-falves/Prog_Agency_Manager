@@ -20,7 +20,7 @@ private:
     string url; // Agency's Website URL
 	string clientsNameFile; // Name of the clients file
 	string packsNameFile;	// Name of the Travel Packs file
-	int lastPackId; //Identifier of the last Travel Pack id
+	int lastPackId; // Identifier of the last Travel Pack id added
 
 
 public:
@@ -45,12 +45,20 @@ public:
 	void setClientsNameFile(string clientsNameFile);
 	void setPacksNameFile(string packsNameFile);
 
-  
-	//Reads the Agency's file
+	// Other methods
+
+	/*Reads the agency from the specified file (that the user inputs)
+	@param filename - string containing the name of the file the agency is to be read from
+	@return void
+	*/
 	void readAgency(string filename);
 
-	//Shows Agency in a formatted way
+	/*Shows information about the agency, formatted, as an alternative to the << operator
+	@param - /
+	@return void
+	*/
 	void showAgency() const;
   
+
     friend ostream& operator<<(ostream& out, const Agency & agency);
 };

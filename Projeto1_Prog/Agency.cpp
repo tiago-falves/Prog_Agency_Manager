@@ -44,7 +44,7 @@ void Agency::setClientsNameFile(string clientsNameFile){ this->clientsNameFile =
 void Agency::setPacksNameFile(string packsNameFile) { this->packsNameFile = packsNameFile;}
 
 
-
+//Reads the Agency's file
 void Agency::readAgency(string filename) {
 
 	string agencyText;
@@ -90,6 +90,7 @@ void Agency::readAgency(string filename) {
 }
 
 
+//Shows Agency in a formatted way
 void Agency::showAgency() const{
 	for (int i = 0; i < 60; i++) { cout << "*"; }
 	cout << endl << endl;

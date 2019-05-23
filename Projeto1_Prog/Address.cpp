@@ -51,7 +51,29 @@ void Address::setPostalCode(string postalCode){ this -> postalCode = postalCode;
 void Address::setLocation(string location){	this -> location = location; }
 
 
+// Other Methods
 
+
+//Returns true if "xxxx-xxx", false otherwise
+bool Address::validPostalCode(string postalCode) {
+
+	for (int i = 0; i < 4; i++) {
+		if (postalCode[i] < '0' || postalCode[i] > '9')
+			return false;
+	}
+
+	if (postalCode[4] != '-')
+		return false;
+
+	for (int i = 5; i < 7; i++) {
+		if (postalCode[i] < '0' || postalCode[i] > '9')
+			return false;
+	}
+
+	return true;
+}
+
+//Return true if it is a valid Address
 bool Address::validAddressText(string address)
 {
 	vector<string> stringVector;
@@ -62,6 +84,15 @@ bool Address::validAddressText(string address)
 	return true;
 }
 
+//Prints the address in a formatted way to the screen
+void Address::showAddress() const {
+	cout << "*********************************" << endl;
+	cout << street << " / " << doorNumber << " / " << floor << " / " << postalCode << " / " << location << endl;
+	cout << "*********************************" << endl;
+}
+
+
+//Converts a given string to an Address
 Address Address::addressTextConverter(string addressText) {
 	Address address;
 	string subString;
@@ -94,30 +125,6 @@ Address Address::addressTextConverter(string addressText) {
 	return address;
 }
 
-
-void Address::showAddress() const{
-    cout << "*********************************" << endl;
-	cout << street << " / " << doorNumber << " / " << floor << " / " << postalCode << " / " << location << endl;
-	cout << "*********************************" << endl;
-}
-
-bool Address::validPostalCode(string postalCode) {
-
-	for (int i = 0; i < 4; i++) {
-		if (postalCode[i] < '0' || postalCode[i] > '9')
-			return false;
-	}
-
-	if (postalCode[4] != '-')
-		return false;
-
-	for (int i = 5; i < 7; i++) {
-		if (postalCode[i] < '0' || postalCode[i] > '9')
-			return false;
-	}
-
-	return true;
-}
 
 
 ostream& operator<<(ostream& out, const Address &address){

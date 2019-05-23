@@ -10,14 +10,12 @@ void runTravelPackMenu(vector<Client> &clientsVector, vector<TravelPack> &travel
 	cout << "2. Change a touristic pack." << endl;
 	cout << "3. Remove a touristic pack" << endl;
 	cout << "4. See information from touristic packs. " << endl;
-	cout << "5. Total profit." << endl;
-	cout << "6. See most visited destinations." << endl << endl;
-	
+	cout << "5. Total profit." << endl;	
 	cout << "Insert the number correspondent to your option: ";
 	cin >> option;
 
 
-	while (cin.fail() || option < 0 || option > 6)
+	while (cin.fail() || option < 0 || option > 5)
 	{
 		cout << "Invalid option, please insert the option again: ";
 		cin.clear();
@@ -32,7 +30,6 @@ void runTravelPackMenu(vector<Client> &clientsVector, vector<TravelPack> &travel
 	if (option == 3) { removeClientOption(travelPacksVector); }
 	if (option == 4) { showTravelPacks(travelPacksVector, clientsVector, agency); }
 	if (option == 5) { calculateNumberPacks(travelPacksVector); }
-	if (option == 6) { showOrderedDestinations (TravelPack::orderDestinations(travelPacksVector)); }
 
 	runMenu(clientsVector, travelPacksVector, agency);
 }
@@ -128,9 +125,6 @@ void modifyTravelPackOption(vector<TravelPack> &travelPackVector) {
 		modifiedTravelPack.setId(-travelPackToModify.getId());
 	else
 		modifiedTravelPack.setId(travelPackToModify.getId());
-	
-	
-	//Perguntar porque que Ele aqui pergunta o name duas vezes
 	travelPackToModify.modifyTravelPack( travelPackVector, modifiedTravelPack);
 	cout << endl << endl << "Touristic Pack modified successfully!";
 	menuSeparator();
@@ -397,7 +391,6 @@ void showOrderedDestinations(vector<string> places) {
 	cout << endl << endl;
 	
 }
-
 
 
 //Outputs the total profit and number of tickets
