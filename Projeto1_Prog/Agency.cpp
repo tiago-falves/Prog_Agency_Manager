@@ -1,11 +1,5 @@
 #include "Agency.h"
 
-
-Agency::Agency(string fileName){
-
-	readAgency(fileName);
-}
-
 Agency::Agency(){
 	this->name = "";
 	this->nif = 0;
@@ -45,20 +39,42 @@ void Agency::setPacksNameFile(string packsNameFile) { this->packsNameFile = pack
 
 
 //Reads the Agency's file
-void Agency::readAgency(string filename) {
+void Agency::readAgency() {
+
 
 	string agencyText;
-	ifstream agencyFile;
+	ifstream file;
 	Agency agency;
 	int i = 0;
 
+	string agencyfile;
 
-	agencyFile.open(filename);
+	while (true) { // Asks for file until it suceeds
+		cout << "Please choose the agency you want to check (the .txt file): " ;
+		cin >> agencyfile;
 
-	if (agencyFile.fail())
+		ifstream in_file;
+		in_file.open(agencyfile); // Open file for testing
+
+		if (in_file.fail())	{
+
+			cerr << "File not found!" << endl;
+			in_file.clear();
+			in_file.ignore(1000, '\n');
+		}
+		else {
+			in_file.close();
+			break;
+		}
+	}
+
+
+	file.open(agencyfile);
+
+	if (file.fail())
 		cerr << "Error opening agency.txt. Please make sure the file is in the correct folder " << endl;
 	else {
-		while (getline(agencyFile, agencyText))
+		while (getline(file, agencyText))
 		{
 			switch (i) {
 			case 0:
@@ -85,7 +101,7 @@ void Agency::readAgency(string filename) {
 			i++;
 		}
 	}
-	agencyFile.close();
+	file.close();
 
 }
 

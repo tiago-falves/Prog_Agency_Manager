@@ -51,7 +51,7 @@ public:
 	@param filename - string containing the name of the file the agency is to be read from
 	@return void
 	*/
-	void readAgency(string filename);
+	void readAgency();
 
 	/*Shows information about the agency, formatted, as an alternative to the << operator
 	@param - /
