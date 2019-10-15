@@ -8,6 +8,7 @@ Date::Date(unsigned short day, unsigned short month, unsigned year){
 	this->day = day;
 	this->month = month;
 	this->year = year;
+	//a
 }
 
 Date::Date(string date){
